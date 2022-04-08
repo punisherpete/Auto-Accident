@@ -13,10 +13,10 @@ public class CarMover : MonoBehaviour
     [SerializeField] private float _offsetSpeed = 2f;
     [SerializeField] private float _currentSpeed = 1f;
 
-    [SerializeField] private float _motorForce;
-    [SerializeField] private float _breakForce;
-    [SerializeField] private float _maxSteerAngle;
-    [SerializeField] private float _turningPower;
+    [SerializeField] private float _motorForce = 100f;
+    [SerializeField] private float _breakForce = 1000f;
+    [SerializeField] private float _maxSteerAngle = 35f;
+    [SerializeField] private float _turningPower = 20f;
 
     [SerializeField] private WheelCollider _frontLeftWheelCollider;
     [SerializeField] private WheelCollider _frontRightWheelCollider;
