@@ -1,20 +1,20 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Engine))]
+[RequireComponent(typeof(Mover))]
 public class CarPathObserber : MonoBehaviour
 {
     [Header("Optional")]
     [SerializeField] private PathMover _pathMover = null;
 
     private Transform[] _path = null;
-    private Engine _mover;
+    private Mover _mover;
     private int _minIndex = 0;
 
     public void SetPath(PathMover pathController)
     {
         _path = pathController.GetComponentsInChildren<Transform>();
         _pathMover = pathController;
-        _mover = GetComponent<Engine>();
+        _mover = GetComponent<Mover>();
         _mover.SetPathController(_pathMover);
     }
 

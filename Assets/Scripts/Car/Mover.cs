@@ -2,17 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Engine : MonoBehaviour
+public class Mover : MonoBehaviour
 {
 
-    private float _horizontalInput;
-    private float _currentSteerAngle;
-    private float _currentbreakForce;
-    private bool _isBreaking;
+    [SerializeField] [Range(-1f, 1f)] private float _horizontalOffset;
 
     [SerializeField] private float _offsetSpeed = 2f;
     [SerializeField] private float _currentSpeed = 1f;
-    [SerializeField] [Range(-1f,1f)] private float _targetHorizontalOffset;
 
     [SerializeField] private float _motorForce = 100f;
     [SerializeField] private float _breakForce = 1000f;
@@ -32,6 +28,9 @@ public class Engine : MonoBehaviour
     [Header("Optional")]
     [SerializeField] private PathMover _pathController = null;
 
+    private float _currentSteerAngle;
+    private float _currentbreakForce;
+    private bool _isBreaking;
     private Transform _targetNode;
     private float _currentRotationWheel = 0;
 
@@ -40,7 +39,6 @@ public class Engine : MonoBehaviour
         if (_targetNode == null || _pathController == null)
             return;
         /*GetInput();*/
-        _horizontalInput = Mathf.Lerp(_horizontalInput, _targetHorizontalOffset, _offsetSpeed * Time.fixedDeltaTime);
         HandleMotor();
         HandleSteering();
         UpdateWheels();
@@ -56,9 +54,9 @@ public class Engine : MonoBehaviour
         _targetNode = node;
     }
 
-    public void SetTargetHorizontalInput(float targetHorizontalInput)
+    public void SetHorizontalOffset(float horizontalOffset)
     {
-        _targetHorizontalOffset = targetHorizontalInput;
+        _horizontalOffset = horizontalOffset;
     }
 
     /*private void GetInput()
@@ -88,7 +86,7 @@ public class Engine : MonoBehaviour
 
     private void HandleSteering()
     {
-        _pathController.MovePath(_horizontalInput);
+        _pathController.MovePath(_horizontalOffset);
         Vector3 realitiveVector = transform.InverseTransformPoint(_targetNode.position);
         realitiveVector = realitiveVector / realitiveVector.magnitude;
         float rotationToTargetSample = realitiveVector.x / realitiveVector.magnitude;
