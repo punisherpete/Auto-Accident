@@ -59,6 +59,15 @@ public class Mover : MonoBehaviour
         _horizontalOffset = horizontalOffset;
     }
 
+    public void ChangeHorizontalOffset(float horizontalInput)
+    {
+        if (_horizontalOffset >= 1)
+            _horizontalOffset = 1;
+        else if (_horizontalOffset <= -1)
+            _horizontalOffset = -1;
+        _horizontalOffset += horizontalInput * _offsetSpeed * Time.fixedDeltaTime;
+    }
+
     /*private void GetInput()
     {
         if (Input.GetKey(KeyCode.A) && _horizontalInput > -1)

@@ -16,7 +16,6 @@ public class PathMover : MonoBehaviour
     public void MovePath(float inputValue)
     {
         float offset = _criticalOffset * inputValue;
-        Debug.Log(offset);
         foreach (var node in _nodes)
         {
             node.SetOffset(offset);
