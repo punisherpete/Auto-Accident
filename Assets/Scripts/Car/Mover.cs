@@ -5,8 +5,7 @@ using UnityEngine;
 public class Mover : MonoBehaviour
 {
 
-    [SerializeField] [Range(-1f, 1f)] private float _horizontalOffset;
-
+    [SerializeField] private float _criticalOffset = 2f;
     [SerializeField] private float _offsetSpeed = 2f;
     [SerializeField] private float _currentSpeed = 1f;
 
@@ -25,6 +24,7 @@ public class Mover : MonoBehaviour
     [SerializeField] private Transform _rearLeftWheelTransform;
     [SerializeField] private Transform _rearRightWheelTransform;
 
+
     [Header("Optional")]
     [SerializeField] private PathMover _pathController = null;
 
@@ -32,13 +32,18 @@ public class Mover : MonoBehaviour
     private float _currentbreakForce;
     private bool _isBreaking;
     private Transform _targetNode;
+    private Transform _currentNode;
     private float _currentRotationWheel = 0;
+    private float _horizontalOffset;
+
+    public float CurrentRotationWheel => _currentRotationWheel;
+    public Transform CurrentNode => _currentNode;
+
 
     private void FixedUpdate()
     {
         if (_targetNode == null || _pathController == null)
             return;
-        /*GetInput();*/
         HandleMotor();
         HandleSteering();
         UpdateWheels();
@@ -49,33 +54,21 @@ public class Mover : MonoBehaviour
         _pathController = pathController;
     }
 
-    public void SetTargetNode(Transform node)
+    public void SetTargetNode(Transform currentNode,Transform targetNode)
     {
-        _targetNode = node;
-    }
-
-    public void SetHorizontalOffset(float horizontalOffset)
-    {
-        _horizontalOffset = horizontalOffset;
+        _currentNode = currentNode;
+        _targetNode = targetNode;
     }
 
     public void ChangeHorizontalOffset(float horizontalInput)
     {
-        if (_horizontalOffset >= 1)
-            _horizontalOffset = 1;
-        else if (_horizontalOffset <= -1)
-            _horizontalOffset = -1;
-        _horizontalOffset += horizontalInput * _offsetSpeed * Time.fixedDeltaTime;
+        if (_horizontalOffset > _criticalOffset)
+            _horizontalOffset -= _offsetSpeed * Time.fixedDeltaTime;
+        else if (_horizontalOffset < -_criticalOffset)
+            _horizontalOffset += _offsetSpeed * Time.fixedDeltaTime;
+        else
+            _horizontalOffset += horizontalInput * _offsetSpeed * Time.fixedDeltaTime;
     }
-
-    /*private void GetInput()
-    {
-        if (Input.GetKey(KeyCode.A) && _horizontalInput > -1)
-            _horizontalInput -= _offsetSpeed * Time.fixedDeltaTime;
-        else if (Input.GetKey(KeyCode.D) && _horizontalInput < 1)
-            _horizontalInput += _offsetSpeed * Time.fixedDeltaTime;
-        _isBreaking = Input.GetKey(KeyCode.Space);
-    }*/
 
     private void HandleMotor()
     {

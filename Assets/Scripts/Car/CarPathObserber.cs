@@ -44,7 +44,7 @@ public class CarPathObserber : MonoBehaviour
         if(minIndex+1< _path.Length && _minIndex != minIndex)
         {
             _minIndex = minIndex;
-            _mover.SetTargetNode(_path[minIndex+1]);
+            _mover.SetTargetNode(_path[minIndex],_path[minIndex+1]);
         }
     }
 }
