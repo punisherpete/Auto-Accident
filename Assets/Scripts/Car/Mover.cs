@@ -38,6 +38,7 @@ public class Mover : MonoBehaviour
 
     public float CurrentRotationWheel => _currentRotationWheel;
     public Transform CurrentNode => _currentNode;
+    public bool IsBreaking => _isBreaking;
 
 
     private void FixedUpdate()
@@ -76,6 +77,11 @@ public class Mover : MonoBehaviour
         _frontRightWheelCollider.motorTorque = _currentSpeed * _motorForce;
         _currentbreakForce = _isBreaking ? _breakForce : 0f;
         ApplyBreaking();
+    }
+
+    public void Stop()
+    {
+        _isBreaking = true;
     }
 
     private void ApplyBreaking()

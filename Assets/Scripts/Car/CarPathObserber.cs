@@ -28,7 +28,7 @@ public class CarPathObserber : MonoBehaviour
     {
         if(_pathMover == null || _mover == null)
         {
-            Debug.LogError("Не передан путь");
+            /*Debug.LogError("Не передан путь");*/
             return;
         }
         int minIndex = 0;
