@@ -13,38 +13,38 @@ public class Mover : MonoBehaviour
     [SerializeField] private float _breakForce = 1000f;
     [SerializeField] private float _maxSteerAngle = 35f;
     [SerializeField] private float _turningPower = 20f;
-
+    [Header("Wheel Collider")]
     [SerializeField] private WheelCollider _frontLeftWheelCollider;
     [SerializeField] private WheelCollider _frontRightWheelCollider;
     [SerializeField] private WheelCollider _rearLeftWheelCollider;
     [SerializeField] private WheelCollider _rearRightWheelCollider;
-
+    [Header("Wheel Tranform")]
     [SerializeField] private Transform _frontLeftWheelTransform;
     [SerializeField] private Transform _frontRightWheeTransform;
     [SerializeField] private Transform _rearLeftWheelTransform;
     [SerializeField] private Transform _rearRightWheelTransform;
-
-
-    [Header("Optional")]
-    [SerializeField] private PathMover _pathController = null;
-
+    
+    private PathMover _pathController = null;
     private float _currentSteerAngle;
     private float _currentbreakForce;
-    private bool _isBreaking;
+    private bool _isStop;
     private Transform _targetNode;
     private Transform _currentNode;
     private float _currentRotationWheel = 0;
     private float _horizontalOffset;
+    private float _breakingTimer = 0f;
 
     public float CurrentRotationWheel => _currentRotationWheel;
     public Transform CurrentNode => _currentNode;
-    public bool IsBreaking => _isBreaking;
+    public bool IsStop => _isStop;
 
 
     private void FixedUpdate()
     {
         if (_targetNode == null || _pathController == null)
             return;
+        if (_breakingTimer > 0)
+            _breakingTimer -= Time.fixedDeltaTime;
         HandleMotor();
         HandleSteering();
         UpdateWheels();
@@ -75,13 +75,26 @@ public class Mover : MonoBehaviour
     {
         _frontLeftWheelCollider.motorTorque = _currentSpeed * _motorForce;
         _frontRightWheelCollider.motorTorque = _currentSpeed * _motorForce;
-        _currentbreakForce = _isBreaking ? _breakForce : 0f;
+        _currentbreakForce = _isStop ? _breakForce : 0f;
+        _currentbreakForce = _breakingTimer > 0 ? _breakForce : 0f;
         ApplyBreaking();
     }
 
-    public void Stop()
+    public void PauseMoving(float time)
     {
-        _isBreaking = true;
+        Debug.LogWarning("Break");
+        _breakingTimer = time;
+    }
+
+    public void StopMoving()
+    {
+        Debug.LogError("Stop");
+        _isStop = true;
+    }
+
+    public void StartMoving()
+    {
+        _isStop = false;
     }
 
     private void ApplyBreaking()
