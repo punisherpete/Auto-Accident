@@ -1,40 +1,29 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Transmission))]
 public class Mover : MonoBehaviour
 {
     [SerializeField] private float _criticalOffset = 2f;
     [SerializeField] private float _offsetSpeed = 2f;
-    [SerializeField] private float _currentSpeed = 1f;
-
+    [SerializeField] private float _maxSpeed = 30;
     [SerializeField] private float _motorForce = 100f;
     [SerializeField] private float _breakForce = 1000f;
     [SerializeField] private float _maxSteerAngle = 35f;
     [SerializeField] private float _turningPower = 20f;
     [SerializeField] private float _centerOfMass = -.5f;
-    [Header("Wheel Collider")]
-    [SerializeField] private WheelCollider _frontLeftWheelCollider;
-    [SerializeField] private WheelCollider _frontRightWheelCollider;
-    [SerializeField] private WheelCollider _rearLeftWheelCollider;
-    [SerializeField] private WheelCollider _rearRightWheelCollider;
-    [Header("Wheel Tranform")]
-    [SerializeField] private Transform _frontLeftWheelTransform;
-    [SerializeField] private Transform _frontRightWheeTransform;
-    [SerializeField] private Transform _rearLeftWheelTransform;
-    [SerializeField] private Transform _rearRightWheelTransform;
-    
+
     private PathMover _pathController = null;
     private float _currentSteerAngle;
-    private float _currentbreakForce;
+    private float _currentBreakForce;
     private bool _isStop;
     private Transform _targetNode;
     private Transform _currentNode;
     private float _currentRotationWheel = 0;
     private float _horizontalOffset;
     private float _breakingTimer = 0f;
+    private WheelController _wheelController;
+    private Transmission _transmission;
 
     public float CurrentRotationWheel => _currentRotationWheel;
     public Transform CurrentNode => _currentNode;
@@ -42,7 +31,14 @@ public class Mover : MonoBehaviour
 
     private void Awake()
     {
+        _wheelController = GetComponent<WheelController>();
+        _transmission = GetComponent<Transmission>();
         GetComponent<Rigidbody>().centerOfMass = Vector3.up * _centerOfMass;
+    }
+
+    private void Start()
+    {
+        StartMoving();
     }
 
     private void FixedUpdate()
@@ -53,7 +49,6 @@ public class Mover : MonoBehaviour
             _breakingTimer -= Time.fixedDeltaTime;
         HandleMotor();
         HandleSteering();
-        UpdateWheels();
     }
 
     public void SetPathController(PathMover pathController)
@@ -77,15 +72,6 @@ public class Mover : MonoBehaviour
             _horizontalOffset += horizontalInput * _offsetSpeed * Time.fixedDeltaTime;
     }
 
-    private void HandleMotor()
-    {
-        _frontLeftWheelCollider.motorTorque = _currentSpeed * _motorForce;
-        _frontRightWheelCollider.motorTorque = _currentSpeed * _motorForce;
-        _currentbreakForce = _isStop ? _breakForce : 0f;
-        _currentbreakForce = _breakingTimer > 0 ? _breakForce : 0f;
-        ApplyBreaking();
-    }
-
     public void PauseMoving(float time)
     {
         Debug.LogWarning("Break");
@@ -96,19 +82,28 @@ public class Mover : MonoBehaviour
     {
         Debug.LogError("Stop");
         _isStop = true;
+        _transmission.TurnOnNeutral();
     }
 
     public void StartMoving()
     {
         _isStop = false;
+        _transmission.SetMaxSpeed(_maxSpeed);
+        _transmission.TurnOnDrive();
     }
 
-    private void ApplyBreaking()
+    public void SetMaxSpeed(float value)
     {
-        _frontRightWheelCollider.brakeTorque = _currentbreakForce;
-        _frontLeftWheelCollider.brakeTorque = _currentbreakForce;
-        _rearLeftWheelCollider.brakeTorque = _currentbreakForce;
-        _rearRightWheelCollider.brakeTorque = _currentbreakForce;
+        _maxSpeed = value;
+        _transmission.SetMaxSpeed(_maxSpeed);
+    }
+
+    private void HandleMotor()
+    {
+        _wheelController.SetForce(_transmission.GetAcceleration() * _motorForce);
+        _currentBreakForce = _isStop ? _breakForce : 0f;
+        _currentBreakForce = _breakingTimer > 0 ? _breakForce : 0f;
+        _wheelController.ApplyBreaking(_currentBreakForce);
     }
 
     private void HandleSteering()
@@ -119,24 +114,6 @@ public class Mover : MonoBehaviour
         float rotationToTargetSample = realitiveVector.x / realitiveVector.magnitude;
         _currentRotationWheel = Mathf.Lerp(_currentRotationWheel, rotationToTargetSample, _turningPower * Time.fixedDeltaTime);
         _currentSteerAngle = _maxSteerAngle * _currentRotationWheel;
-        _frontLeftWheelCollider.steerAngle = _currentSteerAngle;
-        _frontRightWheelCollider.steerAngle = _currentSteerAngle;
-    }
-
-    private void UpdateWheels()
-    {
-        UpdateSingleWheel(_frontLeftWheelCollider, _frontLeftWheelTransform);
-        UpdateSingleWheel(_frontRightWheelCollider, _frontRightWheeTransform);
-        UpdateSingleWheel(_rearRightWheelCollider, _rearRightWheelTransform);
-        UpdateSingleWheel(_rearLeftWheelCollider, _rearLeftWheelTransform);
-    }
-
-    private void UpdateSingleWheel(WheelCollider wheelCollider, Transform wheelTransform)
-    {
-        Vector3 pos;
-        Quaternion rot;
-        wheelCollider.GetWorldPose(out pos, out rot);
-        wheelTransform.rotation = rot;
-        wheelTransform.position = pos;
+        _wheelController.SetSeetAngle(_currentSteerAngle);
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 public class WheelsWeakness : MonoBehaviour
 {
     [SerializeField] private List<WheelCollider> _wheelColliders;
-    [SerializeField] private List<WheelRotator> _wheelRotators;
+    [SerializeField] private List<WheelController> _wheelRotators;
     [SerializeField] private List<Collider> _colliders;
     [SerializeField] private InteractionProcessor[] _interactionProcessors;
 
