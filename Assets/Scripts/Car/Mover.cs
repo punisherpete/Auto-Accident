@@ -1,10 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class Mover : MonoBehaviour
 {
-
     [SerializeField] private float _criticalOffset = 2f;
     [SerializeField] private float _offsetSpeed = 2f;
     [SerializeField] private float _currentSpeed = 1f;
@@ -13,6 +14,7 @@ public class Mover : MonoBehaviour
     [SerializeField] private float _breakForce = 1000f;
     [SerializeField] private float _maxSteerAngle = 35f;
     [SerializeField] private float _turningPower = 20f;
+    [SerializeField] private float _centerOfMass = -.5f;
     [Header("Wheel Collider")]
     [SerializeField] private WheelCollider _frontLeftWheelCollider;
     [SerializeField] private WheelCollider _frontRightWheelCollider;
@@ -38,6 +40,10 @@ public class Mover : MonoBehaviour
     public Transform CurrentNode => _currentNode;
     public bool IsStop => _isStop;
 
+    private void Awake()
+    {
+        GetComponent<Rigidbody>().centerOfMass = Vector3.up * _centerOfMass;
+    }
 
     private void FixedUpdate()
     {
