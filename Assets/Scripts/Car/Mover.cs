@@ -4,6 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(Transmission))]
 public class Mover : MonoBehaviour
 {
+
     [SerializeField] private float _criticalOffset = 2f;
     [SerializeField] private float _offsetSpeed = 2f;
     [SerializeField] private float _maxSpeed = 30;

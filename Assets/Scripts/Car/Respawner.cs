@@ -13,9 +13,11 @@ public class Respawner : MonoBehaviour
     [SerializeField] private List<GameObject> _objectsToReplaceLayer;
     [SerializeField] private float _safeDistanceForSafeMode = 5f;
     [SerializeField] private int _safeLayerIndex = 8;
+    [SerializeField] private bool _isRespawnAllowed = true;
 
     private int _baseLayerIndex;
     private bool _isSafeModeActivated = false;
+
     private float _respawnTimer;
     private Mover _mover;
     private Rigidbody _rigidbody;
@@ -29,6 +31,8 @@ public class Respawner : MonoBehaviour
 
     private void Update()
     {
+        if (_isRespawnAllowed == false)
+            return;
         if (_rigidbody.velocity.magnitude < 0.5f)
             _respawnTimer += Time.deltaTime;
         else if (Mathf.Abs(Quaternion.Angle(_rigidbody.rotation, _mover.CurrentNode.rotation))>90)
@@ -37,12 +41,18 @@ public class Respawner : MonoBehaviour
             _respawnTimer = 0;
         if (_isSafeModeActivated && _carsObserver.IsCarInSafeZone(transform, _safeDistanceForSafeMode))
             DeactivateSafeMode();
+        if (_respawnTimer >= _respawnTime)
+            RespawnCar();
     }
 
-    private void FixedUpdate()
+    public void ProhibitRespawn()
     {
-        if (_respawnTimer >= _respawnTime)
-            RespawnCar(); 
+        _isRespawnAllowed = false;
+    }
+
+    public void AllowRespawn()
+    {
+        _isRespawnAllowed = true;
     }
 
     private void RespawnCar()

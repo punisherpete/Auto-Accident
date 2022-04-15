@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,12 +10,12 @@ public class LeaderboardChecker : MonoBehaviour
     [SerializeField] private Color _playerTextColor;
     [SerializeField] private Sprite _playerPlaceSprite;
 
-    public void SetPlayerInPlace(Player player)
+    public void SetPlace(Car car)
     {
         if (_placesTexts.Count == 0 || _placeImages.Count == 0)
             return;
-        _placesTexts[0].text = player.Name;
-        if (player.Type == PlayerType.Player)
+        _placesTexts[0].text = car.Name;
+        if (car.Type == CarType.Player)
         {
             _placeImages[0].sprite = _playerPlaceSprite;
             _placesTexts[0].color = _playerTextColor;
