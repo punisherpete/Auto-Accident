@@ -1,20 +1,19 @@
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
-[RequireComponent(typeof (Mover))]
 public class Player : MonoBehaviour
 {
-    [SerializeField] private VariableJoystick _joystick;
+    [SerializeField] private PlayerType _type;
+    [SerializeField] private TMP_Text _nameText;
 
-    private Mover _mover;
-
-    private void Awake()
-    {
-        _mover = GetComponent<Mover>();
-    }
-
-    private void FixedUpdate()
-    {
-        _mover.ChangeHorizontalOffset(_joystick.Horizontal);
-    }
-
+    private string _name;
+    public string Name => _name;
+    public PlayerType Type => _type;
+}
+public enum PlayerType
+{
+    Player,
+    AI
 }
