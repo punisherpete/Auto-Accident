@@ -4,13 +4,9 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class GlassPart : MonoBehaviour
 {
-    private Rigidbody _rigidbody;
-    private bool _isCrashed = false;
+    [SerializeField] private Rigidbody _rigidbody;
 
-    private void Awake()
-    {
-        _rigidbody = GetComponent<Rigidbody>();
-    }
+    private bool _isCrashed = false;
 
     public void Crash(float force)
     {
@@ -18,7 +14,6 @@ public class GlassPart : MonoBehaviour
             return;
 
         _isCrashed = true;
-        transform.SetParent(null);
         _rigidbody.AddForce(transform.forward * force, ForceMode.VelocityChange);
     }
 }

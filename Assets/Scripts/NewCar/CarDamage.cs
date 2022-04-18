@@ -111,6 +111,9 @@ public class CarDamage : MonoBehaviour
 
     private void OnTakeDamage(InteractionProcessor affectedPart, Vector3 position)
     {
+        if (TryGetComponent(out MeshRenderer meshRenderer))
+            meshRenderer.enabled = false;
+
         SkinnedMeshRenderer targetMeshRenderer = null;
         foreach (var blendShapesMatch in _blendShapesMatch)
         {
@@ -127,7 +130,9 @@ public class CarDamage : MonoBehaviour
                 {
                     float deformingPartCurrentHealth = targetMeshRenderer.GetBlendShapeWeight(numberMatch.Value);
                     targetMeshRenderer.SetBlendShapeWeight(numberMatch.Value, deformingPartCurrentHealth + _deformingForce * _deformationSensitivity);
-                    _effectsGemerator.Play(position);
+
+                    if (_effectsGemerator) 
+                        _effectsGemerator.Play(position);
                 }
             }
         }
