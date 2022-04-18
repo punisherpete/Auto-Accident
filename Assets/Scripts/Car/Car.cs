@@ -24,6 +24,11 @@ public class Car : MonoBehaviour
     {
         _mover = GetComponent<Mover>();
         _respawner = GetComponent<Respawner>();
+        
+    }
+
+    private void Start()
+    {
         StopMashine();
     }
 
