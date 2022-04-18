@@ -4,22 +4,30 @@ using UnityEngine;
 
 public class CarsObserver : MonoBehaviour
 {
-    private List<Mover> _carMovers;
+    private List<Car> _cars;
 
     private void Awake()
     {
-        _carMovers = new List<Mover>(GetComponentsInChildren<Mover>());
+        _cars = new List<Car>(GetComponentsInChildren<Car>());
     }
 
     public bool IsCarInSafeZone(Transform originCar, float safeDistanceForSafeMode)
     {
-        foreach (var item in _carMovers)
+        foreach (var car in _cars)
         {
-            if (item.transform == originCar)
+            if (car.transform == originCar)
                 continue;
-            if (Vector3.Distance(originCar.position, item.transform.position) < safeDistanceForSafeMode)
+            if (Vector3.Distance(originCar.position, car.transform.position) < safeDistanceForSafeMode)
                 return false;
         }
         return true;
+    }
+
+    public void StopAllCars()
+    {
+        foreach (var car in _cars)
+        {
+            car.StopMashine();
+        }
     }
 }

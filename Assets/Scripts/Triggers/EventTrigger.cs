@@ -26,4 +26,14 @@ public class EventTrigger : MonoBehaviour
     {
         _car.SetSpeedLimit(value);
     }
+
+    public void Finish()
+    {
+        _car.Finish();
+    }
+
+    public void StopCar()
+    {
+        _car.StopMashine();
+    }
 }

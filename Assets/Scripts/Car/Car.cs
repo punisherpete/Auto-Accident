@@ -5,7 +5,7 @@ using UnityEngine.Events;
 [RequireComponent(typeof(Mover))]
 public class Car : MonoBehaviour
 {
-    public event UnityAction Finished;
+    public event UnityAction<Car> Finished;
 
     [SerializeField] private CarType _type;
     [SerializeField] private TMP_Text _nameText;
@@ -26,9 +26,14 @@ public class Car : MonoBehaviour
         _mover.SetMaxSpeed(speed);
     }
 
+    public void StopMashine()
+    {
+        _mover.StopMoving();
+    }
+
     public void Finish()
     {
-        Finished?.Invoke();
+        Finished?.Invoke(this);
     }
 
     public void SetName(string name)
