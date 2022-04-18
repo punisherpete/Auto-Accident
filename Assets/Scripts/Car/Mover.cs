@@ -37,11 +37,6 @@ public class Mover : MonoBehaviour
         GetComponent<Rigidbody>().centerOfMass = Vector3.up * _centerOfMass;
     }
 
-    private void Start()
-    {
-        StartMoving();
-    }
-
     private void FixedUpdate()
     {
         if (_targetNode == null || _pathController == null)
@@ -102,8 +97,10 @@ public class Mover : MonoBehaviour
     private void HandleMotor()
     {
         _wheelController.SetForce(_transmission.GetAcceleration() * _motorForce);
-        _currentBreakForce = _isStop ? _breakForce : 0f;
-        _currentBreakForce = _breakingTimer > 0 ? _breakForce : 0f;
+        if(_isStop)
+            _currentBreakForce = _breakForce;
+        else
+            _currentBreakForce = _breakingTimer > 0 ? _breakForce : 0f;
         _wheelController.ApplyBreaking(_currentBreakForce);
     }
 

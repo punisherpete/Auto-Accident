@@ -9,7 +9,6 @@ public class Transmission : MonoBehaviour
     [SerializeField] private List<Transfer> _transfers;
     [SerializeField] private int _transferIndex;
     [SerializeField] private bool _isNeutral;
-    
 
     private float _acceleration;
     private float _maxSpeed;
@@ -25,7 +24,7 @@ public class Transmission : MonoBehaviour
     private void FixedUpdate()
     {
         Debug.LogWarning(_rigidbody.velocity.magnitude + " " + _maxSpeed);
-        if(_rigidbody.velocity.magnitude < _transfers[_transferIndex].MinSpeed || _transfers[_transferIndex].MaxSpeed > _maxSpeed)
+        if (_rigidbody.velocity.magnitude < _transfers[_transferIndex].MinSpeed || _transfers[_transferIndex].MaxSpeed > _maxSpeed)
             IncreaseTransmission();
         else if(_rigidbody.velocity.magnitude>_transfers[_transferIndex].MaxSpeed)
             ReduceTransmission(); 

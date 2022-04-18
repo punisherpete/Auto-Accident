@@ -26,12 +26,12 @@ public class WheelController : MonoBehaviour
         _frontRightWheelCollider.steerAngle = steerAngle;
     }
 
-    public void ApplyBreaking(float breakForce)
+    public void ApplyBreaking(float brakeForce)
     {
-        _frontRightWheelCollider.brakeTorque = breakForce;
-        _frontLeftWheelCollider.brakeTorque = breakForce;
-        _rearLeftWheelCollider.brakeTorque = breakForce;
-        _rearRightWheelCollider.brakeTorque = breakForce;
+        _frontRightWheelCollider.brakeTorque = brakeForce;
+        _frontLeftWheelCollider.brakeTorque = brakeForce;
+        _rearLeftWheelCollider.brakeTorque = brakeForce;
+        _rearRightWheelCollider.brakeTorque = brakeForce;
     }
 
     public void SetForce(float force)

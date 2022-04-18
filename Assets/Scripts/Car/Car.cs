@@ -3,14 +3,18 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(Mover))]
+[RequireComponent(typeof(Respawner))]
 public class Car : MonoBehaviour
 {
-    public event UnityAction<Car> Finished;
+    public event UnityAction<Car> OnFinished;
+    public event UnityAction Won;
+    public event UnityAction Lost;
 
     [SerializeField] private CarType _type;
     [SerializeField] private TMP_Text _nameText;
 
     private Mover _mover;
+    private Respawner _respawner;
 
     private string _name;
     public string Name => _name;
@@ -19,6 +23,18 @@ public class Car : MonoBehaviour
     private void Awake()
     {
         _mover = GetComponent<Mover>();
+        _respawner = GetComponent<Respawner>();
+        StopMashine();
+    }
+
+    public void Win()
+    {
+        Won?.Invoke();
+    }
+
+    public void Lose()
+    {
+        Lost?.Invoke();
     }
 
     public void SetSpeedLimit(float speed)
@@ -29,11 +45,18 @@ public class Car : MonoBehaviour
     public void StopMashine()
     {
         _mover.StopMoving();
+        _respawner.ProhibitRespawn();
+    }
+
+    public void StartMashine()
+    {
+        _mover.StartMoving();
+        _respawner.AllowRespawn();
     }
 
     public void Finish()
     {
-        Finished?.Invoke(this);
+        OnFinished?.Invoke(this);
     }
 
     public void SetName(string name)
