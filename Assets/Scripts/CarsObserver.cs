@@ -75,7 +75,10 @@ public class CarsObserver : MonoBehaviour
     {
         if (_playerCar == null)
             return false;
-        return criticalDistance < Vector3.Distance(_playerCar.position, _finishLine.position) - Vector3.Distance(originCar.position, _finishLine.position);
+        if(Vector3.Distance(originCar.position,_finishLine.position) < Vector3.Distance(_playerCar.position,_finishLine.position))
+            if (Vector3.Distance(originCar.position, _playerCar.position) > criticalDistance)
+                return true;
+        return false;
     }
 
     public bool IsCarInSafeZone(Transform originCar, float safeDistanceForSafeMode)
