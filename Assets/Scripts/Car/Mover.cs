@@ -7,7 +7,7 @@ public class Mover : MonoBehaviour
 
     [SerializeField] private float _criticalOffset = 2f;
     [SerializeField] private float _offsetSpeed = 2f;
-    [SerializeField] private float _maxSpeed = 30;
+    [SerializeField] private float _maxSpeed = 30f;
     [SerializeField] private float _motorForce = 100f;
     [SerializeField] private float _breakForce = 1000f;
     [SerializeField] private float _maxSteerAngle = 35f;
@@ -122,13 +122,9 @@ public class Mover : MonoBehaviour
         if (Physics.Raycast(transform.position, Vector3.down, out ground))
         {
             if (Vector3.Distance(transform.position, ground.point) > 0.5f)
-            {
                 _wheelController.DisableWheelColliders();
-            }
             else
-            {
                 _wheelController.EnableWheelColliders();
-            }
         }
     }
 }

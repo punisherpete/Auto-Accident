@@ -5,9 +5,11 @@ using UnityEngine;
 [RequireComponent(typeof(Mover))]
 public class PathObserber : MonoBehaviour
 {
+    [Header("Car Patch")]
+    [SerializeField] private SplineComputer _spline;
+    [Header("Generation")]
     [SerializeField] private GameObject _pathPrefab;
     [SerializeField] private GameObject _nodePrefab;
-    [SerializeField] private SplineComputer _spline;
 
     private PathMover _pathMover = null;
     private List<Transform> _path = null;

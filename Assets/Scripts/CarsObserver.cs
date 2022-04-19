@@ -15,10 +15,16 @@ public class CarsObserver : MonoBehaviour
 
     private List<Car> _cars;
     private bool _isWinnerHamsterFound;
+    private Transform _playerCar = null;
 
     private void Awake()
     {
         _cars = new List<Car>(GetComponentsInChildren<Car>());
+        foreach (var car in _cars)
+        {
+            if (car.Type == CarType.Player)
+                _playerCar = car.transform;
+        }
     }
 
     private void OnEnable()
@@ -63,6 +69,13 @@ public class CarsObserver : MonoBehaviour
                 DeterminePlacesByDistanceToFinishLine();
             }
         }
+    }
+
+    public bool IsExceedsCriticalDistanceFromPlayer(Transform originCar, float criticalDistance)
+    {
+        if (_playerCar == null)
+            return false;
+        return true;
     }
 
     public bool IsCarInSafeZone(Transform originCar, float safeDistanceForSafeMode)

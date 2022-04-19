@@ -5,7 +5,9 @@ public class SpeedLimit : MonoBehaviour
 {
     [SerializeField] [Range(0,1)] private float _maxDragModifier;
     [SerializeField] [Range(0,1)] private float _currentDragModifier = 0;
+    [SerializeField] [Range(0,1)] private float _regularDragForce;
     [SerializeField] private float _dragForceChangeSpeed = 1;
+
     private Rigidbody _rigidBody;
 
 
@@ -16,7 +18,10 @@ public class SpeedLimit : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _rigidBody.drag = _rigidBody.velocity.magnitude * _currentDragModifier;
+        if (_currentDragModifier > _regularDragForce) 
+            _rigidBody.drag = _rigidBody.velocity.magnitude * _currentDragModifier;
+        else
+            _rigidBody.drag = _rigidBody.velocity.magnitude * _regularDragForce;
     }
 
     public void LimitedSpeed(float maxSpeed)
