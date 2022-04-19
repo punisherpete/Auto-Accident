@@ -40,6 +40,22 @@ public class WheelController : MonoBehaviour
         _frontRightWheelCollider.motorTorque = force;
     }
 
+    public void EnableWheelColliders()
+    {
+        _frontLeftWheelCollider.enabled = true;
+        _frontRightWheelCollider.enabled = true;
+        _rearLeftWheelCollider.enabled = true;
+        _rearRightWheelCollider.enabled = true;
+    }
+
+    public void DisableWheelColliders()
+    {
+        _frontLeftWheelCollider.enabled = false;
+        _frontRightWheelCollider.enabled = false;
+        _rearLeftWheelCollider.enabled = false;
+        _rearRightWheelCollider.enabled = false;
+    }
+
     private void UpdateWheels()
     {
         UpdateSingleWheel(_frontLeftWheelCollider, _frontLeftWheelTransform);
@@ -52,8 +68,11 @@ public class WheelController : MonoBehaviour
     {
         Vector3 pos;
         Quaternion rot;
-        wheelCollider.GetWorldPose(out pos, out rot);
-        wheelTransform.rotation = rot;
-        wheelTransform.position = pos;
+        if (wheelCollider.enabled)
+        {
+            wheelCollider.GetWorldPose(out pos, out rot);
+            wheelTransform.rotation = rot;
+            wheelTransform.position = pos;
+        }
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Mover))]
+[RequireComponent(typeof(Animator))]
 public class Respawner : MonoBehaviour
 {
     [SerializeField] private CarsObserver _carsObserver;
@@ -14,19 +15,30 @@ public class Respawner : MonoBehaviour
     [SerializeField] private float _safeDistanceForSafeMode = 5f;
     [SerializeField] private int _safeLayerIndex = 8;
     [SerializeField] private bool _isRespawnAllowed = true;
+    [SerializeField] private string _respawnAnimationName;
 
-    private int _baseLayerIndex;
+    private int[] _baseLayerIndex;
     private bool _isSafeModeActivated = false;
+    private int _respawnHash;
+    private int _idleHasn;
 
     private float _respawnTimer;
     private Mover _mover;
     private Rigidbody _rigidbody;
+    private Animator _animator;
 
     private void Awake()
     {
+        _respawnHash = Animator.StringToHash(_respawnAnimationName);
+        _idleHasn = Animator.StringToHash("Idle");
         _mover = GetComponent<Mover>();
         _rigidbody = GetComponent<Rigidbody>();
-        _baseLayerIndex = gameObject.layer;
+        _animator = GetComponent<Animator>();
+        _baseLayerIndex = new int[_objectsToReplaceLayer.Count];
+        for (int i = 0; i < _objectsToReplaceLayer.Count; i++)
+        {
+            _baseLayerIndex[i] = _objectsToReplaceLayer[i].layer;
+        }
     }
 
     private void Update()
@@ -35,12 +47,12 @@ public class Respawner : MonoBehaviour
             return;
         if (_rigidbody.velocity.magnitude < 0.5f)
             _respawnTimer += Time.deltaTime;
-        else if (Mathf.Abs(Quaternion.Angle(_rigidbody.rotation, _mover.CurrentNode.rotation))>90)
+        else if (Mathf.Abs(Quaternion.Angle(_rigidbody.rotation, _mover.CurrentNode.rotation)) > 90)
             _respawnTimer += Time.deltaTime / 2;
         else
             _respawnTimer = 0;
         if (_isSafeModeActivated && _carsObserver.IsCarInSafeZone(transform, _safeDistanceForSafeMode))
-            DeactivateSafeMode();
+            StartCoroutine(DeactivateSfeMode(2f));
         if (_respawnTimer >= _respawnTime)
             RespawnCar();
     }
@@ -61,13 +73,14 @@ public class Respawner : MonoBehaviour
         _rigidbody.isKinematic = true;
         transform.position = new Vector3(_mover.CurrentNode.position.x, _mover.CurrentNode.position.y + _respawnHeight, _mover.CurrentNode.position.z);
         transform.rotation = _mover.CurrentNode.rotation;
+        ActivateSafeMode();
         _rigidbody.isKinematic = false;
         _mover.StartMoving();
-        ActivateSafeMode();
     }
 
     private void ActivateSafeMode()
     {
+        _animator.Play(_respawnHash);
         _isSafeModeActivated = true;
         foreach (var item in _objectsToReplaceLayer)
         {
@@ -75,12 +88,14 @@ public class Respawner : MonoBehaviour
         }
     }
 
-    private void DeactivateSafeMode()
+    private IEnumerator DeactivateSfeMode(float delayInSeconds)
     {
+        yield return new WaitForSeconds(delayInSeconds);
+        _animator.Play(_idleHasn);
         _isSafeModeActivated = false;
-        foreach (var item in _objectsToReplaceLayer)
+        for (int i = 0; i < _objectsToReplaceLayer.Count; i++)
         {
-            item.layer = _baseLayerIndex;
+            _objectsToReplaceLayer[i].layer = _baseLayerIndex[i];
         }
     }
 }
