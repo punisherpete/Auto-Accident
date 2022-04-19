@@ -99,11 +99,12 @@ public class Mover : MonoBehaviour
         _transmission.SetMaxSpeed(_maxSpeed * _boostSpeedModifier);
     }
 
-    public void SetBoost(float boostAccelerationValue, float boostSpeedValue, float boostTime)
+    public void SetBoost(float boostAccelerationValue, float boostSpeedValue,float boostImpulseForce, float boostTime)
     {
         _boostSpeedModifier = boostSpeedValue;
         _boostAccelerationModifier = boostAccelerationValue;
         SetMaxSpeed(_maxSpeed);
+        _rigidbody.AddForce(transform.forward * boostImpulseForce, ForceMode.Impulse);
         StartCoroutine(ResetBoostValues(boostTime));
     }
 
