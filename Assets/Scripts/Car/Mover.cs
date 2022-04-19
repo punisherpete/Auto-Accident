@@ -71,13 +71,11 @@ public class Mover : MonoBehaviour
 
     public void PauseMoving(float time)
     {
-        Debug.LogWarning("Break");
         _breakingTimer = time;
     }
 
     public void StopMoving()
     {
-        Debug.LogError("Stop");
         _isStop = true;
         _transmission.TurnOnNeutral();
     }

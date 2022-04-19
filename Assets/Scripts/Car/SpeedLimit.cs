@@ -32,6 +32,11 @@ public class SpeedLimit : MonoBehaviour
             ResetModifier();
     }
 
+    public void SetRegularDragForce(float value)
+    {
+        _regularDragForce = Mathf.Clamp(value, 0, _maxDragModifier);
+    }
+
     private void SetModifier(float value)
     {
         _currentDragModifier = Mathf.Clamp(value, 0, _maxDragModifier);
