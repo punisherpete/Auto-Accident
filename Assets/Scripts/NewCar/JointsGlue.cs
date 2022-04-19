@@ -12,14 +12,6 @@ public class JointsGlue : MonoBehaviour
 
     private float _timer;
 
-    private void OnEnable()
-    {
-        //for (int i = 0; i < _interactionProcessors.Length; i++)
-        //{
-        //    _interactionProcessors[i].Affected += OnEnableJoints;
-        //}
-    }
-
     private void Start()
     {
         _startLocalPosition = transform.localPosition;
@@ -28,23 +20,12 @@ public class JointsGlue : MonoBehaviour
 
     private void Update()
     {
-        if (_timer >= _hitAllowanceDelay)
+        _timer += Time.deltaTime;
+        if (_timer <= _hitAllowanceDelay)
         {
+            _timer = 0;
             transform.localPosition = _startLocalPosition;
             transform.localRotation = _startLocalRotation;
         }
-    }
-
-    private void OnDisable()
-    {
-        //for (int i = 0; i < _interactionProcessors.Length; i++)
-        //{
-        //    _interactionProcessors[i].Affected -= OnEnableJoints;
-        //}
-    }
-
-    private void OnEnableJoints(InteractionProcessor processor, Vector3 postition)
-    {
-        Destroy(this, _hitAllowanceDelay);
     }
 }

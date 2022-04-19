@@ -21,6 +21,11 @@ public class InteractionProcessor : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.transform.parent)
+        {
+            if (collision.gameObject.transform.parent.transform.parent == _transform.parent.transform.parent)
+                return;
+        }
 
         if (_elapsedTime >= _takeDamageInterval)
         {
