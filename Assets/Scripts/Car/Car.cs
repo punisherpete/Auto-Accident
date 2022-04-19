@@ -13,6 +13,9 @@ public class Car : MonoBehaviour
     [SerializeField] private CarType _type;
     [SerializeField] private TMP_Text _nameText;
 
+    [Header("Debug")]
+    [SerializeField] private bool _showSpeed = false;
+
     private Mover _mover;
     private Respawner _respawner;
 
@@ -24,12 +27,17 @@ public class Car : MonoBehaviour
     {
         _mover = GetComponent<Mover>();
         _respawner = GetComponent<Respawner>();
-        
     }
 
     private void Start()
     {
         StopMashine();
+    }
+
+    private void FixedUpdate()
+    {
+        if (_showSpeed)
+            Debug.Log("Speed: " + _mover.GetCurrentSpeed() + " Max speed: " + _mover.GetMaxSpeed() + " Acceleration: " + _mover.GetAcceleration());
     }
 
     public void Win()

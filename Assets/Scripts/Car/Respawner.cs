@@ -52,7 +52,7 @@ public class Respawner : MonoBehaviour
         else
             _respawnTimer = 0;
         if (_isSafeModeActivated && _carsObserver.IsCarInSafeZone(transform, _safeDistanceForSafeMode))
-            StartCoroutine(DeactivateSfeMode(2f));
+            StartCoroutine(DeactivateSafeMode(2f));
         if (_respawnTimer >= _respawnTime)
             RespawnCar();
     }
@@ -88,7 +88,7 @@ public class Respawner : MonoBehaviour
         }
     }
 
-    private IEnumerator DeactivateSfeMode(float delayInSeconds)
+    private IEnumerator DeactivateSafeMode(float delayInSeconds)
     {
         yield return new WaitForSeconds(delayInSeconds);
         _animator.Play(_idleHasn);

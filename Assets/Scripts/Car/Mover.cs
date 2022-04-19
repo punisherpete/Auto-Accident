@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -25,8 +26,12 @@ public class Mover : MonoBehaviour
     private float _breakingTimer = 0f;
     private WheelController _wheelController;
     private Transmission _transmission;
+    private float _boostAccelerationModifier = 1f;
+    private float _boostSpeedModifier = 1f;
+    private Rigidbody _rigidbody;
 
     public float CurrentRotationWheel => _currentRotationWheel;
+    public float MaxSpeed => _maxSpeed;
     public Transform CurrentNode => _currentNode;
     public bool IsStop => _isStop;
 
@@ -34,7 +39,8 @@ public class Mover : MonoBehaviour
     {
         _wheelController = GetComponent<WheelController>();
         _transmission = GetComponent<Transmission>();
-        GetComponent<Rigidbody>().centerOfMass = Vector3.up * _centerOfMass;
+        _rigidbody = GetComponent<Rigidbody>();
+        _rigidbody.centerOfMass = Vector3.up * _centerOfMass;
     }
 
     private void FixedUpdate()
@@ -90,12 +96,35 @@ public class Mover : MonoBehaviour
     public void SetMaxSpeed(float value)
     {
         _maxSpeed = value;
-        _transmission.SetMaxSpeed(_maxSpeed);
+        _transmission.SetMaxSpeed(_maxSpeed * _boostSpeedModifier);
+    }
+
+    public void SetBoost(float boostAccelerationValue, float boostSpeedValue, float boostTime)
+    {
+        _boostSpeedModifier = boostSpeedValue;
+        _boostAccelerationModifier = boostAccelerationValue;
+        SetMaxSpeed(_maxSpeed);
+        StartCoroutine(ResetBoostValues(boostTime));
+    }
+
+    public float GetCurrentSpeed()
+    {
+        return _rigidbody.velocity.magnitude;
+    }
+
+    public float GetMaxSpeed()
+    {
+        return _maxSpeed * _boostSpeedModifier;
+    }
+
+    public float GetAcceleration()
+    {
+        return _transmission.GetAcceleration() * _boostAccelerationModifier;
     }
 
     private void HandleMotor()
     {
-        _wheelController.SetForce(_transmission.GetAcceleration() * _motorForce);
+        _wheelController.SetForce(_transmission.GetAcceleration() * _motorForce * _boostAccelerationModifier);
         if(_isStop)
             _currentBreakForce = _breakForce;
         else
@@ -124,5 +153,13 @@ public class Mover : MonoBehaviour
             else
                 _wheelController.EnableWheelColliders();
         }
+    }
+
+    private IEnumerator ResetBoostValues(float delayInSeconds)
+    {
+        yield return new WaitForSeconds(delayInSeconds);
+        _boostSpeedModifier = 1;
+        _boostAccelerationModifier = 1;
+        SetMaxSpeed(_maxSpeed);
     }
 }

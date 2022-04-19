@@ -23,7 +23,6 @@ public class Transmission : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.LogWarning(_rigidbody.velocity.magnitude + " " + _maxSpeed);
         if (_rigidbody.velocity.magnitude < _transfers[_transferIndex].MinSpeed || _transfers[_transferIndex].MaxSpeed > _maxSpeed)
             IncreaseTransmission();
         else if(_rigidbody.velocity.magnitude>_transfers[_transferIndex].MaxSpeed)
