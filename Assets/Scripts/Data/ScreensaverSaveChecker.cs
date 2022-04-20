@@ -14,7 +14,7 @@ public class ScreensaverSaveChecker : Data
         CheckSaveFile();
         AddSession();
         SetLastLoginDate(DateTime.Now);
-        _appMetricaEvents.OnGameInitialize();
+        _appMetricaEvents.OnGameInitialize(_options.SessionCount);
         Save();
         SceneManager.LoadScene(_options.LevelNumber);
     }
