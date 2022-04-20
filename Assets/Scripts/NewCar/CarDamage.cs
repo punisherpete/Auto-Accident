@@ -118,6 +118,8 @@ public class CarDamage : MonoBehaviour
 
     private void OnTakeDamage(InteractionProcessor affectedPart)
     {
+        if (TryGetComponent(out MeshRenderer meshRenderer))
+            meshRenderer.enabled = false;
         
         SkinnedMeshRenderer targetMeshRenderer = null;
         foreach (var blendShapesMatch in _blendShapesMatch)
