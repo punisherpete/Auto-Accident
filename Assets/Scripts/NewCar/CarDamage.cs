@@ -15,6 +15,7 @@ public class CarDamage : MonoBehaviour
     [SerializeField] private InteractionProcessor[] _neinhthMeshChangingParts;
     [SerializeField] private InteractionProcessor[] _tenhthMeshChangingParts;
 
+    [SerializeField] private float _takeDamageInterval = 3f;
     [SerializeField] private float _deformingForce = 5f;
     [SerializeField, Range(0f, 1f)] private float _deformationSensitivity = 1f;
 
@@ -25,7 +26,6 @@ public class CarDamage : MonoBehaviour
     private Dictionary<InteractionProcessor, SkinnedMeshRenderer> _blendShapesMatch = new Dictionary<InteractionProcessor, SkinnedMeshRenderer>();
 
     private float _elapsedTime;
-    private float _takeDamageInterval = 3f;
 
     private void Awake()
     {
@@ -92,7 +92,6 @@ public class CarDamage : MonoBehaviour
             _blendShapesMatch.Add(responsibleParts[i], deformableMesh);
         }
     }
-
 
     private void SubscribeForDamage(InteractionProcessor[] meshChangingParts)
     {
