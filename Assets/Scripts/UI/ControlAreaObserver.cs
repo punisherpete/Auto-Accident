@@ -18,7 +18,6 @@ public class ControlAreaObserver : MonoBehaviour, IPointerClickHandler,IPointerD
     {
         ActivateAfterClicked?.Invoke();
     }
-
 }
 
 
