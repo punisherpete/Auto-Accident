@@ -1,17 +1,11 @@
-using System;
 using UnityEngine;
+using UnityEngine.Events;
 
-[RequireComponent(typeof(ControlAreaObserver))]
 public class StartPanel : MonoBehaviour
 {
+    public UnityEvent ActivateAfterDown;
+
     [SerializeField] private VariableJoystick _variableJoystick;
-
-    private ControlAreaObserver _observer;
-
-    private void Awake()
-    {
-        _observer = GetComponent<ControlAreaObserver>();
-    }
 
     private void OnEnable()
     {
@@ -25,7 +19,7 @@ public class StartPanel : MonoBehaviour
 
     private void OnPointerDown()
     {
-        _observer.ActivateAfterDowned?.Invoke();
+        ActivateAfterDown?.Invoke();
         gameObject.SetActive(false);
     }
 }
