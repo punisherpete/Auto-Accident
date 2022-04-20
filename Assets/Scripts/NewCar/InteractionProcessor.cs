@@ -4,19 +4,12 @@ using UnityEngine;
 public class InteractionProcessor : MonoBehaviour
 {
     private Transform _transform;
-    private float _elapsedTime;
-    private float _takeDamageInterval = 1f;
 
-    public event Action<InteractionProcessor, Vector3> Affected;
+    public event Action<InteractionProcessor> Affected;
 
     private void Start()
     {
         _transform = transform;
-    }
-
-    private void Update()
-    {
-        _elapsedTime += Time.deltaTime;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -27,10 +20,6 @@ public class InteractionProcessor : MonoBehaviour
                 return;
         }
 
-        if (_elapsedTime >= _takeDamageInterval)
-        {
-            _elapsedTime = 0f;
-            Affected?.Invoke(this, _transform.position);
-        }
+        Affected?.Invoke(this);
     }
 }

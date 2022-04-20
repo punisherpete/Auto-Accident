@@ -1,12 +1,15 @@
-using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
 public class GlassPart : MonoBehaviour
 {
     [SerializeField] private Rigidbody _rigidbody;
 
     private bool _isCrashed = false;
+
+    private void Start()
+    {
+        _rigidbody.isKinematic = true;
+    }
 
     public void Crash(float force)
     {
@@ -14,6 +17,14 @@ public class GlassPart : MonoBehaviour
             return;
 
         _isCrashed = true;
+        transform.parent = null;
+        _rigidbody.isKinematic = false;
         _rigidbody.AddForce(transform.forward * force, ForceMode.VelocityChange);
+        Invoke(nameof(DeactivateWithDelay), 5f);
+    }
+
+    private void DeactivateWithDelay()
+    {
+        gameObject.SetActive(false);
     }
 }

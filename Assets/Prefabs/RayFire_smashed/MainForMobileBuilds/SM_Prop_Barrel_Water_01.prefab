@@ -11,13 +11,13 @@ GameObject:
   - component: {fileID: 7971327767772409850}
   - component: {fileID: 258211439}
   - component: {fileID: 7967138299761867660}
-  - component: {fileID: 264965723}
   - component: {fileID: 258211437}
   - component: {fileID: 258211438}
   - component: {fileID: 258211444}
   - component: {fileID: 258211445}
   - component: {fileID: 1915375313}
-  m_Layer: 11
+  - component: {fileID: 1519187136385576670}
+  m_Layer: 0
   m_Name: SM_Prop_Barrel_Water_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -275,18 +275,6 @@ MonoBehaviour:
   dustList: []
   restriction: {fileID: 0}
   sound: {fileID: 0}
---- !u!114 &264965723
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7968355270902409620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 477fd1b5666e1284c99eea3ce7d64378, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &258211437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,7 +314,7 @@ MonoBehaviour:
   _tenhthMeshChangingParts: []
   _deformingForce: 26
   _deformationSensitivity: 1
-  _effectsGemerator: {fileID: 0}
+  _effectsGenerator: {fileID: 0}
 --- !u!23 &258211444
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -441,3 +429,15 @@ MonoBehaviour:
   children: []
   amountFinal: 5
   oldChild: 0
+--- !u!114 &1519187136385576670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7968355270902409620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191366b92a70c1e48ab34c333738fb6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

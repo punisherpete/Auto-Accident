@@ -1627,7 +1627,8 @@ GameObject:
   - component: {fileID: 5477404810639137538}
   - component: {fileID: 5477404810639137537}
   - component: {fileID: 5477404810639137536}
-  m_Layer: 11
+  - component: {fileID: 1819826764}
+  m_Layer: 0
   m_Name: SM_Bld_ContainerBridge_01_sh_38
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1710,6 +1711,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.2252172, y: 0.8387785, z: 1.5388759}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1819826764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5477404810639137550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191366b92a70c1e48ab34c333738fb6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5477404810649966283
 GameObject:
   m_ObjectHideFlags: 0
@@ -11089,6 +11102,7 @@ GameObject:
   - component: {fileID: 5477404811863463508}
   - component: {fileID: 5477404811863463507}
   - component: {fileID: 5477404811863463506}
+  - component: {fileID: 410098617}
   m_Layer: 11
   m_Name: SM_Bld_ContainerBridge_01_sh_10
   m_TagString: Untagged
@@ -11172,6 +11186,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.9952543, y: 2.011355, z: 1.8336326}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &410098617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5477404811863463504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191366b92a70c1e48ab34c333738fb6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5477404811864279302
 GameObject:
   m_ObjectHideFlags: 0
@@ -12229,7 +12255,8 @@ GameObject:
   - component: {fileID: 5477404812062526134}
   - component: {fileID: 5477404812062526133}
   - component: {fileID: 5477404812062526132}
-  m_Layer: 11
+  - component: {fileID: 1686073835}
+  m_Layer: 0
   m_Name: SM_Bld_ContainerBridge_01_sh_18
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12312,6 +12339,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.8679059, y: 2.0299177, z: 1.6150235}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1686073835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5477404812062526130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191366b92a70c1e48ab34c333738fb6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5477404812168858981
 GameObject:
   m_ObjectHideFlags: 0
