@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class ScreensaverSaveChecker : Data
 {
     [SerializeField] private bool _isRemoveDataOnStart = false;
+    [SerializeField] private AppMetricaEvents _appMetricaEvents;
 
     private void Awake()
     {
@@ -13,7 +14,7 @@ public class ScreensaverSaveChecker : Data
         CheckSaveFile();
         AddSession();
         SetLastLoginDate(DateTime.Now);
-        /*_amplitudeScreenSaver.OnGameInitialize(_options.SessionCount);*/
+        _appMetricaEvents.OnGameInitialize();
         Save();
         SceneManager.LoadScene(_options.LevelNumber);
     }

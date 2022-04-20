@@ -29,11 +29,6 @@ public class Data : MonoBehaviour
         _options = new SaveOptions();
     }
 
-    public int GetLevelIndex()
-    {
-        return _options.LevelNumber;
-    }
-
     public void SetLevelIndex(int index)
     {
         _options.LevelNumber = index;
@@ -54,9 +49,24 @@ public class Data : MonoBehaviour
         _options.SessionCount++;
     }
 
+    public int GetLevelIndex()
+    {
+        return _options.LevelNumber;
+    }
+
+    public int GetSessionCount()
+    {
+        return _options.SessionCount;
+    }
+
     public int GetNumberDaysAfterRegistration()
     {
         return (DateTime.Parse(_options.LastLoginDate) - DateTime.Parse(_options.RegistrationDate)).Days;
+    }
+
+    public string GetRegistrationDate()
+    {
+        return _options.RegistrationDate;
     }
 }
 
