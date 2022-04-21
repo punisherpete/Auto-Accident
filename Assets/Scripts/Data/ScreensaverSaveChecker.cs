@@ -6,6 +6,7 @@ public class ScreensaverSaveChecker : Data
 {
     [SerializeField] private bool _isRemoveDataOnStart = false;
     [SerializeField] private AppMetricaEvents _appMetricaEvents;
+    [SerializeField] protected GameAnalyticsObject _gameAnalyticsObject;
 
     private void Awake()
     {
@@ -14,7 +15,8 @@ public class ScreensaverSaveChecker : Data
         CheckSaveFile();
         AddSession();
         SetLastLoginDate(DateTime.Now);
-        _appMetricaEvents.OnGameInitialize(_options.SessionCount);
+        _appMetricaEvents.OnGameInitialize(GetSessionCount());
+        _gameAnalyticsObject.OnGameInitialize(GetSessionCount());
         Save();
         SceneManager.LoadScene(_options.LevelNumber);
     }
