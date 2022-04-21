@@ -10,6 +10,9 @@ public class Booster : MonoBehaviour
     [SerializeField] private float _boostSpeeed = 1.5f;
     [SerializeField] private float _boostTime = 4f;
     [SerializeField] private float _boostImpulseForce = 1500f;
+    [Header("Effects")]
+    [SerializeField] private ParticleSystem _tookExplosion;
+
 
 
     private void OnTriggerEnter(Collider other)
@@ -17,6 +20,8 @@ public class Booster : MonoBehaviour
         if(other.TryGetComponent(out Mover mover))
         {
             mover.SetBoost(_boostAccelation, _boostSpeeed, _boostImpulseForce, _boostTime);
+            ParticleSystem newEffect = Instantiate(_tookExplosion, transform.position, transform.rotation, null);
+            newEffect.transform.localScale = transform.localScale;
             if (_isDisableAfterTriggerEnter)
                 gameObject.SetActive(false);
         }
