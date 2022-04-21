@@ -71,11 +71,21 @@ public class CarsObserver : MonoBehaviour
         }
     }
 
-    public bool IsExceedsCriticalDistanceFromPlayer(Transform originCar, float criticalDistance)
+    public bool IsAheadOfThePlayerOnDistance(Transform originCar, float criticalDistance)
     {
         if (_playerCar == null)
             return false;
         if(Vector3.Distance(originCar.position,_finishLine.position) < Vector3.Distance(_playerCar.position,_finishLine.position))
+            if (Vector3.Distance(originCar.position, _playerCar.position) > criticalDistance)
+                return true;
+        return false;
+    }
+    
+    public bool IsFallBehindOfThePlayerOnDistance(Transform originCar, float criticalDistance)
+    {
+        if (_playerCar == null)
+            return false;
+        if(Vector3.Distance(originCar.position,_finishLine.position) > Vector3.Distance(_playerCar.position,_finishLine.position))
             if (Vector3.Distance(originCar.position, _playerCar.position) > criticalDistance)
                 return true;
         return false;

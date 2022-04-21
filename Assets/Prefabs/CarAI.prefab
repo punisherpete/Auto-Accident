@@ -59,6 +59,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41ef6f4f5a1f8e74ea94dd6f1ef55a6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _carsObserver: {fileID: 0}
+  _criticalDistanceFromPlayer: 10
+  _dragModifier: 0.005
+  _maxSpeedModifier: 2
 --- !u!114 &8173679867627265170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,6 +77,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 1
   _nameText: {fileID: 7935479589262610171}
+  _showSpeed: 0
 --- !u!114 &8173679867627265171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,20 +104,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transfers:
   - MinSpeed: 0
-    MaxSpeed: 10
-    Acceleration: 8
-  - MinSpeed: 8
-    MaxSpeed: 16
-    Acceleration: 6.5
-  - MinSpeed: 14
+    MaxSpeed: 12
+    Acceleration: 9
+  - MinSpeed: 10
     MaxSpeed: 22
-    Acceleration: 5
+    Acceleration: 6.5
   - MinSpeed: 20
-    MaxSpeed: 28
+    MaxSpeed: 32
+    Acceleration: 5
+  - MinSpeed: 30
+    MaxSpeed: 42
     Acceleration: 3
-  - MinSpeed: 26
-    MaxSpeed: 36
+  - MinSpeed: 40
+    MaxSpeed: 52
     Acceleration: 1
+  - MinSpeed: 50
+    MaxSpeed: 62
+    Acceleration: 0.5
   _transferIndex: 0
   _isNeutral: 1
 --- !u!114 &8173679867627265169
@@ -130,8 +138,8 @@ MonoBehaviour:
   _criticalOffset: 5
   _offsetSpeed: 3
   _maxSpeed: 30
-  _motorForce: 100
-  _breakForce: 1000
+  _motorForce: 300
+  _breakForce: 5000
   _maxSteerAngle: 35
   _turningPower: 15
   _centerOfMass: -0.25
@@ -149,6 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxDragModifier: 0.5
   _currentDragModifier: 0
+  _regularDragForce: 0
   _dragForceChangeSpeed: 1
 --- !u!114 &8173679867627265167
 MonoBehaviour:
@@ -206,9 +215,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78c937e7a2ba83c4ca2445f173c77569, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _spline: {fileID: 0}
   _pathPrefab: {fileID: 4642307360577266092, guid: e7aeff3a63e32af43bf84291fe12f4d2, type: 3}
   _nodePrefab: {fileID: 37765739205792512, guid: d0ed0cb7d9758f444ae8b533f22e585a, type: 3}
-  _spline: {fileID: 0}
 --- !u!114 &8173679867627265165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -547,6 +556,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8173679867627265159}
     m_Modifications:
+    - target: {fileID: 1547273070824738651, guid: f72a0dddaca82884fbcb2439e18478a1, type: 3}
+      propertyPath: m_ForwardFriction.m_Stiffness
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1547273070824738651, guid: f72a0dddaca82884fbcb2439e18478a1, type: 3}
+      propertyPath: m_SidewaysFriction.m_Stiffness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1547273070824738651, guid: f72a0dddaca82884fbcb2439e18478a1, type: 3}
+      propertyPath: m_ForwardFriction.m_ExtremumValue
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1547273070824738651, guid: f72a0dddaca82884fbcb2439e18478a1, type: 3}
+      propertyPath: m_SidewaysFriction.m_ExtremumValue
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2274962427824094454, guid: f72a0dddaca82884fbcb2439e18478a1, type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: -0.15152514
@@ -561,7 +586,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2970039985026047870, guid: f72a0dddaca82884fbcb2439e18478a1, type: 3}
       propertyPath: m_Name
-      value: Car_able_to_deform Changed
+      value: Car_able_to_deform_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3414202928034019749, guid: f72a0dddaca82884fbcb2439e18478a1, type: 3}
+      propertyPath: m_ForwardFriction.m_Stiffness
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3414202928034019749, guid: f72a0dddaca82884fbcb2439e18478a1, type: 3}
+      propertyPath: m_SidewaysFriction.m_Stiffness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3414202928034019749, guid: f72a0dddaca82884fbcb2439e18478a1, type: 3}
+      propertyPath: m_ForwardFriction.m_ExtremumValue
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3414202928034019749, guid: f72a0dddaca82884fbcb2439e18478a1, type: 3}
+      propertyPath: m_SidewaysFriction.m_ExtremumValue
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3517387311955541836, guid: f72a0dddaca82884fbcb2439e18478a1, type: 3}
       propertyPath: m_ConnectedAnchor.x
@@ -690,6 +731,38 @@ PrefabInstance:
     - target: {fileID: 6112087445397994420, guid: f72a0dddaca82884fbcb2439e18478a1, type: 3}
       propertyPath: m_ConnectedAnchor.z
       value: -0.02165246
+      objectReference: {fileID: 0}
+    - target: {fileID: 7898291131215470186, guid: f72a0dddaca82884fbcb2439e18478a1, type: 3}
+      propertyPath: m_ForwardFriction.m_Stiffness
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7898291131215470186, guid: f72a0dddaca82884fbcb2439e18478a1, type: 3}
+      propertyPath: m_SidewaysFriction.m_Stiffness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7898291131215470186, guid: f72a0dddaca82884fbcb2439e18478a1, type: 3}
+      propertyPath: m_ForwardFriction.m_ExtremumValue
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7898291131215470186, guid: f72a0dddaca82884fbcb2439e18478a1, type: 3}
+      propertyPath: m_SidewaysFriction.m_ExtremumValue
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7935301582797581846, guid: f72a0dddaca82884fbcb2439e18478a1, type: 3}
+      propertyPath: m_ForwardFriction.m_Stiffness
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7935301582797581846, guid: f72a0dddaca82884fbcb2439e18478a1, type: 3}
+      propertyPath: m_SidewaysFriction.m_Stiffness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7935301582797581846, guid: f72a0dddaca82884fbcb2439e18478a1, type: 3}
+      propertyPath: m_ForwardFriction.m_ExtremumValue
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7935301582797581846, guid: f72a0dddaca82884fbcb2439e18478a1, type: 3}
+      propertyPath: m_SidewaysFriction.m_ExtremumValue
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f72a0dddaca82884fbcb2439e18478a1, type: 3}

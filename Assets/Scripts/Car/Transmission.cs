@@ -23,10 +23,10 @@ public class Transmission : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_rigidbody.velocity.magnitude < _transfers[_transferIndex].MinSpeed || _transfers[_transferIndex].MaxSpeed > _maxSpeed)
+        if (_rigidbody.velocity.magnitude < _transfers[_transferIndex].MinSpeed || _transfers[_transferIndex].MaxSpeed  > _maxSpeed)
             IncreaseTransmission();
-        else if(_rigidbody.velocity.magnitude>_transfers[_transferIndex].MaxSpeed)
-            ReduceTransmission(); 
+        else if (_rigidbody.velocity.magnitude > _transfers[_transferIndex].MaxSpeed )
+            ReduceTransmission();
         _speedLimit.LimitedSpeed(_transfers[_transferIndex].MaxSpeed);
         _acceleration = Mathf.Lerp(_acceleration, _transfers[_transferIndex].Acceleration, Time.fixedDeltaTime);
     }
@@ -48,14 +48,14 @@ public class Transmission : MonoBehaviour
 
     public float GetAcceleration()
     {
-        if(_isNeutral)
+        if (_isNeutral)
             return 0;
         return _acceleration;
     }
 
     private void ReduceTransmission()
     {
-        if (_transferIndex < _transfers.Count-1)
+        if (_transferIndex < _transfers.Count - 1)
         {
             if (_transfers[_transferIndex].MaxSpeed < _maxSpeed)
                 _transferIndex++;
