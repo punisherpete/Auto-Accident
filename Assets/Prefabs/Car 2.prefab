@@ -36,16 +36,16 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3896113612654231867}
-  m_LocalRotation: {x: 0.008827307, y: 0.97596216, z: -0.040256, w: 0.21400821}
+  m_LocalRotation: {x: 0.008827409, y: 0.9759622, z: -0.040256556, w: 0.21400781}
   m_LocalPosition: {x: 1.13, y: -1.07, z: 9.17}
-  m_LocalScale: {x: 0.9800002, y: 0.98000014, z: 0.98000026}
+  m_LocalScale: {x: 0.9800002, y: 0.9800002, z: 0.9800002}
   m_Children:
   - {fileID: 6870025116624085651}
   - {fileID: 1775543658103036234}
   - {fileID: 3543837778198444071}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 4.724, y: 155.264, z: 0}
 --- !u!114 &3896113612654231863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,7 +264,7 @@ Animator:
   m_GameObject: {fileID: 3896113612654231867}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a038efca68ccc2c41b9291b1a785fcb0, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3c957058d76147d408d02b5008eb5f04, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -540,6 +540,10 @@ PrefabInstance:
     - target: {fileID: 1198292701012719664, guid: 9736447e1a57a2449a5ccde2a5009463, type: 3}
       propertyPath: m_Name
       value: Car_able_to_deform_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1198292701012719664, guid: 9736447e1a57a2449a5ccde2a5009463, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2011666956397978250, guid: 9736447e1a57a2449a5ccde2a5009463, type: 3}
       propertyPath: m_RootOrder

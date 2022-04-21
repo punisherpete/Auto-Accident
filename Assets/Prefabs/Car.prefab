@@ -94,7 +94,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4955674667960276973}
-  m_LocalRotation: {x: -0, y: 0.98041844, z: -0, w: 0.19692568}
+  m_LocalRotation: {x: 0, y: 0.9804192, z: 0, w: 0.19692177}
   m_LocalPosition: {x: 2.85, y: 0.09, z: 15.64}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -132,6 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 0
   _nameText: {fileID: 1596656892030392914}
+  _showSpeed: 0
 --- !u!114 &4955674667960276981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,7 +192,7 @@ MonoBehaviour:
   _maxSpeed: 30
   _motorForce: 100
   _breakForce: 1000
-  _maxSteerAngle: 35
+  _maxSteerAngle: 25
   _turningPower: 15
   _centerOfMass: -0.25
 --- !u!114 &4955674667960276977
@@ -208,6 +209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxDragModifier: 0.5
   _currentDragModifier: 0
+  _regularDragForce: 0
   _dragForceChangeSpeed: 1
 --- !u!114 &4955674667960276970
 MonoBehaviour:
@@ -265,9 +267,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78c937e7a2ba83c4ca2445f173c77569, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _spline: {fileID: 0}
   _pathPrefab: {fileID: 4642307360577266092, guid: e7aeff3a63e32af43bf84291fe12f4d2, type: 3}
   _nodePrefab: {fileID: 37765739205792512, guid: d0ed0cb7d9758f444ae8b533f22e585a, type: 3}
-  _spline: {fileID: 0}
 --- !u!114 &4955674667960276976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -397,6 +399,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6945546769239420707, guid: 7b75bbdf3842c2d4eb80e74b6aec3342, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 6945546769239420707, guid: 7b75bbdf3842c2d4eb80e74b6aec3342, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -471,7 +477,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2970039985026047870, guid: f72a0dddaca82884fbcb2439e18478a1, type: 3}
       propertyPath: m_Name
-      value: Car_able_to_deform Changed
+      value: Car_able_to_deform_1
       objectReference: {fileID: 0}
     - target: {fileID: 5698458912807715912, guid: f72a0dddaca82884fbcb2439e18478a1, type: 3}
       propertyPath: m_RootOrder
