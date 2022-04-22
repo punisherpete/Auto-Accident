@@ -17,7 +17,7 @@ public class LeaderboardChecker : MonoBehaviour
         _placesTexts[0].text = car.Name;
         if (car.Type == CarType.Player)
         {
-            _placeImages[0].sprite = _playerPlaceSprite;
+            //_placeImages[0].sprite = _playerPlaceSprite;
             _placesTexts[0].color = _playerTextColor;
         }
         _placeImages.RemoveAt(0);
