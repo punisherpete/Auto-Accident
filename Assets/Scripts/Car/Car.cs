@@ -107,11 +107,6 @@ public class Car : MonoBehaviour
     {
         return _mover.GetCurrentSpeed();
     }
-
-    public void Input(float horizontalInput)
-    {
-        _mover.ChangeHorizontalOffset(horizontalInput);
-    }
 }
 public enum CarType
 {

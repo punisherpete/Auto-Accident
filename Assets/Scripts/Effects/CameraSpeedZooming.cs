@@ -20,6 +20,6 @@ public class CameraSpeedZooming : MonoBehaviour
     {
         _projector.motion.offset = Vector2.Lerp(_projector.motion.offset, 
             new Vector2(0, _car.transform.position.y - _startCarY), _moveSpeed * Time.deltaTime);
-        Debug.Log(_moveSpeed * Time.deltaTime);
+        /*Debug.Log(_moveSpeed * Time.deltaTime);*/
     }
 }

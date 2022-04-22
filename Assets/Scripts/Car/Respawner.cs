@@ -1,4 +1,3 @@
-using Dreamteck.Splines;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,10 +12,13 @@ public class Respawner : MonoBehaviour
     [SerializeField] private float _respawnHeight = 2f;
     [SerializeField] private List<GameObject> _objectsToReplaceLayer;
     [SerializeField] private float _safeDistanceForSafeMode = 5f;
+    [SerializeField] private float _criticalHorizontalOffset = 10f;
+
     [SerializeField] private int _safeLayerIndex = 8;
     [SerializeField] private bool _isRespawnAllowed = true;
     [SerializeField] private string _respawnAnimationName;
 
+    private SplineProjectorObserver _splineProjectorObserver = null;
     private int[] _baseLayerIndex;
     private bool _isSafeModeActivated = false;
     private int _respawnHash;
@@ -34,6 +36,8 @@ public class Respawner : MonoBehaviour
         _mover = GetComponent<Mover>();
         _rigidbody = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>();
+        if(gameObject.TryGetComponent(out SplineProjectorObserver projectorObserver))
+            _splineProjectorObserver = projectorObserver;
         _baseLayerIndex = new int[_objectsToReplaceLayer.Count];
         for (int i = 0; i < _objectsToReplaceLayer.Count; i++)
         {
@@ -47,6 +51,11 @@ public class Respawner : MonoBehaviour
             return;
         if (_rigidbody.velocity.magnitude < 0.5f)
             _respawnTimer += Time.deltaTime;
+        else if(_splineProjectorObserver != null)
+        {
+            if(_splineProjectorObserver.IsGoesBeyondCriticalDistance(_criticalHorizontalOffset))
+                _respawnTimer += Time.deltaTime / 1.5f;
+        }
         else if (Mathf.Abs(Quaternion.Angle(_rigidbody.rotation, _mover.CurrentNode.rotation)) > 90)
             _respawnTimer += Time.deltaTime / 2;
         else

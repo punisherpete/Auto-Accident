@@ -5,16 +5,16 @@ public class PlayerInput : MonoBehaviour
 {
     [SerializeField] private VariableJoystick _joystick;
 
-    private Car _car;
+    private Mover _mover;
 
     private void Awake()
     {
-        _car = GetComponent<Car>();
+        _mover = GetComponent<Mover>();
     }
 
     private void FixedUpdate()
     {
-        _car.Input(_joystick.Horizontal);
+        _mover.ChangeHorizontalOffset(_joystick.Horizontal);
     }
 
 }
