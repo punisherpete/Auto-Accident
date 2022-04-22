@@ -57,9 +57,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _carsObserver: {fileID: 0}
-  _criticalDistanceFromPlayer: 30
-  _dragModifier: 0.02
-  _maxSpeedModifier: 1.1
+  _criticalDistanceFromPlayer: 6
+  _dragModifier: 0.005
+  _maxSpeedModifier: 2
 --- !u!114 &8824063929250874861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,20 +101,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transfers:
   - MinSpeed: 0
-    MaxSpeed: 10
-    Acceleration: 8
-  - MinSpeed: 8
-    MaxSpeed: 16
-    Acceleration: 6.5
-  - MinSpeed: 14
+    MaxSpeed: 12
+    Acceleration: 9
+  - MinSpeed: 10
     MaxSpeed: 22
-    Acceleration: 5
+    Acceleration: 6.5
   - MinSpeed: 20
-    MaxSpeed: 28
+    MaxSpeed: 32
+    Acceleration: 5
+  - MinSpeed: 30
+    MaxSpeed: 42
     Acceleration: 3
-  - MinSpeed: 26
-    MaxSpeed: 36
+  - MinSpeed: 40
+    MaxSpeed: 52
     Acceleration: 1
+  - MinSpeed: 50
+    MaxSpeed: 62
+    Acceleration: 0.5
   _transferIndex: 0
   _isNeutral: 1
 --- !u!114 &8824063929250874865
@@ -160,7 +163,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8824063929250874866}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fdc1077957f8694479456cf66955ba4c, type: 3}
   m_Name: 
@@ -299,6 +302,38 @@ PrefabInstance:
     - target: {fileID: 2513825919268013410, guid: f1a4e0bc2b3bd1f44a73958627497ae5, type: 3}
       propertyPath: _lookTarget
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4443968121682098907, guid: f1a4e0bc2b3bd1f44a73958627497ae5, type: 3}
+      propertyPath: m_SidewaysFriction.m_Stiffness
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4443968121682098907, guid: f1a4e0bc2b3bd1f44a73958627497ae5, type: 3}
+      propertyPath: m_SidewaysFriction.m_ExtremumValue
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4443968121978311769, guid: f1a4e0bc2b3bd1f44a73958627497ae5, type: 3}
+      propertyPath: m_SidewaysFriction.m_Stiffness
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4443968121978311769, guid: f1a4e0bc2b3bd1f44a73958627497ae5, type: 3}
+      propertyPath: m_SidewaysFriction.m_ExtremumValue
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4443968122459346380, guid: f1a4e0bc2b3bd1f44a73958627497ae5, type: 3}
+      propertyPath: m_SidewaysFriction.m_Stiffness
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4443968122459346380, guid: f1a4e0bc2b3bd1f44a73958627497ae5, type: 3}
+      propertyPath: m_SidewaysFriction.m_ExtremumValue
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4443968123139614533, guid: f1a4e0bc2b3bd1f44a73958627497ae5, type: 3}
+      propertyPath: m_SidewaysFriction.m_Stiffness
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4443968123139614533, guid: f1a4e0bc2b3bd1f44a73958627497ae5, type: 3}
+      propertyPath: m_SidewaysFriction.m_ExtremumValue
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4726024527711151570, guid: f1a4e0bc2b3bd1f44a73958627497ae5, type: 3}
       propertyPath: m_RootOrder
