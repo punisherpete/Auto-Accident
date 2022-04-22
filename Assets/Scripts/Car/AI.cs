@@ -26,8 +26,14 @@ public class AI : MonoBehaviour
         else
             _speedLimit.SetRegularDragForce(0);
         if (_carsObserver.IsFallBehindOfThePlayerOnDistance(transform, _criticalDistanceFromPlayer))
+        {
             _mover.SetMaxSpeedModifier(_maxSpeedModifier);
+            _mover.StrengthenWheels();
+        }
         else
+        {
             _mover.SetMaxSpeedModifier(1);
+            _mover.ResetToDefaultWheel();
+        }
     }
 }

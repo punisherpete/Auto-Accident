@@ -60,6 +60,16 @@ public class Car : MonoBehaviour
         _mover.SetCriticalHorizontalOffset(value);
     }
 
+    public void StrengthenWheels()
+    {
+        _mover.StrengthenWheels();
+    }
+
+    public void ResetToDefaultWheel()
+    {
+        _mover.ResetToDefaultWheel();
+    }
+
     public void StopMashine()
     {
         _mover.StopMoving();
@@ -81,6 +91,11 @@ public class Car : MonoBehaviour
     {
         _name = name;
         _nameText.text = name;
+    }
+
+    public float GetCurrentSpeed()
+    {
+        return _mover.GetCurrentSpeed();
     }
 }
 public enum CarType

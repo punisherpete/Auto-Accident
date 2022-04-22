@@ -57,9 +57,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _carsObserver: {fileID: 0}
-  _criticalDistanceFromPlayer: 30
-  _dragModifier: 0.02
-  _maxSpeedModifier: 1.1
+  _criticalDistanceFromPlayer: 6
+  _dragModifier: 0.005
+  _maxSpeedModifier: 2
 --- !u!114 &859347649077916108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,19 +101,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transfers:
   - MinSpeed: 0
-    MaxSpeed: 10
-    Acceleration: 8
-  - MinSpeed: 8
-    MaxSpeed: 16
-    Acceleration: 6.5
-  - MinSpeed: 14
+    MaxSpeed: 12
+    Acceleration: 10
+  - MinSpeed: 10
     MaxSpeed: 22
-    Acceleration: 5
+    Acceleration: 8
   - MinSpeed: 20
-    MaxSpeed: 28
+    MaxSpeed: 32
+    Acceleration: 5
+  - MinSpeed: 30
+    MaxSpeed: 42
     Acceleration: 3
-  - MinSpeed: 26
-    MaxSpeed: 36
+  - MinSpeed: 40
+    MaxSpeed: 52
+    Acceleration: 2
+  - MinSpeed: 50
+    MaxSpeed: 62
+    Acceleration: 1
+  - MinSpeed: 60
+    MaxSpeed: 72
     Acceleration: 1
   _transferIndex: 0
   _isNeutral: 1
@@ -227,6 +233,8 @@ MonoBehaviour:
   _frontRightWheeTransform: {fileID: 4268447689940435995}
   _rearLeftWheelTransform: {fileID: 4268447690744298029}
   _rearRightWheelTransform: {fileID: 4268447690090788159}
+  _reinforcedExtremumValue: 3
+  _reinforcedStiffness: 2
 --- !u!114 &859347649077916099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -342,6 +350,54 @@ PrefabInstance:
     - target: {fileID: 2297559599025083278, guid: f3b7cf69096c72e478f08c032616243d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7194642768072347929, guid: f3b7cf69096c72e478f08c032616243d, type: 3}
+      propertyPath: m_SidewaysFriction.m_Stiffness
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7194642768072347929, guid: f3b7cf69096c72e478f08c032616243d, type: 3}
+      propertyPath: m_ForwardFriction.m_ExtremumValue
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7194642768072347929, guid: f3b7cf69096c72e478f08c032616243d, type: 3}
+      propertyPath: m_SidewaysFriction.m_ExtremumValue
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7194642768469500816, guid: f3b7cf69096c72e478f08c032616243d, type: 3}
+      propertyPath: m_SidewaysFriction.m_Stiffness
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7194642768469500816, guid: f3b7cf69096c72e478f08c032616243d, type: 3}
+      propertyPath: m_ForwardFriction.m_ExtremumValue
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7194642768469500816, guid: f3b7cf69096c72e478f08c032616243d, type: 3}
+      propertyPath: m_SidewaysFriction.m_ExtremumValue
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7194642769057489413, guid: f3b7cf69096c72e478f08c032616243d, type: 3}
+      propertyPath: m_SidewaysFriction.m_Stiffness
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7194642769057489413, guid: f3b7cf69096c72e478f08c032616243d, type: 3}
+      propertyPath: m_ForwardFriction.m_ExtremumValue
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7194642769057489413, guid: f3b7cf69096c72e478f08c032616243d, type: 3}
+      propertyPath: m_SidewaysFriction.m_ExtremumValue
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7194642769303374983, guid: f3b7cf69096c72e478f08c032616243d, type: 3}
+      propertyPath: m_SidewaysFriction.m_Stiffness
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7194642769303374983, guid: f3b7cf69096c72e478f08c032616243d, type: 3}
+      propertyPath: m_ForwardFriction.m_ExtremumValue
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7194642769303374983, guid: f3b7cf69096c72e478f08c032616243d, type: 3}
+      propertyPath: m_SidewaysFriction.m_ExtremumValue
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8977436944410587966, guid: f3b7cf69096c72e478f08c032616243d, type: 3}
       propertyPath: _lookTarget

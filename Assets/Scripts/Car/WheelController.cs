@@ -14,10 +14,40 @@ public class WheelController : MonoBehaviour
     [SerializeField] private Transform _frontRightWheeTransform;
     [SerializeField] private Transform _rearLeftWheelTransform;
     [SerializeField] private Transform _rearRightWheelTransform;
+    [Header("Reinforced Wheels")]
+    [SerializeField] private float _reinforcedExtremumValue;
+    [SerializeField] private float _reinforcedStiffness;
+
+    private WheelFrictionCurve _reinforcedWheelFrictionCurve;
+    private WheelFrictionCurve _defaultWheelFrictionCurve;
+
+    private void Awake()
+    {
+        _defaultWheelFrictionCurve = _frontLeftWheelCollider.sidewaysFriction;
+        _reinforcedWheelFrictionCurve = _defaultWheelFrictionCurve;
+        _reinforcedWheelFrictionCurve.stiffness = _reinforcedStiffness;
+        _reinforcedWheelFrictionCurve.extremumValue = _reinforcedExtremumValue;
+    }
 
     private void FixedUpdate()
     {
         UpdateWheels();
+    }
+
+    public void ReinfoceWheelFrictionCurve()
+    {
+        _frontLeftWheelCollider.sidewaysFriction = _reinforcedWheelFrictionCurve;
+        _rearLeftWheelCollider.sidewaysFriction = _reinforcedWheelFrictionCurve;
+        _frontRightWheelCollider.sidewaysFriction = _reinforcedWheelFrictionCurve;
+        _rearRightWheelCollider.sidewaysFriction = _reinforcedWheelFrictionCurve;
+    }
+
+    public void ResetWheelFrictionCurve()
+    {
+        _frontLeftWheelCollider.sidewaysFriction = _defaultWheelFrictionCurve;
+        _rearLeftWheelCollider.sidewaysFriction = _defaultWheelFrictionCurve;
+        _frontRightWheelCollider.sidewaysFriction = _defaultWheelFrictionCurve;
+        _rearRightWheelCollider.sidewaysFriction = _defaultWheelFrictionCurve;
     }
 
     public void SetSeetAngle(float steerAngle)
