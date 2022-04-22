@@ -4,23 +4,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "AppMetricaObject", menuName = "GameAssets/AppMetricaObject")]
 public class AppMetricaEvents : ScriptableObject
 {
-
-    /*public void OnApplicationQuit()
-    {
-        AppMetrica.Instance.ReportEvent("reg_day", new Dictionary<string, object>()
-        {
-            {"date",_data.GetRegistrationDate() }
-        });
-        AppMetrica.Instance.ReportEvent("session_count", new Dictionary<string, object>()
-        {
-            {"count",_data.GetSessionCount() }
-        });
-        AppMetrica.Instance.ReportEvent("days_in_game", new Dictionary<string, object>()
-        {
-            {"day",_data.GetNumberDaysAfterRegistration() }
-        });
-    }*/
-
     public void OnGameInitialize(int sessionCount)
     {
         AppMetrica.Instance.ReportEvent("game_start", new Dictionary<string, object>()
@@ -60,6 +43,22 @@ public class AppMetricaEvents : ScriptableObject
         AppMetrica.Instance.ReportEvent("restart", new Dictionary<string, object>()
         {
             {"level",levelNumber }
+        });
+    }
+
+    public void OnGameExit(string registrationDate, int sessionCount, int daysInGame)
+    {
+        AppMetrica.Instance.ReportEvent("reg_day", new Dictionary<string, object>()
+        {
+            {"date", registrationDate }
+        });
+        AppMetrica.Instance.ReportEvent("session_count", new Dictionary<string, object>()
+        {
+            {"count", sessionCount }
+        });
+        AppMetrica.Instance.ReportEvent("days_in_game", new Dictionary<string, object>()
+        {
+            {"day", daysInGame }
         });
     }
 }

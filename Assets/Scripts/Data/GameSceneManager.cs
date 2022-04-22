@@ -26,6 +26,8 @@ public class GameSceneManager : Data
 
     private void OnApplicationQuit()
     {
+        _appMetricaObject.OnGameExit(GetRegistrationDate(), GetSessionCount(), GetNumberDaysAfterRegistration());
+        _gameAnalyticsObject.OnGameExit(GetRegistrationDate(), GetSessionCount(), GetNumberDaysAfterRegistration());
         Save();
     }
 
