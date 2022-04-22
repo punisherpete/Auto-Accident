@@ -7,9 +7,9 @@ using UnityEngine;
 public class Transmission : MonoBehaviour
 {
     [SerializeField] private List<Transfer> _transfers;
-    [SerializeField] private int _transferIndex;
     [SerializeField] private bool _isNeutral;
 
+    private int _currentTransferIndex;
     private float _acceleration;
     private float _maxSpeed;
     private Rigidbody _rigidbody;
@@ -23,12 +23,12 @@ public class Transmission : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_rigidbody.velocity.magnitude < _transfers[_transferIndex].MinSpeed || _transfers[_transferIndex].MaxSpeed  > _maxSpeed)
+        if (_rigidbody.velocity.magnitude < _transfers[_currentTransferIndex].MinSpeed || _transfers[_currentTransferIndex].MaxSpeed  > _maxSpeed)
             IncreaseTransmission();
-        else if (_rigidbody.velocity.magnitude > _transfers[_transferIndex].MaxSpeed )
+        else if (_rigidbody.velocity.magnitude > _transfers[_currentTransferIndex].MaxSpeed )
             ReduceTransmission();
-        _speedLimit.LimitedSpeed(_transfers[_transferIndex].MaxSpeed);
-        _acceleration = Mathf.Lerp(_acceleration, _transfers[_transferIndex].Acceleration, Time.fixedDeltaTime);
+        _speedLimit.LimitedSpeed(_transfers[_currentTransferIndex].MaxSpeed);
+        _acceleration = Mathf.Lerp(_acceleration, _transfers[_currentTransferIndex].Acceleration, Time.fixedDeltaTime);
     }
 
     public void TurnOnNeutral()
@@ -55,17 +55,17 @@ public class Transmission : MonoBehaviour
 
     private void ReduceTransmission()
     {
-        if (_transferIndex < _transfers.Count - 1)
+        if (_currentTransferIndex < _transfers.Count - 1)
         {
-            if (_transfers[_transferIndex].MaxSpeed < _maxSpeed)
-                _transferIndex++;
+            if (_transfers[_currentTransferIndex].MaxSpeed < _maxSpeed)
+                _currentTransferIndex++;
         }
     }
 
     private void IncreaseTransmission()
     {
-        if (_transferIndex > 0)
-            _transferIndex--;
+        if (_currentTransferIndex > 0)
+            _currentTransferIndex--;
     }
 }
 

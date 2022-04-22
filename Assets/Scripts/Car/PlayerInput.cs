@@ -1,20 +1,20 @@
 using UnityEngine;
 
-[RequireComponent(typeof (Mover))]
+[RequireComponent(typeof (Car))]
 public class PlayerInput : MonoBehaviour
 {
     [SerializeField] private VariableJoystick _joystick;
 
-    private Mover _mover;
+    private Car _car;
 
     private void Awake()
     {
-        _mover = GetComponent<Mover>();
+        _car = GetComponent<Car>();
     }
 
     private void FixedUpdate()
     {
-        _mover.ChangeHorizontalOffset(_joystick.Horizontal);
+        _car.Input(_joystick.Horizontal);
     }
 
 }

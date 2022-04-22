@@ -11,7 +11,8 @@ public class Car : MonoBehaviour
     public event UnityAction Lost;
 
     [SerializeField] private CarType _type;
-    [SerializeField] private TMP_Text _nameText;
+    [SerializeField] private TMP_Text _playerName;
+    [SerializeField] private TMP_Text _aiName;
 
     [Header("Debug")]
     [SerializeField] private bool _showSpeed = false;
@@ -90,12 +91,26 @@ public class Car : MonoBehaviour
     public void SetName(string name)
     {
         _name = name;
-        _nameText.text = name;
+        if(_type == CarType.Player)
+        {
+            _playerName.gameObject.SetActive(true);
+            _playerName.text = name;
+        }
+        else
+        {
+            _aiName.gameObject.SetActive(true);
+            _aiName.text = name;
+        }
     }
 
     public float GetCurrentSpeed()
     {
         return _mover.GetCurrentSpeed();
+    }
+
+    public void Input(float horizontalInput)
+    {
+        _mover.ChangeHorizontalOffset(horizontalInput);
     }
 }
 public enum CarType
