@@ -55,6 +55,11 @@ public class Car : MonoBehaviour
         _mover.SetMaxSpeed(speed);
     }
 
+    public void SetMaxOffset(float value)
+    {
+        _mover.SetCriticalHorizontalOffset(value);
+    }
+
     public void StopMashine()
     {
         _mover.StopMoving();

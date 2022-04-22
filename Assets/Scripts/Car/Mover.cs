@@ -29,6 +29,7 @@ public class Mover : MonoBehaviour
     private float _boostAccelerationModifier = 1f;
     private float _boostSpeedModifier = 1f;
     private Rigidbody _rigidbody;
+    private float _maxSpeedModifier = 1f;
 
     public float CurrentRotationWheel => _currentRotationWheel;
     public float MaxSpeed => _maxSpeed;
@@ -65,6 +66,11 @@ public class Mover : MonoBehaviour
         _targetNode = targetNode;
     }
 
+    public void SetCriticalHorizontalOffset(float horizontalOffset)
+    {
+        _criticalOffset = horizontalOffset;
+    }
+
     public void ChangeHorizontalOffset(float horizontalInput)
     {
         if (_horizontalOffset > _criticalOffset)
@@ -78,6 +84,12 @@ public class Mover : MonoBehaviour
     public void PauseMoving(float time)
     {
         _breakingTimer = time;
+    }
+
+    public void SetMaxSpeedModifier(float modifier)
+    {
+        _maxSpeedModifier = modifier;
+        SetMaxSpeed(_maxSpeed);
     }
 
     public void StopMoving()
@@ -96,7 +108,7 @@ public class Mover : MonoBehaviour
     public void SetMaxSpeed(float value)
     {
         _maxSpeed = value;
-        _transmission.SetMaxSpeed(_maxSpeed * _boostSpeedModifier);
+        _transmission.SetMaxSpeed(_maxSpeed * _boostSpeedModifier * _maxSpeedModifier);
     }
 
     public void SetBoost(float boostAccelerationValue, float boostSpeedValue,float boostImpulseForce, float boostTime)
@@ -146,14 +158,14 @@ public class Mover : MonoBehaviour
 
     private void HandleGroundedPositioning()
     {
-        RaycastHit ground;
+        /*RaycastHit ground;
         if (Physics.Raycast(transform.position, Vector3.down, out ground))
         {
             if (Vector3.Distance(transform.position, ground.point) > 0.5f)
                 _wheelController.DisableWheelColliders();
             else
                 _wheelController.EnableWheelColliders();
-        }
+        }*/
     }
 
     private IEnumerator ResetBoostValues(float delayInSeconds)

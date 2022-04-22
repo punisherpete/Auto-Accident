@@ -27,6 +27,11 @@ public class Trigger : MonoBehaviour
         _car.SetSpeedLimit(value);
     }
 
+    public void SetMaxOffset(float horizontalOffcet)
+    {
+        _car.SetMaxOffset(horizontalOffcet);
+    }
+
     public void Finish()
     {
         _car.Finish();
