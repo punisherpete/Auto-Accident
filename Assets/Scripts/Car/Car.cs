@@ -19,6 +19,7 @@ public class Car : MonoBehaviour
 
     private Mover _mover;
     private Respawner _respawner;
+    private bool _isFinished = false;
 
     private string _name;
     public string Name => _name;
@@ -85,6 +86,9 @@ public class Car : MonoBehaviour
 
     public void Finish()
     {
+        if (_isFinished)
+            return;
+        _isFinished = true;
         OnFinished?.Invoke(this);
     }
 
