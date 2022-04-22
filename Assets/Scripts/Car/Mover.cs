@@ -52,7 +52,6 @@ public class Mover : MonoBehaviour
             _breakingTimer -= Time.fixedDeltaTime;
         HandleMotor();
         HandleSteering();
-        HandleGroundedPositioning();
     }
 
     public void SetPathController(PathMover pathController)
@@ -69,6 +68,16 @@ public class Mover : MonoBehaviour
     public void SetCriticalHorizontalOffset(float horizontalOffset)
     {
         _criticalOffset = horizontalOffset;
+    }
+
+    public void StrengthenWheels()
+    {
+        _wheelController.ReinfoceWheelFrictionCurve();
+    }
+
+    public void ResetToDefaultWheel()
+    {
+        _wheelController.ResetWheelFrictionCurve();
     }
 
     public void ChangeHorizontalOffset(float horizontalInput)
@@ -154,18 +163,6 @@ public class Mover : MonoBehaviour
         _currentRotationWheel = Mathf.Lerp(_currentRotationWheel, rotationToTargetSample, _turningPower * Time.fixedDeltaTime);
         _currentSteerAngle = _maxSteerAngle * _currentRotationWheel;
         _wheelController.SetSeetAngle(_currentSteerAngle);
-    }
-
-    private void HandleGroundedPositioning()
-    {
-        /*RaycastHit ground;
-        if (Physics.Raycast(transform.position, Vector3.down, out ground))
-        {
-            if (Vector3.Distance(transform.position, ground.point) > 0.5f)
-                _wheelController.DisableWheelColliders();
-            else
-                _wheelController.EnableWheelColliders();
-        }*/
     }
 
     private IEnumerator ResetBoostValues(float delayInSeconds)

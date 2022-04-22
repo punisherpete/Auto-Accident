@@ -101,10 +101,10 @@ MonoBehaviour:
   _transfers:
   - MinSpeed: 0
     MaxSpeed: 12
-    Acceleration: 9
+    Acceleration: 10
   - MinSpeed: 10
     MaxSpeed: 22
-    Acceleration: 6.5
+    Acceleration: 8
   - MinSpeed: 20
     MaxSpeed: 32
     Acceleration: 5
@@ -113,6 +113,12 @@ MonoBehaviour:
     Acceleration: 3
   - MinSpeed: 40
     MaxSpeed: 52
+    Acceleration: 2
+  - MinSpeed: 50
+    MaxSpeed: 62
+    Acceleration: 1
+  - MinSpeed: 60
+    MaxSpeed: 72
     Acceleration: 1
   _transferIndex: 0
   _isNeutral: 1
@@ -231,6 +237,8 @@ MonoBehaviour:
   _frontRightWheeTransform: {fileID: 8357793518884872563}
   _rearLeftWheelTransform: {fileID: 1721252921382914792}
   _rearRightWheelTransform: {fileID: 2866277161897692191}
+  _reinforcedExtremumValue: 3
+  _reinforcedStiffness: 2
 --- !u!114 &4955674667960276989
 MonoBehaviour:
   m_ObjectHideFlags: 0

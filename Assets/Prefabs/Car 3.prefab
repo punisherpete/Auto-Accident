@@ -102,10 +102,10 @@ MonoBehaviour:
   _transfers:
   - MinSpeed: 0
     MaxSpeed: 12
-    Acceleration: 9
+    Acceleration: 10
   - MinSpeed: 10
     MaxSpeed: 22
-    Acceleration: 6.5
+    Acceleration: 8
   - MinSpeed: 20
     MaxSpeed: 32
     Acceleration: 5
@@ -114,10 +114,13 @@ MonoBehaviour:
     Acceleration: 3
   - MinSpeed: 40
     MaxSpeed: 52
-    Acceleration: 1
+    Acceleration: 2
   - MinSpeed: 50
     MaxSpeed: 62
-    Acceleration: 0.5
+    Acceleration: 1
+  - MinSpeed: 60
+    MaxSpeed: 72
+    Acceleration: 1
   _transferIndex: 0
   _isNeutral: 1
 --- !u!114 &8824063929250874865
@@ -163,7 +166,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8824063929250874866}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fdc1077957f8694479456cf66955ba4c, type: 3}
   m_Name: 
@@ -231,6 +234,8 @@ MonoBehaviour:
   _frontRightWheeTransform: {fileID: 293078532230334425}
   _rearLeftWheelTransform: {fileID: 5649737871009759625}
   _rearRightWheelTransform: {fileID: 7249954748757661272}
+  _reinforcedExtremumValue: 3
+  _reinforcedStiffness: 2
 --- !u!114 &8824063929250874850
 MonoBehaviour:
   m_ObjectHideFlags: 0
