@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 5623070774318446897}
   - component: {fileID: 5623070774318446898}
   - component: {fileID: 5623070774318446899}
-  - component: {fileID: 7801272562841898712}
   m_Layer: 11
   m_Name: SM_Prop_Sign_Stop_01 (1)
   m_TagString: Untagged
@@ -360,18 +359,7 @@ MonoBehaviour:
   _eighthMeshChangingParts: []
   _neinhthMeshChangingParts: []
   _tenhthMeshChangingParts: []
+  _takeDamageInterval: 3
   _deformingForce: 45
   _deformationSensitivity: 1
   _effectsGenerator: {fileID: 0}
---- !u!114 &7801272562841898712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4812167405514529922}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 191366b92a70c1e48ab34c333738fb6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

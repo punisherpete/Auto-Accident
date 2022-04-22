@@ -16,8 +16,7 @@ GameObject:
   - component: {fileID: 4283487967423667936}
   - component: {fileID: 5534589621446678088}
   - component: {fileID: 8551382218480549177}
-  - component: {fileID: 2536631605435276513}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SM_Prop_Barrel_Nuke_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -365,6 +364,7 @@ MonoBehaviour:
   _eighthMeshChangingParts: []
   _neinhthMeshChangingParts: []
   _tenhthMeshChangingParts: []
+  _takeDamageInterval: 3
   _deformingForce: 26
   _deformationSensitivity: 1
   _effectsGenerator: {fileID: 0}
@@ -429,15 +429,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2536631605435276513
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3660939567625144162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 191366b92a70c1e48ab34c333738fb6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

@@ -107,7 +107,6 @@ GameObject:
   - component: {fileID: 4345502821260573975}
   - component: {fileID: 4345502821260573974}
   - component: {fileID: 4345502821260573969}
-  - component: {fileID: 5653173893621912373}
   m_Layer: 0
   m_Name: BoostZone
   m_TagString: Untagged
@@ -178,25 +177,7 @@ MonoBehaviour:
   _boostTime: 4
   _boostImpulseForce: 6000
   _tookExplosion: {fileID: 19896342, guid: 658fc6655c1c78e45a80243a241f1b1e, type: 3}
---- !u!95 &5653173893621912373
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4345502821260573968}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 50e09bfe9ea52d44a8704c20d43c3858, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  _speedWindLines: {fileID: 198893393215934218, guid: f683447c6570076418716c53d120168a, type: 3}
 --- !u!1001 &4345502819987784550
 PrefabInstance:
   m_ObjectHideFlags: 0

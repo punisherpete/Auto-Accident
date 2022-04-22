@@ -20,7 +20,7 @@ public class GlassPart : MonoBehaviour
         transform.parent = null;
         _rigidbody.isKinematic = false;
         _rigidbody.AddForce(transform.forward * force, ForceMode.VelocityChange);
-        Invoke(nameof(DeactivateWithDelay), 5f);
+        Invoke(nameof(DeactivateWithDelay), 3f);
     }
 
     private void DeactivateWithDelay()
