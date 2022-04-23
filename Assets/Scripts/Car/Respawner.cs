@@ -51,11 +51,8 @@ public class Respawner : MonoBehaviour
             return;
         if (_rigidbody.velocity.magnitude < 0.5f)
             _respawnTimer += Time.deltaTime;
-        else if(_splineProjectorObserver != null)
-        {
-            if(_splineProjectorObserver.IsGoesBeyondCriticalDistance(_criticalHorizontalOffset))
-                _respawnTimer += Time.deltaTime / 1.5f;
-        }
+        else if(_splineProjectorObserver != null && _splineProjectorObserver.IsGoesBeyondCriticalDistance(_criticalHorizontalOffset))
+            _respawnTimer += Time.deltaTime / 1.5f;
         else if (Mathf.Abs(Quaternion.Angle(_rigidbody.rotation, _mover.CurrentNode.rotation)) > 90)
             _respawnTimer += Time.deltaTime / 2;
         else
