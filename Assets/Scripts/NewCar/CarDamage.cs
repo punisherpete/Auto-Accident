@@ -15,9 +15,7 @@ public class CarDamage : MonoBehaviour
     [SerializeField] private InteractionProcessor[] _neinhthMeshChangingParts;
     [SerializeField] private InteractionProcessor[] _tenhthMeshChangingParts;
 
-    [SerializeField] private float _takeDamageInterval = 3f;
-    [SerializeField] private float _deformingForce = 5f;
-    [SerializeField, Range(0f, 1f)] private float _deformationSensitivity = 1f;
+    [SerializeField] private float _takeDamageInterval = 1f;
 
     [SerializeField] private EffectsGenerator _effectsGenerator;
 
@@ -92,7 +90,7 @@ public class CarDamage : MonoBehaviour
             _blendShapesMatch.Add(responsibleParts[i], deformableMesh);
         }
     }
-
+    
     private void SubscribeForDamage(InteractionProcessor[] meshChangingParts)
     {
         if (meshChangingParts.Length == 0)
@@ -135,7 +133,11 @@ public class CarDamage : MonoBehaviour
                 if(affectedPart == numberMatch.Key)
                 {
                     float deformingPartCurrentHealth = targetMeshRenderer.GetBlendShapeWeight(numberMatch.Value);
-                    targetMeshRenderer.SetBlendShapeWeight(numberMatch.Value, deformingPartCurrentHealth + _deformingForce * _deformationSensitivity);
+                    
+                    if (deformingPartCurrentHealth >= 100f)
+                        return;
+
+                    targetMeshRenderer.SetBlendShapeWeight(numberMatch.Value, deformingPartCurrentHealth + affectedPart.Sensitivity);
 
                     if (_effectsGenerator) 
                         _effectsGenerator.Play(affectedPart.transform.position);

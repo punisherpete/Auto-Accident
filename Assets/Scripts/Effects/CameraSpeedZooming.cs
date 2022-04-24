@@ -1,3 +1,4 @@
+using Cinemachine;
 using Dreamteck.Splines;
 using UnityEngine;
 
@@ -6,6 +7,8 @@ public class CameraSpeedZooming : MonoBehaviour
 {
     [SerializeField] private Car _car;
     [SerializeField] private float _moveSpeed = 0.05f;
+    [SerializeField] private SplineProjectorObserver _projectorObserver;
+    [SerializeField] private CinemachineVirtualCamera _followCamera;
 
     private float _startCarY;
     private SplineProjector _projector;
@@ -21,5 +24,7 @@ public class CameraSpeedZooming : MonoBehaviour
         _projector.motion.offset = Vector2.Lerp(_projector.motion.offset, 
             new Vector2(0, _car.transform.position.y - _startCarY), _moveSpeed * Time.deltaTime);
         /*Debug.Log(_moveSpeed * Time.deltaTime);*/
+
+        _followCamera.LookAt = _projectorObserver.IsGoesBeyondCriticalDistance(5f) ? _car.transform : _projector.transform;
     }
 }

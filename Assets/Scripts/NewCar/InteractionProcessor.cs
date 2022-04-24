@@ -3,9 +3,13 @@ using UnityEngine;
 
 public class InteractionProcessor : MonoBehaviour
 {
+    [SerializeField] private float _sensitivity = 1f;
+
     private Transform _transform;
 
     public event Action<InteractionProcessor> Affected;
+
+    public float Sensitivity => _sensitivity;
 
     private void Start()
     {
