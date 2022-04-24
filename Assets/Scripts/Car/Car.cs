@@ -11,13 +11,15 @@ public class Car : MonoBehaviour
     public event UnityAction Lost;
 
     [SerializeField] private CarType _type;
-    [SerializeField] private TMP_Text _nameText;
+    [SerializeField] private TMP_Text _playerName;
+    [SerializeField] private TMP_Text _aiName;
 
     [Header("Debug")]
     [SerializeField] private bool _showSpeed = false;
 
     private Mover _mover;
     private Respawner _respawner;
+    private bool _isFinished = false;
 
     private string _name;
     public string Name => _name;
@@ -84,13 +86,25 @@ public class Car : MonoBehaviour
 
     public void Finish()
     {
+        if (_isFinished)
+            return;
+        _isFinished = true;
         OnFinished?.Invoke(this);
     }
 
     public void SetName(string name)
     {
         _name = name;
-        _nameText.text = name;
+        if(_type == CarType.Player)
+        {
+            _playerName.gameObject.SetActive(true);
+            _playerName.text = name;
+        }
+        else
+        {
+            _aiName.gameObject.SetActive(true);
+            _aiName.text = name;
+        }
     }
 
     public float GetCurrentSpeed()

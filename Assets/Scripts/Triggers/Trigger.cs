@@ -14,12 +14,22 @@ public class Trigger : MonoBehaviour
         if (other.TryGetComponent(out Car car))
         {
             _car = car;
-            if (_car.Type == CarType.Player)
-                ActivateAfterPlayerEnter?.Invoke();
-            if (_car.Type == CarType.AI)
-                ActivateAfterAIEnter?.Invoke();
-            ActivateAfterAllEnter?.Invoke();
+            ActivateEvents();
         }
+        else if (other.TryGetComponent(out Projector projector))
+        {
+            _car = projector.GetCat();
+            ActivateEvents();
+        }
+    }
+
+    private void ActivateEvents()
+    {
+        if (_car.Type == CarType.Player)
+            ActivateAfterPlayerEnter?.Invoke();
+        if (_car.Type == CarType.AI)
+            ActivateAfterAIEnter?.Invoke();
+        ActivateAfterAllEnter?.Invoke();
     }
 
     public void SetSpeedLimit(float value)

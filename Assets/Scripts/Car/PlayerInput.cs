@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[RequireComponent(typeof (Mover))]
+[RequireComponent(typeof (Car))]
 public class PlayerInput : MonoBehaviour
 {
     [SerializeField] private VariableJoystick _joystick;
