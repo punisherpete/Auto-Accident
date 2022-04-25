@@ -14,13 +14,14 @@ public class CameraHeightZooming : MonoBehaviour
     private void Awake()
     {
         _projector = GetComponent<SplineProjector>();
-        _startCarY = _car.transform.position.y;
     }
 
     private void LateUpdate()
     {
+        if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit))
+            _startCarY = hit.point.y;
+
         _projector.motion.offset = Vector2.Lerp(_projector.motion.offset, 
             new Vector2(0, _car.transform.position.y - _startCarY), _moveSpeed * Time.deltaTime);
-        /*Debug.Log(_moveSpeed * Time.deltaTime);*/
     }
 }
