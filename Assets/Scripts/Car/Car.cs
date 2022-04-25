@@ -52,6 +52,11 @@ public class Car : MonoBehaviour
         Lost?.Invoke();
     }
 
+    public void ChangeOffsetSpeed(float speed)
+    {
+
+    }
+
     public void SetSpeedLimit(float speed)
     {
         _mover.SetMaxSpeed(speed);
