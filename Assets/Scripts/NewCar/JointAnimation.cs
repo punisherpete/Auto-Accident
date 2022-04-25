@@ -6,11 +6,12 @@ public class JointAnimation : MonoBehaviour
     [SerializeField] private Animator _animator;
     [SerializeField] private int _hitAnimations;
     [SerializeField] private InteractionProcessor _affectedPart;
-    [SerializeField] private float _toreOffDelay = 5f;
+    [SerializeField] private Rigidbody _selfRigidbody;
 
     private int _plays;
     private int _firstHitHash;
     private string _firstHit = "FirstHit";
+    private float _toreOffDelay;
 
 
     private void OnEnable()
@@ -20,6 +21,7 @@ public class JointAnimation : MonoBehaviour
 
     private void Start()
     {
+        _toreOffDelay = Random.Range(7f, 25f);
         _firstHitHash = Animator.StringToHash(_firstHit);
     }
 
@@ -47,7 +49,7 @@ public class JointAnimation : MonoBehaviour
     private IEnumerator ToreOff(float delay)
     {
         yield return new WaitForSeconds(delay);
-        GetComponent<Rigidbody>().isKinematic = false;
+        _selfRigidbody.isKinematic = false;
         yield return new WaitForSeconds(2f);
         gameObject.SetActive(false);
     }

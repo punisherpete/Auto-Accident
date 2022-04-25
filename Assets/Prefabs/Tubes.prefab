@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2453581441471809177}
   - component: {fileID: 7061889112659213394}
   - component: {fileID: 7061889112659213405}
+  - component: {fileID: 2063580301}
   m_Layer: 0
   m_Name: Tubes.006
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2075462451616819570}
   m_LocalRotation: {x: 0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -1.5928457, y: 2.429944, z: -0.0036304274}
+  m_LocalPosition: {x: -1.59, y: 2.43, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7316774646890877795}
@@ -91,8 +92,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2075462451616819570}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
+  m_Mass: 10
+  m_Drag: 0.6
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 1
@@ -113,6 +114,18 @@ CapsuleCollider:
   m_Height: 14.701895
   m_Direction: 1
   m_Center: {x: -0.0000004172325, y: 0.0000052452083, z: 0.0000015497205}
+--- !u!75 &2063580301
+ConstantForce:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2075462451616819570}
+  m_Enabled: 1
+  m_Force: {x: 0, y: 0, z: 0}
+  m_RelativeForce: {x: 0, y: -31.79, z: 0}
+  m_Torque: {x: 0, y: 0, z: 0}
+  m_RelativeTorque: {x: 0, y: 0, z: 0}
 --- !u!1 &2122649647327209108
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,6 +139,7 @@ GameObject:
   - component: {fileID: 3953999337886998318}
   - component: {fileID: 7061889114580745200}
   - component: {fileID: 7061889114580745203}
+  - component: {fileID: 1473024099}
   m_Layer: 0
   m_Name: Tubes.007
   m_TagString: Untagged
@@ -204,8 +218,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2122649647327209108}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
+  m_Mass: 10
+  m_Drag: 0.6
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 1
@@ -226,6 +240,18 @@ CapsuleCollider:
   m_Height: 14.701887
   m_Direction: 1
   m_Center: {x: 0.000002503395, y: -0.0000042915335, z: -0.0000013113021}
+--- !u!75 &1473024099
+ConstantForce:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2122649647327209108}
+  m_Enabled: 1
+  m_Force: {x: 0, y: 0, z: 0}
+  m_RelativeForce: {x: 0, y: -31.79, z: 0}
+  m_Torque: {x: 0, y: 0, z: 0}
+  m_RelativeTorque: {x: 0, y: 0, z: 0}
 --- !u!1 &3665271002766436696
 GameObject:
   m_ObjectHideFlags: 0
@@ -239,6 +265,7 @@ GameObject:
   - component: {fileID: 8282665601619859929}
   - component: {fileID: 7061889114463657573}
   - component: {fileID: 7061889114463657572}
+  - component: {fileID: 1413649732}
   m_Layer: 0
   m_Name: Tubes.003
   m_TagString: Untagged
@@ -254,7 +281,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3665271002766436696}
   m_LocalRotation: {x: 0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -1.37, y: 3.4486952, z: -0.004884045}
+  m_LocalPosition: {x: -1.43, y: 3.45, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7316774646890877795}
@@ -317,8 +344,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3665271002766436696}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
+  m_Mass: 10
+  m_Drag: 0.6
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 1
@@ -339,6 +366,18 @@ CapsuleCollider:
   m_Height: 14.701872
   m_Direction: 1
   m_Center: {x: -0.00000023841858, y: 0.0000019073484, z: -0.00000044703478}
+--- !u!75 &1413649732
+ConstantForce:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3665271002766436696}
+  m_Enabled: 1
+  m_Force: {x: 0, y: 0, z: 0}
+  m_RelativeForce: {x: 0, y: -31.79, z: 0}
+  m_Torque: {x: 0, y: 0, z: 0}
+  m_RelativeTorque: {x: 0, y: 0, z: 0}
 --- !u!1 &3805601887649103997
 GameObject:
   m_ObjectHideFlags: 0
@@ -352,6 +391,7 @@ GameObject:
   - component: {fileID: 9221144496176675314}
   - component: {fileID: 7061889113744007239}
   - component: {fileID: 7061889113744007238}
+  - component: {fileID: 936139154}
   m_Layer: 0
   m_Name: Tubes.002
   m_TagString: Untagged
@@ -430,8 +470,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3805601887649103997}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
+  m_Mass: 10
+  m_Drag: 0.6
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 1
@@ -452,6 +492,18 @@ CapsuleCollider:
   m_Height: 14.701872
   m_Direction: 1
   m_Center: {x: 0.0000005066395, y: -0.0000014305112, z: -0.0000006258487}
+--- !u!75 &936139154
+ConstantForce:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3805601887649103997}
+  m_Enabled: 1
+  m_Force: {x: 0, y: 0, z: 0}
+  m_RelativeForce: {x: 0, y: -31.79, z: 0}
+  m_Torque: {x: 0, y: 0, z: 0}
+  m_RelativeTorque: {x: 0, y: 0, z: 0}
 --- !u!1 &3952958437543438962
 GameObject:
   m_ObjectHideFlags: 0
@@ -479,7 +531,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3952958437543438962}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.89, y: 4.39, z: 7.98}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7316774646890877795}
@@ -493,11 +545,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3952958437543438962}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.880213, y: 6.9499154, z: 0.82245076}
-  m_Center: {x: 5.6244516, y: 5.466993, z: 6.050003}
+  m_Size: {x: 7.9707985, y: 6.9499154, z: 0.82245076}
+  m_Center: {x: 1.5452929, y: 0.0000000024439712, z: 0.0000004041282}
 --- !u!54 &8139695702461399391
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -528,18 +580,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tubes:
   - {fileID: 7061889113744007239}
-  - {fileID: 7061889114463657573}
   - {fileID: 7061889114648676614}
-  - {fileID: 7061889114179676052}
-  - {fileID: 7061889112659213394}
   - {fileID: 7061889114580745200}
   - {fileID: 7061889113621908174}
-  - {fileID: 7061889112662893790}
   - {fileID: 7061889113152278255}
   - {fileID: 7061889114678193384}
   - {fileID: 7061889113020384379}
   - {fileID: 7061889112900923954}
   - {fileID: 4579919550040747607}
+  _leanOnSticks:
+  - {fileID: 7062967221181265903}
+  - {fileID: 7063101557818265167}
+  _stickBurst: {fileID: 19875214, guid: c04c37ac5148e0b4bb6e8179bc3fb392, type: 3}
 --- !u!1 &5085624046387961794
 GameObject:
   m_ObjectHideFlags: 0
@@ -553,6 +605,7 @@ GameObject:
   - component: {fileID: 4722695259027034339}
   - component: {fileID: 7061889114648676614}
   - component: {fileID: 7061889114648676609}
+  - component: {fileID: 237674043}
   m_Layer: 0
   m_Name: Tubes.004
   m_TagString: Untagged
@@ -631,8 +684,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5085624046387961794}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
+  m_Mass: 10
+  m_Drag: 0.6
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 1
@@ -653,6 +706,18 @@ CapsuleCollider:
   m_Height: 14.701887
   m_Direction: 1
   m_Center: {x: -0.000003695488, y: -0.0000052452083, z: -0.0000007152557}
+--- !u!75 &237674043
+ConstantForce:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5085624046387961794}
+  m_Enabled: 1
+  m_Force: {x: 0, y: 0, z: 0}
+  m_RelativeForce: {x: 0, y: -31.79, z: 0}
+  m_Torque: {x: 0, y: 0, z: 0}
+  m_RelativeTorque: {x: 0, y: 0, z: 0}
 --- !u!1 &6568270293046986888
 GameObject:
   m_ObjectHideFlags: 0
@@ -666,6 +731,7 @@ GameObject:
   - component: {fileID: 4816050297486886111}
   - component: {fileID: 7061889114179676052}
   - component: {fileID: 7061889114179676055}
+  - component: {fileID: 1306144362}
   m_Layer: 0
   m_Name: Tubes.005
   m_TagString: Untagged
@@ -744,8 +810,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6568270293046986888}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
+  m_Mass: 10
+  m_Drag: 0.6
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 1
@@ -766,6 +832,18 @@ CapsuleCollider:
   m_Height: 14.701895
   m_Direction: 1
   m_Center: {x: -0.0000050365925, y: 0.0000052452083, z: -0.0000005960464}
+--- !u!75 &1306144362
+ConstantForce:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6568270293046986888}
+  m_Enabled: 1
+  m_Force: {x: 0, y: 0, z: 0}
+  m_RelativeForce: {x: 0, y: -31.79, z: 0}
+  m_Torque: {x: 0, y: 0, z: 0}
+  m_RelativeTorque: {x: 0, y: 0, z: 0}
 --- !u!1 &7061889112662893789
 GameObject:
   m_ObjectHideFlags: 0
@@ -779,6 +857,7 @@ GameObject:
   - component: {fileID: 7061889112662893785}
   - component: {fileID: 7061889112662893790}
   - component: {fileID: 7061889112662893791}
+  - component: {fileID: 35874300}
   m_Layer: 0
   m_Name: Tubes.006 (1)
   m_TagString: Untagged
@@ -794,7 +873,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7061889112662893789}
   m_LocalRotation: {x: 0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -1.5928457, y: 4.474944, z: -0.0036304274}
+  m_LocalPosition: {x: -1.35, y: 4.47, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7316774646890877795}
@@ -857,8 +936,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7061889112662893789}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
+  m_Mass: 10
+  m_Drag: 0.6
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 1
@@ -879,6 +958,18 @@ CapsuleCollider:
   m_Height: 14.701895
   m_Direction: 1
   m_Center: {x: -0.0000004172325, y: 0.0000052452083, z: 0.0000015497205}
+--- !u!75 &35874300
+ConstantForce:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7061889112662893789}
+  m_Enabled: 1
+  m_Force: {x: 0, y: 0, z: 0}
+  m_RelativeForce: {x: 0, y: -31.79, z: 0}
+  m_Torque: {x: 0, y: 0, z: 0}
+  m_RelativeTorque: {x: 0, y: 0, z: 0}
 --- !u!1 &7061889112900923953
 GameObject:
   m_ObjectHideFlags: 0
@@ -892,6 +983,7 @@ GameObject:
   - component: {fileID: 7061889112900923965}
   - component: {fileID: 7061889112900923954}
   - component: {fileID: 7061889112900923955}
+  - component: {fileID: 1133066091}
   m_Layer: 0
   m_Name: Tubes.007 (2)
   m_TagString: Untagged
@@ -907,7 +999,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7061889112900923953}
   m_LocalRotation: {x: 0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0.7890521, y: 5.4601135, z: -0.0038307586}
+  m_LocalPosition: {x: 1, y: 5.46, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7316774646890877795}
@@ -970,8 +1062,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7061889112900923953}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
+  m_Mass: 10
+  m_Drag: 0.6
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 1
@@ -992,6 +1084,18 @@ CapsuleCollider:
   m_Height: 14.701887
   m_Direction: 1
   m_Center: {x: 0.000002503395, y: -0.0000042915335, z: -0.0000013113021}
+--- !u!75 &1133066091
+ConstantForce:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7061889112900923953}
+  m_Enabled: 1
+  m_Force: {x: 0, y: 0, z: 0}
+  m_RelativeForce: {x: 0, y: -31.79, z: 0}
+  m_Torque: {x: 0, y: 0, z: 0}
+  m_RelativeTorque: {x: 0, y: 0, z: 0}
 --- !u!1 &7061889113020384382
 GameObject:
   m_ObjectHideFlags: 0
@@ -1005,6 +1109,7 @@ GameObject:
   - component: {fileID: 7061889113020384378}
   - component: {fileID: 7061889113020384379}
   - component: {fileID: 7061889113020384376}
+  - component: {fileID: 2026645103}
   m_Layer: 0
   m_Name: Tubes.006 (2)
   m_TagString: Untagged
@@ -1020,7 +1125,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7061889113020384382}
   m_LocalRotation: {x: 0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -1.3690523, y: 5.46, z: -0.0036304274}
+  m_LocalPosition: {x: -1.13, y: 5.46, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7316774646890877795}
@@ -1083,8 +1188,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7061889113020384382}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
+  m_Mass: 10
+  m_Drag: 0.6
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 1
@@ -1105,6 +1210,18 @@ CapsuleCollider:
   m_Height: 14.701895
   m_Direction: 1
   m_Center: {x: -0.0000004172325, y: 0.0000052452083, z: 0.0000015497205}
+--- !u!75 &2026645103
+ConstantForce:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7061889113020384382}
+  m_Enabled: 1
+  m_Force: {x: 0, y: -87.16, z: 0}
+  m_RelativeForce: {x: 0, y: 0, z: 0}
+  m_Torque: {x: 0, y: 0, z: 0}
+  m_RelativeTorque: {x: 0, y: 0, z: 0}
 --- !u!1 &7061889113152278242
 GameObject:
   m_ObjectHideFlags: 0
@@ -1118,6 +1235,7 @@ GameObject:
   - component: {fileID: 7061889113152278254}
   - component: {fileID: 7061889113152278255}
   - component: {fileID: 7061889113152278252}
+  - component: {fileID: 1228072022}
   m_Layer: 0
   m_Name: Tubes.007 (1)
   m_TagString: Untagged
@@ -1133,7 +1251,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7061889113152278242}
   m_LocalRotation: {x: 0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0.5652588, y: 4.4750576, z: -0.0038307586}
+  m_LocalPosition: {x: 0.85, y: 4.48, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7316774646890877795}
@@ -1196,8 +1314,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7061889113152278242}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
+  m_Mass: 10
+  m_Drag: 0.6
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 1
@@ -1218,6 +1336,18 @@ CapsuleCollider:
   m_Height: 14.701887
   m_Direction: 1
   m_Center: {x: 0.000002503395, y: -0.0000042915335, z: -0.0000013113021}
+--- !u!75 &1228072022
+ConstantForce:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7061889113152278242}
+  m_Enabled: 1
+  m_Force: {x: 0, y: 0, z: 0}
+  m_RelativeForce: {x: 0, y: -31.79, z: 0}
+  m_Torque: {x: 0, y: 0, z: 0}
+  m_RelativeTorque: {x: 0, y: 0, z: 0}
 --- !u!1 &7061889113621908173
 GameObject:
   m_ObjectHideFlags: 0
@@ -1231,6 +1361,7 @@ GameObject:
   - component: {fileID: 7061889113621908169}
   - component: {fileID: 7061889113621908174}
   - component: {fileID: 7061889113621908175}
+  - component: {fileID: 800110329}
   m_Layer: 0
   m_Name: Tubes.005 (1)
   m_TagString: Untagged
@@ -1246,7 +1377,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7061889113621908173}
   m_LocalRotation: {x: 0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0.51379323, y: 4.475, z: -0.0037296691}
+  m_LocalPosition: {x: -0.21, y: 4.47, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7316774646890877795}
@@ -1309,8 +1440,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7061889113621908173}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
+  m_Mass: 10
+  m_Drag: 0.6
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 1
@@ -1331,6 +1462,18 @@ CapsuleCollider:
   m_Height: 14.701895
   m_Direction: 1
   m_Center: {x: -0.0000050365925, y: 0.0000052452083, z: -0.0000005960464}
+--- !u!75 &800110329
+ConstantForce:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7061889113621908173}
+  m_Enabled: 1
+  m_Force: {x: 0, y: 0, z: 0}
+  m_RelativeForce: {x: 0, y: -31.79, z: 0}
+  m_Torque: {x: 0, y: 0, z: 0}
+  m_RelativeTorque: {x: 0, y: 0, z: 0}
 --- !u!1 &7061889114678193391
 GameObject:
   m_ObjectHideFlags: 0
@@ -1344,6 +1487,7 @@ GameObject:
   - component: {fileID: 7061889114678193387}
   - component: {fileID: 7061889114678193384}
   - component: {fileID: 7061889114678193385}
+  - component: {fileID: 60701610}
   m_Layer: 0
   m_Name: Tubes.005 (2)
   m_TagString: Untagged
@@ -1359,7 +1503,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7061889114678193391}
   m_LocalRotation: {x: 0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0.29, y: 5.460056, z: -0.0037296691}
+  m_LocalPosition: {x: -0.09, y: 5.46, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7316774646890877795}
@@ -1422,8 +1566,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7061889114678193391}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
+  m_Mass: 10
+  m_Drag: 0.6
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 1
@@ -1444,6 +1588,18 @@ CapsuleCollider:
   m_Height: 14.701895
   m_Direction: 1
   m_Center: {x: -0.0000050365925, y: 0.0000052452083, z: -0.0000005960464}
+--- !u!75 &60701610
+ConstantForce:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7061889114678193391}
+  m_Enabled: 1
+  m_Force: {x: 0, y: 0, z: 0}
+  m_RelativeForce: {x: 0, y: -31.79, z: 0}
+  m_Torque: {x: 0, y: 0, z: 0}
+  m_RelativeTorque: {x: 0, y: 0, z: 0}
 --- !u!1 &7980861681028008409
 GameObject:
   m_ObjectHideFlags: 0
@@ -1607,15 +1763,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8992317012134882221, guid: a1486b99131507e48bf02e6cc8c21312, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.48999977
+      value: -0.29
       objectReference: {fileID: 0}
     - target: {fileID: 8992317012134882221, guid: a1486b99131507e48bf02e6cc8c21312, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.89
+      value: 1.79
       objectReference: {fileID: 0}
     - target: {fileID: 8992317012134882221, guid: a1486b99131507e48bf02e6cc8c21312, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.9599991
+      value: -0.96
       objectReference: {fileID: 0}
     - target: {fileID: 8992317012134882221, guid: a1486b99131507e48bf02e6cc8c21312, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1699,7 +1855,7 @@ MonoBehaviour:
     byOffset: 0
     byVelocity: 0
     byDamage: 0
-    byActivator: 1
+    byActivator: 0
     byImpact: 0
     byConnectivity: 0
     unyielding: 0
@@ -1769,9 +1925,9 @@ MonoBehaviour:
   fading:
     onDemolition: 1
     onActivation: 1
-    byOffset: 5.1
+    byOffset: 1.43
     lifeType: 4
-    lifeTime: 7
+    lifeTime: 1
     lifeVariation: 3
     fadeType: 3
     fadeTime: 1
@@ -1830,7 +1986,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1675425403106318, guid: 7135daec5c9f4834bb09e3b1683b9746, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4556319141443578, guid: 7135daec5c9f4834bb09e3b1683b9746, type: 3}
       propertyPath: m_RootOrder
@@ -1964,7 +2120,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1246845882456928, guid: 6cf91da3d004a0b4096c83c7a865dfec, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4824965807189508, guid: 6cf91da3d004a0b4096c83c7a865dfec, type: 3}
       propertyPath: m_RootOrder
@@ -2032,14 +2188,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6cf91da3d004a0b4096c83c7a865dfec, type: 3}
---- !u!1 &7062967221181265903 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1246845882456928, guid: 6cf91da3d004a0b4096c83c7a865dfec, type: 3}
-  m_PrefabInstance: {fileID: 7061889114136997007}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7066705251627745931 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4824965807189508, guid: 6cf91da3d004a0b4096c83c7a865dfec, type: 3}
+  m_PrefabInstance: {fileID: 7061889114136997007}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7062967221181265903 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1246845882456928, guid: 6cf91da3d004a0b4096c83c7a865dfec, type: 3}
   m_PrefabInstance: {fileID: 7061889114136997007}
   m_PrefabAsset: {fileID: 0}
 --- !u!54 &4579919550040747607
