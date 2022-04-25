@@ -115,34 +115,50 @@ public class CarDamage : MonoBehaviour
 
     private void OnTakeDamage(InteractionProcessor affectedPart)
     {
-        if (TryGetComponent(out MeshRenderer meshRenderer))
-            meshRenderer.enabled = false;
-        
-        SkinnedMeshRenderer targetMeshRenderer = null;
+        if (_elapsedTime < _takeDamageInterval)
+            return;
+
+        _elapsedTime = 0;
+
+        SkinnedMeshRenderer targetMeshRenderer = GetMatchedMeshRendererToProcessor(affectedPart);
+        ChangeBlendShape(targetMeshRenderer, affectedPart);
+    }
+
+    private SkinnedMeshRenderer GetMatchedMeshRendererToProcessor(InteractionProcessor affectedPart)
+    {
         foreach (var blendShapesMatch in _blendShapesMatch)
         {
             if (affectedPart == blendShapesMatch.Key)
-                targetMeshRenderer = blendShapesMatch.Value;
+                return blendShapesMatch.Value;
         }
 
-        if (targetMeshRenderer && _elapsedTime > _takeDamageInterval)
+        return null;
+    }
+
+    private void ChangeBlendShape(SkinnedMeshRenderer targetMeshRenderer, InteractionProcessor affectedPart)
+    {
+        if (targetMeshRenderer)
         {
-            _elapsedTime = 0;
-            foreach(var numberMatch in _blendShapesNumberMatch)
+            foreach (var numberMatch in _blendShapesNumberMatch)
             {
-                if(affectedPart == numberMatch.Key)
+                if (affectedPart == numberMatch.Key)
                 {
                     float deformingPartCurrentHealth = targetMeshRenderer.GetBlendShapeWeight(numberMatch.Value);
-                    
+
                     if (deformingPartCurrentHealth >= 100f)
                         return;
 
                     targetMeshRenderer.SetBlendShapeWeight(numberMatch.Value, deformingPartCurrentHealth + affectedPart.Sensitivity);
 
-                    if (_effectsGenerator) 
-                        _effectsGenerator.Play(affectedPart.transform.position);
+                    EmmitEffect(affectedPart.transform.position);
                 }
             }
         }
+    }
+
+    private void EmmitEffect(Vector3 position)
+    {
+        if (_effectsGenerator)
+            _effectsGenerator.Play(position);
     }
 }
