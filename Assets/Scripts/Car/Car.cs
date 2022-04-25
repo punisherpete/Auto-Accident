@@ -54,7 +54,7 @@ public class Car : MonoBehaviour
 
     public void ChangeOffsetSpeed(float speed)
     {
-
+        _mover.SetOffsetSpeed(speed);
     }
 
     public void SetSpeedLimit(float speed)

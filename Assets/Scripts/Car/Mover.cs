@@ -114,6 +114,11 @@ public class Mover : MonoBehaviour
         _transmission.TurnOnDrive();
     }
 
+    public void SetOffsetSpeed(float speed)
+    {
+        _offsetSpeed = speed;
+    }
+
     public void SetMaxSpeed(float value)
     {
         _maxSpeed = value;
