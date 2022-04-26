@@ -13,7 +13,7 @@ public class PathMover : MonoBehaviour
     {
         foreach (var node in _nodes)
         {
-            node.SetOffset(criticalOffset,offsetSpeed,input);
+            node.Move(criticalOffset,offsetSpeed,input);
         }
     }
 }
