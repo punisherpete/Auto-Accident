@@ -29,7 +29,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &859347649077916114
 Transform:
   m_ObjectHideFlags: 0
@@ -656,6 +656,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7194642769057489413, guid: f3b7cf69096c72e478f08c032616243d, type: 3}
       propertyPath: m_SidewaysFriction.m_ExtremumValue
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7194642769086148803, guid: f3b7cf69096c72e478f08c032616243d, type: 3}
+      propertyPath: _effects.Array.size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7194642769303374983, guid: f3b7cf69096c72e478f08c032616243d, type: 3}
