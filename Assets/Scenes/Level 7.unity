@@ -2244,7 +2244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectorFollowAndLookAtCar: {fileID: 1819472121}
   _carMover: {fileID: 1215452933}
-  _criticalOffset: 5
+  _projectorObserver: {fileID: 1215452934}
 --- !u!4 &978855798 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5477404811600330020, guid: a1a30d17c9dfc014a9fd55dbd8d3b70f, type: 3}
@@ -2902,6 +2902,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 408014f04eb50254f84b4aa9c01753f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1215452934 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4410716152696168905, guid: 502a0eb1cf2a80241ad16d2c1cc619c0, type: 3}
+  m_PrefabInstance: {fileID: 1215452931}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1b05c92c74fd3646b96cd155dbf72de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!43 &1217192831

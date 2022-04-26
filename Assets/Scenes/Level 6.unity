@@ -1220,7 +1220,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9087260831973040688, guid: db8eaaf85c3c6224d9c9774c5f56590c, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.17928852
+      value: 0.17928848
       objectReference: {fileID: 0}
     - target: {fileID: 9087260831973040688, guid: db8eaaf85c3c6224d9c9774c5f56590c, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1232,7 +1232,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9087260831973040688, guid: db8eaaf85c3c6224d9c9774c5f56590c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.29527953
+      value: -0.29527956
       objectReference: {fileID: 0}
     - target: {fileID: 9087260831973040688, guid: db8eaaf85c3c6224d9c9774c5f56590c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2332,7 +2332,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.056515716, y: 0.93673456, z: -0.29527953, w: 0.17928852}
+  m_LocalRotation: {x: 0.056515716, y: 0.93673456, z: -0.29527956, w: 0.17928848}
   m_LocalPosition: {x: 14.720852, y: 6.215333, z: -15.863088}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2387,7 +2387,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectorFollowAndLookAtCar: {fileID: 728639707}
   _carMover: {fileID: 1215452933}
-  _criticalOffset: 5
+  _projectorObserver: {fileID: 1215452934}
 --- !u!4 &978855798 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5477404811600330020, guid: a1a30d17c9dfc014a9fd55dbd8d3b70f, type: 3}
@@ -3045,6 +3045,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 408014f04eb50254f84b4aa9c01753f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1215452934 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4410716152696168905, guid: 502a0eb1cf2a80241ad16d2c1cc619c0, type: 3}
+  m_PrefabInstance: {fileID: 1215452931}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1b05c92c74fd3646b96cd155dbf72de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1258162912 stripped
