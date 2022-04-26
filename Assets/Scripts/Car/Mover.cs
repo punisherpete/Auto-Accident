@@ -22,7 +22,6 @@ public class Mover : MonoBehaviour
     private Transform _targetNode;
     private Transform _currentNode;
     private float _currentRotationWheel = 0;
-    private float _horizontalOffset;
     private float _breakingTimer = 0f;
     private WheelController _wheelController;
     private Transmission _transmission;
@@ -82,12 +81,7 @@ public class Mover : MonoBehaviour
 
     public void ChangeHorizontalOffset(float horizontalInput)
     {
-        if (_horizontalOffset > _criticalOffset)
-            _horizontalOffset -= _offsetSpeed * Time.fixedDeltaTime;
-        else if (_horizontalOffset < -_criticalOffset)
-            _horizontalOffset += _offsetSpeed * Time.fixedDeltaTime;
-        else
-            _horizontalOffset += horizontalInput * _offsetSpeed * Time.fixedDeltaTime;
+        _pathController.MovePath(_criticalOffset,_offsetSpeed,horizontalInput);
     }
 
     public void PauseMoving(float time)
@@ -149,6 +143,11 @@ public class Mover : MonoBehaviour
         return _transmission.GetAcceleration() * _boostAccelerationModifier;
     }
 
+    public float GetCriticalOffset()
+    {
+        return _criticalOffset;
+    }
+
     private void HandleMotor()
     {
         _wheelController.SetForce(_transmission.GetAcceleration() * _motorForce * _boostAccelerationModifier);
@@ -161,7 +160,6 @@ public class Mover : MonoBehaviour
 
     private void HandleSteering()
     {
-        _pathController.MovePath(_horizontalOffset);
         Vector3 realitiveVector = transform.InverseTransformPoint(_targetNode.position);
         realitiveVector = realitiveVector / realitiveVector.magnitude;
         float rotationToTargetSample = realitiveVector.x / realitiveVector.magnitude;

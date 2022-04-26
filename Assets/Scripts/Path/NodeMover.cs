@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class NodeMover : MonoBehaviour
 {
-    private float _startXPosition;
+    private Vector3 _startXPosition;
+    private Vector3 _lastPosition;
 
     private void OnEnable()
     {
-        _startXPosition = transform.localPosition.x;
+        _startXPosition = transform.position;
     }
 
-    public void SetOffset(float offset)
+    public void SetOffset(float criticalOffset, float offsetSpeed,float input)
     {
-        transform.localPosition = new Vector3(_startXPosition - offset, transform.localPosition.y, transform.localPosition.z);
+        if (Vector3.Distance(transform.position, _startXPosition) < criticalOffset && Vector3.Distance(transform.position, _startXPosition) > -criticalOffset)
+        {
+            _lastPosition = transform.position;
+            transform.Translate(transform.right * offsetSpeed * input * Time.deltaTime, Space.World);
+        }
+        else
+            transform.position = _lastPosition;
     }
 }

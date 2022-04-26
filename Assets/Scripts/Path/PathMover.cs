@@ -9,11 +9,11 @@ public class PathMover : MonoBehaviour
         _nodes = GetComponentsInChildren<NodeMover>();
     }
 
-    public void MovePath(float offset)
+    public void MovePath(float criticalOffset, float offsetSpeed, float input)
     {
         foreach (var node in _nodes)
         {
-            node.SetOffset(offset);
+            node.SetOffset(criticalOffset,offsetSpeed,input);
         }
     }
 }
