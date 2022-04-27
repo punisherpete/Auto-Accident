@@ -1070,7 +1070,11 @@ PrefabInstance:
       objectReference: {fileID: 6412967086084756299}
     - target: {fileID: 1670358603103306644, guid: 775287e29a0d8f44499a17574d7b6f5b, type: 3}
       propertyPath: showGizmo
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1670358603103306644, guid: 775287e29a0d8f44499a17574d7b6f5b, type: 3}
+      propertyPath: sphereRadius
+      value: 7.3152
       objectReference: {fileID: 0}
     - target: {fileID: 1670358603103306647, guid: 775287e29a0d8f44499a17574d7b6f5b, type: 3}
       propertyPath: m_RootOrder
