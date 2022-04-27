@@ -9,7 +9,7 @@ public class CamerasSwitcher : MonoBehaviour
 
     private void LateUpdate()
     {
-        bool isSwitched =  _projectorObserver.IsGoesBeyondCriticalDistance(_carMover.GetCriticalOffset() + 0.5f);
+        bool isSwitched =  _projectorObserver.IsGoesBeyondCriticalDistance(_carMover.GetCriticalOffset() - 0.5f);
         _projectorFollowAndLookAtCar.gameObject.SetActive(isSwitched);
     }
 }
