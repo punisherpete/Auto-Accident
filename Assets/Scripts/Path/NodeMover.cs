@@ -17,9 +17,17 @@ public class NodeMover : MonoBehaviour
         
         if (Vector3.Distance(transform.position, _startPosition) < criticalOffset)
             transform.Translate(transform.right * offsetSpeed * input * Time.deltaTime, Space.World);
-        else if (transform.InverseTransformPoint(_startPosition).x < 0)
-            transform.Translate(transform.right * -offsetSpeed * Time.deltaTime, Space.World);
-        else if(transform.InverseTransformPoint(_startPosition).x > 0)
-            transform.Translate(transform.right * offsetSpeed * Time.deltaTime, Space.World);
+        else if(input < 0 && transform.InverseTransformPoint(_startPosition).x < 0)
+            transform.Translate(transform.right * offsetSpeed * input * Time.deltaTime, Space.World);
+        else if(input > 0 && transform.InverseTransformPoint(_startPosition).x > 0)
+            transform.Translate(transform.right * offsetSpeed * input * Time.deltaTime, Space.World);
+        else if(Vector3.Distance(transform.position, _startPosition) > criticalOffset + 0.5f)
+        {
+            if (transform.InverseTransformPoint(_startPosition).x < 0)
+                transform.Translate(transform.right * -offsetSpeed * Time.deltaTime, Space.World);
+            else if (transform.InverseTransformPoint(_startPosition).x > 0)
+                transform.Translate(transform.right * offsetSpeed * Time.deltaTime, Space.World);
+        }
+        
     }
 }
