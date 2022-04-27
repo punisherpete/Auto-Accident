@@ -3,6 +3,7 @@ using UnityEngine;
 public class CameraPointFollover : MonoBehaviour
 {
     [SerializeField] private Transform _anchor;
+    [SerializeField] private Vector3 _offset;
     
     private Rigidbody _rigidbody;
 
@@ -13,6 +14,6 @@ public class CameraPointFollover : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _rigidbody.MovePosition(_anchor.position);
+        _rigidbody.MovePosition(_anchor.position + _offset);
     }
 }
