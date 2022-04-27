@@ -14,7 +14,6 @@ public class NodeMover : MonoBehaviour
 
     public void Move(float criticalOffset, float offsetSpeed,float input)
     {
-        
         if (Vector3.Distance(transform.position, _startPosition) < criticalOffset)
             transform.Translate(transform.right * offsetSpeed * input * Time.deltaTime, Space.World);
         else if(input < 0 && transform.InverseTransformPoint(_startPosition).x < 0)
