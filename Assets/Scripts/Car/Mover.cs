@@ -81,7 +81,8 @@ public class Mover : MonoBehaviour
 
     public void ChangeHorizontalOffset(float horizontalInput)
     {
-        _pathController.MovePath(_criticalOffset,_offsetSpeed,horizontalInput);
+        if(_wheelController.IsGrounded)
+            _pathController.MovePath(_criticalOffset,_offsetSpeed,horizontalInput);
     }
 
     public void PauseMoving(float time)

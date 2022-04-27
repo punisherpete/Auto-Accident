@@ -20,6 +20,9 @@ public class WheelController : MonoBehaviour
 
     private WheelFrictionCurve _reinforcedWheelFrictionCurve;
     private WheelFrictionCurve _defaultWheelFrictionCurve;
+    private bool _isGrounded;
+
+    public bool IsGrounded => _isGrounded;
 
     private void Awake()
     {
@@ -32,6 +35,7 @@ public class WheelController : MonoBehaviour
     private void FixedUpdate()
     {
         UpdateWheels();
+        _isGrounded = _frontLeftWheelCollider.isGrounded || _frontRightWheelCollider.isGrounded;
     }
 
     public void ReinfoceWheelFrictionCurve()
