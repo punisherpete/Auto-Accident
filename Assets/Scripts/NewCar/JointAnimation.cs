@@ -21,7 +21,7 @@ public class JointAnimation : MonoBehaviour
 
     private void Start()
     {
-        _toreOffDelay = Random.Range(7f, 25f);
+        _toreOffDelay = Random.Range(25f, 45f);
         _firstHitHash = Animator.StringToHash(_firstHit);
     }
 
