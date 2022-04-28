@@ -39,7 +39,7 @@ Transform:
   m_GameObject: {fileID: 859347649077916115}
   m_LocalRotation: {x: 0.008827409, y: 0.9759622, z: -0.040256556, w: 0.21400781}
   m_LocalPosition: {x: 0, y: -1.07, z: 12.43}
-  m_LocalScale: {x: 0.9800002, y: 0.9800002, z: 0.9800002}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6561710950161478141}
   - {fileID: 6945546768762204214}
@@ -120,24 +120,31 @@ MonoBehaviour:
   - MinSpeed: 0
     MaxSpeed: 12
     Acceleration: 10
+    Force: 10000
   - MinSpeed: 10
     MaxSpeed: 22
     Acceleration: 8
+    Force: 5000
   - MinSpeed: 20
     MaxSpeed: 32
     Acceleration: 5
+    Force: 0
   - MinSpeed: 30
     MaxSpeed: 42
     Acceleration: 3
+    Force: 0
   - MinSpeed: 40
     MaxSpeed: 52
     Acceleration: 2
+    Force: 0
   - MinSpeed: 50
     MaxSpeed: 62
     Acceleration: 1
+    Force: 0
   - MinSpeed: 60
     MaxSpeed: 72
     Acceleration: 1
+    Force: 0
   _isNeutral: 1
 --- !u!114 &859347649077916112
 MonoBehaviour:

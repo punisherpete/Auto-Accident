@@ -147,24 +147,31 @@ MonoBehaviour:
   - MinSpeed: 0
     MaxSpeed: 12
     Acceleration: 10
+    Force: 10000
   - MinSpeed: 10
     MaxSpeed: 22
     Acceleration: 8
+    Force: 5000
   - MinSpeed: 20
     MaxSpeed: 32
     Acceleration: 5
+    Force: 0
   - MinSpeed: 30
     MaxSpeed: 42
     Acceleration: 3
+    Force: 0
   - MinSpeed: 40
     MaxSpeed: 52
     Acceleration: 2
+    Force: 0
   - MinSpeed: 50
     MaxSpeed: 62
     Acceleration: 1
+    Force: 0
   - MinSpeed: 60
     MaxSpeed: 72
     Acceleration: 1
+    Force: 0
   _isNeutral: 1
 --- !u!114 &4955674667960276974
 MonoBehaviour:
@@ -243,7 +250,7 @@ MonoBehaviour:
   - {fileID: 2746224814236095099}
   - {fileID: 7670807631779368815}
   _safeDistanceForSafeMode: 5
-  _criticalHorizontalOffset: 10
+  _criticalHorizontalOffset: 15
   _safeLayerIndex: 8
   _isRespawnAllowed: 1
   _respawnAnimationName: Blink
