@@ -9,12 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5297236393131001400}
-  - component: {fileID: 289594695961393601}
   - component: {fileID: 5623070774318446911}
   - component: {fileID: 5623070774318446896}
   - component: {fileID: 5623070774318446897}
-  - component: {fileID: 5623070774318446898}
-  - component: {fileID: 5623070774318446899}
   m_Layer: 11
   m_Name: SM_Prop_Sign_Stop_01 (1)
   m_TagString: Untagged
@@ -36,59 +33,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!137 &289594695961393601
-SkinnedMeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4812167405514529922}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 3
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: -8565982977684164056, guid: 4683f27dd21c92b41908e8c34e21e0c8, type: 3}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  serializedVersion: 2
-  m_Quality: 0
-  m_UpdateWhenOffscreen: 1
-  m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: -653867826797834052, guid: 4683f27dd21c92b41908e8c34e21e0c8, type: 3}
-  m_Bones: []
-  m_BlendShapeWeights:
-  - 0
-  m_RootBone: {fileID: 0}
-  m_AABB:
-    m_Center: {x: 0.025043562, y: 1.132939, z: -0.09375771}
-    m_Extent: {x: 0.46537125, y: 1.132939, z: 0.21668994}
-  m_DirtyAABB: 0
 --- !u!23 &5623070774318446911
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -322,44 +266,3 @@ MonoBehaviour:
   dustList: []
   restriction: {fileID: 0}
   sound: {fileID: 0}
---- !u!114 &5623070774318446898
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4812167405514529922}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a3cd2d5ab9bcda47a65daf215016f93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &5623070774318446899
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4812167405514529922}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54fe62fb3381b6c4196a544bc2f341b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _deformableViews:
-  - {fileID: 289594695961393601}
-  _firstMeshChangingParts:
-  - {fileID: 5623070774318446898}
-  _secondMeshChangingParts: []
-  _thirdMeshChangingParts: []
-  _fourthMeshChangingParts: []
-  _fifthMeshChangingParts: []
-  _sixthMeshChangingParts: []
-  _seventhMeshChangingParts: []
-  _eighthMeshChangingParts: []
-  _neinhthMeshChangingParts: []
-  _tenhthMeshChangingParts: []
-  _takeDamageInterval: 3
-  _deformingForce: 45
-  _deformationSensitivity: 1
-  _effectsGenerator: {fileID: 0}
