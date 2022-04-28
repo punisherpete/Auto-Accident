@@ -29,6 +29,7 @@ public class Mover : MonoBehaviour
     private float _boostSpeedModifier = 1f;
     private Rigidbody _rigidbody;
     private float _maxSpeedModifier = 1f;
+    private float _force;
 
     public float CurrentRotationWheel => _currentRotationWheel;
     public float MaxSpeed => _maxSpeed;
@@ -152,7 +153,9 @@ public class Mover : MonoBehaviour
     private void HandleMotor()
     {
         _wheelController.SetForce(_transmission.GetAcceleration() * _motorForce * _boostAccelerationModifier);
-        if(_isStop)
+        if(_wheelController.IsGrounded)
+            _rigidbody.AddForce(transform.forward * _transmission.GetForce());
+        if (_isStop)
             _currentBreakForce = _breakForce;
         else
             _currentBreakForce = _breakingTimer > 0 ? _breakForce : 0f;

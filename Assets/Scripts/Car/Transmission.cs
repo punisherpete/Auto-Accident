@@ -53,6 +53,13 @@ public class Transmission : MonoBehaviour
         return _acceleration;
     }
 
+    public float GetForce()
+    {
+        if (_isNeutral)
+            return 0;
+        return _transfers[_currentTransferIndex].Force;
+    }
+
     private void ReduceTransmission()
     {
         if (_currentTransferIndex < _transfers.Count - 1)
@@ -75,5 +82,6 @@ public class Transfer
     public float MinSpeed;
     public float MaxSpeed;
     public float Acceleration;
+    public float Force;
 }
 
