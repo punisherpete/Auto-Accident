@@ -59,9 +59,19 @@ public class Data : MonoBehaviour
         return _options.SessionCount;
     }
 
+    public void AddDisplayedLevelNumber()
+    {
+        _options.DisplayedLevelNumber++;
+    }
+
     public int GetNumberDaysAfterRegistration()
     {
         return (DateTime.Parse(_options.LastLoginDate) - DateTime.Parse(_options.RegistrationDate)).Days;
+    }
+
+    public int GetDisplayedLevelNumber()
+    {
+        return _options.DisplayedLevelNumber;
     }
 
     public string GetRegistrationDate()
@@ -77,5 +87,6 @@ public class SaveOptions
     public int SessionCount;
     public string LastLoginDate;
     public string RegistrationDate;
+    public int DisplayedLevelNumber = 1;
 }
 

@@ -15,7 +15,7 @@ public class GameSceneManager : Data
         Load();
         SetLevelIndex(SceneManager.GetActiveScene().buildIndex);
         Save();
-        _levelText.text = $"Level {SceneManager.GetActiveScene().buildIndex}";
+        _levelText.text = $"Level {GetDisplayedLevelNumber()}";
     }
 
     private void Start()
@@ -33,22 +33,23 @@ public class GameSceneManager : Data
 
     public void LevelFail()
     {
-        _appMetricaObject.OnFail(GetLevelIndex());
-        _gameAnalyticsObject.OnFail(GetLevelIndex());
+        _appMetricaObject.OnFail(GetDisplayedLevelNumber());
+        _gameAnalyticsObject.OnFail(GetDisplayedLevelNumber());
     }
 
     public void LoadScene(int index)
     {
-        _appMetricaObject.OnLevelComplete(GetLevelIndex());
-        _gameAnalyticsObject.OnLevelComplete(GetLevelIndex());
+        _appMetricaObject.OnLevelComplete(GetDisplayedLevelNumber());
+        _gameAnalyticsObject.OnLevelComplete(GetDisplayedLevelNumber());
+        AddDisplayedLevelNumber();
         Save();
         SceneManager.LoadScene(index);
     }
 
     public void ReloadScene()
     {
-        _appMetricaObject.OnLevelRestart(GetLevelIndex());
-        _gameAnalyticsObject.OnLevelRestart(GetLevelIndex());
+        _appMetricaObject.OnLevelRestart(GetDisplayedLevelNumber());
+        _gameAnalyticsObject.OnLevelRestart(GetDisplayedLevelNumber());
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
