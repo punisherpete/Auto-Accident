@@ -20,8 +20,8 @@ public class GameSceneManager : Data
 
     private void Start()
     {
-        _appMetricaObject.OnLevelStart(GetLevelIndex());
-        _gameAnalyticsObject.OnLevelStart(GetLevelIndex());
+        _appMetricaObject.OnLevelStart(GetDisplayedLevelNumber());
+        _gameAnalyticsObject.OnLevelStart(GetDisplayedLevelNumber());
     }
 
     private void OnApplicationQuit()
