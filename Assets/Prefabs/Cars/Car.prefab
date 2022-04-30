@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2126341292}
   m_Layer: 9
-  m_Name: CameraOffset
+  m_Name: CameraAnchor
   m_TagString: Untagged
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -146,24 +146,24 @@ MonoBehaviour:
   _transfers:
   - MinSpeed: 0
     MaxSpeed: 12
-    Acceleration: 10
+    Acceleration: 50
     Force: 10000
   - MinSpeed: 10
     MaxSpeed: 22
     Acceleration: 8
-    Force: 5000
+    Force: 7000
   - MinSpeed: 20
     MaxSpeed: 32
     Acceleration: 5
-    Force: 0
+    Force: 5000
   - MinSpeed: 30
     MaxSpeed: 42
     Acceleration: 3
-    Force: 0
+    Force: 3000
   - MinSpeed: 40
     MaxSpeed: 52
     Acceleration: 2
-    Force: 0
+    Force: 2000
   - MinSpeed: 50
     MaxSpeed: 62
     Acceleration: 1
@@ -607,7 +607,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1547273070824738651, guid: f72a0dddaca82884fbcb2439e18478a1, type: 3}
       propertyPath: m_SidewaysFriction.m_Stiffness
-      value: 1.8
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 1547273070824738651, guid: f72a0dddaca82884fbcb2439e18478a1, type: 3}
       propertyPath: m_ForwardFriction.m_ExtremumValue
@@ -615,7 +615,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1547273070824738651, guid: f72a0dddaca82884fbcb2439e18478a1, type: 3}
       propertyPath: m_SidewaysFriction.m_ExtremumValue
-      value: 3
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1547273070824738651, guid: f72a0dddaca82884fbcb2439e18478a1, type: 3}
+      propertyPath: m_SidewaysFriction.m_AsymptoteValue
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1557162246534068707, guid: f72a0dddaca82884fbcb2439e18478a1, type: 3}
       propertyPath: m_Enabled
@@ -643,7 +647,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3414202928034019749, guid: f72a0dddaca82884fbcb2439e18478a1, type: 3}
       propertyPath: m_SidewaysFriction.m_Stiffness
-      value: 1.8
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 3414202928034019749, guid: f72a0dddaca82884fbcb2439e18478a1, type: 3}
       propertyPath: m_ForwardFriction.m_ExtremumValue
@@ -651,7 +655,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3414202928034019749, guid: f72a0dddaca82884fbcb2439e18478a1, type: 3}
       propertyPath: m_SidewaysFriction.m_ExtremumValue
-      value: 3
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3414202928034019749, guid: f72a0dddaca82884fbcb2439e18478a1, type: 3}
+      propertyPath: m_SidewaysFriction.m_AsymptoteValue
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3897504945761425606, guid: f72a0dddaca82884fbcb2439e18478a1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -885,6 +893,10 @@ PrefabInstance:
       propertyPath: m_SidewaysFriction.m_ExtremumValue
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7898291131215470186, guid: f72a0dddaca82884fbcb2439e18478a1, type: 3}
+      propertyPath: m_SidewaysFriction.m_AsymptoteValue
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7935301582797581846, guid: f72a0dddaca82884fbcb2439e18478a1, type: 3}
       propertyPath: m_ForwardFriction.m_Stiffness
       value: 1.5
@@ -900,6 +912,10 @@ PrefabInstance:
     - target: {fileID: 7935301582797581846, guid: f72a0dddaca82884fbcb2439e18478a1, type: 3}
       propertyPath: m_SidewaysFriction.m_ExtremumValue
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7935301582797581846, guid: f72a0dddaca82884fbcb2439e18478a1, type: 3}
+      propertyPath: m_SidewaysFriction.m_AsymptoteValue
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8082434321913427923, guid: f72a0dddaca82884fbcb2439e18478a1, type: 3}
       propertyPath: m_Interpolate
