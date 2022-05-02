@@ -90,9 +90,10 @@ public class Mover : MonoBehaviour
         _breakingTimer = time;
     }
 
-    public void SetMaxSpeedModifier(float modifier)
+    public void SetMaxSpeedModifier(float modifier, float regularForce)
     {
         _maxSpeedModifier = modifier;
+        _transmission.SetRegularForce(regularForce);
         SetMaxSpeed(_maxSpeed);
     }
 
@@ -114,9 +115,9 @@ public class Mover : MonoBehaviour
         _offsetSpeed = speed;
     }
 
-    public void SetMaxSpeed(float value)
+    public void SetMaxSpeed(float maxSpeed)
     {
-        _maxSpeed = value;
+        _maxSpeed = maxSpeed;
         _transmission.SetMaxSpeed(_maxSpeed * _boostSpeedModifier * _maxSpeedModifier);
     }
 
@@ -148,7 +149,7 @@ public class Mover : MonoBehaviour
     {
         return _criticalOffset;
     }
-
+    
     private void HandleMotor()
     {
         _wheelController.SetForce(_transmission.GetAcceleration() * _motorForce * _boostAccelerationModifier);

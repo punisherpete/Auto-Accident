@@ -15,6 +15,7 @@ public class Transmission : MonoBehaviour
     private float _maxSpeed;
     private Rigidbody _rigidbody;
     private SpeedLimit _speedLimit;
+    private float _regularForce;
 
     private void Awake()
     {
@@ -30,7 +31,7 @@ public class Transmission : MonoBehaviour
             ReduceTransmission();
         _speedLimit.LimitedSpeed(_transfers[_currentTransferIndex].MaxSpeed);
         _acceleration = Mathf.Lerp(_acceleration, _transfers[_currentTransferIndex].Acceleration, Time.fixedDeltaTime);
-        _force = Mathf.Lerp(_force, _transfers[_currentTransferIndex].Force, Time.fixedDeltaTime); 
+        _force = Mathf.Lerp(_force, _transfers[_currentTransferIndex].Force + _regularForce, Time.fixedDeltaTime); 
     }
 
     public void TurnOnNeutral()
@@ -53,6 +54,11 @@ public class Transmission : MonoBehaviour
         if (_isNeutral)
             return 0;
         return _acceleration;
+    }
+
+    public void SetRegularForce(float force)
+    {
+        _regularForce = force;
     }
 
     public float GetForce()
