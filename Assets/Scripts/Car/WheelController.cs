@@ -54,6 +54,11 @@ public class WheelController : MonoBehaviour
         // _rearRightWheelCollider.sidewaysFriction = _defaultWheelFrictionCurve;
     }
 
+    public Vector3 GetDirectionOfWheels()
+    {
+        return _frontLeftWheelCollider.transform.forward;
+    }
+
     public void SetSeetAngle(float steerAngle)
     {
         _frontLeftWheelCollider.steerAngle = steerAngle;
