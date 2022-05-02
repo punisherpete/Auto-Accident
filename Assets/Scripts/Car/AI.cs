@@ -6,7 +6,8 @@ using UnityEngine;
 public class AI : MonoBehaviour
 {
     [SerializeField] private CarsObserver _carsObserver;
-    [SerializeField] private float _criticalDistanceFromPlayer = 10;
+    [SerializeField] private float _criticalLeadDistanceFromPlayer = 10;
+    [SerializeField] private float _criticalBehindDistanceFromPlayer = 10;
     [SerializeField] private float _dragModifier = 0.005f;
     [SerializeField] private float _maxSpeedModifier = 1.1f;
     [SerializeField] private float _regularForce = 5000f;
@@ -22,11 +23,11 @@ public class AI : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_carsObserver.IsAheadOfThePlayerOnDistance(transform, _criticalDistanceFromPlayer)) 
+        if (_carsObserver.IsAheadOfThePlayerOnDistance(transform, _criticalLeadDistanceFromPlayer)) 
             _speedLimit.SetRegularDragForce(_dragModifier);
         else
             _speedLimit.SetRegularDragForce(0);
-        if (_carsObserver.IsFallBehindOfThePlayerOnDistance(transform, _criticalDistanceFromPlayer))
+        if (_carsObserver.IsFallBehindOfThePlayerOnDistance(transform, _criticalBehindDistanceFromPlayer))
         {
             _mover.SetMaxSpeedModifier(_maxSpeedModifier,_regularForce);
             _mover.StrengthenWheels();

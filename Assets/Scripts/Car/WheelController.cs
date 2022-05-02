@@ -42,10 +42,6 @@ public class WheelController : MonoBehaviour
 
     public void ReinfoceWheelFrictionCurve()
     {
-        // _frontLeftWheelCollider.sidewaysFriction = _reinforcedWheelFrictionCurve;
-        // _rearLeftWheelCollider.sidewaysFriction = _reinforcedWheelFrictionCurve;
-        // _frontRightWheelCollider.sidewaysFriction = _reinforcedWheelFrictionCurve;
-        // _rearRightWheelCollider.sidewaysFriction = _reinforcedWheelFrictionCurve;
         _frontLeftWheelCollider.forwardFriction = _frontReinforcedWheelSettings.forwardFriction;
         _frontLeftWheelCollider.sidewaysFriction = _frontReinforcedWheelSettings.sidewaysFriction;
         _frontRightWheelCollider.forwardFriction = _frontReinforcedWheelSettings.forwardFriction;
@@ -58,10 +54,6 @@ public class WheelController : MonoBehaviour
 
     public void ResetWheelFrictionCurve()
     {
-        // _frontLeftWheelCollider.sidewaysFriction = _defaultWheelFrictionCurve;
-        // _rearLeftWheelCollider.sidewaysFriction = _defaultWheelFrictionCurve;
-        // _frontRightWheelCollider.sidewaysFriction = _defaultWheelFrictionCurve;
-        // _rearRightWheelCollider.sidewaysFriction = _defaultWheelFrictionCurve;
         _frontLeftWheelCollider.forwardFriction = _frontDefaultWheelForwardFriction;
         _frontLeftWheelCollider.sidewaysFriction = _frontDefaultWheelSidewaysFriction;
         _frontRightWheelCollider.forwardFriction = _frontDefaultWheelForwardFriction;

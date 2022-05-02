@@ -29,7 +29,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &859347649077916114
 Transform:
   m_ObjectHideFlags: 0
@@ -60,8 +60,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _carsObserver: {fileID: 0}
-  _criticalDistanceFromPlayer: 12
-  _dragModifier: 0.01
+  _criticalLeadDistanceFromPlayer: 6
+  _criticalBehindDistanceFromPlayer: 25
+  _dragModifier: 0.005
   _maxSpeedModifier: 1.5
   _regularForce: 2000
 --- !u!114 &859347649077916108
