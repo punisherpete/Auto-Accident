@@ -137,7 +137,7 @@ public class Mover : MonoBehaviour
 
     public float GetMaxSpeed()
     {
-        return _maxSpeed * _boostSpeedModifier;
+        return _maxSpeed * _boostSpeedModifier * _maxSpeedModifier;
     }
 
     public float GetAcceleration()
