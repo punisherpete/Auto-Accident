@@ -28,8 +28,8 @@ public class WheelController : MonoBehaviour
     {
         _defaultWheelFrictionCurve = _frontLeftWheelCollider.sidewaysFriction;
         _reinforcedWheelFrictionCurve = _defaultWheelFrictionCurve;
-        _reinforcedWheelFrictionCurve.stiffness = _reinforcedStiffness;
-        _reinforcedWheelFrictionCurve.extremumValue = _reinforcedExtremumValue;
+        // _reinforcedWheelFrictionCurve.stiffness = _reinforcedStiffness;
+        // _reinforcedWheelFrictionCurve.extremumValue = _reinforcedExtremumValue;
     }
 
     private void FixedUpdate()
@@ -40,18 +40,18 @@ public class WheelController : MonoBehaviour
 
     public void ReinfoceWheelFrictionCurve()
     {
-        _frontLeftWheelCollider.sidewaysFriction = _reinforcedWheelFrictionCurve;
-        _rearLeftWheelCollider.sidewaysFriction = _reinforcedWheelFrictionCurve;
-        _frontRightWheelCollider.sidewaysFriction = _reinforcedWheelFrictionCurve;
-        _rearRightWheelCollider.sidewaysFriction = _reinforcedWheelFrictionCurve;
+        // _frontLeftWheelCollider.sidewaysFriction = _reinforcedWheelFrictionCurve;
+        // _rearLeftWheelCollider.sidewaysFriction = _reinforcedWheelFrictionCurve;
+        // _frontRightWheelCollider.sidewaysFriction = _reinforcedWheelFrictionCurve;
+        // _rearRightWheelCollider.sidewaysFriction = _reinforcedWheelFrictionCurve;
     }
 
     public void ResetWheelFrictionCurve()
     {
-        _frontLeftWheelCollider.sidewaysFriction = _defaultWheelFrictionCurve;
-        _rearLeftWheelCollider.sidewaysFriction = _defaultWheelFrictionCurve;
-        _frontRightWheelCollider.sidewaysFriction = _defaultWheelFrictionCurve;
-        _rearRightWheelCollider.sidewaysFriction = _defaultWheelFrictionCurve;
+        // _frontLeftWheelCollider.sidewaysFriction = _defaultWheelFrictionCurve;
+        // _rearLeftWheelCollider.sidewaysFriction = _defaultWheelFrictionCurve;
+        // _frontRightWheelCollider.sidewaysFriction = _defaultWheelFrictionCurve;
+        // _rearRightWheelCollider.sidewaysFriction = _defaultWheelFrictionCurve;
     }
 
     public void SetSeetAngle(float steerAngle)

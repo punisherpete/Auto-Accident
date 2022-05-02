@@ -137,7 +137,7 @@ public class Mover : MonoBehaviour
 
     public float GetMaxSpeed()
     {
-        return _maxSpeed * _boostSpeedModifier;
+        return _maxSpeed * _boostSpeedModifier * _maxSpeedModifier;
     }
 
     public float GetAcceleration()
@@ -167,7 +167,7 @@ public class Mover : MonoBehaviour
         Vector3 realitiveVector = transform.InverseTransformPoint(_targetNode.position);
         realitiveVector = realitiveVector / realitiveVector.magnitude;
         float rotationToTargetSample = realitiveVector.x / realitiveVector.magnitude;
-        _currentRotationWheel = Mathf.Lerp(_currentRotationWheel, rotationToTargetSample, _turningPower * Time.fixedDeltaTime);
+        _currentRotationWheel = Mathf.Lerp(_currentRotationWheel, rotationToTargetSample, _turningPower /* Time.fixedDeltaTime*/);
         _currentSteerAngle = _maxSteerAngle * _currentRotationWheel;
         _wheelController.SetSeetAngle(_currentSteerAngle);
     }
