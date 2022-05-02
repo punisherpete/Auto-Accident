@@ -29,7 +29,6 @@ public class Mover : MonoBehaviour
     private float _boostSpeedModifier = 1f;
     private Rigidbody _rigidbody;
     private float _maxSpeedModifier = 1f;
-    private float _force;
 
     public float CurrentRotationWheel => _currentRotationWheel;
     public float MaxSpeed => _maxSpeed;

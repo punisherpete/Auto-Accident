@@ -54,7 +54,7 @@ public class Respawner : MonoBehaviour
         else if(_splineProjectorObserver != null && _splineProjectorObserver.IsGoesBeyondCriticalDistance(_criticalHorizontalOffset))
             _respawnTimer += Time.deltaTime;
         else if (Mathf.Abs(Quaternion.Angle(_rigidbody.rotation, _mover.CurrentNode.rotation)) > 90)
-            _respawnTimer += Time.deltaTime / 1.5f;
+            _respawnTimer += Time.deltaTime;
         else
             _respawnTimer = 0;
         if (_isSafeModeActivated && _carsObserver.IsCarInSafeZone(transform, _safeDistanceForSafeMode))
@@ -71,6 +71,11 @@ public class Respawner : MonoBehaviour
     public void AllowRespawn()
     {
         _isRespawnAllowed = true;
+    }
+
+    public void SetCriticalHorizontalOffset(float criticalOffset)
+    {
+        _criticalHorizontalOffset = criticalOffset;
     }
 
     private void RespawnCar()

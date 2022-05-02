@@ -47,6 +47,11 @@ public class Trigger : MonoBehaviour
         _car.SetMaxOffset(horizontalOffcet);
     }
 
+    public void SetCriticalRespawnOffset(float criticalOffset)
+    {
+        _car.SetCriticalRespawnOffset(criticalOffset);
+    }
+
     public void Finish()
     {
         _car.Finish();
