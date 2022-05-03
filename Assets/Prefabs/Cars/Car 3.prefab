@@ -62,7 +62,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _carsObserver: {fileID: 0}
   _criticalLeadDistanceFromPlayer: 6
-  _criticalBehindDistanceFromPlayer: 25
+  _criticalBehindDistanceFromPlayer: 24
   _dragModifier: 0.005
   _maxSpeedModifier: 1.5
   _regularForce: 2000
@@ -603,11 +603,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4443968121682098907, guid: f1a4e0bc2b3bd1f44a73958627497ae5, type: 3}
       propertyPath: m_Radius
-      value: 0.38
+      value: 0.33
       objectReference: {fileID: 0}
     - target: {fileID: 4443968121682098907, guid: f1a4e0bc2b3bd1f44a73958627497ae5, type: 3}
       propertyPath: m_SidewaysFriction.m_Stiffness
-      value: 1.5
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 4443968121682098907, guid: f1a4e0bc2b3bd1f44a73958627497ae5, type: 3}
       propertyPath: m_SidewaysFriction.m_ExtremumValue
@@ -615,15 +615,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4443968121682098907, guid: f1a4e0bc2b3bd1f44a73958627497ae5, type: 3}
       propertyPath: m_SidewaysFriction.m_AsymptoteValue
-      value: 1.5
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 4443968121978311769, guid: f1a4e0bc2b3bd1f44a73958627497ae5, type: 3}
       propertyPath: m_Radius
-      value: 0.38
+      value: 0.33
       objectReference: {fileID: 0}
     - target: {fileID: 4443968121978311769, guid: f1a4e0bc2b3bd1f44a73958627497ae5, type: 3}
       propertyPath: m_SidewaysFriction.m_Stiffness
-      value: 1.5
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 4443968121978311769, guid: f1a4e0bc2b3bd1f44a73958627497ae5, type: 3}
       propertyPath: m_SidewaysFriction.m_ExtremumValue
@@ -631,7 +631,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4443968121978311769, guid: f1a4e0bc2b3bd1f44a73958627497ae5, type: 3}
       propertyPath: m_SidewaysFriction.m_AsymptoteValue
-      value: 1.5
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 4443968122002212511, guid: f1a4e0bc2b3bd1f44a73958627497ae5, type: 3}
       propertyPath: _effects.Array.size
@@ -639,11 +639,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4443968122459346380, guid: f1a4e0bc2b3bd1f44a73958627497ae5, type: 3}
       propertyPath: m_Radius
-      value: 0.38
+      value: 0.33
       objectReference: {fileID: 0}
     - target: {fileID: 4443968122459346380, guid: f1a4e0bc2b3bd1f44a73958627497ae5, type: 3}
       propertyPath: m_SidewaysFriction.m_Stiffness
-      value: 1.3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4443968122459346380, guid: f1a4e0bc2b3bd1f44a73958627497ae5, type: 3}
       propertyPath: m_SidewaysFriction.m_ExtremumValue
@@ -651,15 +651,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4443968122459346380, guid: f1a4e0bc2b3bd1f44a73958627497ae5, type: 3}
       propertyPath: m_SidewaysFriction.m_AsymptoteValue
-      value: 1
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 4443968123139614533, guid: f1a4e0bc2b3bd1f44a73958627497ae5, type: 3}
       propertyPath: m_Radius
-      value: 0.38
+      value: 0.33
       objectReference: {fileID: 0}
     - target: {fileID: 4443968123139614533, guid: f1a4e0bc2b3bd1f44a73958627497ae5, type: 3}
       propertyPath: m_SidewaysFriction.m_Stiffness
-      value: 1.3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4443968123139614533, guid: f1a4e0bc2b3bd1f44a73958627497ae5, type: 3}
       propertyPath: m_SidewaysFriction.m_ExtremumValue
@@ -667,7 +667,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4443968123139614533, guid: f1a4e0bc2b3bd1f44a73958627497ae5, type: 3}
       propertyPath: m_SidewaysFriction.m_AsymptoteValue
-      value: 1
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 4726024527711151570, guid: f1a4e0bc2b3bd1f44a73958627497ae5, type: 3}
       propertyPath: m_RootOrder
