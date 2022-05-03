@@ -12,18 +12,14 @@ public class Booster : MonoBehaviour
     [SerializeField] private float _boostImpulseForce = 1500f;
     [Header("Effects")]
     [SerializeField] private ParticleSystem _tookExplosion;
-    [SerializeField] private ParticleSystem _speedWindLines;
-
-
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.TryGetComponent(out Mover mover))
         {
             mover.SetBoost(_boostAccelation, _boostSpeed, _boostImpulseForce, _boostTime);
-            ParticleSystem newEffect = Instantiate(_tookExplosion, transform.position, transform.rotation, null);
-            //Instantiate(_speedWindLines, mover.gameObject.transform.position, Quaternion.identity, mover.transform);
-            newEffect.transform.localScale = transform.localScale;
+            _tookExplosion.transform.parent = null;
+            _tookExplosion.Play();
             if (_isDisableAfterTriggerEnter)
                 gameObject.SetActive(false);
         }
