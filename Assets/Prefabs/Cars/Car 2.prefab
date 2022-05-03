@@ -39,7 +39,7 @@ Transform:
   m_GameObject: {fileID: 3896113612654231867}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.98000014, y: 0.98000026, z: 0.98000014}
   m_Children:
   - {fileID: 6870025116624085651}
   - {fileID: 1775543658103036234}
@@ -62,7 +62,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _carsObserver: {fileID: 0}
   _criticalLeadDistanceFromPlayer: 6
-  _criticalBehindDistanceFromPlayer: 25
+  _criticalBehindDistanceFromPlayer: 24
   _dragModifier: 0.005
   _maxSpeedModifier: 1.5
   _regularForce: 2000
@@ -790,7 +790,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3175835020835649528, guid: 9736447e1a57a2449a5ccde2a5009463, type: 3}
       propertyPath: m_SidewaysFriction.m_Stiffness
-      value: 1.5
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 3175835020835649528, guid: 9736447e1a57a2449a5ccde2a5009463, type: 3}
       propertyPath: m_SidewaysFriction.m_ExtremumValue
@@ -798,7 +798,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3175835020835649528, guid: 9736447e1a57a2449a5ccde2a5009463, type: 3}
       propertyPath: m_SidewaysFriction.m_AsymptoteValue
-      value: 1.5
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 3175835021009930152, guid: 9736447e1a57a2449a5ccde2a5009463, type: 3}
       propertyPath: m_Radius
@@ -806,7 +806,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3175835021009930152, guid: 9736447e1a57a2449a5ccde2a5009463, type: 3}
       propertyPath: m_SidewaysFriction.m_Stiffness
-      value: 1.5
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 3175835021009930152, guid: 9736447e1a57a2449a5ccde2a5009463, type: 3}
       propertyPath: m_SidewaysFriction.m_ExtremumValue
@@ -814,7 +814,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3175835021009930152, guid: 9736447e1a57a2449a5ccde2a5009463, type: 3}
       propertyPath: m_SidewaysFriction.m_AsymptoteValue
-      value: 1.5
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 3175835022023491772, guid: 9736447e1a57a2449a5ccde2a5009463, type: 3}
       propertyPath: m_Radius
@@ -822,7 +822,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3175835022023491772, guid: 9736447e1a57a2449a5ccde2a5009463, type: 3}
       propertyPath: m_SidewaysFriction.m_Stiffness
-      value: 1.3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3175835022023491772, guid: 9736447e1a57a2449a5ccde2a5009463, type: 3}
       propertyPath: m_SidewaysFriction.m_ExtremumValue
@@ -830,7 +830,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3175835022023491772, guid: 9736447e1a57a2449a5ccde2a5009463, type: 3}
       propertyPath: m_SidewaysFriction.m_AsymptoteValue
-      value: 1
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 3175835022537976791, guid: 9736447e1a57a2449a5ccde2a5009463, type: 3}
       propertyPath: m_Radius
@@ -838,7 +838,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3175835022537976791, guid: 9736447e1a57a2449a5ccde2a5009463, type: 3}
       propertyPath: m_SidewaysFriction.m_Stiffness
-      value: 1.3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3175835022537976791, guid: 9736447e1a57a2449a5ccde2a5009463, type: 3}
       propertyPath: m_SidewaysFriction.m_ExtremumValue
@@ -846,7 +846,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3175835022537976791, guid: 9736447e1a57a2449a5ccde2a5009463, type: 3}
       propertyPath: m_SidewaysFriction.m_AsymptoteValue
-      value: 1
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 3633688064333309005, guid: 9736447e1a57a2449a5ccde2a5009463, type: 3}
       propertyPath: m_Drag
