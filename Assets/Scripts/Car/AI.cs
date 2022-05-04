@@ -7,7 +7,8 @@ public class AI : MonoBehaviour
 {
     [SerializeField] private CarsObserver _carsObserver;
     [SerializeField] private float _criticalLeadDistanceFromPlayer = 10;
-    [SerializeField] private float _criticalBehindDistanceFromPlayer = 10;
+    [SerializeField] private float _criticalBehindDistanceFromPlayer = 24;
+    [SerializeField] private float _cheaterBehindDistanceFromPlayer = 54;
     [SerializeField] private float _dragModifier = 0.005f;
     [SerializeField] private float _maxSpeedModifier = 1.1f;
     [SerializeField] private float _regularForce = 5000f;
@@ -27,9 +28,14 @@ public class AI : MonoBehaviour
             _speedLimit.SetRegularDragForce(_dragModifier);
         else
             _speedLimit.SetRegularDragForce(0);
-        if (_carsObserver.IsFallBehindOfThePlayerOnDistance(transform, _criticalBehindDistanceFromPlayer))
+        if (_carsObserver.IsFallBehindOfThePlayerOnDistance(transform, _cheaterBehindDistanceFromPlayer))
         {
             _mover.SetMaxSpeedModifier(_maxSpeedModifier,_regularForce);
+            _mover.StrengthenWheels();
+        }
+        else if(_carsObserver.IsFallBehindOfThePlayerOnDistance(transform, _cheaterBehindDistanceFromPlayer))
+        {
+            _mover.SetMaxSpeedModifier(1, 0);
             _mover.StrengthenWheels();
         }
         else
