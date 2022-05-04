@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
@@ -9,6 +7,8 @@ public class GameSceneManager : Data
     [SerializeField] private TMP_Text _levelText;
     [SerializeField] private AppMetricaEvents _appMetricaObject;
     [SerializeField] private GameAnalyticsObject _gameAnalyticsObject;
+    [SerializeField] private int _nextLevelIndex = 0;
+
 
     private void Awake()
     {
@@ -31,19 +31,25 @@ public class GameSceneManager : Data
         Save();
     }
 
+    public void SaveNextLevelIndex()
+    {
+        SetLevelIndex(_nextLevelIndex);
+        Save();
+    }
+
     public void LevelFail()
     {
         _appMetricaObject.OnFail(GetDisplayedLevelNumber());
         _gameAnalyticsObject.OnFail(GetDisplayedLevelNumber());
     }
 
-    public void LoadScene(int index)
+    public void LoadNextScene()
     {
         _appMetricaObject.OnLevelComplete(GetDisplayedLevelNumber());
         _gameAnalyticsObject.OnLevelComplete(GetDisplayedLevelNumber());
         AddDisplayedLevelNumber();
         Save();
-        SceneManager.LoadScene(index);
+        SceneManager.LoadScene(_nextLevelIndex);
     }
 
     public void ReloadScene()

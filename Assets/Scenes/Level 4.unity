@@ -8754,6 +8754,7 @@ MonoBehaviour:
   _levelText: {fileID: 1698225893}
   _appMetricaObject: {fileID: 11400000, guid: 506262a011e150947987910ae27d3bd3, type: 2}
   _gameAnalyticsObject: {fileID: 11400000, guid: 356705b1832b0864bb6b43452634fb4f, type: 2}
+  _nextLevelIndex: 5
 --- !u!1 &655664419 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8065015327739589957, guid: 27060dbc1cde0ac459ad7edbb57d776b, type: 3}
@@ -27736,6 +27737,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 653518499}
+        m_TargetAssemblyTypeName: GameSceneManager, Assembly-CSharp
+        m_MethodName: SaveNextLevelIndex
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   ActivateAfterPlayerLose:
     m_PersistentCalls:
       m_Calls:
@@ -38787,7 +38800,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3986795834761871454, guid: 72d812bb548ec0948b86e342f8888635, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3986795834761871454, guid: 72d812bb548ec0948b86e342f8888635, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -38795,7 +38808,7 @@ PrefabInstance:
       objectReference: {fileID: 653518499}
     - target: {fileID: 3986795834761871454, guid: 72d812bb548ec0948b86e342f8888635, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadScene
+      value: LoadNextScene
       objectReference: {fileID: 0}
     - target: {fileID: 3986795834761871454, guid: 72d812bb548ec0948b86e342f8888635, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
