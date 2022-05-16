@@ -31,11 +31,10 @@ public class GameSceneManager : Data
         Save();
     }
 
-    public void SaveNextLevelIndex()
+    private void SaveNextLevelIndex()
     {
         SetLevelIndex(_nextLevelIndex);
         AddDisplayedLevelNumber();
-        Save();
     }
 
     public void LevelFail()
@@ -48,6 +47,7 @@ public class GameSceneManager : Data
     {
         _appMetricaObject.OnLevelComplete(GetDisplayedLevelNumber());
         _gameAnalyticsObject.OnLevelComplete(GetDisplayedLevelNumber());
+        SaveNextLevelIndex();
         Save();
         SceneManager.LoadScene(_nextLevelIndex);
     }
