@@ -9,7 +9,7 @@ public class Respawner : MonoBehaviour
 {
     [SerializeField] private CarsObserver _carsObserver;
     [SerializeField] private float _respawnTime = 2f;
-    [SerializeField] private float _respawnHeight = 2f;
+    [SerializeField] private Transform _respawnPoint;
     [SerializeField] private List<GameObject> _objectsToReplaceLayer;
     [SerializeField] private float _safeDistanceForSafeMode = 5f;
     [SerializeField] private float _criticalHorizontalOffset = 10f;
@@ -78,12 +78,20 @@ public class Respawner : MonoBehaviour
         _criticalHorizontalOffset = criticalOffset;
     }
 
+    public void SetRespawnPoint(Transform point)
+    {
+        _respawnPoint = point;
+    }
+
     private void RespawnCar()
     {
         _respawnTimer = 0;
         _rigidbody.isKinematic = true;
-        transform.position = new Vector3(_mover.CurrentNode.position.x, _mover.CurrentNode.position.y + _respawnHeight, _mover.CurrentNode.position.z);
-        transform.rotation = _mover.CurrentNode.rotation;
+        transform.position = _respawnPoint.position;
+        if (TryGetComponent(out PathObserber pathObserber))
+            transform.rotation = pathObserber.GetNearestPoint().rotation;
+        else
+            transform.rotation = _respawnPoint.rotation;
         ActivateSafeMode();
         _rigidbody.isKinematic = false;
         _mover.StartMoving();

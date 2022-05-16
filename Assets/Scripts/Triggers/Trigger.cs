@@ -52,6 +52,11 @@ public class Trigger : MonoBehaviour
         _car.SetCriticalRespawnOffset(criticalOffset);
     }
 
+    public void SetRespawnPoint(Transform point)
+    {
+        _car.SetRespawnPoint(point);
+    }
+
     public void Finish()
     {
         _car.Finish();

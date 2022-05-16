@@ -15,6 +15,7 @@ public class PathObserber : MonoBehaviour
     private List<Transform> _path = null;
     private Mover _mover;
     private int _minIndex = 0;
+    private Transform _nearestPoint;
 
     public void Awake()
     {
@@ -50,6 +51,11 @@ public class PathObserber : MonoBehaviour
 
     private void FixedUpdate()
     {
+        UpdateTargetNode();
+    }
+
+    public void UpdateTargetNode()
+    {
         int minIndex = 0;
         float minDistance = Vector3.Distance(_path[0].position, transform.position);
         for (int i = 1; i < _path.Count; i++)
@@ -60,12 +66,17 @@ public class PathObserber : MonoBehaviour
                 minIndex = i;
             }
         }
-        if(minIndex+1< _path.Count && _minIndex != minIndex)
+        if (minIndex + 1 < _path.Count && _minIndex != minIndex)
         {
             _minIndex = minIndex;
-            _mover.SetTargetNode(_path[minIndex],_path[minIndex+1]);
+            _mover.SetTargetNode(_path[minIndex], _path[minIndex + 1]);
+            _nearestPoint = _path[minIndex];
         }
     }
 
-    
+    public Transform GetNearestPoint()
+    {
+        UpdateTargetNode();
+        return _nearestPoint;
+    }
 }
