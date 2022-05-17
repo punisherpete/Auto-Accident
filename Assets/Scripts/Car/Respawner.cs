@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,6 +29,8 @@ public class Respawner : MonoBehaviour
     private Mover _mover;
     private Rigidbody _rigidbody;
     private Animator _animator;
+
+    public event Action Proceed;
 
     private void Awake()
     {
@@ -95,6 +98,7 @@ public class Respawner : MonoBehaviour
         ActivateSafeMode();
         _rigidbody.isKinematic = false;
         _mover.StartMoving();
+        Proceed?.Invoke();
     }
 
     private void ActivateSafeMode()
