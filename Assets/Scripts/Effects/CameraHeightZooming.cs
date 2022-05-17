@@ -22,7 +22,10 @@ public class CameraHeightZooming : MonoBehaviour
     private void Update()
     {
         if (Physics.Raycast(_car.transform.position, Vector3.down, out RaycastHit hit))
+        {
             _currentGroundSurfacePoint = hit.point.y;
+            Debug.DrawRay(_car.transform.position, Vector3.down * 100f, Color.red);
+        }
 
         if (_car.transform.position.y - _currentGroundSurfacePoint >= _allowOffsetWalue)
         {
