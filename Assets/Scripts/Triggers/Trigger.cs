@@ -7,6 +7,8 @@ public class Trigger : MonoBehaviour
     public UnityEvent ActivateAfterAIEnter;
     public UnityEvent ActivateAfterAllEnter;
 
+    [SerializeField] private bool _isActivatedByProjector = false;
+
     private Car _car;
 
     private void OnTriggerEnter(Collider other)
