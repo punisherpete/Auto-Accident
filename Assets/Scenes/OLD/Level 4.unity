@@ -7922,6 +7922,17 @@ MonoBehaviour:
   - {fileID: 511403667}
   _carMover: {fileID: 1215452933}
   _emittingSpeed: 35
+--- !u!114 &511403671 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9087260831973040695, guid: db8eaaf85c3c6224d9c9774c5f56590c, type: 3}
+  m_PrefabInstance: {fileID: 511403666}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 511403669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &523328444 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8054345457401221554, guid: 5114815f3ca6b5241895bd14dd13dd9f, type: 3}
@@ -19775,8 +19786,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _projectorFollowAndLookAtCar: {fileID: 1075518083}
+  _projectorFollowAndLookAtProjector: {fileID: 511403671}
   _carMover: {fileID: 1215452933}
   _projectorObserver: {fileID: 1215452934}
+  _offsetMistake: -1
+  _actionDuration: 1
+  _rebindDelay: 0.5
 --- !u!4 &972243231 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1614761772400734804, guid: 502a0eb1cf2a80241ad16d2c1cc619c0, type: 3}
@@ -39788,6 +39803,8 @@ MonoBehaviour:
   _car: {fileID: 2001158821}
   _moveSpeed: 3
   _allowOffsetWalue: 1
+  _cinemachineVirtualCamera: {fileID: 511403671}
+  _cinemachineVirtualCameraCar: {fileID: 1075518083}
 --- !u!114 &1660190406
 MonoBehaviour:
   m_ObjectHideFlags: 0

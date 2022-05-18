@@ -5888,19 +5888,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9087260831973040688, guid: db8eaaf85c3c6224d9c9774c5f56590c, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.27301326
+      value: 0.27312392
       objectReference: {fileID: 0}
     - target: {fileID: 9087260831973040688, guid: db8eaaf85c3c6224d9c9774c5f56590c, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.029969266
+      value: 0.029981423
       objectReference: {fileID: 0}
     - target: {fileID: 9087260831973040688, guid: db8eaaf85c3c6224d9c9774c5f56590c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.9558019
+      value: 0.9557703
       objectReference: {fileID: 0}
     - target: {fileID: 9087260831973040688, guid: db8eaaf85c3c6224d9c9774c5f56590c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.104920484
+      value: -0.104917035
       objectReference: {fileID: 0}
     - target: {fileID: 9087260831973040688, guid: db8eaaf85c3c6224d9c9774c5f56590c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5965,6 +5965,17 @@ MonoBehaviour:
   - {fileID: 238508931}
   _carMover: {fileID: 1215452933}
   _emittingSpeed: 35
+--- !u!114 &238508935 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9087260831973040695, guid: db8eaaf85c3c6224d9c9774c5f56590c, type: 3}
+  m_PrefabInstance: {fileID: 238508929}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238508933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &244457236
 GameObject:
   m_ObjectHideFlags: 0
@@ -15686,7 +15697,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.029969266, y: 0.9558019, z: -0.104920484, w: 0.27301326}
+  m_LocalRotation: {x: 0.029981423, y: 0.9557703, z: -0.104917035, w: 0.27312392}
   m_LocalPosition: {x: 13.674047, y: 6.215333, z: -17.505348}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -15740,8 +15751,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _projectorFollowAndLookAtCar: {fileID: 728639707}
+  _projectorFollowAndLookAtProjector: {fileID: 238508935}
   _carMover: {fileID: 1215452933}
   _projectorObserver: {fileID: 1215452934}
+  _offsetMistake: -1
+  _actionDuration: 1
+  _rebindDelay: 0.5
 --- !u!1001 &966512011
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39613,6 +39628,8 @@ MonoBehaviour:
   _car: {fileID: 2001158821}
   _moveSpeed: 3
   _allowOffsetWalue: 1
+  _cinemachineVirtualCamera: {fileID: 238508935}
+  _cinemachineVirtualCameraCar: {fileID: 728639707}
 --- !u!114 &1660190406
 MonoBehaviour:
   m_ObjectHideFlags: 0
