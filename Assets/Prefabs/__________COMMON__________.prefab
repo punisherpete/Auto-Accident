@@ -167,6 +167,7 @@ GameObject:
   - component: {fileID: 287237624985785082}
   - component: {fileID: 287237624985785086}
   - component: {fileID: 287237624985785073}
+  - component: {fileID: 3983672140835528514}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -181,8 +182,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 287237624985785081}
-  m_LocalRotation: {x: 0.023360277, y: 0.97047776, z: -0.105022416, w: 0.21586466}
-  m_LocalPosition: {x: 0.79493, y: 7.7200003, z: 18.391396}
+  m_LocalRotation: {x: -0.0004652301, y: 0.9940199, z: -0.109115764, w: -0.0042381403}
+  m_LocalPosition: {x: 17.193905, y: 7, z: 1.1491032}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 287237626614179653}
@@ -292,6 +293,50 @@ MonoBehaviour:
   _offsetMistake: -1
   _actionDuration: 1
   _rebindDelay: 0.5
+--- !u!114 &3983672140835528514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287237624985785081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841b72de2996c5c40bfb394f3d0e0a98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Feedbacks:
+  - {fileID: 0}
+  InitializationMode: 2
+  SafeMode: 3
+  Direction: 0
+  AutoChangeDirectionOnEnd: 0
+  AutoPlayOnStart: 0
+  AutoPlayOnEnable: 0
+  DurationMultiplier: 1
+  DisplayFullDurationDetails: 0
+  CooldownDuration: 0
+  InitialDelay: 0
+  FeedbacksIntensity: 1
+  Events:
+    TriggerMMFeedbacksEvents: 0
+    TriggerUnityEvents: 1
+    OnPlay:
+      m_PersistentCalls:
+        m_Calls: []
+    OnPause:
+      m_PersistentCalls:
+        m_Calls: []
+    OnResume:
+      m_PersistentCalls:
+        m_Calls: []
+    OnRevert:
+      m_PersistentCalls:
+        m_Calls: []
+    OnComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  DebugActive: 0
 --- !u!1 &287237625163620226
 GameObject:
   m_ObjectHideFlags: 0
@@ -5638,6 +5683,18 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7239773106942036067, guid: db8eaaf85c3c6224d9c9774c5f56590c, type: 3}
+      propertyPath: TestFieldOfView
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 7239773106942036067, guid: db8eaaf85c3c6224d9c9774c5f56590c, type: 3}
+      propertyPath: ZoomCurve.m_Curve.Array.data[0].inSlope
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7239773106942036067, guid: db8eaaf85c3c6224d9c9774c5f56590c, type: 3}
+      propertyPath: ZoomCurve.m_Curve.Array.data[0].outSlope
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 9087260831973040688, guid: db8eaaf85c3c6224d9c9774c5f56590c, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -5701,6 +5758,11 @@ ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 198893392448737676, guid: db8eaaf85c3c6224d9c9774c5f56590c, type: 3}
   m_PrefabInstance: {fileID: 287237626565175289}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &89081882869399510 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198161241264445487, guid: db8eaaf85c3c6224d9c9774c5f56590c, type: 3}
+  m_PrefabInstance: {fileID: 287237626565175289}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &9070274448507651534 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9087260831973040695, guid: db8eaaf85c3c6224d9c9774c5f56590c, type: 3}
@@ -5720,11 +5782,6 @@ Transform:
 --- !u!1 &9070274448507651528 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9087260831973040689, guid: db8eaaf85c3c6224d9c9774c5f56590c, type: 3}
-  m_PrefabInstance: {fileID: 287237626565175289}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &89081882869399510 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 198161241264445487, guid: db8eaaf85c3c6224d9c9774c5f56590c, type: 3}
   m_PrefabInstance: {fileID: 287237626565175289}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &287237626186368088
