@@ -1,3 +1,4 @@
+using MoreMountains.Feedbacks;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,6 +19,8 @@ public class CarDamage : MonoBehaviour
     [SerializeField] private float _takeDamageInterval = 1f;
 
     [SerializeField] private EffectsGenerator _effectsGenerator;
+
+    [SerializeField] private MMFeedbacks _hitFeedBacks;
 
     private List<InteractionProcessor[]> _newInteractionProcessors = new List<InteractionProcessor[]>();
     private Dictionary<InteractionProcessor, int> _blendShapesNumberMatch = new Dictionary<InteractionProcessor, int>();
@@ -119,7 +122,7 @@ public class CarDamage : MonoBehaviour
             return;
 
         _elapsedTime = 0;
-
+        _hitFeedBacks?.PlayFeedbacks();
         SkinnedMeshRenderer targetMeshRenderer = GetMatchedMeshRendererToProcessor(affectedPart);
         ChangeBlendShape(targetMeshRenderer, affectedPart);
     }

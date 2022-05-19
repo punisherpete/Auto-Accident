@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -34,6 +35,8 @@ public class Mover : MonoBehaviour
     public float MaxSpeed => _maxSpeed;
     public Transform CurrentNode => _currentNode;
     public bool IsStop => _isStop;
+
+    public event Action Boosted;
 
     private void Awake()
     {
@@ -133,6 +136,7 @@ public class Mover : MonoBehaviour
 
     private void Boost(float boostAccelerationValue, float boostSpeedValue, float boostImpulseForce, float boostTime, Vector3 direction)
     {
+        Boosted?.Invoke();
         _boostSpeedModifier = boostSpeedValue;
         _boostAccelerationModifier = boostAccelerationValue;
         SetMaxSpeed(_maxSpeed);

@@ -1,4 +1,5 @@
 using Cinemachine;
+using MoreMountains.Feedbacks;
 using System.Collections;
 using UnityEngine;
 
@@ -14,15 +15,18 @@ public class CamerasSwitcher : MonoBehaviour
 
     private float _timeSpent;
     private Respawner _carRespawner;
+    private MMFeedbacks _accelerationFeedBacks; 
 
     private void Awake()
     {
         _carRespawner = _carMover.GetComponent<Respawner>();
+        _accelerationFeedBacks = GetComponent<MMFeedbacks>();
     }
 
     private void OnEnable()
     {
         _carRespawner.Proceed += OnChangeCameraBodyBindingMode;
+        _carMover.Boosted += OnPlayAccelerationEffect;
     }
 
     private void Update()
@@ -38,6 +42,7 @@ public class CamerasSwitcher : MonoBehaviour
     private void OnDisable()
     {
         _carRespawner.Proceed -= OnChangeCameraBodyBindingMode;
+        _carMover.Boosted -= OnPlayAccelerationEffect;
     }
 
     private void Transit()
@@ -60,5 +65,10 @@ public class CamerasSwitcher : MonoBehaviour
         yield return new WaitForSeconds(delay);
         _projectorFollowAndLookAtCar.GetCinemachineComponent<CinemachineTransposer>().m_BindingMode = CinemachineTransposer.BindingMode.SimpleFollowWithWorldUp;
         _projectorFollowAndLookAtProjector.GetCinemachineComponent<CinemachineTransposer>().m_BindingMode = CinemachineTransposer.BindingMode.SimpleFollowWithWorldUp;
+    }
+
+    private void OnPlayAccelerationEffect()
+    {
+        _accelerationFeedBacks?.PlayFeedbacks();
     }
 }
