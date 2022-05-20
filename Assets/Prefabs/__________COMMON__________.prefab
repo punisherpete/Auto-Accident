@@ -183,8 +183,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 287237624985785081}
-  m_LocalRotation: {x: 0.023360277, y: 0.97047776, z: -0.105022416, w: 0.21586466}
-  m_LocalPosition: {x: 0.79493, y: 7.7200003, z: 18.391396}
+  m_LocalRotation: {x: 0.016627997, y: 0.98241955, z: -0.107842386, w: 0.15147728}
+  m_LocalPosition: {x: 17.71938, y: 42.1, z: -0.90869427}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 287237626614179653}
@@ -4813,6 +4813,10 @@ PrefabInstance:
       propertyPath: _projector
       value: 
       objectReference: {fileID: 287237626650245520}
+    - target: {fileID: 6885738043694418083, guid: 9bc4bab1895b44141a00bd352197bed6, type: 3}
+      propertyPath: _splineProjector
+      value: 
+      objectReference: {fileID: 287237626650245531}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bc4bab1895b44141a00bd352197bed6, type: 3}
 --- !u!114 &3885972786708674650 stripped
@@ -5069,6 +5073,10 @@ PrefabInstance:
       propertyPath: _projector
       value: 
       objectReference: {fileID: 287237625186067108}
+    - target: {fileID: 3997438101473153559, guid: b516929dc4e86c04d8169b4bc8e2fa31, type: 3}
+      propertyPath: _splineProjector
+      value: 
+      objectReference: {fileID: 287237625186067104}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b516929dc4e86c04d8169b4bc8e2fa31, type: 3}
 --- !u!114 &581383519463538018 stripped
@@ -5166,6 +5174,10 @@ PrefabInstance:
       propertyPath: _projector
       value: 
       objectReference: {fileID: 287237626083092711}
+    - target: {fileID: 9020380495809936513, guid: b8d747769eb5862459f629d9cd0ebf24, type: 3}
+      propertyPath: _splineProjector
+      value: 
+      objectReference: {fileID: 287237626083092707}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8d747769eb5862459f629d9cd0ebf24, type: 3}
 --- !u!4 &8757573269137510010 stripped
@@ -5309,6 +5321,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 287237625163620230}
     m_Modifications:
+    - target: {fileID: 4229003979357065926, guid: 9500a0229938aab45ad4950215ec5f89, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4229003979357065926, guid: 9500a0229938aab45ad4950215ec5f89, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5786762132686841633}
+    - target: {fileID: 4229003979357065926, guid: 9500a0229938aab45ad4950215ec5f89, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadNextScene
+      objectReference: {fileID: 0}
     - target: {fileID: 4806483401883109497, guid: 9500a0229938aab45ad4950215ec5f89, type: 3}
       propertyPath: m_Name
       value: LosePanel
@@ -5606,6 +5630,10 @@ PrefabInstance:
       propertyPath: _projector
       value: 
       objectReference: {fileID: 287237625616187726}
+    - target: {fileID: 4410716152696168905, guid: 502a0eb1cf2a80241ad16d2c1cc619c0, type: 3}
+      propertyPath: _splineProjector
+      value: 
+      objectReference: {fileID: 287237625616187722}
     - target: {fileID: 4955674667960276970, guid: 502a0eb1cf2a80241ad16d2c1cc619c0, type: 3}
       propertyPath: _carsObserver
       value: 

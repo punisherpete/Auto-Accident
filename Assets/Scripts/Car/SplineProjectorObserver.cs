@@ -1,11 +1,17 @@
 using UnityEngine;
+using Dreamteck.Splines;
 
 public class SplineProjectorObserver : MonoBehaviour
 {
-    [SerializeField] private Projector _projector;
+    [SerializeField] private SplineProjector _splineProjector;
 
     public bool IsGoesBeyondCriticalDistance(float criticalOffset)
     {
-        return Vector3.Distance(transform.position, _projector.transform.position) > criticalOffset;
+        return Vector3.Distance(transform.position, _splineProjector.transform.position) > criticalOffset;
+    }
+
+    public double GetCurrentPercent()
+    {
+        return _splineProjector.result.percent;
     }
 }

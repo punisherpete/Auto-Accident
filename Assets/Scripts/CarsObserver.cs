@@ -15,7 +15,7 @@ public class CarsObserver : MonoBehaviour
 
     private List<Car> _cars;
     private bool _isWinnerHamsterFound;
-    private Transform _playerCar = null;
+    private Car _playerCar = null;
 
     private void Awake()
     {
@@ -23,7 +23,7 @@ public class CarsObserver : MonoBehaviour
         foreach (var car in _cars)
         {
             if (car.Type == CarType.Player)
-                _playerCar = car.transform;
+                _playerCar = car;
         }
     }
 
@@ -71,22 +71,22 @@ public class CarsObserver : MonoBehaviour
         }
     }
 
-    public bool IsAheadOfThePlayerOnDistance(Transform originCar, float criticalDistance)
+    public bool IsAheadOfThePlayerOnDistance(Car originCar, float criticalDistance)
     {
         if (_playerCar == null)
             return false;
-        if(Vector3.Distance(originCar.position,_finishLine.position) < Vector3.Distance(_playerCar.position,_finishLine.position))
-            if (Vector3.Distance(originCar.position, _playerCar.position) > criticalDistance)
+        if(originCar.GetCurrentSplinePercent() > _playerCar.GetCurrentSplinePercent())
+            if (Vector3.Distance(originCar.transform.position, _playerCar.transform.position) > criticalDistance)
                 return true;
         return false;
     }
     
-    public bool IsFallBehindOfThePlayerOnDistance(Transform originCar, float criticalDistance)
+    public bool IsFallBehindOfThePlayerOnDistance(Car originCar, float criticalDistance)
     {
         if (_playerCar == null)
             return false;
-        if(Vector3.Distance(originCar.position,_finishLine.position) > Vector3.Distance(_playerCar.position,_finishLine.position))
-            if (Vector3.Distance(originCar.position, _playerCar.position) > criticalDistance)
+        if(originCar.GetCurrentSplinePercent() < _playerCar.GetCurrentSplinePercent())
+            if (Vector3.Distance(originCar.transform.position, _playerCar.transform.position) > criticalDistance)
                 return true;
         return false;
     }
