@@ -20,6 +20,7 @@ public class Car : MonoBehaviour
     private Mover _mover;
     private Respawner _respawner;
     private bool _isFinished = false;
+    private SplineProjectorObserver _splineProjectorObserver;
 
     private string _name;
     public string Name => _name;
@@ -29,6 +30,7 @@ public class Car : MonoBehaviour
     {
         _mover = GetComponent<Mover>();
         _respawner = GetComponent<Respawner>();
+        _splineProjectorObserver = GetComponent<SplineProjectorObserver>();
     }
 
     private void Start()
@@ -40,6 +42,8 @@ public class Car : MonoBehaviour
     {
         if (_showSpeed)
             Debug.Log("Speed: " + _mover.GetCurrentSpeed() + " Max speed: " + _mover.GetMaxSpeed() + " Acceleration: " + _mover.GetAcceleration());
+        /*if(_type == CarType.Player)
+            Debug.Log(_splineProjectorObserver.GetCurrentPursent());*/
     }
 
     public void Win()
@@ -120,6 +124,11 @@ public class Car : MonoBehaviour
             _aiName.gameObject.SetActive(true);
             _aiName.text = name;
         }
+    }
+
+    public double GetCurrentSplinePercent()
+    {
+        return _splineProjectorObserver.GetCurrentPercent();
     }
 
     public float GetCurrentSpeed()
