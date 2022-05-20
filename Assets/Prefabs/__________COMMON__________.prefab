@@ -183,8 +183,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 287237624985785081}
-  m_LocalRotation: {x: 0.023360277, y: 0.97047776, z: -0.105022416, w: 0.21586466}
-  m_LocalPosition: {x: 0.79493, y: 7.7200003, z: 18.391396}
+  m_LocalRotation: {x: 0.016627997, y: 0.98241955, z: -0.107842386, w: 0.15147728}
+  m_LocalPosition: {x: 17.71938, y: 42.1, z: -0.90869427}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 287237626614179653}
@@ -5321,6 +5321,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 287237625163620230}
     m_Modifications:
+    - target: {fileID: 4229003979357065926, guid: 9500a0229938aab45ad4950215ec5f89, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4229003979357065926, guid: 9500a0229938aab45ad4950215ec5f89, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5786762132686841633}
+    - target: {fileID: 4229003979357065926, guid: 9500a0229938aab45ad4950215ec5f89, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadNextScene
+      objectReference: {fileID: 0}
     - target: {fileID: 4806483401883109497, guid: 9500a0229938aab45ad4950215ec5f89, type: 3}
       propertyPath: m_Name
       value: LosePanel
