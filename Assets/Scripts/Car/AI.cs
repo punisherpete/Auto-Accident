@@ -16,25 +16,27 @@ public class AI : MonoBehaviour
 
     private SpeedLimit _speedLimit;
     private Mover _mover;
+    private Car _car;
 
     private void OnEnable()
     {
         _speedLimit = GetComponent<SpeedLimit>();
         _mover = GetComponent<Mover>();
+        _car = GetComponent<Car>();
     }
 
     private void FixedUpdate()
     {
-        if (_carsObserver.IsAheadOfThePlayerOnDistance(transform, _criticalLeadDistanceFromPlayer)) 
+        if (_carsObserver.IsAheadOfThePlayerOnDistance(_car, _criticalLeadDistanceFromPlayer)) 
             _speedLimit.SetRegularDragForce(_dragModifier);
         else
             _speedLimit.SetRegularDragForce(0);
-        if (_carsObserver.IsFallBehindOfThePlayerOnDistance(transform, _cheaterBehindDistanceFromPlayer))
+        if (_carsObserver.IsFallBehindOfThePlayerOnDistance(_car, _cheaterBehindDistanceFromPlayer))
         {
             _mover.SetMaxSpeedModifier(_cheaterSpeedModifier, _regularForce);
             _mover.StrengthenWheels();
         }
-        else if(_carsObserver.IsFallBehindOfThePlayerOnDistance(transform, _criticalBehindDistanceFromPlayer))
+        else if(_carsObserver.IsFallBehindOfThePlayerOnDistance(_car, _criticalBehindDistanceFromPlayer))
         {
             _mover.SetMaxSpeedModifier(_behindSpeedModifier, 0);
             _mover.StrengthenWheels();
