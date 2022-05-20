@@ -26,4 +26,10 @@ public class InteractionProcessor : MonoBehaviour
 
         Affected?.Invoke(this);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.TryGetComponent(out GamePoint gamePoint))
+            gamePoint.Collect();
+    }
 }
