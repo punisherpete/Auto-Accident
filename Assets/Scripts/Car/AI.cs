@@ -13,10 +13,12 @@ public class AI : MonoBehaviour
     [SerializeField] private float _behindSpeedModifier = 1.3f;
     [SerializeField] private float _cheaterSpeedModifier = 1.5f;
     [SerializeField] private float _regularForce = 5000f;
+    [SerializeField] private float _slidingTime = 2f;
 
     private SpeedLimit _speedLimit;
     private Mover _mover;
     private Car _car;
+    private float _currentSlidingTime;
 
     private void OnEnable()
     {
@@ -25,8 +27,21 @@ public class AI : MonoBehaviour
         _car = GetComponent<Car>();
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.TryGetComponent(out Car car))
+        {
+            if (car.Type == CarType.Player)
+            {
+                _car.SetSlidingWheel();
+                _currentSlidingTime = _slidingTime;
+            }
+        }
+    }
+
     private void FixedUpdate()
     {
+
         if (_carsObserver.IsAheadOfThePlayerOnDistance(_car, _criticalLeadDistanceFromPlayer)) 
             _speedLimit.SetRegularDragForce(_dragModifier);
         else
@@ -41,9 +56,11 @@ public class AI : MonoBehaviour
             _mover.SetMaxSpeedModifier(_behindSpeedModifier, 0);
             _mover.StrengthenWheels();
         }
+        else if(_currentSlidingTime > 0)
+            _currentSlidingTime -= Time.fixedDeltaTime;
         else
         {
-            _mover.SetMaxSpeedModifier(1,0);
+            _mover.SetMaxSpeedModifier(1, 0);
             _mover.ResetToDefaultWheel();
         }
     }

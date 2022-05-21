@@ -76,6 +76,11 @@ public class Mover : MonoBehaviour
         _wheelController.ReinfoceWheelFrictionCurve();
     }
 
+    public void SetSlidingWheel()
+    {
+        _wheelController.SetSlidingWheelFrictionCurve();
+    }
+
     public void ResetToDefaultWheel()
     {
         _wheelController.ResetWheelFrictionCurve();

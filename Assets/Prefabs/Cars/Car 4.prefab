@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1b05c92c74fd3646b96cd155dbf72de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _projector: {fileID: 0}
+  _splineProjector: {fileID: 0}
 --- !u!114 &859347649077916107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,7 +168,6 @@ MonoBehaviour:
   _motorForce: 100
   _breakForce: 1000
   _maxSteerAngle: 35
-  _turningPower: 15
   _centerOfMass: -0.25
 --- !u!114 &859347649077916111
 MonoBehaviour:
@@ -200,7 +199,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _carsObserver: {fileID: 0}
   _respawnTime: 2
-  _respawnHeight: 2
+  _respawnPoint: {fileID: 0}
   _objectsToReplaceLayer:
   - {fileID: 859347649077916115}
   - {fileID: 5783802777261714247}
@@ -263,6 +262,8 @@ MonoBehaviour:
   _rearRightWheelTransform: {fileID: 4268447690090788159}
   _rearReinforcedWheelSettings: {fileID: 4789768878564742709, guid: 9eb6d1f360082024c926aa6ba9d979a8, type: 3}
   _frontReinforcedWheelSettings: {fileID: 4847938146668545465, guid: fc4d39b1bb8a8ad4fb9e141d4e9b0e15, type: 3}
+  _rearSlidingWheelSettings: {fileID: 4789768878564742709, guid: 6ffc7022dce335c4287416eed7e61f04, type: 3}
+  _frontSlidingWheelSettings: {fileID: 4847938146668545465, guid: c0f6f4a64cdcf35409761dc7bd81392e, type: 3}
 --- !u!114 &859347649077916099
 MonoBehaviour:
   m_ObjectHideFlags: 0
