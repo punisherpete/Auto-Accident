@@ -17,6 +17,9 @@ public class WheelController : MonoBehaviour
     [Header("Reinforced Wheels")]
     [SerializeField] private WheelCollider _rearReinforcedWheelSettings;
     [SerializeField] private WheelCollider _frontReinforcedWheelSettings;
+    [Header("Sliding wheels")]
+    [SerializeField] private WheelCollider _rearSlidingWheelSettings;
+    [SerializeField] private WheelCollider _frontSlidingWheelSettings;
 
     private WheelFrictionCurve _rearDefaultWheelSidewaysFriction;
     private WheelFrictionCurve _frontDefaultWheelSidewaysFriction;
@@ -50,6 +53,18 @@ public class WheelController : MonoBehaviour
         _rearLeftWheelCollider.sidewaysFriction = _rearReinforcedWheelSettings.sidewaysFriction;
         _rearRightWheelCollider.forwardFriction = _rearReinforcedWheelSettings.forwardFriction;
         _rearRightWheelCollider.sidewaysFriction = _rearReinforcedWheelSettings.sidewaysFriction;
+    }
+
+    public void SetSlidingWheelFrictionCurve()
+    {
+        _frontLeftWheelCollider.forwardFriction = _frontSlidingWheelSettings.forwardFriction;
+        _frontLeftWheelCollider.sidewaysFriction = _frontSlidingWheelSettings.sidewaysFriction;
+        _frontRightWheelCollider.forwardFriction = _frontSlidingWheelSettings.forwardFriction;
+        _frontRightWheelCollider.sidewaysFriction = _frontSlidingWheelSettings.sidewaysFriction;
+        _rearLeftWheelCollider.forwardFriction = _rearSlidingWheelSettings.forwardFriction;
+        _rearLeftWheelCollider.sidewaysFriction = _rearSlidingWheelSettings.sidewaysFriction;
+        _rearRightWheelCollider.forwardFriction = _rearSlidingWheelSettings.forwardFriction;
+        _rearRightWheelCollider.sidewaysFriction = _rearSlidingWheelSettings.sidewaysFriction;
     }
 
     public void ResetWheelFrictionCurve()

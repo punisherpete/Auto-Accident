@@ -15,7 +15,7 @@ public class Projector : MonoBehaviour
         _splineProjector.projectTarget = _car.transform;
     }
 
-    public Car GetCat()
+    public Car GetCar()
     {
         return _car;
     }

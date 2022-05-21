@@ -81,6 +81,11 @@ public class Car : MonoBehaviour
         _mover.StrengthenWheels();
     }
 
+    public void SetSlidingWheel()
+    {
+        _mover.SetSlidingWheel();
+    }
+
     public void SetCriticalRespawnOffset(float criticalOffset)
     {
         _respawner.SetCriticalHorizontalOffset(criticalOffset);
