@@ -4,24 +4,20 @@ using UnityEngine;
 public class WalletView : MonoBehaviour
 {
     [SerializeField] private TMP_Text _walletView;
-    [SerializeField] private PointsSystemPresentor _pointsSystemPresentor;
 
-    private void OnEnable()
-    {
-        _pointsSystemPresentor.PointsWtidrawed += OnChangeView;
-    }
 
     private void Start()
     {
-        OnChangeView(0);
+        PointsTransmitter.Instance.Transmitted += OnChangeView;
+        OnChangeView();
     }
 
     private void OnDisable()
     {
-        _pointsSystemPresentor.PointsWtidrawed -= OnChangeView;
+        PointsTransmitter.Instance.Transmitted -= OnChangeView;
     }
 
-    private void OnChangeView(int amount)
+    private void OnChangeView()
     {
         _walletView.text = PointsTransmitter.Instance.GetWalletPoints().ToString();
     }

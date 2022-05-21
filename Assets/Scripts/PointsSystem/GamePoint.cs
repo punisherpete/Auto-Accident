@@ -13,6 +13,6 @@ public class GamePoint : MonoBehaviour
     public void Collect()
     {
         BeenCollected?.Invoke(Value);
-        gameObject.SetActive(false);
+        GetComponent<Collider>().enabled = false;
     }
 }

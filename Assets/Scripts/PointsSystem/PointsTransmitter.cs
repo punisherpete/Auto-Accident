@@ -1,13 +1,16 @@
+using System;
 using UnityEngine;
 
 public class PointsTransmitter : MonoBehaviour
 {
     [SerializeField] private int _walletPointsAmount;
-    [SerializeField] private PointsSystemPresentor _pointsSystemPresentor;
 
+    private ScenePointsPool _pointsPool;
     private IWaletOperation _wallet;
 
     public static PointsTransmitter Instance;
+
+    public event Action Transmitted;
 
     private void Awake()
     {
@@ -24,24 +27,35 @@ public class PointsTransmitter : MonoBehaviour
         _wallet = new Wallet(_walletPointsAmount);
     }
 
-
-    private void OnEnable()
+    public void Subscribe()
     {
-        _pointsSystemPresentor.PointsWtidrawed += OnAddPoints;
+        _pointsPool.PointsWthidrawed += OnTransaction;
     }
 
-    private void OnDisable()
+    public void Unsubscribe()
     {
-        _pointsSystemPresentor.PointsWtidrawed -= OnAddPoints;
+        _pointsPool.PointsWthidrawed -= OnTransaction;
     }
 
-    private void OnAddPoints(int amount)
+    private void OnTransaction(int amount)
     {
-        _wallet.AddPoints(amount);
+        _wallet.OperateWithPoints(amount);
+        Transmitted?.Invoke();
     }
 
     public int GetWalletPoints()
     {
         return _wallet.GetPointsAmount();
+    }
+
+    public void DropCollectedPoints(int value)
+    {
+        _wallet.Reset(value);
+        Transmitted?.Invoke();
+    }
+
+    public void InitLevelPointsPool(ScenePointsPool pointsPool)
+    {
+        _pointsPool = pointsPool;
     }
 }

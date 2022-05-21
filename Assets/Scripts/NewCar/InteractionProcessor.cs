@@ -29,7 +29,10 @@ public class InteractionProcessor : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out GamePoint gamePoint))
-            gamePoint.Collect();
+        
+        
+            if (other.TryGetComponent(out GamePoint gamePoint))
+                gamePoint.Collect();
+        
     }
 }
