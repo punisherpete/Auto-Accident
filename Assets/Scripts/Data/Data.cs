@@ -44,6 +44,11 @@ public class Data : MonoBehaviour
         _options.LastLoginDate = date.ToString();
     }
 
+    public void SetGamePoints(int value)
+    {
+        _options.GamePointsCount = value;
+    }
+
     public void AddSession()
     {
         _options.SessionCount++;
@@ -78,6 +83,11 @@ public class Data : MonoBehaviour
     {
         return _options.RegistrationDate;
     }
+
+    public int GetGamePointsCount()
+    {
+        return _options.GamePointsCount;
+    }
 }
 
 [Serializable]
@@ -88,5 +98,6 @@ public class SaveOptions
     public string LastLoginDate;
     public string RegistrationDate;
     public int DisplayedLevelNumber = 1;
+    public int GamePointsCount;
 }
 
