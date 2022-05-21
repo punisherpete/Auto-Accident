@@ -13,7 +13,6 @@ public class Mover : MonoBehaviour
     [SerializeField] private float _motorForce = 100f;
     [SerializeField] private float _breakForce = 1000f;
     [SerializeField] private float _maxSteerAngle = 35f;
-    [SerializeField] private float _turningPower = 20f;
     [SerializeField] private float _centerOfMass = -.5f;
 
     private PathMover _pathController = null;

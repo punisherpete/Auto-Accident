@@ -18,9 +18,9 @@ public class Trigger : MonoBehaviour
             _car = car;
             ActivateEvents();
         }
-        else if (other.TryGetComponent(out Projector projector))
+        else if (_isActivatedByProjector && other.TryGetComponent(out Projector projector))
         {
-            _car = projector.GetCat();
+            _car = projector.GetCar();
             ActivateEvents();
         }
     }
