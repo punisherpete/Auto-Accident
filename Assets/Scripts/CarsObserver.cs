@@ -43,32 +43,31 @@ public class CarsObserver : MonoBehaviour
         }
     }
 
-    private void CheckFinished(Car car)
+    public int DetermineCurrentPlace(Car determinedCar)
     {
-        _leaderboardChecker.SetPlace(car);
-        if (!_isWinnerHamsterFound)
+        List<double> percents = new List<double>();
+        foreach (var car in _cars)
         {
-            car.Win();
-            _isWinnerHamsterFound = true;
-            RemoveCurrentCarFromTheList(car);
-            if (car.Type == CarType.Player)
-            {
-                StartCoroutine(WaitAfterAWhileAfterPlayerFinishing());
-                ActivateAfterPlayerWin?.Invoke();
-                DeterminePlacesByDistanceToFinishLine();
-            }
+            percents.Add(car.GetCurrentSplinePercent());
         }
-        else
+        int place = 1;
+        while (percents.Count>0)
         {
-            car.Lose();
-            RemoveCurrentCarFromTheList(car);
-            if (car.Type == CarType.Player)
+            int maxPercentIndex = 0;
+            for (int i = 0; i < percents.Count; i++)
             {
-                StartCoroutine(WaitAfterAWhileAfterPlayerFinishing());
-                ActivateAfterPlayerLose?.Invoke();
-                DeterminePlacesByDistanceToFinishLine();
+                if (percents[i] > percents[maxPercentIndex])
+                    maxPercentIndex = i;
             }
+            if (percents[maxPercentIndex] != determinedCar.GetCurrentSplinePercent())
+            {
+                place++;
+                percents.RemoveAt(maxPercentIndex);
+            }
+            else
+                break;
         }
+        return place;
     }
 
     public bool IsAheadOfThePlayerOnDistance(Car originCar, float criticalDistance)
@@ -116,6 +115,34 @@ public class CarsObserver : MonoBehaviour
         foreach (var car in _cars)
         {
             car.StartMashine();
+        }
+    }
+
+    private void CheckFinished(Car car)
+    {
+        _leaderboardChecker.SetPlace(car);
+        if (!_isWinnerHamsterFound)
+        {
+            car.Win();
+            _isWinnerHamsterFound = true;
+            RemoveCurrentCarFromTheList(car);
+            if (car.Type == CarType.Player)
+            {
+                StartCoroutine(WaitAfterAWhileAfterPlayerFinishing());
+                ActivateAfterPlayerWin?.Invoke();
+                DeterminePlacesByDistanceToFinishLine();
+            }
+        }
+        else
+        {
+            car.Lose();
+            RemoveCurrentCarFromTheList(car);
+            if (car.Type == CarType.Player)
+            {
+                StartCoroutine(WaitAfterAWhileAfterPlayerFinishing());
+                ActivateAfterPlayerLose?.Invoke();
+                DeterminePlacesByDistanceToFinishLine();
+            }
         }
     }
 
