@@ -487,6 +487,8 @@ GameObject:
   - component: {fileID: 108662172372229133}
   - component: {fileID: 108662172372229132}
   - component: {fileID: 108662172372229134}
+  - component: {fileID: 5690702362360069311}
+  - component: {fileID: 2598638930744884491}
   m_Layer: 16
   m_Name: Stop-block
   m_TagString: Untagged
@@ -553,6 +555,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _self: {fileID: 108662172372229133}
   _arrows: {fileID: 108662173181436310}
+--- !u!65 &5690702362360069311
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108662172372229130}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.0970664, y: 3.099887, z: 1.6211843}
+  m_Center: {x: 1.5012872, y: 7.083329e-15, z: -2.8992862e-15}
+--- !u!114 &2598638930744884491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108662172372229130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e536dacde9bda4b49bdaa6a523b7c77e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _value: -10
 --- !u!1 &108662172374204029
 GameObject:
   m_ObjectHideFlags: 0

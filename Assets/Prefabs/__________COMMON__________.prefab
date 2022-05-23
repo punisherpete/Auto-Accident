@@ -146,7 +146,7 @@ MonoBehaviour:
   TargetCamera: {fileID: 287237624985785083}
   AnimateScale: 1
   RemapScaleZero: {x: 0, y: 0}
-  RemapScaleOne: {x: 35, y: 35}
+  RemapScaleOne: {x: 45, y: 45}
   AnimateScaleCurve:
     serializedVersion: 2
     m_Curve:
@@ -565,7 +565,7 @@ MonoBehaviour:
   _projectorFollowAndLookAtProjector: {fileID: 9070274448507651534}
   _carMover: {fileID: 5132536512433389413}
   _projectorObserver: {fileID: 4524564984712431938}
-  _offsetMistake: -1
+  _offsetMistake: -2
   _actionDuration: 1
   _rebindDelay: 0.5
 --- !u!114 &3983672140835528514
@@ -6147,18 +6147,6 @@ MonoBehaviour:
       - m_Target: {fileID: 287237626348081714}
         m_TargetAssemblyTypeName: CarsObserver, Assembly-CSharp
         m_MethodName: StartAllCars
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 3983672140835528514}
-        m_TargetAssemblyTypeName: MoreMountains.Feedbacks.MMFeedbacks, MoreMountains.Feedbacks
-        m_MethodName: PlayFeedbacks
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
