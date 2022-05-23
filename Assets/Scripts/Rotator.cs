@@ -8,4 +8,12 @@ public class Rotator : MonoBehaviour
     {
         transform.rotation *= Quaternion.Euler(new Vector3(0f, _speed * Time.deltaTime, 0f));
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<InteractionProcessor>())
+        {
+            enabled = false;
+        }
+    }
 }

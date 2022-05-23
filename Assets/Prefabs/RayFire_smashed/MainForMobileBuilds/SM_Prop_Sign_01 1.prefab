@@ -12,7 +12,9 @@ GameObject:
   - component: {fileID: 6968400320819425277}
   - component: {fileID: 6968400320819425274}
   - component: {fileID: 6968400320819425275}
-  m_Layer: 11
+  - component: {fileID: 1011989416547789676}
+  - component: {fileID: 8818646257620914802}
+  m_Layer: 0
   m_Name: SM_Prop_Sign_01 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -266,3 +268,29 @@ MonoBehaviour:
   dustList: []
   restriction: {fileID: 0}
   sound: {fileID: 0}
+--- !u!65 &1011989416547789676
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7815384700940917673}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.8527442, y: 2.2448916, z: 0.17671879}
+  m_Center: {x: -0.13400453, y: 1.1224458, z: 0.02669434}
+--- !u!114 &8818646257620914802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7815384700940917673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e536dacde9bda4b49bdaa6a523b7c77e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _value: 1
