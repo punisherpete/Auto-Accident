@@ -236,6 +236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 20
+  _isPlayer: 1
 --- !u!65 &7169122624281116218
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -605,6 +606,7 @@ MonoBehaviour:
   _tenhthMeshChangingParts: []
   _takeDamageInterval: 0.5
   _effectsGenerator: {fileID: 3236523695042043827}
+  _hitFeedBacks: {fileID: 0}
 --- !u!1 &2997819250803025566
 GameObject:
   m_ObjectHideFlags: 0
@@ -805,6 +807,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 40
+  _isPlayer: 1
 --- !u!95 &3563119784538328422
 Animator:
   serializedVersion: 3
@@ -885,6 +888,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 1
+  _isPlayer: 1
 --- !u!65 &4274845641390265732
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -943,6 +947,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 1
+  _isPlayer: 1
 --- !u!65 &7744647297695891970
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1321,6 +1326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 35
+  _isPlayer: 1
 --- !u!95 &2201666542375723295
 Animator:
   serializedVersion: 3
@@ -1492,6 +1498,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 35
+  _isPlayer: 1
 --- !u!95 &1898818216373421434
 Animator:
   serializedVersion: 3
@@ -1669,6 +1676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 35
+  _isPlayer: 1
 --- !u!65 &4497011231944468091
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2203,6 +2211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 35
+  _isPlayer: 1
 --- !u!114 &1284609348507605295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2395,6 +2404,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 20
+  _isPlayer: 1
 --- !u!114 &640885732541364426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2490,6 +2500,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 45
+  _isPlayer: 1
 --- !u!1 &6989477944757084915
 GameObject:
   m_ObjectHideFlags: 0
@@ -2552,6 +2563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 35
+  _isPlayer: 1
 --- !u!65 &10282713266424021
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2701,6 +2713,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 20
+  _isPlayer: 1
 --- !u!1 &6989477945424144263
 GameObject:
   m_ObjectHideFlags: 0
@@ -2763,6 +2776,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 35
+  _isPlayer: 1
 --- !u!65 &5796569822840404427
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3012,6 +3026,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 20
+  _isPlayer: 1
 --- !u!1 &7042139400340176550
 GameObject:
   m_ObjectHideFlags: 0

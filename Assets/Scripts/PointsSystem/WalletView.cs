@@ -5,7 +5,6 @@ public class WalletView : MonoBehaviour
 {
     [SerializeField] private TMP_Text _walletView;
 
-
     private void Start()
     {
         PointsTransmitter.Instance.Transmitted += OnChangeView;

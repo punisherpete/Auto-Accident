@@ -12,7 +12,7 @@ public class GamePoint : MonoBehaviour
     [ContextMenu("Collect")]
     public void Collect()
     {
+        gameObject.SetActive(false);
         BeenCollected?.Invoke(Value);
-        GetComponent<Collider>().enabled = false;
     }
 }

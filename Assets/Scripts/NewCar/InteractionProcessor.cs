@@ -4,6 +4,7 @@ using UnityEngine;
 public class InteractionProcessor : MonoBehaviour
 {
     [SerializeField] private float _sensitivity = 1f;
+    [SerializeField] private GameObject _parentRoot;
 
     private Transform _transform;
 
@@ -29,10 +30,15 @@ public class InteractionProcessor : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
-        
-            if (other.TryGetComponent(out GamePoint gamePoint))
-                gamePoint.Collect();
-        
+        if (_parentRoot)
+        {
+            if (_parentRoot.GetComponent<PlayerInput>())
+            {
+                if (other.TryGetComponent(out GamePoint gamePoint))
+                {
+                    gamePoint.Collect();
+                }
+            }
+        }
     }
 }
