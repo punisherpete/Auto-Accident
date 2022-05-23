@@ -11,6 +11,6 @@ public class PlaceShower : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _placeText.text = _carsObserver.DetermineCurrentPlace(_determinedCar).ToString();
+        _placeText.text = "Place: "+ _carsObserver.DetermineCurrentPlace(_determinedCar).ToString();
     }
 }

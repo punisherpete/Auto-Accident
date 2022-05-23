@@ -61,7 +61,7 @@ MonoBehaviour:
   m_BindingMode: 5
   m_FollowOffset: {x: 0, y: 7, z: -9}
   m_XDamping: 0
-  m_YDamping: 0
+  m_YDamping: 0.4
   m_ZDamping: 0
   m_AngularDampingMode: 0
   m_PitchDamping: 0
@@ -122,7 +122,6 @@ GameObject:
   m_Component:
   - component: {fileID: 9087260831973040688}
   - component: {fileID: 9087260831973040695}
-  - component: {fileID: 271491308781771843}
   - component: {fileID: 7239773106942036067}
   m_Layer: 0
   m_Name: VC_1_simpleFollow_Projector
@@ -184,21 +183,6 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 9087260831755740097}
---- !u!114 &271491308781771843
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9087260831973040689}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00b2d199b96b516448144ab30fb26aed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ChannelMask: 1
-  m_Gain: 1
-  m_Use2DDistance: 0
 --- !u!114 &7239773106942036067
 MonoBehaviour:
   m_ObjectHideFlags: 0
