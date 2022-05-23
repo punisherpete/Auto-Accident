@@ -29,11 +29,17 @@ public class PointsTransmitter : MonoBehaviour
 
     public void Subscribe()
     {
+        if (_pointsPool == null)
+            return;
+
         _pointsPool.PointsWthidrawed += OnTransaction;
     }
 
     public void Unsubscribe()
     {
+        if (_pointsPool == null)
+            return;
+
         _pointsPool.PointsWthidrawed -= OnTransaction;
     }
 

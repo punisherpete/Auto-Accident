@@ -97,5 +97,10 @@ namespace MoreMountains.Tools
                 Destroy(_waitingPool.gameObject);
             }
         }
+
+		public virtual void SetParent(Transform parent)
+        {
+			_waitingPool.transform.parent = parent;
+		}
     }
 }

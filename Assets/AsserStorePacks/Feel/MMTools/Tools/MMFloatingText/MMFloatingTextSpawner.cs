@@ -81,6 +81,8 @@ namespace MoreMountains.Tools
         /// whether or not the text pool can expand if the pool is empty
         [Tooltip("whether or not the text pool can expand if the pool is empty")]
         public bool PoolCanExpand = true;
+        // the pool's parent
+        public GameObject PoolParent = null;
 
         [MMInspectorGroup("Spawn Settings", true, 14)]
 
@@ -332,6 +334,7 @@ namespace MoreMountains.Tools
             simplePooler.MutualizeWaitingPools = MutualizeWaitingPools;
             simplePooler.PoolCanExpand = PoolCanExpand;
             simplePooler.FillObjectPool();
+            simplePooler.SetParent(PoolParent.transform);
             _pooler = simplePooler;
         }
 
