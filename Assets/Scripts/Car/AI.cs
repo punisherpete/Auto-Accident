@@ -26,7 +26,7 @@ public class AI : MonoBehaviour
         _car = GetComponent<Car>();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionStay(Collision collision)
     {
         if(collision.gameObject.TryGetComponent(out Car car))
         {
