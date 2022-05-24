@@ -565,8 +565,8 @@ MonoBehaviour:
   _projectorFollowAndLookAtProjector: {fileID: 9070274448507651534}
   _carMover: {fileID: 5132536512433389413}
   _projectorObserver: {fileID: 4524564984712431938}
-  _offsetMistake: -2
-  _actionDuration: 1
+  _offsetMistakeForZooming: -2
+  _actionDuration: 0.1
   _rebindDelay: 0.5
 --- !u!114 &3983672140835528514
 MonoBehaviour:
@@ -6615,10 +6615,10 @@ PrefabInstance:
     - target: {fileID: 7461876023464264524, guid: 23bc77651286f654bb505ad50cee93ae, type: 3}
       propertyPath: m_LookAt
       value: 
-      objectReference: {fileID: 287237625493004593}
+      objectReference: {fileID: 287237624529328808}
     - target: {fileID: 7461876023464264524, guid: 23bc77651286f654bb505ad50cee93ae, type: 3}
       propertyPath: m_Lens.FieldOfView
-      value: 90
+      value: 110
       objectReference: {fileID: 0}
     - target: {fileID: 7461876023464264525, guid: 23bc77651286f654bb505ad50cee93ae, type: 3}
       propertyPath: m_RootOrder
@@ -6626,7 +6626,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7461876023464264525, guid: 23bc77651286f654bb505ad50cee93ae, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.8249886
+      value: 1.6719749
       objectReference: {fileID: 0}
     - target: {fileID: 7461876023464264525, guid: 23bc77651286f654bb505ad50cee93ae, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6634,23 +6634,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7461876023464264525, guid: 23bc77651286f654bb505ad50cee93ae, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 18.327133
+      value: 16.515335
       objectReference: {fileID: 0}
     - target: {fileID: 7461876023464264525, guid: 23bc77651286f654bb505ad50cee93ae, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.21565184
+      value: 0.21488859
       objectReference: {fileID: 0}
     - target: {fileID: 7461876023464264525, guid: 23bc77651286f654bb505ad50cee93ae, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.023337247
+      value: 0.029550245
       objectReference: {fileID: 0}
     - target: {fileID: 7461876023464264525, guid: 23bc77651286f654bb505ad50cee93ae, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.9705251
+      value: 0.9670903
       objectReference: {fileID: 0}
     - target: {fileID: 7461876023464264525, guid: 23bc77651286f654bb505ad50cee93ae, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.10502754
+      value: -0.13298872
       objectReference: {fileID: 0}
     - target: {fileID: 7461876023464264525, guid: 23bc77651286f654bb505ad50cee93ae, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
