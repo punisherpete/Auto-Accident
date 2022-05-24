@@ -33,7 +33,6 @@ public class AI : MonoBehaviour
             if (car.Type == CarType.Player)
             {
                 _car.SetSlidingWheel(_slidingTime);
-                Debug.Log("Sliding");
             }
         }
     }
