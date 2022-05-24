@@ -18,7 +18,6 @@ public class AI : MonoBehaviour
     private SpeedLimit _speedLimit;
     private Mover _mover;
     private Car _car;
-    private float _currentSlidingTime;
 
     private void OnEnable()
     {
@@ -33,15 +32,13 @@ public class AI : MonoBehaviour
         {
             if (car.Type == CarType.Player)
             {
-                _car.SetSlidingWheel();
-                _currentSlidingTime = _slidingTime;
+                _car.SetSlidingWheel(_slidingTime);
             }
         }
     }
 
     private void FixedUpdate()
     {
-
         if (_carsObserver.IsAheadOfThePlayerOnDistance(_car, _criticalLeadDistanceFromPlayer)) 
             _speedLimit.SetRegularDragForce(_dragModifier);
         else
@@ -51,17 +48,15 @@ public class AI : MonoBehaviour
             _mover.SetMaxSpeedModifier(_cheaterSpeedModifier, _regularForce);
             _mover.StrengthenWheels();
         }
-        else if(_carsObserver.IsFallBehindOfThePlayerOnDistance(_car, _criticalBehindDistanceFromPlayer))
+        else if (_carsObserver.IsFallBehindOfThePlayerOnDistance(_car, _criticalBehindDistanceFromPlayer))
         {
             _mover.SetMaxSpeedModifier(_behindSpeedModifier, 0);
             _mover.StrengthenWheels();
         }
-        else if(_currentSlidingTime > 0)
-            _currentSlidingTime -= Time.fixedDeltaTime;
         else
         {
             _mover.SetMaxSpeedModifier(1, 0);
-            _mover.ResetToDefaultWheel();
+            _mover.TryResetToDefaultWheel();
         }
     }
 }

@@ -21,8 +21,8 @@ public class Car : MonoBehaviour
     private Respawner _respawner;
     private bool _isFinished = false;
     private SplineProjectorObserver _splineProjectorObserver;
-
     private string _name;
+
     public string Name => _name;
     public CarType Type => _type;
 
@@ -42,6 +42,7 @@ public class Car : MonoBehaviour
     {
         if (_showSpeed)
             Debug.Log("Speed: " + _mover.GetCurrentSpeed() + " Max speed: " + _mover.GetMaxSpeed() + " Acceleration: " + _mover.GetAcceleration());
+        
         /*if(_type == CarType.Player)
             Debug.Log(_splineProjectorObserver.GetCurrentPursent());*/
     }
@@ -81,9 +82,9 @@ public class Car : MonoBehaviour
         _mover.StrengthenWheels();
     }
 
-    public void SetSlidingWheel()
+    public void SetSlidingWheel(float slidingTime)
     {
-        _mover.SetSlidingWheel();
+        _mover.SetSlidingWheel(slidingTime);
     }
 
     public void SetCriticalRespawnOffset(float criticalOffset)
@@ -91,9 +92,9 @@ public class Car : MonoBehaviour
         _respawner.SetCriticalHorizontalOffset(criticalOffset);
     }
 
-    public void ResetToDefaultWheel()
+    public bool TryResetToDefaultWheel()
     {
-        _mover.ResetToDefaultWheel();
+        return _mover.TryResetToDefaultWheel();
     }
 
     public void StopMashine()
@@ -129,6 +130,11 @@ public class Car : MonoBehaviour
             _aiName.gameObject.SetActive(true);
             _aiName.text = name;
         }
+    }
+
+    public float GetCurrentSlidingTime()
+    {
+        return _mover.SlidingTime;
     }
 
     public double GetCurrentSplinePercent()

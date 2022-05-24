@@ -29,11 +29,13 @@ public class Mover : MonoBehaviour
     private float _boostSpeedModifier = 1f;
     private Rigidbody _rigidbody;
     private float _maxSpeedModifier = 1f;
+    private float _slidingTime;
 
     public float CurrentRotationWheel => _currentRotationWheel;
     public float MaxSpeed => _maxSpeed;
     public Transform CurrentNode => _currentNode;
     public bool IsStop => _isStop;
+    public float SlidingTime => _slidingTime;
 
     public event Action Boosted;
 
@@ -53,6 +55,13 @@ public class Mover : MonoBehaviour
             _breakingTimer -= Time.fixedDeltaTime;
         HandleMotor();
         HandleSteering();
+        if (_slidingTime > 0)
+        {
+            _slidingTime -= Time.fixedDeltaTime;
+            _wheelController.SetSlidingWheelFrictionCurve();
+            if (_slidingTime <= 0)
+                _wheelController.ResetWheelFrictionCurve();
+        }
     }
 
     public void SetPathController(PathMover pathController)
@@ -76,14 +85,19 @@ public class Mover : MonoBehaviour
         _wheelController.ReinfoceWheelFrictionCurve();
     }
 
-    public void SetSlidingWheel()
+    public void SetSlidingWheel(float time)
     {
-        _wheelController.SetSlidingWheelFrictionCurve();
+        _slidingTime = time;
     }
 
-    public void ResetToDefaultWheel()
+    public bool TryResetToDefaultWheel()
     {
-        _wheelController.ResetWheelFrictionCurve();
+        if(_slidingTime<=0)
+        {
+            _wheelController.ResetWheelFrictionCurve();
+            return true;
+        }
+        return false;
     }
 
     public void ChangeHorizontalOffset(float horizontalInput)
