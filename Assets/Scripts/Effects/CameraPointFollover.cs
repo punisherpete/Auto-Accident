@@ -13,6 +13,6 @@ public class CameraPointFollover : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _rigidbody.velocity = Vector3.Lerp(_rigidbody.velocity, (_anchor.position - transform.position) * 40f, Time.deltaTime * 100f);
+        _rigidbody.velocity = Vector3.Lerp(_rigidbody.velocity, (_anchor.position - transform.position) * 40f, Time.deltaTime * 10f);
     }
 }

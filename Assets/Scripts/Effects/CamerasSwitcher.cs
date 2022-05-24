@@ -9,7 +9,7 @@ public class CamerasSwitcher : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera _projectorFollowAndLookAtProjector;
     [SerializeField] private Mover _carMover;
     [SerializeField] private SplineProjectorObserver _projectorObserver;
-    [SerializeField] private float _offsetMistakeForZooming = 0.5f;
+    [SerializeField] private float _offsetMistake = 0.5f;
     [SerializeField] private float _actionDuration = 2f;
     [SerializeField] private float _rebindDelay = 2f;
 
@@ -48,12 +48,9 @@ public class CamerasSwitcher : MonoBehaviour
     private void Transit()
     {
         _timeSpent = 0f;
-        float criticalOffset = _carMover.GetCriticalOffset() + _offsetMistakeForZooming;
+        float criticalOffset = _carMover.GetCriticalOffset() + _offsetMistake;
         bool isSwitched = _projectorObserver.IsGoesBeyondCriticalDistance(criticalOffset);
-        float targetOffsetZ = isSwitched ? -12 : -7;
-        float currentOffsetZ = _projectorFollowAndLookAtProjector.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset.z;
-        _projectorFollowAndLookAtProjector.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset.z = Mathf.Lerp(currentOffsetZ, targetOffsetZ, Time.deltaTime * 10);
-        //_projectorFollowAndLookAtCar.gameObject.SetActive(isSwitched);
+        _projectorFollowAndLookAtCar.gameObject.SetActive(isSwitched);
     }
 
     private void OnChangeCameraBodyBindingMode()

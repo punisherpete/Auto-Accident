@@ -236,7 +236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 20
-  _isPlayer: 1
+  _parentRoot: {fileID: 0}
 --- !u!65 &7169122624281116218
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -807,7 +807,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 40
-  _isPlayer: 1
+  _parentRoot: {fileID: 0}
 --- !u!95 &3563119784538328422
 Animator:
   serializedVersion: 3
@@ -888,7 +888,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 1
-  _isPlayer: 1
+  _parentRoot: {fileID: 0}
 --- !u!65 &4274845641390265732
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -947,7 +947,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 1
-  _isPlayer: 1
+  _parentRoot: {fileID: 0}
 --- !u!65 &7744647297695891970
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1326,7 +1326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 35
-  _isPlayer: 1
+  _parentRoot: {fileID: 0}
 --- !u!95 &2201666542375723295
 Animator:
   serializedVersion: 3
@@ -1498,7 +1498,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 35
-  _isPlayer: 1
+  _parentRoot: {fileID: 0}
 --- !u!95 &1898818216373421434
 Animator:
   serializedVersion: 3
@@ -1676,7 +1676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 35
-  _isPlayer: 1
+  _parentRoot: {fileID: 0}
 --- !u!65 &4497011231944468091
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2210,8 +2210,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a3cd2d5ab9bcda47a65daf215016f93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sensitivity: 35
-  _isPlayer: 1
+  _sensitivity: 14
+  _parentRoot: {fileID: 0}
 --- !u!114 &1284609348507605295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2404,7 +2404,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 20
-  _isPlayer: 1
+  _parentRoot: {fileID: 0}
 --- !u!114 &640885732541364426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2500,7 +2500,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 45
-  _isPlayer: 1
+  _parentRoot: {fileID: 0}
 --- !u!1 &6989477944757084915
 GameObject:
   m_ObjectHideFlags: 0
@@ -2563,7 +2563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 35
-  _isPlayer: 1
+  _parentRoot: {fileID: 0}
 --- !u!65 &10282713266424021
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2713,7 +2713,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 20
-  _isPlayer: 1
+  _parentRoot: {fileID: 0}
 --- !u!1 &6989477945424144263
 GameObject:
   m_ObjectHideFlags: 0
@@ -2776,7 +2776,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 35
-  _isPlayer: 1
+  _parentRoot: {fileID: 0}
 --- !u!65 &5796569822840404427
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3026,7 +3026,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 20
-  _isPlayer: 1
+  _parentRoot: {fileID: 0}
 --- !u!1 &7042139400340176550
 GameObject:
   m_ObjectHideFlags: 0
