@@ -25,7 +25,7 @@ public class Transmission : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_rigidbody.velocity.magnitude < _transfers[_currentTransferIndex].MinSpeed/* || _transfers[_currentTransferIndex].MaxSpeed  > _maxSpeed*/)
+        if (_rigidbody.velocity.magnitude < _transfers[_currentTransferIndex].MinSpeed || _transfers[_currentTransferIndex].MaxSpeed > _maxSpeed)
             IncreaseTransmission();
         else if (_rigidbody.velocity.magnitude > _transfers[_currentTransferIndex].MaxSpeed )
             ReduceTransmission();
@@ -72,7 +72,7 @@ public class Transmission : MonoBehaviour
     {
         if (_currentTransferIndex < _transfers.Count - 1)
         {
-            if (_transfers[_currentTransferIndex].MaxSpeed < _maxSpeed)
+            if (_transfers[_currentTransferIndex].MaxSpeed <= _maxSpeed)
                 _currentTransferIndex++;
         }
     }

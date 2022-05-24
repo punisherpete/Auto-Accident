@@ -68,6 +68,7 @@ MonoBehaviour:
   _behindSpeedModifier: 1.2
   _cheaterSpeedModifier: 1.5
   _regularForce: 2000
+  _slidingTime: 2
 --- !u!114 &3896113612654231844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,27 +127,27 @@ MonoBehaviour:
     MaxSpeed: 12
     Acceleration: 50
     Force: 30000
-  - MinSpeed: 10
+  - MinSpeed: 11
     MaxSpeed: 22
     Acceleration: 8
     Force: 10000
-  - MinSpeed: 20
+  - MinSpeed: 21
     MaxSpeed: 32
     Acceleration: 5
     Force: 5000
-  - MinSpeed: 30
+  - MinSpeed: 31
     MaxSpeed: 42
     Acceleration: 3
     Force: 0
-  - MinSpeed: 40
+  - MinSpeed: 41
     MaxSpeed: 52
     Acceleration: 2
     Force: 0
-  - MinSpeed: 50
+  - MinSpeed: 51
     MaxSpeed: 62
     Acceleration: 1
     Force: 0
-  - MinSpeed: 60
+  - MinSpeed: 61
     MaxSpeed: 72
     Acceleration: 1
     Force: 0
