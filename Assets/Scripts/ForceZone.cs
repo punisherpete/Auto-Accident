@@ -31,10 +31,10 @@ public class ForceZone : MonoBehaviour
                 _impact = Vector3.up;
                 break;
             case ImpactDirection.Right:
-                _impact = Vector3.right;
+                _impact = transform.right;
                 break;
             case ImpactDirection.Left:
-                _impact = Vector3.left;
+                _impact = -transform.right;
                 break;
             case ImpactDirection.Down:
                 _impact = Vector3.down;
