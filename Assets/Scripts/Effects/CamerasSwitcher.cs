@@ -60,9 +60,19 @@ public class CamerasSwitcher : MonoBehaviour
 
     private IEnumerator RebindCameras(float delay)
     {
+        Transform previouseTargetCar = _projectorFollowAndLookAtCar.LookAt;
+        Transform previouseTargetProjector = _projectorFollowAndLookAtProjector.LookAt;
+        _projectorFollowAndLookAtCar.LookAt = _carMover.transform;
+        _projectorFollowAndLookAtProjector.LookAt = _carMover.transform;
+        _projectorFollowAndLookAtCar.Follow = _carMover.transform;
+        _projectorFollowAndLookAtProjector.Follow = _carMover.transform;
         _projectorFollowAndLookAtCar.GetCinemachineComponent<CinemachineTransposer>().m_BindingMode = CinemachineTransposer.BindingMode.LockToTargetWithWorldUp; 
         _projectorFollowAndLookAtProjector.GetCinemachineComponent<CinemachineTransposer>().m_BindingMode = CinemachineTransposer.BindingMode.LockToTargetWithWorldUp;
         yield return new WaitForSeconds(delay);
+        _projectorFollowAndLookAtCar.LookAt = previouseTargetCar;
+        _projectorFollowAndLookAtProjector.LookAt = previouseTargetProjector;
+        _projectorFollowAndLookAtCar.Follow = previouseTargetCar;
+        _projectorFollowAndLookAtProjector.Follow = previouseTargetProjector;
         _projectorFollowAndLookAtCar.GetCinemachineComponent<CinemachineTransposer>().m_BindingMode = CinemachineTransposer.BindingMode.SimpleFollowWithWorldUp;
         _projectorFollowAndLookAtProjector.GetCinemachineComponent<CinemachineTransposer>().m_BindingMode = CinemachineTransposer.BindingMode.SimpleFollowWithWorldUp;
     }
