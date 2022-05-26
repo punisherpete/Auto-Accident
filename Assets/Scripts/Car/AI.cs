@@ -6,10 +6,12 @@ using UnityEngine;
 public class AI : MonoBehaviour
 {
     [SerializeField] private CarsObserver _carsObserver;
+    [SerializeField] private float _strongLeadDistanceFromPlayer = 50;
     [SerializeField] private float _criticalLeadDistanceFromPlayer = 10;
     [SerializeField] private float _criticalBehindDistanceFromPlayer = 24;
     [SerializeField] private float _cheaterBehindDistanceFromPlayer = 54;
     [SerializeField] private float _dragModifier = 0.005f;
+    [SerializeField] private float _strongDragModifier = 0.005f;
     [SerializeField] private float _behindSpeedModifier = 1.3f;
     [SerializeField] private float _cheaterSpeedModifier = 1.5f;
     [SerializeField] private float _regularForce = 5000f;
@@ -39,7 +41,9 @@ public class AI : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_carsObserver.IsAheadOfThePlayerOnDistance(_car, _criticalLeadDistanceFromPlayer)) 
+        if (_carsObserver.IsAheadOfThePlayerOnDistance(_car, _criticalLeadDistanceFromPlayer))
+            _speedLimit.SetRegularDragForce(_strongDragModifier);
+        else if (_carsObserver.IsAheadOfThePlayerOnDistance(_car, _criticalLeadDistanceFromPlayer)) 
             _speedLimit.SetRegularDragForce(_dragModifier);
         else
             _speedLimit.SetRegularDragForce(0);

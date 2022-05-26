@@ -61,10 +61,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _carsObserver: {fileID: 0}
+  _strongLeadDistanceFromPlayer: 100
   _criticalLeadDistanceFromPlayer: 6
   _criticalBehindDistanceFromPlayer: 8
   _cheaterBehindDistanceFromPlayer: 30
   _dragModifier: 0.005
+  _strongDragModifier: 0.015
   _behindSpeedModifier: 1.2
   _cheaterSpeedModifier: 1.5
   _regularForce: 2000
@@ -138,11 +140,11 @@ MonoBehaviour:
   - MinSpeed: 31
     MaxSpeed: 42
     Acceleration: 3
-    Force: 0
+    Force: 2000
   - MinSpeed: 41
     MaxSpeed: 52
     Acceleration: 2
-    Force: 0
+    Force: 2000
   - MinSpeed: 51
     MaxSpeed: 62
     Acceleration: 1
