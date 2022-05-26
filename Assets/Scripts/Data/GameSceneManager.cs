@@ -53,7 +53,7 @@ public class GameSceneManager : Data
             SceneManager.LoadScene(_nextLevelIndex);
         else
         {
-            if (SceneManager.GetActiveScene().buildIndex + 1 > SceneManager.sceneCount)
+            if (SceneManager.GetActiveScene().buildIndex + 1 > SceneManager.sceneCountInBuildSettings)
                 SceneManager.LoadScene(1);
             else
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
