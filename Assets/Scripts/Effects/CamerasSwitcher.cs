@@ -13,7 +13,6 @@ public class CamerasSwitcher : MonoBehaviour
     [SerializeField] private float _actionDuration = 2f;
     [SerializeField] private float _rebindDelay = 2f;
 
-    private float _timeSpent;
     private Respawner _carRespawner;
     private MMFeedbacks _accelerationFeedBacks; 
 
@@ -31,12 +30,7 @@ public class CamerasSwitcher : MonoBehaviour
 
     private void Update()
     {
-        _timeSpent += Time.deltaTime;
-
-        if (_timeSpent > _actionDuration)
-        {
-            //Transit();
-        }
+        Transit();
     }
 
     private void OnDisable()
@@ -47,10 +41,9 @@ public class CamerasSwitcher : MonoBehaviour
 
     private void Transit()
     {
-        _timeSpent = 0f;
         float criticalOffset = _carMover.GetCriticalOffset() + _offsetMistake;
         bool isSwitched = _projectorObserver.IsGoesBeyondCriticalDistance(criticalOffset);
-        _projectorFollowAndLookAtCar.gameObject.SetActive(isSwitched);
+        _projectorFollowAndLookAtProjector.gameObject.SetActive(isSwitched);
     }
 
     private void OnChangeCameraBodyBindingMode()
@@ -62,6 +55,9 @@ public class CamerasSwitcher : MonoBehaviour
     {
         Transform previouseTargetCar = _projectorFollowAndLookAtCar.LookAt;
         Transform previouseTargetProjector = _projectorFollowAndLookAtProjector.LookAt;
+        Transform previouseTargetProjectorFollow = _projectorFollowAndLookAtProjector.Follow;
+        Transform previouseTargetCarFollow = _projectorFollowAndLookAtCar.Follow;
+
         _projectorFollowAndLookAtCar.LookAt = _carMover.transform;
         _projectorFollowAndLookAtProjector.LookAt = _carMover.transform;
         _projectorFollowAndLookAtCar.Follow = _carMover.transform;
@@ -71,8 +67,8 @@ public class CamerasSwitcher : MonoBehaviour
         yield return new WaitForSeconds(delay);
         _projectorFollowAndLookAtCar.LookAt = previouseTargetCar;
         _projectorFollowAndLookAtProjector.LookAt = previouseTargetProjector;
-        _projectorFollowAndLookAtCar.Follow = previouseTargetCar;
-        _projectorFollowAndLookAtProjector.Follow = previouseTargetProjector;
+        _projectorFollowAndLookAtProjector.Follow = previouseTargetProjectorFollow;
+        _projectorFollowAndLookAtCar.Follow = previouseTargetCarFollow;
         _projectorFollowAndLookAtCar.GetCinemachineComponent<CinemachineTransposer>().m_BindingMode = CinemachineTransposer.BindingMode.SimpleFollowWithWorldUp;
         _projectorFollowAndLookAtProjector.GetCinemachineComponent<CinemachineTransposer>().m_BindingMode = CinemachineTransposer.BindingMode.SimpleFollowWithWorldUp;
     }
