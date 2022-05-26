@@ -14,12 +14,14 @@ public class CarsObserver : MonoBehaviour
     [SerializeField] private LeaderboardChecker _leaderboardChecker;
 
     private List<Car> _cars;
+    private List<Car> _allCars;
     private bool _isWinnerHamsterFound;
     private Car _playerCar = null;
 
     private void Awake()
     {
         _cars = new List<Car>(GetComponentsInChildren<Car>());
+        _allCars = new List<Car>(GetComponentsInChildren<Car>());
         foreach (var car in _cars)
         {
             if (car.Type == CarType.Player)
@@ -46,7 +48,7 @@ public class CarsObserver : MonoBehaviour
     public int DetermineCurrentPlace(Car determinedCar)
     {
         List<double> percents = new List<double>();
-        foreach (var car in _cars)
+        foreach (var car in _allCars)
         {
             percents.Add(car.GetCurrentSplinePercent());
         }
