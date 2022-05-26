@@ -7,8 +7,8 @@ public class GameSceneManager : Data
     [SerializeField] private TMP_Text _levelText;
     [SerializeField] private AppMetricaEvents _appMetricaObject;
     [SerializeField] private GameAnalyticsObject _gameAnalyticsObject;
+    [SerializeField] private bool _isSwitchingLevelsManually = false;
     [SerializeField] private int _nextLevelIndex = 0;
-
 
     private void Awake()
     {
@@ -49,7 +49,15 @@ public class GameSceneManager : Data
         _gameAnalyticsObject.OnLevelComplete(GetDisplayedLevelNumber());
         SaveNextLevelIndex();
         Save();
-        SceneManager.LoadScene(_nextLevelIndex);
+        if(_isSwitchingLevelsManually)
+            SceneManager.LoadScene(_nextLevelIndex);
+        else
+        {
+            if (SceneManager.GetActiveScene().buildIndex + 1 > SceneManager.sceneCount)
+                SceneManager.LoadScene(1);
+            else
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 
     public void ReloadScene()
