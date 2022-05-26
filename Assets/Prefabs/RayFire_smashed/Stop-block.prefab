@@ -2657,7 +2657,7 @@ GameObject:
   - component: {fileID: 108662173181436313}
   - component: {fileID: 108662173181436312}
   m_Layer: 16
-  m_Name: MovingArrows
+  m_Name: Skull
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2670,13 +2670,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 108662173181436310}
-  m_LocalRotation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
+  m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
   m_LocalPosition: {x: 1.62, y: -0, z: 0.434}
   m_LocalScale: {x: 0.3, y: 0.080757745, z: -0.28}
   m_Children: []
   m_Father: {fileID: 108662172372229131}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: -90, z: -90}
+  m_LocalEulerAnglesHint: {x: 180, y: -90, z: -90}
 --- !u!33 &108662173181436314
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2704,7 +2704,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9516b1bf1ccab824b82e773e874c5a07, type: 2}
+  - {fileID: 2100000, guid: c9c1dd5a338fca54e992d9ec20102737, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2736,7 +2736,7 @@ Animator:
   m_GameObject: {fileID: 108662173181436310}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 03e9fbcede04a694cb7726b8fced2b2f, type: 2}
+  m_Controller: {fileID: 9100000, guid: fdace58920815334bb8a457e153e8092, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
