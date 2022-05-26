@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5623070774318446911}
   - component: {fileID: 5623070774318446896}
   - component: {fileID: 5623070774318446897}
+  - component: {fileID: 6819479862336764941}
   m_Layer: 11
   m_Name: SM_Prop_Sign_Stop_01 (1)
   m_TagString: Untagged
@@ -267,6 +268,19 @@ MonoBehaviour:
   dustList: []
   restriction: {fileID: 0}
   sound: {fileID: 0}
+--- !u!65 &6819479862336764941
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4812167405514529922}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1725601, y: 2.265878, z: 0.72474027}
+  m_Center: {x: 0.061647803, y: 1.132939, z: -0.027579343}
 --- !u!1001 &2557512373475467198
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -280,7 +294,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2395266333459800191, guid: c0867d1d7da02d74ca909244356ca3ea, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4961827491524749152, guid: c0867d1d7da02d74ca909244356ca3ea, type: 3}
       propertyPath: _value
@@ -288,7 +302,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5207709653184851291, guid: c0867d1d7da02d74ca909244356ca3ea, type: 3}
       propertyPath: m_Size.x
-      value: 0.81304044
+      value: 1.1822009
       objectReference: {fileID: 0}
     - target: {fileID: 5207709653184851291, guid: c0867d1d7da02d74ca909244356ca3ea, type: 3}
       propertyPath: m_Size.y
@@ -296,7 +310,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5207709653184851291, guid: c0867d1d7da02d74ca909244356ca3ea, type: 3}
       propertyPath: m_Size.z
-      value: 0.17065917
+      value: 0.883219
       objectReference: {fileID: 0}
     - target: {fileID: 5207709653184851291, guid: c0867d1d7da02d74ca909244356ca3ea, type: 3}
       propertyPath: m_Center.x
