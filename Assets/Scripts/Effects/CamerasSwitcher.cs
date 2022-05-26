@@ -35,7 +35,7 @@ public class CamerasSwitcher : MonoBehaviour
 
         if (_timeSpent > _actionDuration)
         {
-            Transit();
+            //Transit();
         }
     }
 

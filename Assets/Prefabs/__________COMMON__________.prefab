@@ -6502,6 +6502,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: VC_1_simpleFollow_Projector
       objectReference: {fileID: 0}
+    - target: {fileID: 9087260831973040689, guid: db8eaaf85c3c6224d9c9774c5f56590c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9087260831973040695, guid: db8eaaf85c3c6224d9c9774c5f56590c, type: 3}
       propertyPath: m_Follow
       value: 
@@ -6661,7 +6665,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7461876023464264526, guid: 23bc77651286f654bb505ad50cee93ae, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7461876023166126381, guid: 23bc77651286f654bb505ad50cee93ae, type: 3}
