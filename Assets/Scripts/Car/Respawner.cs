@@ -52,7 +52,7 @@ public class Respawner : MonoBehaviour
     {
         if (_isRespawnAllowed == false)
             return;
-        if (_rigidbody.velocity.magnitude < 0.5f)
+        if (_rigidbody.velocity.magnitude < 2f)
             _respawnTimer += Time.deltaTime;
         else if(_splineProjectorObserver != null && _splineProjectorObserver.IsGoesBeyondCriticalDistance(_criticalHorizontalOffset))
             _respawnTimer += Time.deltaTime;
