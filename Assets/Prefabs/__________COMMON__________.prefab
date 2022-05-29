@@ -5003,10 +5003,10 @@ RectTransform:
   m_Father: {fileID: 7110250242030409991}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 808.7019}
-  m_SizeDelta: {x: 438.8528, y: 199.8488}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -265}
+  m_SizeDelta: {x: 438.8528, y: 199.84875}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9179306057222987124
 CanvasRenderer:
@@ -5240,7 +5240,6 @@ MonoBehaviour:
   _levelText: {fileID: 6410717735140081709}
   _appMetricaObject: {fileID: 11400000, guid: 506262a011e150947987910ae27d3bd3, type: 2}
   _gameAnalyticsObject: {fileID: 11400000, guid: 356705b1832b0864bb6b43452634fb4f, type: 2}
-  _nextLevelIndex: 2
 --- !u!1001 &287237624596589582
 PrefabInstance:
   m_ObjectHideFlags: 0
