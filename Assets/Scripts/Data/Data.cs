@@ -44,14 +44,19 @@ public class Data : MonoBehaviour
         _options.LastLoginDate = date.ToString();
     }
 
-    public void SetGamePoints(int value)
+    public void SetCurrentSoft(int value)
     {
-        _options.GamePointsCount = value;
+        _options.Soft = value;
     }
 
     public void AddSession()
     {
         _options.SessionCount++;
+    }
+
+    public string GetKeyName()
+    {
+        return _dataKeyName;
     }
 
     public int GetLevelIndex()
@@ -84,9 +89,9 @@ public class Data : MonoBehaviour
         return _options.RegistrationDate;
     }
 
-    public int GetGamePointsCount()
+    public int GetCurrentSoft()
     {
-        return _options.GamePointsCount;
+        return _options.Soft;
     }
 }
 
@@ -98,6 +103,6 @@ public class SaveOptions
     public string LastLoginDate;
     public string RegistrationDate;
     public int DisplayedLevelNumber = 1;
-    public int GamePointsCount;
+    public int Soft;
 }
 

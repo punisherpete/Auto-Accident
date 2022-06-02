@@ -2,52 +2,42 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class GameSceneManager : Data
+public class GameSceneManager : MonoBehaviour
 {
     [SerializeField] private TMP_Text _levelText;
-    [SerializeField] private AppMetricaEvents _appMetricaObject;
-    [SerializeField] private GameAnalyticsObject _gameAnalyticsObject;
+    [SerializeField] private AnalyticManager _analytic;
+    [SerializeField] private Data _data;
 
     private int _nextLevelIndex;
 
     private void Awake()
     {
-        Load();
-        SetLevelIndex(SceneManager.GetActiveScene().buildIndex);
-        Save();
-        _levelText.text = $"Level {GetDisplayedLevelNumber()}";
+        _data.Load();
+        _data.SetLevelIndex(SceneManager.GetActiveScene().buildIndex);
+        _data.Save();
+        _levelText.text = $"Level {_data.GetDisplayedLevelNumber()}";
     }
 
     private void Start()
     {
-        _appMetricaObject.OnLevelStart(GetDisplayedLevelNumber());
-        _gameAnalyticsObject.OnLevelStart(GetDisplayedLevelNumber());
+        _analytic.SendEventOnLevelStart(_data.GetDisplayedLevelNumber());
     }
 
     private void OnApplicationQuit()
     {
-        _appMetricaObject.OnGameExit(GetRegistrationDate(), GetSessionCount(), GetNumberDaysAfterRegistration());
-        _gameAnalyticsObject.OnGameExit(GetRegistrationDate(), GetSessionCount(), GetNumberDaysAfterRegistration());
-        Save();
-    }
-
-    private void SaveNextLevelIndex()
-    {
-        SetLevelIndex(_nextLevelIndex);
-        AddDisplayedLevelNumber();
+        _analytic.SendEventOnGameExit(_data.GetRegistrationDate(), _data.GetSessionCount(), _data.GetNumberDaysAfterRegistration(), _data.GetCurrentSoft());
+        _data.Save();
     }
 
     public void LevelFail()
     {
-        _appMetricaObject.OnFail(GetDisplayedLevelNumber());
-        _gameAnalyticsObject.OnFail(GetDisplayedLevelNumber());
+        _analytic.SendEventOnFail(_data.GetDisplayedLevelNumber());
     }
 
     public void LoadNextScene()
     {
-        _appMetricaObject.OnLevelComplete(GetDisplayedLevelNumber());
-        _gameAnalyticsObject.OnLevelComplete(GetDisplayedLevelNumber());
-        Save();
+        _analytic.SendEventOnLevelComplete(_data.GetDisplayedLevelNumber());
+        _data.Save();
         if (SceneManager.GetActiveScene().buildIndex + 1 >= SceneManager.sceneCountInBuildSettings)
             _nextLevelIndex = 1;
         else
@@ -58,8 +48,13 @@ public class GameSceneManager : Data
 
     public void ReloadScene()
     {
-        _appMetricaObject.OnLevelRestart(GetDisplayedLevelNumber());
-        _gameAnalyticsObject.OnLevelRestart(GetDisplayedLevelNumber());
+        _analytic.SendEventOnLevelRestart(_data.GetDisplayedLevelNumber());
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    private void SaveNextLevelIndex()
+    {
+        _data.SetLevelIndex(_nextLevelIndex);
+        _data.AddDisplayedLevelNumber();
     }
 }
