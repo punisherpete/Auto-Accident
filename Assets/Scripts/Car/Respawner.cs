@@ -56,7 +56,7 @@ public class Respawner : MonoBehaviour
             _respawnTimer += Time.deltaTime;
         else if(_splineProjectorObserver != null && _splineProjectorObserver.IsGoesBeyondCriticalDistance(_criticalHorizontalOffset))
             _respawnTimer += Time.deltaTime;
-        else if (Mathf.Abs(Quaternion.Angle(_rigidbody.rotation, _mover.CurrentNode.rotation)) > 90)
+        else if (_splineProjectorObserver != null && Mathf.Abs(Quaternion.Angle(_rigidbody.rotation, _splineProjectorObserver.Projector.transform.rotation)) > 90)
             _respawnTimer += Time.deltaTime;
         else
             _respawnTimer = 0;
@@ -91,8 +91,8 @@ public class Respawner : MonoBehaviour
         _respawnTimer = 0;
         _rigidbody.isKinematic = true;
         transform.position = _respawnPoint.position;
-        if (TryGetComponent(out PathObserber pathObserber))
-            transform.rotation = pathObserber.GetNearestPoint().rotation;
+        if (_splineProjectorObserver != null)
+            transform.rotation = _splineProjectorObserver.Projector.transform.rotation;
         else
             transform.rotation = _respawnPoint.rotation;
         ActivateSafeMode();

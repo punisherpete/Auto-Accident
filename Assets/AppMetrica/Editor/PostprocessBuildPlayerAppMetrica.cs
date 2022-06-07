@@ -124,12 +124,12 @@ public class PostprocessBuildPlayerAppMetrica
 
         foreach (var file in Directory.GetFiles (srcPath)) {
             if (!file.EndsWith (".meta")) {
-                File.Copy (file, Path.Combine (dstPath, Path.GetFileName (file)));
+                File.Copy (file, System.IO.Path.Combine (dstPath, System.IO.Path.GetFileName (file)));
             }
         }
 
         foreach (var dir in Directory.GetDirectories(srcPath)) {
-            CopyAndReplaceDirectory(dir, Path.Combine(dstPath, Path.GetFileName(dir)));
+            CopyAndReplaceDirectory(dir, System.IO.Path.Combine(dstPath, System.IO.Path.GetFileName(dir)));
         }
     }
 }

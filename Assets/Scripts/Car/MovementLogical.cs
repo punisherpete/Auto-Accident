@@ -33,10 +33,5 @@ public class MovementLogical : MonoBehaviour
     {    
         if(collision.gameObject.TryGetComponent(out Mover _) && _isCarInFrontDetected)
             _mover.PauseMoving(0.3f);
-        if (collision.gameObject.TryGetComponent(out Obstacle _))
-        {
-            if (_rigidbody.velocity.magnitude < 2 && Mathf.Abs(Quaternion.Angle(_rigidbody.rotation, _mover.CurrentNode.rotation)) > 15)
-                _mover.StopMoving();
-        }
     }
 }

@@ -4,23 +4,23 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Transmission))]
+[RequireComponent (typeof(PathController))]
+[RequireComponent (typeof(WheelController))]
+
 public class Mover : MonoBehaviour
 {
-
-    [SerializeField] private float _criticalOffset = 2f;
-    [SerializeField] private float _offsetSpeed = 2f;
+    [SerializeField] private float _criticalOffset = 5f;
+    [SerializeField] private float _offsetSpeed = 3f;
     [SerializeField] private float _maxSpeed = 30f;
     [SerializeField] private float _motorForce = 100f;
     [SerializeField] private float _breakForce = 1000f;
     [SerializeField] private float _maxSteerAngle = 35f;
     [SerializeField] private float _centerOfMass = -.5f;
 
-    private PathMover _pathController = null;
+    private PathController _pathController;
     private float _currentSteerAngle;
     private float _currentBreakForce;
     private bool _isStop;
-    private Transform _targetNode;
-    private Transform _currentNode;
     private float _currentRotationWheel = 0;
     private float _breakingTimer = 0f;
     private WheelController _wheelController;
@@ -33,7 +33,6 @@ public class Mover : MonoBehaviour
 
     public float CurrentRotationWheel => _currentRotationWheel;
     public float MaxSpeed => _maxSpeed;
-    public Transform CurrentNode => _currentNode;
     public bool IsStop => _isStop;
     public float SlidingTime => _slidingTime;
 
@@ -43,14 +42,13 @@ public class Mover : MonoBehaviour
     {
         _wheelController = GetComponent<WheelController>();
         _transmission = GetComponent<Transmission>();
+        _pathController = GetComponent<PathController>();
         _rigidbody = GetComponent<Rigidbody>();
         _rigidbody.centerOfMass = Vector3.up * _centerOfMass;
     }
 
     private void FixedUpdate()
     {
-        if (_targetNode == null || _pathController == null)
-            return;
         if (_breakingTimer > 0)
             _breakingTimer -= Time.fixedDeltaTime;
         HandleMotor();
@@ -62,17 +60,6 @@ public class Mover : MonoBehaviour
             if (_slidingTime <= 0)
                 _wheelController.ResetWheelFrictionCurve();
         }
-    }
-
-    public void SetPathController(PathMover pathController)
-    {
-        _pathController = pathController;
-    }
-
-    public void SetTargetNode(Transform currentNode,Transform targetNode)
-    {
-        _currentNode = currentNode;
-        _targetNode = targetNode;
     }
 
     public void SetCriticalHorizontalOffset(float horizontalOffset)
@@ -102,8 +89,8 @@ public class Mover : MonoBehaviour
 
     public void ChangeHorizontalOffset(float horizontalInput)
     {
-        if(_wheelController.IsGrounded)
-            _pathController.MovePath(_criticalOffset,_offsetSpeed,horizontalInput);
+        if (_wheelController.IsGrounded)
+            _pathController.ChangeHorizontalOffset(_criticalOffset, _offsetSpeed, horizontalInput);
     }
 
     public void PauseMoving(float time)
@@ -181,7 +168,7 @@ public class Mover : MonoBehaviour
     {
         return _criticalOffset;
     }
-    
+
     private void HandleMotor()
     {
         _wheelController.SetForce(_transmission.GetAcceleration() * _motorForce * _boostAccelerationModifier);
@@ -196,7 +183,7 @@ public class Mover : MonoBehaviour
 
     private void HandleSteering()
     {
-        Vector3 realitiveVector = transform.InverseTransformPoint(_targetNode.position);
+        Vector3 realitiveVector = transform.InverseTransformPoint(_pathController.TargetPoint.position);
         realitiveVector = realitiveVector / realitiveVector.magnitude;
         float rotationToTargetSample = realitiveVector.x / realitiveVector.magnitude;
         _currentRotationWheel = rotationToTargetSample;/*Mathf.Lerp(_currentRotationWheel, rotationToTargetSample, _turningPower * Time.fixedDeltaTime);*/
