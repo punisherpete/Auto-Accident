@@ -21,7 +21,6 @@ public class TargetPointMover : MonoBehaviour
             transform.Translate(transform.right * offsetSpeed * input * Time.deltaTime, Space.World);
         else if (Vector3.Distance(transform.localPosition, _startPosition) > criticalOffset + 0.5f)
         {
-            Debug.Log("!!!!");
             if (transform.localPosition.x < 0)
                 transform.Translate(transform.right * offsetSpeed * Time.deltaTime, Space.World);
             else if (transform.localPosition.x > 0)

@@ -59,6 +59,14 @@ public class Trigger : MonoBehaviour
         _car.SetRespawnPoint(point);
     }
 
+    public void SetControlOnRoad(bool permission)
+    {
+        if (permission)
+            _car.TurnControlOnRoad();
+        else
+            _car.TurnOffControlOnRoad();
+    }
+
     public void Finish()
     {
         _car.Finish();

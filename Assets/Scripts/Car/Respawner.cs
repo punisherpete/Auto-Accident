@@ -92,11 +92,12 @@ public class Respawner : MonoBehaviour
         _rigidbody.isKinematic = true;
         transform.position = _respawnPoint.position;
         if (_splineProjectorObserver != null)
-            transform.rotation = _splineProjectorObserver.Projector.transform.rotation;
+            transform.rotation = _splineProjectorObserver.Projector.transform.localRotation;
         else
             transform.rotation = _respawnPoint.rotation;
         ActivateSafeMode();
         _rigidbody.isKinematic = false;
+        _mover.AllowChangeOffset();
         _mover.StartMoving();
         Proceed?.Invoke();
     }

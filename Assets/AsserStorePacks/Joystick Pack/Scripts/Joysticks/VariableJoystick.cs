@@ -12,8 +12,10 @@ public class VariableJoystick : Joystick
     [SerializeField] private JoystickType joystickType = JoystickType.Fixed;
 
     private Vector2 fixedPosition = Vector2.zero;
+    private bool _isPointerDown;
 
     public event UnityAction PointerDown;
+    public bool IsPointerDown => _isPointerDown;
 
     public void SetMode(JoystickType joystickType)
     {
@@ -37,8 +39,8 @@ public class VariableJoystick : Joystick
     public override void OnPointerDown(PointerEventData eventData)
     {
         PointerDown?.Invoke();
-        
-        if(joystickType != JoystickType.Fixed)
+        _isPointerDown = true;
+        if (joystickType != JoystickType.Fixed)
         {
             background.anchoredPosition = ScreenPointToAnchoredPosition(eventData.position);
             background.gameObject.SetActive(true);
@@ -50,7 +52,7 @@ public class VariableJoystick : Joystick
     {
         if(joystickType != JoystickType.Fixed)
             background.gameObject.SetActive(false);
-
+        _isPointerDown = false;
         base.OnPointerUp(eventData);
     }
 

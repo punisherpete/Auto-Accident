@@ -109,6 +109,16 @@ public class Car : MonoBehaviour
         _respawner.AllowRespawn();
     }
 
+    public void TurnControlOnRoad()
+    {
+        _mover.AllowChangeOffset();
+    }
+
+    public void TurnOffControlOnRoad()
+    {
+        _mover.ProhibitChangeOffset();
+    }
+
     public void Finish()
     {
         if (_isFinished)

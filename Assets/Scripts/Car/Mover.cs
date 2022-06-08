@@ -30,6 +30,7 @@ public class Mover : MonoBehaviour
     private Rigidbody _rigidbody;
     private float _maxSpeedModifier = 1f;
     private float _slidingTime;
+    private bool _changeOffsetPermission = true;
 
     public float CurrentRotationWheel => _currentRotationWheel;
     public float MaxSpeed => _maxSpeed;
@@ -77,6 +78,16 @@ public class Mover : MonoBehaviour
         _slidingTime = time;
     }
 
+    public void AllowChangeOffset()
+    {
+        _changeOffsetPermission = true;
+    }
+
+    public void ProhibitChangeOffset()
+    {
+        _changeOffsetPermission = false;
+    }
+
     public bool TryResetToDefaultWheel()
     {
         if(_slidingTime<=0)
@@ -89,7 +100,7 @@ public class Mover : MonoBehaviour
 
     public void ChangeHorizontalOffset(float horizontalInput)
     {
-        if (_wheelController.IsGrounded)
+        if (_wheelController.IsGrounded && _changeOffsetPermission)
             _pathController.ChangeHorizontalOffset(_criticalOffset, _offsetSpeed, horizontalInput);
     }
 
