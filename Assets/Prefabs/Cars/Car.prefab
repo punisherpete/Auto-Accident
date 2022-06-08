@@ -98,7 +98,6 @@ GameObject:
   - component: {fileID: 4955674667960276968}
   - component: {fileID: 4955674667960276971}
   - component: {fileID: 6463842871671016353}
-  - component: {fileID: 2713449905470973065}
   - component: {fileID: 4955674667960276969}
   m_Layer: 12
   m_Name: Car
@@ -140,7 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _joystick: {fileID: 0}
-  brakingDragForce: 0.03
+  _brakingDragForce: 0.03
 --- !u!114 &4955674667960276978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -397,21 +396,6 @@ MonoBehaviour:
   _rLWTireSkid: {fileID: 4431027947084229927}
   _rRWTireSkid: {fileID: 6737091745416090106}
   _immintHeightRange: 0.5
---- !u!114 &2713449905470973065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4955674667960276973}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9d84cad93babbb44a03b6954231a39b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _carRigidbody: {fileID: 4955674667960276968}
-  _playerInput: {fileID: 4955674667960276980}
-  _intencity: 5
 --- !u!64 &4955674667960276969
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -691,6 +675,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f32bafaaebe2cd4a87b0069bf686b4b, type: 3}
+--- !u!224 &2255953960594604167 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2255953960938818974, guid: 3f32bafaaebe2cd4a87b0069bf686b4b, type: 3}
+  m_PrefabInstance: {fileID: 1971604761}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2255953960594604164 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2255953960938818973, guid: 3f32bafaaebe2cd4a87b0069bf686b4b, type: 3}
@@ -702,11 +691,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &2255953960594604167 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2255953960938818974, guid: 3f32bafaaebe2cd4a87b0069bf686b4b, type: 3}
-  m_PrefabInstance: {fileID: 1971604761}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4955674668733725027
 PrefabInstance:
   m_ObjectHideFlags: 0
