@@ -63,14 +63,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _carsObserver: {fileID: 0}
-  _strongLeadDistanceFromPlayer: 100
-  _criticalLeadDistanceFromPlayer: 6
-  _criticalBehindDistanceFromPlayer: 12
-  _cheaterBehindDistanceFromPlayer: 50
+  _strongLeadDistanceFromPlayer: 70
+  _criticalLeadDistanceFromPlayer: 2
+  _criticalBehindDistanceFromPlayer: 6
+  _cheaterBehindDistanceFromPlayer: 20
   _dragModifier: 0.005
   _strongDragModifier: 0.015
-  _behindSpeedModifier: 1.2
-  _cheaterSpeedModifier: 1.5
+  _behindSpeedModifier: 1
+  _cheaterSpeedModifier: 2
   _regularForce: 2000
   _slidingTime: 1
 --- !u!114 &8824063929250874861
