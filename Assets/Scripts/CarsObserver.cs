@@ -12,11 +12,15 @@ public class CarsObserver : MonoBehaviour
     [SerializeField] private Transform _finishLine;
     [SerializeField] private float _activationTime;
     [SerializeField] private LeaderboardChecker _leaderboardChecker;
+    [SerializeField] private VariableJoystick _joystick;
 
     private List<Car> _cars;
     private List<Car> _allCars;
-    private bool _isWinnerHamsterFound;
+    private bool _isWinnerFound;
     private Car _playerCar = null;
+
+    public bool IsPlayerLeadsActiveGame => _joystick.IsPointerDown;
+
 
     private void Awake()
     {
@@ -123,10 +127,10 @@ public class CarsObserver : MonoBehaviour
     private void CheckFinished(Car car)
     {
         _leaderboardChecker.SetPlace(car);
-        if (!_isWinnerHamsterFound)
+        if (!_isWinnerFound)
         {
             car.Win();
-            _isWinnerHamsterFound = true;
+            _isWinnerFound = true;
             RemoveCurrentCarFromTheList(car);
             if (car.Type == CarType.Player)
             {

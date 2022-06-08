@@ -41,9 +41,9 @@ public class AI : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_carsObserver.IsAheadOfThePlayerOnDistance(_car, _criticalLeadDistanceFromPlayer))
+        if (_carsObserver.IsAheadOfThePlayerOnDistance(_car, _strongLeadDistanceFromPlayer))
             _speedLimit.SetRegularDragForce(_strongDragModifier);
-        else if (_carsObserver.IsAheadOfThePlayerOnDistance(_car, _criticalLeadDistanceFromPlayer)) 
+        else if (_carsObserver.IsAheadOfThePlayerOnDistance(_car, _criticalLeadDistanceFromPlayer) && _carsObserver.IsPlayerLeadsActiveGame)
             _speedLimit.SetRegularDragForce(_dragModifier);
         else
             _speedLimit.SetRegularDragForce(0);
