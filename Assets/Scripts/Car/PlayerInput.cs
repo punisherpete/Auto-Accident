@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerInput : MonoBehaviour
 {
     [SerializeField] private VariableJoystick _joystick;
-    [SerializeField] private float brakingDragForce = 0.03f;
+    [SerializeField] private float _brakingDragForce = 0.03f;
 
     private SpeedLimit _speedLimit;
     private Mover _mover;
@@ -19,11 +19,13 @@ public class PlayerInput : MonoBehaviour
     {
         if (_joystick.IsPointerDown)
         {
-            _mover.ChangeHorizontalOffset(_joystick.Horizontal);
+            _mover.TryChangeHorizontalOffset(_joystick.Horizontal);
             _speedLimit.SetRegularDragForce(0);
         }
+        else if (!_mover.IsOnGround)
+            _speedLimit.SetRegularDragForce(0);
         else
-            _speedLimit.SetRegularDragForce(brakingDragForce);
+            _speedLimit.SetRegularDragForce(_brakingDragForce);
     }
 
 }

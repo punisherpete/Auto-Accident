@@ -36,6 +36,7 @@ public class Mover : MonoBehaviour
     public float MaxSpeed => _maxSpeed;
     public bool IsStop => _isStop;
     public float SlidingTime => _slidingTime;
+    public bool IsOnGround => _wheelController.IsGrounded;
 
     public event Action Boosted;
 
@@ -98,9 +99,9 @@ public class Mover : MonoBehaviour
         return false;
     }
 
-    public void ChangeHorizontalOffset(float horizontalInput)
+    public void TryChangeHorizontalOffset(float horizontalInput)
     {
-        if (_wheelController.IsGrounded && _changeOffsetPermission)
+        if (_changeOffsetPermission)
             _pathController.ChangeHorizontalOffset(_criticalOffset, _offsetSpeed, horizontalInput);
     }
 
