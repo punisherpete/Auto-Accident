@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PointsTransmitter : MonoBehaviour
 {
-    [SerializeField] private int _walletPointsAmount;
+    [SerializeField] private Data _data;
 
     private ScenePointsPool _pointsPool;
     private IWaletOperation _wallet;
@@ -23,8 +23,7 @@ public class PointsTransmitter : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        _wallet = new Wallet(_walletPointsAmount);
+        _wallet = new Wallet(_data.GetCurrentSoft());
     }
 
     public void Subscribe()
@@ -47,6 +46,8 @@ public class PointsTransmitter : MonoBehaviour
     {
         _wallet.OperateWithPoints(amount);
         Transmitted?.Invoke();
+        _data.SetCurrentSoft(_wallet.GetPointsAmount());
+        _data.Save();
     }
 
     public int GetWalletPoints()
@@ -58,10 +59,17 @@ public class PointsTransmitter : MonoBehaviour
     {
         _wallet.Reset(value);
         Transmitted?.Invoke();
+        _data.SetCurrentSoft(_wallet.GetPointsAmount());
+        _data.Save();
     }
 
     public void InitLevelPointsPool(ScenePointsPool pointsPool)
     {
         _pointsPool = pointsPool;
+    }
+
+    public void SetPoints(int value)
+    {
+        _wallet.OperateWithPoints(value);
     }
 }

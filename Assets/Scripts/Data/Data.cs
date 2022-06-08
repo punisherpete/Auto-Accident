@@ -23,6 +23,7 @@ public class Data : MonoBehaviour
             _options = JsonUtility.FromJson<SaveOptions>(PlayerPrefs.GetString(_dataKeyName));
     }
 
+    [ContextMenu("RemoveData")]
     public void RemoveData()
     {
         PlayerPrefs.DeleteKey(_dataKeyName);
@@ -46,6 +47,7 @@ public class Data : MonoBehaviour
 
     public void SetCurrentSoft(int value)
     {
+        print(value);
         _options.Soft = value;
     }
 
@@ -91,6 +93,8 @@ public class Data : MonoBehaviour
 
     public int GetCurrentSoft()
     {
+        print(_options.Soft);
+
         return _options.Soft;
     }
 }

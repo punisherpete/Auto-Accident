@@ -2,14 +2,14 @@ using UnityEngine;
 using UnityEditor;
 using UnityEditor.AnimatedValues;
 
-[CustomEditor(typeof(PrometeoCarController))]
+//[CustomEditor(typeof(PrometeoCarController))]
 [System.Serializable]
 public class PrometeoEditor : Editor{
 
   enum displayFieldType {DisplayAsAutomaticFields, DisplayAsCustomizableGUIFields}
   displayFieldType DisplayFieldType;
 
-  private PrometeoCarController prometeo;
+  private WheelsSkidEffects prometeo;
   private SerializedObject SO;
   //
   //
@@ -65,7 +65,7 @@ public class PrometeoEditor : Editor{
   private SerializedProperty tireScreechSound;
 
   private void OnEnable(){
-    prometeo = (PrometeoCarController)target;
+    prometeo = (WheelsSkidEffects)target;
     SO = new SerializedObject(target);
 
     maxSpeed = SO.FindProperty("maxSpeed");
