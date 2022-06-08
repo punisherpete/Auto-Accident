@@ -86,6 +86,11 @@ public class CarsObserver : MonoBehaviour
         return false;
     }
     
+    public bool IsCarFasterThanPlayer(Car originCar, float speedDifference)
+    {
+        return originCar.GetCurrentSpeed()-_playerCar.GetCurrentSpeed() > speedDifference;
+    }
+
     public bool IsFallBehindOfThePlayerOnDistance(Car originCar, float criticalDistance)
     {
         if (_playerCar == null)
