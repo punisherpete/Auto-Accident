@@ -26,7 +26,7 @@ public class MaxHandleDragImpulse : MonoBehaviour
 
     private void OnInpulseRotate(float direction)
     {
-        _intencity /= _mover.GetCurrentSpeed() / _speedDependencyProgression;
+        /*_intencity /= _mover.GetCurrentSpeed() / _speedDependencyProgression;*/
         _carRigidbody.AddTorque(new Vector3(0f, _intencity * direction, 0f), ForceMode.VelocityChange);
     }
 }

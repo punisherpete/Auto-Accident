@@ -23,18 +23,18 @@ public class PlayerInput : MonoBehaviour
 
     private void Update()
     {
-        if (_joystick.IsPointerDown)
+        if (_joystick.IsPointerDown && _joystick.Magnitude>10)
         {
-            if (_elapsedTime)
+/*            if (_elapsedTime)
             {
                 if (Mathf.Abs(_joystick.Horizontal) >= 1)
-                {
+                {*/
                     CriticalReached?.Invoke(_joystick.Horizontal);
-                    StartCoroutine(ResettingElapsedTime());
+                    /*StartCoroutine(ResettingElapsedTime());*//*
                 }
-            }
+            }*/
         }
-        print(_mover.GetCurrentSpeed() / 100);
+        Debug.Log(_joystick.Magnitude);
     }
 
     private void FixedUpdate()

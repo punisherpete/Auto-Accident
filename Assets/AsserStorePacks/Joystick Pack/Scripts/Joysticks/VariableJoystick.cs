@@ -16,6 +16,7 @@ public class VariableJoystick : Joystick
 
     public event UnityAction PointerDown;
     public bool IsPointerDown => _isPointerDown;
+    public float Magnitude => base.JoystickMagnitude;
 
     public void SetMode(JoystickType joystickType)
     {
@@ -44,6 +45,7 @@ public class VariableJoystick : Joystick
         {
             background.anchoredPosition = ScreenPointToAnchoredPosition(eventData.position);
             background.gameObject.SetActive(true);
+            
         }
         base.OnPointerDown(eventData);
     }
