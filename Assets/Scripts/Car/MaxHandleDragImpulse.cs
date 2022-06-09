@@ -18,6 +18,6 @@ public class MaxHandleDragImpulse : MonoBehaviour
 
     private void OnInpulseRotate(float direction)
     {
-        _carRigidbody.AddTorque(new Vector3(0f, _intencity * direction, 0f), ForceMode.VelocityChange);
+        _carRigidbody.AddTorque(new Vector3(0f, _intencity * direction, 0f), ForceMode.Impulse);
     }
 }
