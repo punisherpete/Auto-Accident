@@ -16,6 +16,8 @@ public class Mover : MonoBehaviour
     [SerializeField] private float _breakForce = 1000f;
     [SerializeField] private float _maxSteerAngle = 35f;
     [SerializeField] private float _centerOfMass = -.5f;
+    [SerializeField] private float _airRotationSensitivity = 5f;
+    [SerializeField] private float _airMovementSensitivity = 5f;
 
     private PathController _pathController;
     private float _currentSteerAngle;
@@ -100,11 +102,11 @@ public class Mover : MonoBehaviour
         return false;
     }
 
-    public void TurnOnTargetPoint()
+    public void TurnOnTargetPoint(float joysticHorizontal)
     {
-        Quaternion targetRotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(_pathController.TargetPoint.position),  5 * Time.deltaTime);
-        _rigidbody.MoveRotation(targetRotation);
-        
+        Vector3 newRotation = transform.up * joysticHorizontal * Time.deltaTime * _airRotationSensitivity;
+        transform.localRotation *=  Quaternion.Euler(newRotation);
+        _rigidbody.AddForce(transform.right * joysticHorizontal * _airMovementSensitivity, ForceMode.VelocityChange);
     }
 
     public void TryChangeHorizontalOffset(float horizontalInput)
