@@ -91,8 +91,9 @@ public class Respawner : MonoBehaviour
         _respawnTimer = 0;
         _rigidbody.isKinematic = true;
         transform.position = _respawnPoint.position;
+        _splineProjectorObserver.Projector.Rebuild();
         if (_splineProjectorObserver != null)
-            transform.rotation = _splineProjectorObserver.Projector.transform.rotation;
+            StartCoroutine(RotateCarInNextFrame());
         else
             transform.rotation = _respawnPoint.rotation;
         ActivateSafeMode();
@@ -110,6 +111,12 @@ public class Respawner : MonoBehaviour
         {
             item.layer = _safeLayerIndex;
         }
+    }
+
+    private IEnumerator RotateCarInNextFrame()
+    {
+        yield return new WaitForFixedUpdate();
+        transform.rotation = _splineProjectorObserver.Projector.transform.rotation;
     }
 
     private IEnumerator DeactivateSafeMode(float delayInSeconds)

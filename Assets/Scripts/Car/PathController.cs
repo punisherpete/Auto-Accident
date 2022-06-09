@@ -14,6 +14,7 @@ public class PathController : MonoBehaviour
     [SerializeField] private Path _path;
 
     public Transform TargetPoint => _path.TargetPoint;
+    public Transform CurrentPoint => _path.CurrentSplineProjector;
 
     private void Start()
     {

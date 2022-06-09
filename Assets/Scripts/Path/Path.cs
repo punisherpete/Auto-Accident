@@ -9,6 +9,7 @@ public class Path : MonoBehaviour
 
 
     public Transform TargetPoint => _targetPointMover.transform;
+    public Transform CurrentSplineProjector => _splineProjector.transform;
 
     public void Initialize(SplineComputer spline)
     {

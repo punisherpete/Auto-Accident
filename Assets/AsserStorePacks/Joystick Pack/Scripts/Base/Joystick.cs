@@ -86,9 +86,7 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
         if (magnitude > deadZone)
         {
             if (magnitude > 1)
-            {
                 input = normalised;
-            }
         }
         else
             input = Vector2.zero;
