@@ -10,7 +10,6 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
     public Vector2 Direction { get { return new Vector2(Horizontal, Vertical); } }
 
     private float _joystickMagnitude;
-    private float _oldJoystickMagnitude = 0;
 
     public float JoystickMagnitude => _joystickMagnitude;
 
@@ -60,13 +59,6 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
         handle.anchorMax = center;
         handle.pivot = center;
         handle.anchoredPosition = Vector2.zero;
-    }
-
-    public void Update()
-    {
-       if (_oldJoystickMagnitude >= _joystickMagnitude)
-            _joystickMagnitude = 0;
-        _oldJoystickMagnitude = _joystickMagnitude;
     }
 
     public virtual void OnPointerDown(PointerEventData eventData)

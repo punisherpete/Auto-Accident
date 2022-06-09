@@ -7,11 +7,12 @@ public class PlayerInput : MonoBehaviour
 {
     [SerializeField] private VariableJoystick _joystick;
     [SerializeField] private float _brakingDragForce = 0.03f;
+    [SerializeField] private float _maxMagnitudeToTurn = 10f;
 
     private SpeedLimit _speedLimit;
     private Mover _mover;
 
-    private bool _elapsedTime = true;
+    private bool _isAbleToTurnInstanly = true;
 
     public event Action<float> CriticalReached;
 
@@ -23,16 +24,16 @@ public class PlayerInput : MonoBehaviour
 
     private void Update()
     {
-        if (_joystick.IsPointerDown && _joystick.Magnitude>10)
+        if (_joystick.IsPointerDown)
         {
-/*            if (_elapsedTime)
+            if (_isAbleToTurnInstanly)
             {
-                if (Mathf.Abs(_joystick.Horizontal) >= 1)
-                {*/
+                if (_joystick.Magnitude > _maxMagnitudeToTurn)
+                {
                     CriticalReached?.Invoke(_joystick.Horizontal);
-                    /*StartCoroutine(ResettingElapsedTime());*//*
+                    StartCoroutine(ResettingElapsedTime());
                 }
-            }*/
+            }
         }
         Debug.Log(_joystick.Magnitude);
     }
@@ -52,12 +53,12 @@ public class PlayerInput : MonoBehaviour
 
     private IEnumerator ResettingElapsedTime()
     {
-        while (Mathf.Abs(_joystick.Horizontal) == 1)
+        while (_joystick.Magnitude > _maxMagnitudeToTurn)
         {
-            _elapsedTime = false; ;
+            _isAbleToTurnInstanly = false; ;
 
             yield return null;
         }
-        _elapsedTime = true;
+        _isAbleToTurnInstanly = true;
     }
 }
