@@ -98,8 +98,8 @@ GameObject:
   - component: {fileID: 4955674667960276968}
   - component: {fileID: 4955674667960276971}
   - component: {fileID: 6463842871671016353}
-  - component: {fileID: 8127939194251996795}
   - component: {fileID: 4955674667960276969}
+  - component: {fileID: 5500575683951819483}
   m_Layer: 12
   m_Name: Car
   m_TagString: Untagged
@@ -141,6 +141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _joystick: {fileID: 0}
   _brakingDragForce: 0.03
+  _maxMagnitudeToTurn: 10
 --- !u!114 &4955674667960276978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -397,22 +398,6 @@ MonoBehaviour:
   _rLWTireSkid: {fileID: 4431027947084229927}
   _rRWTireSkid: {fileID: 6737091745416090106}
   _immintHeightRange: 0.5
---- !u!114 &8127939194251996795
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4955674667960276973}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9d84cad93babbb44a03b6954231a39b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _carRigidbody: {fileID: 4955674667960276968}
-  _playerInput: {fileID: 4955674667960276980}
-  _intencity: 25
-  _speedDependencyProgression: 250
 --- !u!64 &4955674667960276969
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -427,6 +412,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2959467708922500008, guid: fe44f20f332ab7c42a262175b674a3de, type: 3}
+--- !u!114 &5500575683951819483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4955674667960276973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9d84cad93babbb44a03b6954231a39b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _intencity: 10000
 --- !u!1 &5775676709377901723
 GameObject:
   m_ObjectHideFlags: 0

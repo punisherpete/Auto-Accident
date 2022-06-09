@@ -1,10 +1,19 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(PlayerInput))]
 public class MaxHandleDragImpulse : MonoBehaviour
 {
-    [SerializeField] private Rigidbody _carRigidbody;
-    [SerializeField] private PlayerInput _playerInput;
-    [SerializeField] private float _intencity;
+    [SerializeField] private float _intencity = 10000;
+
+    private PlayerInput _playerInput;
+    private Rigidbody _rigidbody;
+
+    private void Awake()
+    {
+        _playerInput = GetComponent<PlayerInput>();
+        _rigidbody = GetComponent<Rigidbody>();
+    }
 
     private void OnEnable()
     {
@@ -18,6 +27,6 @@ public class MaxHandleDragImpulse : MonoBehaviour
 
     private void OnInpulseRotate(float direction)
     {
-        _carRigidbody.AddTorque(new Vector3(0f, _intencity * direction, 0f), ForceMode.Impulse);
+        _rigidbody.AddTorque(new Vector3(0f, _intencity * direction, 0f), ForceMode.Impulse);
     }
 }
