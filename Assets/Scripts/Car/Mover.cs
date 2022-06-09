@@ -104,14 +104,14 @@ public class Mover : MonoBehaviour
 
     public void TurnOnTargetPoint(float joysticHorizontal)
     {
-        Vector3 newRotation = transform.up * joysticHorizontal * Time.deltaTime * _airRotationSensitivity;
+        Vector3 newRotation = transform.up * joysticHorizontal * Time.fixedDeltaTime * _airRotationSensitivity;
         transform.localRotation *=  Quaternion.Euler(newRotation);
         _rigidbody.AddForce(transform.right * joysticHorizontal * _airMovementSensitivity, ForceMode.VelocityChange);
     }
 
     public void TryChangeHorizontalOffset(float horizontalInput)
     {
-        if (_changeOffsetPermission)
+        if (_changeOffsetPermission && _wheelController.IsGrounded)
             _pathController.ChangeHorizontalOffset(_criticalOffset, _offsetSpeed, horizontalInput);
     }
 

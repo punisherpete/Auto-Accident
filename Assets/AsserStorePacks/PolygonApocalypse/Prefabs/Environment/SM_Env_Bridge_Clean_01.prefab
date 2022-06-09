@@ -11,7 +11,10 @@ GameObject:
   - component: {fileID: 4076118492141426}
   - component: {fileID: 33657033132960524}
   - component: {fileID: 23715627207275992}
-  - component: {fileID: 3407122848115590396}
+  - component: {fileID: 3146361486215500506}
+  - component: {fileID: 7907973449684701818}
+  - component: {fileID: 3541417426562216415}
+  - component: {fileID: 439379814119026839}
   m_Layer: 0
   m_Name: SM_Env_Bridge_Clean_01
   m_TagString: Untagged
@@ -82,8 +85,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &3407122848115590396
-MeshCollider:
+--- !u!65 &3146361486215500506
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -92,7 +95,45 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 41bdbb73ebbcaf4449a601ceff607be1, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 25.921883, y: 20.906488, z: 110.81148}
+  m_Center: {x: 0.000077723555, y: -10.777698, z: 55.39537}
+--- !u!65 &7907973449684701818
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805135391117778}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.723311, y: 44.836033, z: 110.81155}
+  m_Center: {x: 10.59925, y: 1.1870823, z: 55.395332}
+--- !u!65 &3541417426562216415
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805135391117778}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.2463346, y: 44.836033, z: 110.81177}
+  m_Center: {x: -10.83755, y: 1.1870823, z: 55.395374}
+--- !u!65 &439379814119026839
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805135391117778}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 25.92197, y: 11.1106615, z: 110.81148}
+  m_Center: {x: 0.000077723555, y: 18.049923, z: 55.39537}

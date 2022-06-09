@@ -64,12 +64,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _carsObserver: {fileID: 0}
   _strongLeadDistanceFromPlayer: 50
-  _criticalLeadDistanceFromPlayer: 2
-  _criticalBehindDistanceFromPlayer: 3
-  _cheaterBehindDistanceFromPlayer: 20
-  _dragModifier: 0.005
+  _criticalLeadDistanceFromPlayer: 0
+  _criticalBehindDistanceFromPlayer: 5
+  _cheaterBehindDistanceFromPlayer: 35
+  _dragModifier: 0.007
   _strongDragModifier: 0.02
-  _behindSpeedModifier: 1
+  _behindSpeedModifier: 1.2
   _cheaterSpeedModifier: 2
   _regularForce: 2000
   _slidingTime: 1
@@ -176,6 +176,8 @@ MonoBehaviour:
   _breakForce: 1000
   _maxSteerAngle: 35
   _centerOfMass: -0.25
+  _airRotationSensitivity: 5
+  _airMovementSensitivity: 5
 --- !u!114 &8824063929250874862
 MonoBehaviour:
   m_ObjectHideFlags: 0
