@@ -35,7 +35,10 @@ public class PlayerInput : MonoBehaviour
                 }
             }
         }
-        Debug.Log(_joystick.Magnitude);
+        if(_joystick.IsPointerDown && _mover.IsOnGround == false)
+        {
+            _mover.TurnOnTargetPoint();
+        }
     }
 
     private void FixedUpdate()

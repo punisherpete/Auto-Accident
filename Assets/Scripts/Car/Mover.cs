@@ -100,6 +100,13 @@ public class Mover : MonoBehaviour
         return false;
     }
 
+    public void TurnOnTargetPoint()
+    {
+        Quaternion targetRotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(_pathController.TargetPoint.position),  5 * Time.deltaTime);
+        _rigidbody.MoveRotation(targetRotation);
+        
+    }
+
     public void TryChangeHorizontalOffset(float horizontalInput)
     {
         if (_changeOffsetPermission)
