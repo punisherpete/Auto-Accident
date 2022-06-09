@@ -24,7 +24,7 @@ public class PlayerInput : MonoBehaviour
 
     private void Update()
     {
-        if (_joystick.IsPointerDown && _mover.IsOnGround)
+        if (_joystick.IsPointerDown && _mover.IsAllWheelsOnGround)
         {
             if (_isAbleToTurnInstanly)
             {

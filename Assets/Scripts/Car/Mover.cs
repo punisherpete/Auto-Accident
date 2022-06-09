@@ -37,6 +37,7 @@ public class Mover : MonoBehaviour
     public bool IsStop => _isStop;
     public float SlidingTime => _slidingTime;
     public bool IsOnGround => _wheelController.IsGrounded;
+    public bool IsAllWheelsOnGround => _wheelController.IsAllWheelsOnGround;
 
     public event Action Boosted;
 
