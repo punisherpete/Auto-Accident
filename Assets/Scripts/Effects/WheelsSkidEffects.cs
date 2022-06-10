@@ -18,7 +18,6 @@ public class WheelsSkidEffects : MonoBehaviour
     [Space(10)]
     [SerializeField] private float _immintHeightRange;
 
-
     private Rigidbody _carRigidbody;
     private float _localVelocityX;
     private bool _isDrifting;
@@ -105,5 +104,10 @@ public class WheelsSkidEffects : MonoBehaviour
                 _rRWTireSkid.emitting = false;
             }
         }
+    }
+
+    public void SetOnEffects(bool useEffects)
+    {
+        _useEffects = useEffects;
     }
 }

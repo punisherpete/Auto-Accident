@@ -6,6 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Mover))]
 [RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(WheelsSkidEffects))]
 public class Respawner : MonoBehaviour
 {
     [SerializeField] private CarsObserver _carsObserver;
@@ -29,6 +30,7 @@ public class Respawner : MonoBehaviour
     private Mover _mover;
     private Rigidbody _rigidbody;
     private Animator _animator;
+    private WheelsSkidEffects _wheelsSkidEffects;
 
     public event Action Proceed;
 
@@ -39,6 +41,7 @@ public class Respawner : MonoBehaviour
         _mover = GetComponent<Mover>();
         _rigidbody = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>();
+        _wheelsSkidEffects = GetComponent<WheelsSkidEffects>();
         if(gameObject.TryGetComponent(out SplineProjectorObserver projectorObserver))
             _splineProjectorObserver = projectorObserver;
         _baseLayerIndex = new int[_objectsToReplaceLayer.Count];
