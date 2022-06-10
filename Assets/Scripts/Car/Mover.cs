@@ -18,6 +18,8 @@ public class Mover : MonoBehaviour
     [SerializeField] private float _centerOfMass = -.5f;
     [SerializeField] private float _airRotationSensitivity = 5f;
     [SerializeField] private float _airMovementSensitivity = 5f;
+    [SerializeField] private float _minAirRotation = -15f;
+    [SerializeField] private float _maxAirRotation = 15f;
 
     private PathController _pathController;
     private float _currentSteerAngle;
@@ -102,11 +104,18 @@ public class Mover : MonoBehaviour
         return false;
     }
 
-    public void TurnOnTargetPoint(float joysticHorizontal)
+    public void Rotate(float joysticHorizontal)
     {
-        Vector3 newRotation = transform.up * joysticHorizontal * Time.deltaTime * _airRotationSensitivity;
-        transform.localRotation *=  Quaternion.Euler(newRotation);
-        _rigidbody.AddForce(new Vector3(transform.right.x,transform.right.y,0) * joysticHorizontal * _airMovementSensitivity * Time.fixedDeltaTime, ForceMode.VelocityChange);
+        Vector3 newRotation = Vector3.up * joysticHorizontal * Time.deltaTime * _airRotationSensitivity;
+        newRotation.y = Mathf.Clamp(newRotation.y, _minAirRotation, _maxAirRotation);
+        _rigidbody.AddTorque(newRotation, ForceMode.VelocityChange);
+    }
+
+    public void Drag(float joysticHorizontal)
+    {
+        Vector3 dragForce = Vector3.left * joysticHorizontal * Time.deltaTime * _airMovementSensitivity;
+        _rigidbody.AddForce(dragForce, ForceMode.VelocityChange);
+
     }
 
     public void TryChangeHorizontalOffset(float horizontalInput)

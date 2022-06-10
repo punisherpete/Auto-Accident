@@ -37,10 +37,6 @@ public class PlayerInput : MonoBehaviour
                 }
             }
         }
-        if (_joystick.IsPointerDown && _mover.IsOnGround == false)
-        {
-            _mover.TurnOnTargetPoint(_joystick.Horizontal);
-        }
         if (_joystick.IsPointerDown)
         {
             _mover.TryChangeHorizontalOffset(_joystick.Horizontal);
@@ -57,6 +53,11 @@ public class PlayerInput : MonoBehaviour
         if (_determineVelosity != null)
             StopCoroutine(_determineVelosity);
         _determineVelosity = StartCoroutine(DetermineVelocity(_joystick.Horizontal));
+        if (_joystick.IsPointerDown && _mover.IsOnGround == false)
+        {
+            _mover.Rotate(_joystick.Horizontal);
+            _mover.Drag(_joystick.Horizontal);
+        }
     }
 
     private IEnumerator ResettingElapsedTime()
