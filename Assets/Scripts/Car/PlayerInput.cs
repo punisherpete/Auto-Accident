@@ -13,7 +13,6 @@ public class PlayerInput : MonoBehaviour
     private SpeedLimit _speedLimit;
     private Mover _mover;
     private Coroutine _determineVelosityCoroutine;
-    private bool _isAbleToTurnInstanly = true;
 
     public event Action<float> CriticalReached;
     public float FrameJoysticVelocity { get; private set; }
@@ -28,14 +27,10 @@ public class PlayerInput : MonoBehaviour
     {
         if (_joystick.IsPointerDown && Mathf.Abs(FrameJoysticVelocity) > _maxFrameJoysticVelocity && _mover.RotatePermission)
         {
-/*            if (_isAbleToTurnInstanly)
-            {*/
             if (_mover.IsAllWheelsOnGround)
             {
                 CriticalReached?.Invoke(_joystick.Horizontal);
-                    /*StartCoroutine(ResettingElapsedTime());*/
-            }
-/*            }*/
+            } 
         }
         if (_joystick.IsPointerDown)
         {
@@ -57,17 +52,6 @@ public class PlayerInput : MonoBehaviour
             _mover.HandleCarInAir(_joystick.Horizontal);
         }
     }
-/*
-    private IEnumerator ResettingElapsedTime()
-    {
-        while (_joystick.Magnitude > _maxMagnitudeToTurn)
-        {
-            _isAbleToTurnInstanly = false; ;
-
-            yield return null;
-        }
-        _isAbleToTurnInstanly = true;
-    }*/
 
     private IEnumerator DetermineVelocity(float oldJoystickHorizontalInput)
     {
