@@ -107,6 +107,7 @@ public class Mover : MonoBehaviour
     public void Rotate(float joysticHorizontal)
     {
         Vector3 newRotation = Vector3.up * joysticHorizontal * Time.deltaTime * _airRotationSensitivity;
+        print(newRotation);
         newRotation.y = Mathf.Clamp(newRotation.y, _minAirRotation, _maxAirRotation);
         _rigidbody.AddTorque(newRotation, ForceMode.VelocityChange);
     }
