@@ -21,6 +21,7 @@ public class AI : MonoBehaviour
     private SpeedLimit _speedLimit;
     private Mover _mover;
     private Car _car;
+    private bool _isAiStrong = true;
 
     private void OnEnable()
     {
@@ -34,10 +35,13 @@ public class AI : MonoBehaviour
         if(collision.gameObject.TryGetComponent(out Car car))
         {
             if (car.Type == CarType.Player)
-            {
                 _car.SetSlidingWheel(_slidingTime);
-            }
         }
+    }
+
+    public void DeactivateStrongAI()
+    {
+        _isAiStrong = false;
     }
 
     private void FixedUpdate()
@@ -53,7 +57,7 @@ public class AI : MonoBehaviour
         }
         else
             _speedLimit.SetRegularDragForce(0);
-        if (_carsObserver.IsFallBehindOfThePlayerOnDistance(_car, _cheaterBehindDistanceFromPlayer))
+        if (_carsObserver.IsFallBehindOfThePlayerOnDistance(_car, _cheaterBehindDistanceFromPlayer) && _isAiStrong)
         {
             _mover.SetMaxSpeedModifier(_cheaterSpeedModifier, _regularForce);
             _mover.StrengthenWheels();

@@ -141,8 +141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _joystick: {fileID: 0}
   _brakingDragForce: 0.03
-  _maxMagnitudeToTurn: 2.5
-  _maxFrameJoysticVelocity: 0.5
+  _maxFrameJoysticVelocity: 0.3
 --- !u!114 &4955674667960276978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,8 +244,10 @@ MonoBehaviour:
   _breakForce: 1000
   _maxSteerAngle: 35
   _centerOfMass: -0.3
-  _airRotationSensitivity: 25
+  _airRotationSensitivity: 5
   _airMovementSensitivity: 3
+  _minAirRotation: -15
+  _maxAirRotation: 15
 --- !u!114 &4955674667960276977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -427,7 +428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9d84cad93babbb44a03b6954231a39b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _intencity: 40000
+  _intencity: 30000
 --- !u!1 &5775676709377901723
 GameObject:
   m_ObjectHideFlags: 0

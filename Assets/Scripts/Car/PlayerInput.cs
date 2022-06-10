@@ -7,12 +7,12 @@ public class PlayerInput : MonoBehaviour
 {
     [SerializeField] private VariableJoystick _joystick;
     [SerializeField] private float _brakingDragForce = 0.03f;
-    [SerializeField] private float _maxMagnitudeToTurn = 10f;
+/*    [SerializeField] private float _maxMagnitudeToTurn = 10f;*/
     [SerializeField] private float _maxFrameJoysticVelocity = 0.5f;
 
     private SpeedLimit _speedLimit;
     private Mover _mover;
-    private Coroutine _determineVelosity;
+    private Coroutine _determineVelosityCoroutine;
     private bool _isAbleToTurnInstanly = true;
 
     public event Action<float> CriticalReached;
@@ -26,16 +26,16 @@ public class PlayerInput : MonoBehaviour
 
     private void Update()
     {
-        if (_joystick.IsPointerDown && _mover.IsAllWheelsOnGround)
+        if (_joystick.IsPointerDown && Mathf.Abs(FrameJoysticVelocity) > _maxFrameJoysticVelocity && _mover.RotatePermission)
         {
-            if (_isAbleToTurnInstanly)
+/*            if (_isAbleToTurnInstanly)
+            {*/
+            if (_mover.IsAllWheelsOnGround)
             {
-                if (_joystick.Magnitude > _maxMagnitudeToTurn && Mathf.Abs(FrameJoysticVelocity) > _maxFrameJoysticVelocity)
-                {
-                    CriticalReached?.Invoke(_joystick.Horizontal);
-                    StartCoroutine(ResettingElapsedTime());
-                }
+                CriticalReached?.Invoke(_joystick.Horizontal);
+                    /*StartCoroutine(ResettingElapsedTime());*/
             }
+/*            }*/
         }
         if (_joystick.IsPointerDown)
         {
@@ -50,16 +50,15 @@ public class PlayerInput : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_determineVelosity != null)
-            StopCoroutine(_determineVelosity);
-        _determineVelosity = StartCoroutine(DetermineVelocity(_joystick.Horizontal));
+        if (_determineVelosityCoroutine == null)
+            _determineVelosityCoroutine = StartCoroutine(DetermineVelocity(_joystick.Horizontal));
         if (_joystick.IsPointerDown && _mover.IsOnGround == false)
         {
             _mover.Rotate(_joystick.Horizontal);
             _mover.Drag(_joystick.Horizontal);
         }
     }
-
+/*
     private IEnumerator ResettingElapsedTime()
     {
         while (_joystick.Magnitude > _maxMagnitudeToTurn)
@@ -69,11 +68,13 @@ public class PlayerInput : MonoBehaviour
             yield return null;
         }
         _isAbleToTurnInstanly = true;
-    }
+    }*/
 
     private IEnumerator DetermineVelocity(float oldJoystickHorizontalInput)
     {
-        yield return new WaitForEndOfFrame();
+        yield return new WaitForFixedUpdate();
+        yield return new WaitForFixedUpdate();
         FrameJoysticVelocity = oldJoystickHorizontalInput - _joystick.Horizontal;
+        _determineVelosityCoroutine = null;
     }
 }
