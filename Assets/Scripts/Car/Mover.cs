@@ -104,9 +104,9 @@ public class Mover : MonoBehaviour
 
     public void TurnOnTargetPoint(float joysticHorizontal)
     {
-        Vector3 newRotation = transform.up * joysticHorizontal * Time.fixedDeltaTime * _airRotationSensitivity;
+        Vector3 newRotation = transform.up * joysticHorizontal * Time.deltaTime * _airRotationSensitivity;
         transform.localRotation *=  Quaternion.Euler(newRotation);
-        _rigidbody.AddForce(transform.right * joysticHorizontal * _airMovementSensitivity, ForceMode.VelocityChange);
+        _rigidbody.AddForce(new Vector3(transform.right.x,transform.right.y,0) * joysticHorizontal * _airMovementSensitivity * Time.fixedDeltaTime, ForceMode.VelocityChange);
     }
 
     public void TryChangeHorizontalOffset(float horizontalInput)

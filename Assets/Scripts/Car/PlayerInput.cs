@@ -8,13 +8,15 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private VariableJoystick _joystick;
     [SerializeField] private float _brakingDragForce = 0.03f;
     [SerializeField] private float _maxMagnitudeToTurn = 10f;
+    [SerializeField] private float _maxFrameJoysticVelocity = 0.5f;
 
     private SpeedLimit _speedLimit;
     private Mover _mover;
-
+    private Coroutine _determineVelosity;
     private bool _isAbleToTurnInstanly = true;
 
     public event Action<float> CriticalReached;
+    public float FrameJoysticVelocity { get; private set; }
 
     private void Awake()
     {
@@ -28,7 +30,7 @@ public class PlayerInput : MonoBehaviour
         {
             if (_isAbleToTurnInstanly)
             {
-                if (_joystick.Magnitude > _maxMagnitudeToTurn)
+                if (_joystick.Magnitude > _maxMagnitudeToTurn && Mathf.Abs(FrameJoysticVelocity) > _maxFrameJoysticVelocity)
                 {
                     CriticalReached?.Invoke(_joystick.Horizontal);
                     StartCoroutine(ResettingElapsedTime());
@@ -39,11 +41,6 @@ public class PlayerInput : MonoBehaviour
         {
             _mover.TurnOnTargetPoint(_joystick.Horizontal);
         }
-
-    }
-
-    private void FixedUpdate()
-    {
         if (_joystick.IsPointerDown)
         {
             _mover.TryChangeHorizontalOffset(_joystick.Horizontal);
@@ -55,6 +52,13 @@ public class PlayerInput : MonoBehaviour
             _speedLimit.SetRegularDragForce(_brakingDragForce);
     }
 
+    private void FixedUpdate()
+    {
+        if (_determineVelosity != null)
+            StopCoroutine(_determineVelosity);
+        _determineVelosity = StartCoroutine(DetermineVelocity(_joystick.Horizontal));
+    }
+
     private IEnumerator ResettingElapsedTime()
     {
         while (_joystick.Magnitude > _maxMagnitudeToTurn)
@@ -64,5 +68,11 @@ public class PlayerInput : MonoBehaviour
             yield return null;
         }
         _isAbleToTurnInstanly = true;
+    }
+
+    private IEnumerator DetermineVelocity(float oldJoystickHorizontalInput)
+    {
+        yield return new WaitForEndOfFrame();
+        FrameJoysticVelocity = oldJoystickHorizontalInput - _joystick.Horizontal;
     }
 }

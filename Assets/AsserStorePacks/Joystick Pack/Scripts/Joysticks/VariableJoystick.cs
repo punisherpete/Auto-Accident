@@ -18,6 +18,7 @@ public class VariableJoystick : Joystick
     public bool IsPointerDown => _isPointerDown;
     public float Magnitude => base.JoystickMagnitude;
 
+
     public void SetMode(JoystickType joystickType)
     {
         this.joystickType = joystickType;

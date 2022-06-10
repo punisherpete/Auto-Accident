@@ -141,7 +141,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _joystick: {fileID: 0}
   _brakingDragForce: 0.03
-  _maxMagnitudeToTurn: 3
+  _maxMagnitudeToTurn: 2.5
+  _maxFrameJoysticVelocity: 0.5
 --- !u!114 &4955674667960276978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,8 +245,8 @@ MonoBehaviour:
   _breakForce: 1000
   _maxSteerAngle: 35
   _centerOfMass: -0.3
-  _airRotationSensitivity: 45
-  _airMovementSensitivity: 0.1
+  _airRotationSensitivity: 25
+  _airMovementSensitivity: 3
 --- !u!114 &4955674667960276977
 MonoBehaviour:
   m_ObjectHideFlags: 0

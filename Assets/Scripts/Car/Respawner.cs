@@ -116,7 +116,9 @@ public class Respawner : MonoBehaviour
     private IEnumerator RotateCarInNextFrame()
     {
         yield return new WaitForFixedUpdate();
+        _rigidbody.isKinematic = true;
         transform.rotation = _splineProjectorObserver.Projector.transform.rotation;
+        _rigidbody.isKinematic = false;
     }
 
     private IEnumerator DeactivateSafeMode(float delayInSeconds)
