@@ -67,6 +67,16 @@ public class Trigger : MonoBehaviour
             _car.TurnOffControlOnRoad();
     }
 
+    public void DisableStrongAI()
+    {
+        if(_car.Type == CarType.AI)
+        {
+           if (_car.TryGetComponent(out AI ai))
+                ai.DeactivateStrongAI();
+        }
+    }
+
+
     public void Finish()
     {
         _car.Finish();

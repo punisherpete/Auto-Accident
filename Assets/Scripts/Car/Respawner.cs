@@ -88,6 +88,8 @@ public class Respawner : MonoBehaviour
 
     private void RespawnCar()
     {
+        StopCoroutine(RotateCarInNextFrame());
+        _mover.ProhibitRotationForAWhile(2f);
         _respawnTimer = 0;
         _rigidbody.isKinematic = true;
         transform.position = _respawnPoint.position;

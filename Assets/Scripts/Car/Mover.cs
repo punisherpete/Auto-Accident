@@ -35,8 +35,10 @@ public class Mover : MonoBehaviour
     private float _maxSpeedModifier = 1f;
     private float _slidingTime;
     private bool _changeOffsetPermission = true;
+    private bool _rotatePermission = true;
 
     public float CurrentRotationWheel => _currentRotationWheel;
+    public bool RotatePermission => _rotatePermission;
     public float MaxSpeed => _maxSpeed;
     public bool IsStop => _isStop;
     public float SlidingTime => _slidingTime;
@@ -106,10 +108,19 @@ public class Mover : MonoBehaviour
 
     public void Rotate(float joysticHorizontal)
     {
+        if (!_rotatePermission)
+            return;
         Vector3 newRotation = Vector3.up * joysticHorizontal * Time.deltaTime * _airRotationSensitivity;
         print(newRotation);
         newRotation.y = Mathf.Clamp(newRotation.y, _minAirRotation, _maxAirRotation);
         _rigidbody.AddTorque(newRotation, ForceMode.VelocityChange);
+    }
+
+    public void ProhibitRotationForAWhile(float time)
+    {
+        StopCoroutine(ActivateRotateAfterAWhile(time));
+        _rotatePermission = false;
+        StartCoroutine(ActivateRotateAfterAWhile(time));
     }
 
     public void Drag(float joysticHorizontal)
@@ -229,5 +240,11 @@ public class Mover : MonoBehaviour
         _boostSpeedModifier = 1;
         _boostAccelerationModifier = 1;
         SetMaxSpeed(_maxSpeed);
+    }
+
+    private IEnumerator ActivateRotateAfterAWhile(float time)
+    {
+        yield return new WaitForSeconds(time);
+        _rotatePermission = true;
     }
 }
