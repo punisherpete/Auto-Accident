@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody), typeof(Mover))]
 public class WheelsSkidEffects : MonoBehaviour
 {
     [Header("EFFECTS")]
@@ -17,15 +18,18 @@ public class WheelsSkidEffects : MonoBehaviour
     [Space(10)]
     [SerializeField] private float _immintHeightRange;
 
+
     private Rigidbody _carRigidbody;
     private float _localVelocityX;
     private bool _isDrifting;
     private bool _isFlying;
     private float _currentGroundSurfacePoint;
+    private Mover _mover;
 
     private void Start()
     { 
-        _carRigidbody = gameObject.GetComponent<Rigidbody>();
+        _carRigidbody = GetComponent<Rigidbody>();
+        _mover = GetComponent<Mover>();
     }
 
     private void Update()
@@ -44,7 +48,7 @@ public class WheelsSkidEffects : MonoBehaviour
 
     private void TryDrift()
     {
-        if (Mathf.Abs(_localVelocityX) > 2.5f && !_isFlying)
+        if (Mathf.Abs(_localVelocityX) > 2.5f && !_isFlying && _mover.IsAllWheelsOnGround)
         {
             _isDrifting = true;
             DriftCarPS();

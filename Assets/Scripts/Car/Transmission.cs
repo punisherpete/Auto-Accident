@@ -67,6 +67,10 @@ public class Transmission : MonoBehaviour
             return 0;
         return _force;
     }
+    public int  GetCuttentTransferIndex()
+    {
+        return _currentTransferIndex;
+    }
 
     private void ReduceTransmission()
     {
