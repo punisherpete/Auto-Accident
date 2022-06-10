@@ -4,8 +4,8 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Transmission))]
-[RequireComponent (typeof(PathController))]
-[RequireComponent (typeof(WheelController))]
+[RequireComponent(typeof(PathController))]
+[RequireComponent(typeof(WheelController))]
 
 public class Mover : MonoBehaviour
 {
@@ -18,8 +18,6 @@ public class Mover : MonoBehaviour
     [SerializeField] private float _centerOfMass = -.5f;
     [SerializeField] private float _airRotationSensitivity = 5f;
     [SerializeField] private float _airMovementSensitivity = 5f;
-    [SerializeField] private float _minAirRotation = -15f;
-    [SerializeField] private float _maxAirRotation = 15f;
 
     private PathController _pathController;
     private float _currentSteerAngle;
@@ -36,6 +34,8 @@ public class Mover : MonoBehaviour
     private float _slidingTime;
     private bool _changeOffsetPermission = true;
     private bool _rotatePermission = true;
+    private Quaternion _startRotation;
+    private bool _hasContactsInArea = true;
 
     public float CurrentRotationWheel => _currentRotationWheel;
     public bool RotatePermission => _rotatePermission;
@@ -54,6 +54,7 @@ public class Mover : MonoBehaviour
         _pathController = GetComponent<PathController>();
         _rigidbody = GetComponent<Rigidbody>();
         _rigidbody.centerOfMass = Vector3.up * _centerOfMass;
+        _startRotation = transform.rotation;
     }
 
     private void FixedUpdate()
@@ -69,6 +70,16 @@ public class Mover : MonoBehaviour
             if (_slidingTime <= 0)
                 _wheelController.ResetWheelFrictionCurve();
         }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        _hasContactsInArea = true;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        _hasContactsInArea = false;
     }
 
     public void SetCriticalHorizontalOffset(float horizontalOffset)
@@ -98,7 +109,7 @@ public class Mover : MonoBehaviour
 
     public bool TryResetToDefaultWheel()
     {
-        if(_slidingTime<=0)
+        if (_slidingTime <= 0)
         {
             _wheelController.ResetWheelFrictionCurve();
             return true;
@@ -106,21 +117,22 @@ public class Mover : MonoBehaviour
         return false;
     }
 
+    public void HandleCarInAir(float joysticHorizontalInput)
+    {
+        if (_hasContactsInArea == false)
+        {
+            transform.rotation = Quaternion.Lerp(transform.rotation, _startRotation, Time.deltaTime * 2f);
+            Rotate(joysticHorizontalInput);
+            Drag(joysticHorizontalInput);
+        }
+    }
+
     public void Rotate(float joysticHorizontal)
     {
         if (!_rotatePermission)
             return;
         Vector3 newRotation = Vector3.up * joysticHorizontal * Time.deltaTime * _airRotationSensitivity;
-        print(newRotation);
-        newRotation.y = Mathf.Clamp(newRotation.y, _minAirRotation, _maxAirRotation);
         _rigidbody.AddTorque(newRotation, ForceMode.VelocityChange);
-    }
-
-    public void ProhibitRotationForAWhile(float time)
-    {
-        StopCoroutine(ActivateRotateAfterAWhile(time));
-        _rotatePermission = false;
-        StartCoroutine(ActivateRotateAfterAWhile(time));
     }
 
     public void Drag(float joysticHorizontal)
@@ -128,6 +140,13 @@ public class Mover : MonoBehaviour
         Vector3 dragForce = Vector3.left * joysticHorizontal * Time.deltaTime * _airMovementSensitivity;
         _rigidbody.AddForce(dragForce, ForceMode.VelocityChange);
 
+    }
+
+    public void ProhibitRotationForAWhile(float time)
+    {
+        StopCoroutine(ActivateRotateAfterAWhile(time));
+        _rotatePermission = false;
+        StartCoroutine(ActivateRotateAfterAWhile(time));
     }
 
     public void TryChangeHorizontalOffset(float horizontalInput)
@@ -172,9 +191,9 @@ public class Mover : MonoBehaviour
         _transmission.SetMaxSpeed(_maxSpeed * _boostSpeedModifier * _maxSpeedModifier);
     }
 
-    public void SetBoost(float boostAccelerationValue, float boostSpeedValue,float boostImpulseForce, float boostTime, Vector3 direction)
+    public void SetBoost(float boostAccelerationValue, float boostSpeedValue, float boostImpulseForce, float boostTime, Vector3 direction)
     {
-        Boost(boostAccelerationValue, boostSpeedValue, boostImpulseForce, boostTime, direction);    
+        Boost(boostAccelerationValue, boostSpeedValue, boostImpulseForce, boostTime, direction);
     }
 
     public void SetBoost(float boostAccelerationValue, float boostSpeedValue, float boostImpulseForce, float boostTime)
@@ -215,7 +234,7 @@ public class Mover : MonoBehaviour
     private void HandleMotor()
     {
         _wheelController.SetForce(_transmission.GetAcceleration() * _motorForce * _boostAccelerationModifier);
-        if(_wheelController.IsGrounded)
+        if (_wheelController.IsGrounded)
             _rigidbody.AddForce(transform.forward * _transmission.GetForce());
         if (_isStop)
             _currentBreakForce = _breakForce;

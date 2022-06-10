@@ -54,8 +54,7 @@ public class PlayerInput : MonoBehaviour
             _determineVelosityCoroutine = StartCoroutine(DetermineVelocity(_joystick.Horizontal));
         if (_joystick.IsPointerDown && _mover.IsOnGround == false)
         {
-            _mover.Rotate(_joystick.Horizontal);
-            _mover.Drag(_joystick.Horizontal);
+            _mover.HandleCarInAir(_joystick.Horizontal);
         }
     }
 /*

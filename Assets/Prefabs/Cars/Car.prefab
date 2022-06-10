@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 6463842871671016353}
   - component: {fileID: 4955674667960276969}
   - component: {fileID: 5500575683951819483}
+  - component: {fileID: 7423218989343827135}
   m_Layer: 12
   m_Name: Car
   m_TagString: Untagged
@@ -246,8 +247,6 @@ MonoBehaviour:
   _centerOfMass: -0.3
   _airRotationSensitivity: 5
   _airMovementSensitivity: 3
-  _minAirRotation: -15
-  _maxAirRotation: 15
 --- !u!114 &4955674667960276977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -429,6 +428,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _intencity: 30000
+--- !u!136 &7423218989343827135
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4955674667960276973}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 1.5759848
+  m_Height: 5.695916
+  m_Direction: 2
+  m_Center: {x: 0.000000002551888, y: 0.99, z: 0.18067169}
 --- !u!1 &5775676709377901723
 GameObject:
   m_ObjectHideFlags: 0
