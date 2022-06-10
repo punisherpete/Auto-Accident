@@ -50,6 +50,5 @@ public class MaxHandleDragImpulse : MonoBehaviour
         else
             clampedIntencity = _intencity / 4;
         _rigidbody.AddTorque(new Vector3(0f, clampedIntencity * direction, 0f), ForceMode.Impulse);
-        Debug.Log("Force " + _transferIndex.GetCuttentTransferIndex());
     }
 }
