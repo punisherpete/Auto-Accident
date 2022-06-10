@@ -6,12 +6,14 @@ using UnityEngine;
 public class AI : MonoBehaviour
 {
     [SerializeField] private CarsObserver _carsObserver;
+    [SerializeField] private float _cheaterLeadDistanceFromPlayer = 125;
     [SerializeField] private float _strongLeadDistanceFromPlayer = 50;
     [SerializeField] private float _criticalLeadDistanceFromPlayer = 10;
     [SerializeField] private float _criticalBehindDistanceFromPlayer = 24;
     [SerializeField] private float _cheaterBehindDistanceFromPlayer = 54;
     [SerializeField] private float _dragModifier = 0.005f;
-    [SerializeField] private float _strongDragModifier = 0.005f;
+    [SerializeField] private float _strongDragModifier = 0.025f;
+    [SerializeField] private float _impossibleDragModifier = 0.3f;
     [SerializeField] private float _behindSpeedModifier = 1.3f;
     [SerializeField] private float _cheaterSpeedModifier = 1.5f;
     [SerializeField] private float _regularForce = 5000f;
@@ -46,7 +48,9 @@ public class AI : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_carsObserver.IsAheadOfThePlayerOnDistance(_car, _strongLeadDistanceFromPlayer))
+        if(_carsObserver.IsAheadOfThePlayerOnDistance(_car, _cheaterLeadDistanceFromPlayer))
+            _speedLimit.SetRegularDragForce(_impossibleDragModifier);
+        else if (_carsObserver.IsAheadOfThePlayerOnDistance(_car, _strongLeadDistanceFromPlayer))
             _speedLimit.SetRegularDragForce(_strongDragModifier);
         else if (_carsObserver.IsAheadOfThePlayerOnDistance(_car, _criticalLeadDistanceFromPlayer) && _carsObserver.IsPlayerLeadsActiveGame)
         {
@@ -62,7 +66,7 @@ public class AI : MonoBehaviour
             _mover.SetMaxSpeedModifier(_cheaterSpeedModifier, _regularForce);
             _mover.StrengthenWheels();
         }
-        else if (_carsObserver.IsFallBehindOfThePlayerOnDistance(_car, _criticalBehindDistanceFromPlayer))
+        else if (_carsObserver.IsFallBehindOfThePlayerOnDistance(_car, _criticalBehindDistanceFromPlayer) && _isAiStrong)
         {
             _mover.SetMaxSpeedModifier(_behindSpeedModifier, 0);
             _mover.StrengthenWheels();
