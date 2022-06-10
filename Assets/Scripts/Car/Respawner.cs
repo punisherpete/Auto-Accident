@@ -91,6 +91,7 @@ public class Respawner : MonoBehaviour
 
     private void RespawnCar()
     {
+        _wheelsSkidEffects.SetOnEffects(false);
         StopCoroutine(RotateCarInNextFrame());
         _mover.ProhibitRotationForAWhile(2f);
         _respawnTimer = 0;
@@ -135,5 +136,6 @@ public class Respawner : MonoBehaviour
         {
             _objectsToReplaceLayer[i].layer = _baseLayerIndex[i];
         }
+        _wheelsSkidEffects.SetOnEffects(false);
     }
 }

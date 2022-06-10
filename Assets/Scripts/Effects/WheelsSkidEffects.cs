@@ -108,6 +108,13 @@ public class WheelsSkidEffects : MonoBehaviour
 
     public void SetOnEffects(bool useEffects)
     {
-        _useEffects = useEffects;
+        if (_rLWTireSkid)
+        {
+            _rLWTireSkid.emitting = useEffects;
+        }
+        if (_rRWTireSkid)
+        {
+            _rRWTireSkid.emitting = useEffects;
+        }
     }
 }
