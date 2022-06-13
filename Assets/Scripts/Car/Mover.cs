@@ -121,7 +121,9 @@ public class Mover : MonoBehaviour
     {
         if (_hasContactsInArea == false)
         {
-            transform.rotation = Quaternion.Lerp(transform.rotation, _startRotation, Time.deltaTime * 2f);
+
+            Quaternion targetRotation = Quaternion.FromToRotation(transform.position, _pathController.TargetPoint.localPosition);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * 2f);
             Rotate(joysticHorizontalInput);
             Drag(joysticHorizontalInput);
         }
