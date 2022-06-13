@@ -122,7 +122,7 @@ public class Mover : MonoBehaviour
         if (_hasContactsInArea == false)
         {
 
-            Quaternion targetRotation = Quaternion.FromToRotation(transform.position, _pathController.TargetPoint.localPosition);
+            Quaternion targetRotation = Quaternion.LookRotation(transform.position, new Vector3(0, _pathController.TargetPoint.position.y, 0));
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * 2f);
             Rotate(joysticHorizontalInput);
             Drag(joysticHorizontalInput);
