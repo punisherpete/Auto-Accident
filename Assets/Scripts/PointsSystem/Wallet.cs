@@ -4,11 +4,6 @@ public class Wallet : IWaletOperation
 {
     private int _pointsAmount;
 
-    public Wallet(int pointsAmount)
-    {
-        _pointsAmount = pointsAmount;
-    }
-
     public void OperateWithPoints(int amount)
     {
         if (amount >= int.MaxValue)

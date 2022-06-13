@@ -16,11 +16,11 @@ public class GameSceneManager : MonoBehaviour
         _data.SetLevelIndex(SceneManager.GetActiveScene().buildIndex);
         _data.Save();
         _levelText.text = $"Level {_data.GetDisplayedLevelNumber()}";
-        PointsTransmitter.Instance.SetPoints(_data.GetCurrentSoft());
     }
 
     private void Start()
     {
+        PointsTransmitter.Instance.SetPoints(_data.GetCurrentSoft());
         _analytic.SendEventOnLevelStart(_data.GetDisplayedLevelNumber());
     }
 

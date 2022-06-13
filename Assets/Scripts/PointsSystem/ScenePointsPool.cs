@@ -17,9 +17,12 @@ public class ScenePointsPool : MonoBehaviour
 
     private void OnDisable()
     {
-        for (int i = 0; i < _pointsOnScene.Length; i++)
+        if (_pointsOnScene.Length > 0)
         {
-            _pointsOnScene[i].BeenCollected -= OnWithdrawPoints;
+            for (int i = 0; i < _pointsOnScene.Length; i++)
+            {
+                _pointsOnScene[i].BeenCollected -= OnWithdrawPoints;
+            }
         }
     }
 

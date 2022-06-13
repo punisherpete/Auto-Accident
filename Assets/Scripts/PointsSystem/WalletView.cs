@@ -8,7 +8,6 @@ public class WalletView : MonoBehaviour
     private void Start()
     {
         PointsTransmitter.Instance.Transmitted += OnChangeView;
-        OnChangeView();
     }
 
     private void OnDisable()
