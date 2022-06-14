@@ -3,6 +3,7 @@ using UnityEngine;
 public class CameraPointFollover : MonoBehaviour
 {
     [SerializeField] private Transform _anchor;
+    [SerializeField] private float _speed;
     
     private Rigidbody _rigidbody;
 
@@ -13,6 +14,6 @@ public class CameraPointFollover : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _rigidbody.velocity = Vector3.Lerp(_rigidbody.velocity, (_anchor.position - transform.position) * 40f, Time.deltaTime * 10f);
+        _rigidbody.position = Vector3.Lerp(_rigidbody.position, _anchor.position, Time.deltaTime * _speed);
     }
 }
