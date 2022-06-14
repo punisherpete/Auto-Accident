@@ -566,7 +566,7 @@ MonoBehaviour:
   _projectorFollowAndLookAtProjector: {fileID: 9070274448507651534}
   _carMover: {fileID: 5132536512433389413}
   _projectorObserver: {fileID: 4524564984712431938}
-  _offsetMistake: 6
+  _offsetMistake: 1
   _actionDuration: 1
   _rebindDelay: 0.5
 --- !u!114 &3983672140835528514
@@ -6680,12 +6680,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 287237626614179653}
     m_Modifications:
     - target: {fileID: 670962408, guid: db8eaaf85c3c6224d9c9774c5f56590c, type: 3}
+      propertyPath: m_YDamping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 670962408, guid: db8eaaf85c3c6224d9c9774c5f56590c, type: 3}
       propertyPath: m_BindingMode
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 670962408, guid: db8eaaf85c3c6224d9c9774c5f56590c, type: 3}
+      propertyPath: m_FollowOffset.y
+      value: 2.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 670962408, guid: db8eaaf85c3c6224d9c9774c5f56590c, type: 3}
       propertyPath: m_FollowOffset.z
-      value: -7
+      value: -5.88
       objectReference: {fileID: 0}
     - target: {fileID: 670962409, guid: db8eaaf85c3c6224d9c9774c5f56590c, type: 3}
       propertyPath: m_ScreenX
@@ -6693,11 +6701,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 670962409, guid: db8eaaf85c3c6224d9c9774c5f56590c, type: 3}
       propertyPath: m_VerticalDamping
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 670962409, guid: db8eaaf85c3c6224d9c9774c5f56590c, type: 3}
       propertyPath: m_HorizontalDamping
-      value: 0.5
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 670962409, guid: db8eaaf85c3c6224d9c9774c5f56590c, type: 3}
+      propertyPath: m_TrackedObjectOffset.y
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 1019325747010663, guid: db8eaaf85c3c6224d9c9774c5f56590c, type: 3}
       propertyPath: m_IsActive
@@ -6858,11 +6870,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 308383664, guid: 23bc77651286f654bb505ad50cee93ae, type: 3}
       propertyPath: m_VerticalDamping
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 308383664, guid: 23bc77651286f654bb505ad50cee93ae, type: 3}
       propertyPath: m_HorizontalDamping
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 308383664, guid: 23bc77651286f654bb505ad50cee93ae, type: 3}
       propertyPath: m_LookaheadSmoothing
@@ -6870,7 +6882,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 308383664, guid: 23bc77651286f654bb505ad50cee93ae, type: 3}
       propertyPath: m_TrackedObjectOffset.y
-      value: 5
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 1126979888270188502, guid: 23bc77651286f654bb505ad50cee93ae, type: 3}
       propertyPath: _carMover
@@ -6997,9 +7009,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 5
-  m_FollowOffset: {x: 0, y: 7, z: -7}
+  m_FollowOffset: {x: 0, y: 2.96, z: -5.88}
   m_XDamping: 0
-  m_YDamping: 0.4
+  m_YDamping: 0
   m_ZDamping: 0
   m_AngularDampingMode: 0
   m_PitchDamping: 0
