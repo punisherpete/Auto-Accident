@@ -13,14 +13,14 @@ public class Trigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out Car car))
-        {
-            _car = car;
-            ActivateEvents();
-        }
-        else if (_isActivatedByProjector && other.TryGetComponent(out Projector projector))
+        if (_isActivatedByProjector && other.TryGetComponent(out Projector projector))
         {
             _car = projector.GetCar();
+            ActivateEvents();
+        }
+        else if (!_isActivatedByProjector && other.TryGetComponent(out Car car))
+        {
+            _car = car;
             ActivateEvents();
         }
     }
