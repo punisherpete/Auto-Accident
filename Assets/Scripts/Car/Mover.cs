@@ -15,7 +15,7 @@ public class Mover : MonoBehaviour
     [SerializeField] private float _motorForce = 100f;
     [SerializeField] private float _breakForce = 1000f;
     [SerializeField] private float _maxSteerAngle = 35f;
-    [SerializeField] private float _centerOfMass = -.5f;
+    [SerializeField] private float _centerOfMass = -.35f;
     [SerializeField] private float _airRotationSensitivity = 5f;
     [SerializeField] private float _airMovementSensitivity = 5f;
 
@@ -144,7 +144,6 @@ public class Mover : MonoBehaviour
     {
         Vector3 dragForce = Vector3.left * joysticHorizontal * Time.deltaTime * _airMovementSensitivity;
         _rigidbody.AddForce(dragForce, ForceMode.VelocityChange);
-
     }
 
     public void ProhibitRotationForAWhile(float time)
