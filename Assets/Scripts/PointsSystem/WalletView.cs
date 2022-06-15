@@ -5,9 +5,14 @@ public class WalletView : MonoBehaviour
 {
     [SerializeField] private TMP_Text _walletView;
 
-    private void Start()
+    private void OnEnable()
     {
         PointsTransmitter.Instance.Transmitted += OnChangeView;
+    }
+
+    private void Start()
+    {
+        _walletView.text = PointsTransmitter.Instance.GetWalletPoints().ToString();
     }
 
     private void OnDisable()

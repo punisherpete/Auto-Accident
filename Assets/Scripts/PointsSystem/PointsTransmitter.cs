@@ -24,7 +24,7 @@ public class PointsTransmitter : MonoBehaviour
         }
 
         if(_wallet == null)
-            _wallet = new Wallet();
+        _wallet = new Wallet();
     }
 
     public void Subscribe()
@@ -71,13 +71,16 @@ public class PointsTransmitter : MonoBehaviour
 
     public void SetPoints(int value)
     {
-        _wallet.OperateWithPoints(value);
+        _wallet.Reset(value);
         _data.SetCurrentSoft(_wallet.GetPointsAmount());
-        _data.Save();
     }
 
     public void InitData(Data data)
     {
         _data = data;
+        if (_data)
+        {
+            print(_wallet.GetPointsAmount());
+        }
     }
 }

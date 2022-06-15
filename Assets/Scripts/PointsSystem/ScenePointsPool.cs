@@ -21,7 +21,8 @@ public class ScenePointsPool : MonoBehaviour
         {
             for (int i = 0; i < _pointsOnScene.Length; i++)
             {
-                _pointsOnScene[i].BeenCollected -= OnWithdrawPoints;
+                if (_pointsOnScene[i])
+                    _pointsOnScene[i].BeenCollected -= OnWithdrawPoints;
             }
         }
     }

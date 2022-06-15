@@ -14,13 +14,13 @@ public class GameSceneManager : MonoBehaviour
     {
         _data.Load();
         _data.SetLevelIndex(SceneManager.GetActiveScene().buildIndex);
+        PointsTransmitter.Instance.SetPoints(_data.GetCurrentSoft());
         _data.Save();
         _levelText.text = $"Level {_data.GetDisplayedLevelNumber()}";
     }
 
     private void Start()
     {
-        PointsTransmitter.Instance.SetPoints(_data.GetCurrentSoft());
         _analytic.SendEventOnLevelStart(_data.GetDisplayedLevelNumber());
     }
 
