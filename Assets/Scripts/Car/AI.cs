@@ -80,22 +80,22 @@ public class AI : MonoBehaviour
     private void DetermineSpeed()
     {
         float? distance = _observer.DistanceBehindThePlayer(_car);
-
         if (distance == null)
             return;
-
-        if (_isStrong)
+        if (distance > _cheaterBehindDistanceFromPlayer && _isStrong)
         {
-            if (distance > _cheaterBehindDistanceFromPlayer)
-                _mover.SetMaxSpeedModifier(_cheaterSpeedModifier, _regularForce);
-            else if (distance > _criticalBehindDistance)
-                _mover.SetMaxSpeedModifier(_behindSpeedModifier, 0);
-
+            _mover.SetMaxSpeedModifier(_cheaterSpeedModifier, _regularForce);
             _mover.StrengthenWheels();
-            return;
         }
-
-        _mover.SetMaxSpeedModifier(1, 0);
-        _mover.TryResetToDefaultWheel();
+        else if (distance > _criticalBehindDistance && _isStrong)
+        {
+            _mover.SetMaxSpeedModifier(_behindSpeedModifier, 0);
+            _mover.StrengthenWheels();
+        }
+        else
+        {
+            _mover.SetMaxSpeedModifier(1, 0);
+            _mover.TryResetToDefaultWheel();
+        }
     }
 }

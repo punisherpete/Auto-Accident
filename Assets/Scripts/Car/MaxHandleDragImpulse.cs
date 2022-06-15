@@ -43,9 +43,9 @@ public class MaxHandleDragImpulse : MonoBehaviour
             _currentImpulseRotateTime = _impulseRotateTime;
         int transfer = _transferIndex.GetCuttentTransferIndex();
         float clampedIntencity = _intencity / (transfer + 1);
-        if (transfer <= 1)
+        if (transfer < 1)
             clampedIntencity = _intencity;
-        else if (transfer <= 3)
+        else if (transfer <= 2)
             clampedIntencity = _intencity / 2;
         else
             clampedIntencity = _intencity / 4;
