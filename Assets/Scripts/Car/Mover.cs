@@ -125,7 +125,6 @@ public class Mover : MonoBehaviour
         {
             Rotate(joysticHorizontalInput);
             Drag(joysticHorizontalInput);
-            _rigidbody.AddRelativeTorque
         }
     }
 
