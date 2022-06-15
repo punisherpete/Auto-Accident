@@ -2,20 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(SpeedLimit))]
+[RequireComponent(typeof(Mover))]
 [RequireComponent(typeof(Car))]
 public class AI : MonoBehaviour
 {
-    [SerializeField] private CarsObserver _carsObserver;
-    [SerializeField] private float _cheaterLeadDistanceFromPlayer = 125;
-    [SerializeField] private float _strongLeadDistanceFromPlayer = 50;
-    [SerializeField] private float _criticalLeadDistanceFromPlayer = 10;
-    [SerializeField] private float _criticalBehindDistanceFromPlayer = 24;
+    [SerializeField] private CarsObserver _observer;
+
+    [SerializeField] private float _cheaterLeadDistance = 125;
+    [SerializeField] private float _strongLeadDistance = 50;
+    [SerializeField] private float _criticalLeadDistance = 10;
+    [SerializeField] private float _criticalBehindDistance = 24;
     [SerializeField] private float _cheaterBehindDistanceFromPlayer = 54;
+
     [SerializeField] private float _dragModifier = 0.005f;
     [SerializeField] private float _strongDragModifier = 0.025f;
     [SerializeField] private float _impossibleDragModifier = 0.3f;
+
     [SerializeField] private float _behindSpeedModifier = 1.3f;
     [SerializeField] private float _cheaterSpeedModifier = 1.5f;
+
     [SerializeField] private float _regularForce = 5000f;
     [SerializeField] private float _slidingTime = 2f;
     [SerializeField] private float _criticalSpeedDifference = 4f;
@@ -23,7 +29,8 @@ public class AI : MonoBehaviour
     private SpeedLimit _speedLimit;
     private Mover _mover;
     private Car _car;
-    private bool _isAiStrong = true;
+
+    private bool _isStrong = true;
 
     private void OnEnable()
     {
@@ -41,40 +48,54 @@ public class AI : MonoBehaviour
         }
     }
 
-    public void DeactivateStrongAI()
+    public void BecomeWeak()
     {
-        _isAiStrong = false;
+        _isStrong = false;
     }
 
     private void FixedUpdate()
     {
-        if(_carsObserver.IsAheadOfThePlayerOnDistance(_car, _cheaterLeadDistanceFromPlayer))
-            _speedLimit.SetRegularDragForce(_impossibleDragModifier);
-        else if (_carsObserver.IsAheadOfThePlayerOnDistance(_car, _strongLeadDistanceFromPlayer))
-            _speedLimit.SetRegularDragForce(_strongDragModifier);
-        else if (_carsObserver.IsAheadOfThePlayerOnDistance(_car, _criticalLeadDistanceFromPlayer) && _carsObserver.IsPlayerLeadsActiveGame)
+        _speedLimit.SetRegularDragForce(CalculateDragForce());
+        DetermineSpeed();
+    }
+
+    private float CalculateDragForce()
+    {
+        float? distance = _observer.DistanceAheadOfPlayer(_car);
+
+        if (distance == null)
+            return 0;
+
+        if (distance > _cheaterLeadDistance)
+            return _impossibleDragModifier;
+        else if (distance > _strongLeadDistance)
+            return _strongDragModifier;
+        else if (distance > _criticalLeadDistance && _observer.IsPlayerActive)
+            return _observer.IsFasterThanPlayer(_car, _criticalSpeedDifference)
+                ? _strongDragModifier : _dragModifier;
+
+        return 0;
+    }
+
+    private void DetermineSpeed()
+    {
+        float? distance = _observer.DistanceBehindThePlayer(_car);
+
+        if (distance == null)
+            return;
+
+        if (_isStrong)
         {
-            if(_carsObserver.IsCarFasterThanPlayer(_car, _criticalSpeedDifference))
-                _speedLimit.SetRegularDragForce(_strongDragModifier);
-            else
-                _speedLimit.SetRegularDragForce(_dragModifier);
-        }
-        else
-            _speedLimit.SetRegularDragForce(0);
-        if (_carsObserver.IsFallBehindOfThePlayerOnDistance(_car, _cheaterBehindDistanceFromPlayer) && _isAiStrong)
-        {
-            _mover.SetMaxSpeedModifier(_cheaterSpeedModifier, _regularForce);
+            if (distance > _cheaterBehindDistanceFromPlayer)
+                _mover.SetMaxSpeedModifier(_cheaterSpeedModifier, _regularForce);
+            else if (distance > _criticalBehindDistance)
+                _mover.SetMaxSpeedModifier(_behindSpeedModifier, 0);
+
             _mover.StrengthenWheels();
+            return;
         }
-        else if (_carsObserver.IsFallBehindOfThePlayerOnDistance(_car, _criticalBehindDistanceFromPlayer) && _isAiStrong)
-        {
-            _mover.SetMaxSpeedModifier(_behindSpeedModifier, 0);
-            _mover.StrengthenWheels();
-        }
-        else
-        {
-            _mover.SetMaxSpeedModifier(1, 0);
-            _mover.TryResetToDefaultWheel();
-        }
+
+        _mover.SetMaxSpeedModifier(1, 0);
+        _mover.TryResetToDefaultWheel();
     }
 }

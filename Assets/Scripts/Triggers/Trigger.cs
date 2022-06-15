@@ -72,7 +72,7 @@ public class Trigger : MonoBehaviour
         if(_car.Type == CarType.AI)
         {
            if (_car.TryGetComponent(out AI ai))
-                ai.DeactivateStrongAI();
+                ai.BecomeWeak();
         }
     }
 
@@ -84,6 +84,6 @@ public class Trigger : MonoBehaviour
 
     public void StopCar()
     {
-        _car.StopMashine();
+        _car.StopMachine();
     }
 }

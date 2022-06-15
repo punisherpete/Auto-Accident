@@ -35,7 +35,7 @@ public class Car : MonoBehaviour
 
     private void Start()
     {
-        StopMashine();
+        StopMachine();
     }
 
     private void FixedUpdate()
@@ -97,13 +97,13 @@ public class Car : MonoBehaviour
         return _mover.TryResetToDefaultWheel();
     }
 
-    public void StopMashine()
+    public void StopMachine()
     {
         _mover.StopMoving();
         _respawner.ProhibitRespawn();
     }
 
-    public void StartMashine()
+    public void StartMachine()
     {
         _mover.StartMoving();
         _respawner.AllowRespawn();

@@ -124,6 +124,7 @@ public class Mover : MonoBehaviour
             AlignInAirFlatSurface();
             Rotate(joysticHorizontalInput);
             Drag(joysticHorizontalInput);
+            _rigidbody.AddRelativeTorque
         }
     }
 
