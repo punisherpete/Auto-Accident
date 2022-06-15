@@ -1,32 +1,30 @@
-using MoreMountains.Feedbacks;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class CarDamage : MonoBehaviour
 {
     [SerializeField] private SkinnedMeshRenderer[] _deformableViews;
-    [SerializeField] private InteractionProcessor[] _firstMeshChangingParts;
-    [SerializeField] private InteractionProcessor[] _secondMeshChangingParts;
-    [SerializeField] private InteractionProcessor[] _thirdMeshChangingParts;
-    [SerializeField] private InteractionProcessor[] _fourthMeshChangingParts;
-    [SerializeField] private InteractionProcessor[] _fifthMeshChangingParts;
-    [SerializeField] private InteractionProcessor[] _sixthMeshChangingParts;
-    [SerializeField] private InteractionProcessor[] _seventhMeshChangingParts;
-    [SerializeField] private InteractionProcessor[] _eighthMeshChangingParts;
-    [SerializeField] private InteractionProcessor[] _neinhthMeshChangingParts;
-    [SerializeField] private InteractionProcessor[] _tenhthMeshChangingParts;
+    [SerializeField] private NewInteractionProcessor[] _firstMeshChangingParts;
+    [SerializeField] private NewInteractionProcessor[] _secondMeshChangingParts;
+    [SerializeField] private NewInteractionProcessor[] _thirdMeshChangingParts;
+    [SerializeField] private NewInteractionProcessor[] _fourthMeshChangingParts;
+    [SerializeField] private NewInteractionProcessor[] _fifthMeshChangingParts;
+    [SerializeField] private NewInteractionProcessor[] _sixthMeshChangingParts;
+    [SerializeField] private NewInteractionProcessor[] _seventhMeshChangingParts;
+    [SerializeField] private NewInteractionProcessor[] _eighthMeshChangingParts;
+    [SerializeField] private NewInteractionProcessor[] _neinhthMeshChangingParts;
+    [SerializeField] private NewInteractionProcessor[] _tenhthMeshChangingParts;
 
-    [SerializeField] private float _takeDamageInterval = 1f;
+    [SerializeField] private float _deformingForce = 5f;
+    [SerializeField, Range(0f, 1f)] private float _deformationSensitivity = 1f;
 
-    [SerializeField] private EffectsGenerator _effectsGenerator;
+    [SerializeField] private EffectsGenerator _effectsGemerator;
 
-    [SerializeField] private MMFeedbacks _hitFeedBacks;
-
-    private List<InteractionProcessor[]> _newInteractionProcessors = new List<InteractionProcessor[]>();
-    private Dictionary<InteractionProcessor, int> _blendShapesNumberMatch = new Dictionary<InteractionProcessor, int>();
-    private Dictionary<InteractionProcessor, SkinnedMeshRenderer> _blendShapesMatch = new Dictionary<InteractionProcessor, SkinnedMeshRenderer>();
-
-    private float _elapsedTime;
+    private List<NewInteractionProcessor[]> _newInteractionProcessors = new List<NewInteractionProcessor[]>();
+    private Dictionary<NewInteractionProcessor, int> _blendShapesNumberMatch = new Dictionary<NewInteractionProcessor, int>();
+    private Dictionary<NewInteractionProcessor, SkinnedMeshRenderer> _blendShapesMatch = new Dictionary<NewInteractionProcessor, SkinnedMeshRenderer>();
 
     private void Awake()
     {
@@ -35,6 +33,29 @@ public class CarDamage : MonoBehaviour
         for (int i = 0; i < _deformableViews.Length; i++)
         {
             ConductMatch(_newInteractionProcessors[i], _deformableViews[i]);
+        }
+    }
+
+    private void MakeProcessorsArchive()
+    {
+        _newInteractionProcessors.Add(_firstMeshChangingParts);
+        _newInteractionProcessors.Add(_secondMeshChangingParts);
+        _newInteractionProcessors.Add(_thirdMeshChangingParts);
+        _newInteractionProcessors.Add(_fourthMeshChangingParts);
+        _newInteractionProcessors.Add(_fifthMeshChangingParts);
+        _newInteractionProcessors.Add(_sixthMeshChangingParts);
+        _newInteractionProcessors.Add(_seventhMeshChangingParts);
+        _newInteractionProcessors.Add(_eighthMeshChangingParts);
+        _newInteractionProcessors.Add(_neinhthMeshChangingParts);
+        _newInteractionProcessors.Add(_tenhthMeshChangingParts);
+    }
+
+    private void ConductMatch(NewInteractionProcessor[] responsibleParts, SkinnedMeshRenderer deformableMesh)
+    {
+        for (int i = 0; i < responsibleParts.Length; i++)
+        {
+            _blendShapesNumberMatch.Add(responsibleParts[i], i);
+            _blendShapesMatch.Add(responsibleParts[i], deformableMesh);
         }
     }
 
@@ -52,11 +73,6 @@ public class CarDamage : MonoBehaviour
         SubscribeForDamage(_tenhthMeshChangingParts);
     }
 
-    private void Update()
-    {
-        _elapsedTime += Time.deltaTime;
-    }
-
     private void OnDisable()
     {
         UnSubscribeForDamage(_firstMeshChangingParts);
@@ -71,30 +87,7 @@ public class CarDamage : MonoBehaviour
         UnSubscribeForDamage(_tenhthMeshChangingParts);
     }
 
-    private void MakeProcessorsArchive()
-    {
-        _newInteractionProcessors.Add(_firstMeshChangingParts);
-        _newInteractionProcessors.Add(_secondMeshChangingParts);
-        _newInteractionProcessors.Add(_thirdMeshChangingParts);
-        _newInteractionProcessors.Add(_fourthMeshChangingParts);
-        _newInteractionProcessors.Add(_fifthMeshChangingParts);
-        _newInteractionProcessors.Add(_sixthMeshChangingParts);
-        _newInteractionProcessors.Add(_seventhMeshChangingParts);
-        _newInteractionProcessors.Add(_eighthMeshChangingParts);
-        _newInteractionProcessors.Add(_neinhthMeshChangingParts);
-        _newInteractionProcessors.Add(_tenhthMeshChangingParts);
-    }
-
-    private void ConductMatch(InteractionProcessor[] responsibleParts, SkinnedMeshRenderer deformableMesh)
-    {
-        for (int i = 0; i < responsibleParts.Length; i++)
-        {
-            _blendShapesNumberMatch.Add(responsibleParts[i], i);
-            _blendShapesMatch.Add(responsibleParts[i], deformableMesh);
-        }
-    }
-    
-    private void SubscribeForDamage(InteractionProcessor[] meshChangingParts)
+    private void SubscribeForDamage(NewInteractionProcessor[] meshChangingParts)
     {
         if (meshChangingParts.Length == 0)
             return;
@@ -105,7 +98,7 @@ public class CarDamage : MonoBehaviour
         }
     }
 
-    private void UnSubscribeForDamage(InteractionProcessor[] meshChangingParts)
+    private void UnSubscribeForDamage(NewInteractionProcessor[] meshChangingParts)
     {
         if (meshChangingParts.Length == 0)
             return;
@@ -116,52 +109,28 @@ public class CarDamage : MonoBehaviour
         }
     }
 
-    private void OnTakeDamage(InteractionProcessor affectedPart)
+    private void OnTakeDamage(NewInteractionProcessor affectedPart, Vector3 position)
     {
-        if (_elapsedTime < _takeDamageInterval)
-            return;
-
-        _elapsedTime = 0;
-        _hitFeedBacks?.PlayFeedbacks();
-        SkinnedMeshRenderer targetMeshRenderer = GetMatchedMeshRendererToProcessor(affectedPart);
-        ChangeBlendShape(targetMeshRenderer, affectedPart);
-    }
-
-    private SkinnedMeshRenderer GetMatchedMeshRendererToProcessor(InteractionProcessor affectedPart)
-    {
+        SkinnedMeshRenderer targetMeshRenderer = null;
         foreach (var blendShapesMatch in _blendShapesMatch)
         {
             if (affectedPart == blendShapesMatch.Key)
-                return blendShapesMatch.Value;
+                targetMeshRenderer = blendShapesMatch.Value;
         }
 
-        return null;
-    }
-
-    private void ChangeBlendShape(SkinnedMeshRenderer targetMeshRenderer, InteractionProcessor affectedPart)
-    {
         if (targetMeshRenderer)
         {
-            foreach (var numberMatch in _blendShapesNumberMatch)
+
+            foreach(var numberMatch in _blendShapesNumberMatch)
             {
-                if (affectedPart == numberMatch.Key)
+                if(affectedPart == numberMatch.Key)
                 {
                     float deformingPartCurrentHealth = targetMeshRenderer.GetBlendShapeWeight(numberMatch.Value);
-
-                    if (deformingPartCurrentHealth >= 100f)
-                        return;
-
-                    targetMeshRenderer.SetBlendShapeWeight(numberMatch.Value, deformingPartCurrentHealth + affectedPart.Sensitivity);
-
-                    EmmitEffect(affectedPart.transform.position);
+                    targetMeshRenderer.SetBlendShapeWeight(numberMatch.Value, deformingPartCurrentHealth + _deformingForce * _deformationSensitivity);
+                    _effectsGemerator.Play(position);
                 }
             }
         }
-    }
 
-    private void EmmitEffect(Vector3 position)
-    {
-        if (_effectsGenerator)
-            _effectsGenerator.Play(position);
     }
 }

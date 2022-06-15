@@ -2,12 +2,12 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof (Car))]
+[RequireComponent(typeof(Car))]
 public class PlayerInput : MonoBehaviour
 {
     [SerializeField] private VariableJoystick _joystick;
     [SerializeField] private float _brakingDragForce = 0.03f;
-/*    [SerializeField] private float _maxMagnitudeToTurn = 10f;*/
+    /*    [SerializeField] private float _maxMagnitudeToTurn = 10f;*/
     [SerializeField] private float _maxFrameJoysticVelocity = 0.5f;
 
     private SpeedLimit _speedLimit;
@@ -30,7 +30,7 @@ public class PlayerInput : MonoBehaviour
             if (_mover.IsAllWheelsOnGround)
             {
                 CriticalReached?.Invoke(_joystick.Horizontal);
-            } 
+            }
         }
         if (_joystick.IsPointerDown)
         {
@@ -49,6 +49,7 @@ public class PlayerInput : MonoBehaviour
             _determineVelosityCoroutine = StartCoroutine(DetermineVelocity(_joystick.Horizontal));
         if (_joystick.IsPointerDown && _mover.IsOnGround == false)
         {
+            _mover.AlignInAirFlatSurface();
             _mover.HandleCarInAir(_joystick.Horizontal);
         }
     }

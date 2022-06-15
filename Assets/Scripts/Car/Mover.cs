@@ -74,12 +74,14 @@ public class Mover : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        _hasContactsInArea = true;
+        if(other.gameObject.layer == LayerMask.GetMask("Defaul"))
+            _hasContactsInArea = true;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        _hasContactsInArea = false;
+        if (other.gameObject.layer == LayerMask.GetMask("Defaul"))
+            _hasContactsInArea = false;
     }
 
     public void SetCriticalHorizontalOffset(float horizontalOffset)
@@ -121,18 +123,17 @@ public class Mover : MonoBehaviour
     {
         if (_hasContactsInArea == false)
         {
-            AlignInAirFlatSurface();
             Rotate(joysticHorizontalInput);
             Drag(joysticHorizontalInput);
         }
     }
 
-    private void AlignInAirFlatSurface()
+    public void AlignInAirFlatSurface()
     {
-        transform.rotation = Quaternion.Lerp(transform.rotation, _pathController.TargetPoint.rotation, Time.deltaTime * 2f);
+        transform.rotation = Quaternion.Lerp(transform.rotation, _pathController.TargetPoint.rotation, Time.deltaTime * 4f);
     }
 
-    public void Rotate(float joysticHorizontal)
+    private void Rotate(float joysticHorizontal)
     {
         if (!_rotatePermission)
             return;
@@ -140,7 +141,7 @@ public class Mover : MonoBehaviour
         _rigidbody.AddTorque(newRotation, ForceMode.VelocityChange);
     }
 
-    public void Drag(float joysticHorizontal)
+    private void Drag(float joysticHorizontal)
     {
         Vector3 dragForce = Vector3.left * joysticHorizontal * Time.deltaTime * _airMovementSensitivity;
         _rigidbody.AddForce(dragForce, ForceMode.VelocityChange);
