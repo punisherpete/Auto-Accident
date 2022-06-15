@@ -63,7 +63,7 @@ public class Respawner : MonoBehaviour
             _respawnTimer += Time.deltaTime;
         else
             _respawnTimer = 0;
-        if (_isSafeModeActivated && _carsObserver.IsCarInSafeZone(transform, _safeDistanceForSafeMode))
+        if (_isSafeModeActivated && _carsObserver.IsInSafeZone(transform, _safeDistanceForSafeMode))
             StartCoroutine(DeactivateSafeMode(2f));
         if (_respawnTimer >= _respawnTime)
             RespawnCar();

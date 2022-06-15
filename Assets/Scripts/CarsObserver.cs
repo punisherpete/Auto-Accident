@@ -19,13 +19,14 @@ public class CarsObserver : MonoBehaviour
     private bool _isWinnerFound;
     private Car _playerCar = null;
 
-    public bool IsPlayerLeadsActiveGame => _joystick.IsPointerDown;
+    public bool IsPlayerActive => _joystick.IsPointerDown;
 
 
     private void Awake()
     {
         _cars = new List<Car>(GetComponentsInChildren<Car>());
         _allCars = new List<Car>(GetComponentsInChildren<Car>());
+
         foreach (var car in _cars)
         {
             if (car.Type == CarType.Player)
@@ -36,28 +37,25 @@ public class CarsObserver : MonoBehaviour
     private void OnEnable()
     {
         foreach (var car in _cars)
-        {
             car.OnFinished += CheckFinished;
-        }
     }
 
     private void OnDisable()
     {
         foreach (var car in _cars)
-        {
             car.OnFinished -= CheckFinished;
-        }
     }
 
     public int DetermineCurrentPlace(Car determinedCar)
     {
-        List<double> percents = new List<double>();
+        var percents = new List<double>();
+
         foreach (var car in _allCars)
-        {
             percents.Add(car.GetCurrentSplinePercent());
-        }
+
         int place = 1;
-        while (percents.Count>0)
+
+        while (percents.Count > 0)
         {
             int maxPercentIndex = 0;
             for (int i = 0; i < percents.Count; i++)
@@ -76,38 +74,39 @@ public class CarsObserver : MonoBehaviour
         return place;
     }
 
-    public bool IsAheadOfThePlayerOnDistance(Car originCar, float criticalDistance)
+    public float? DistanceAheadOfPlayer(Car origin) // merge?
     {
         if (_playerCar == null)
-            return false;
-        if(originCar.GetCurrentSplinePercent() > _playerCar.GetCurrentSplinePercent())
-            if (Vector3.Distance(originCar.transform.position, _playerCar.transform.position) > criticalDistance)
-                return true;
-        return false;
-    }
-    
-    public bool IsCarFasterThanPlayer(Car originCar, float speedDifference)
-    {
-        return originCar.GetCurrentSpeed()-_playerCar.GetCurrentSpeed() > speedDifference;
+            return null;
+
+        if (origin.GetCurrentSplinePercent() > _playerCar.GetCurrentSplinePercent())
+            return Vector3.Distance(origin.transform.position, _playerCar.transform.position);
+
+        return null;
     }
 
-    public bool IsFallBehindOfThePlayerOnDistance(Car originCar, float criticalDistance)
+    public float? DistanceBehindThePlayer(Car origin) // merge?
     {
         if (_playerCar == null)
-            return false;
-        if(originCar.GetCurrentSplinePercent() < _playerCar.GetCurrentSplinePercent())
-            if (Vector3.Distance(originCar.transform.position, _playerCar.transform.position) > criticalDistance)
-                return true;
-        return false;
+            return null;
+
+        if (origin.GetCurrentSplinePercent() < _playerCar.GetCurrentSplinePercent())
+            return Vector3.Distance(origin.transform.position, _playerCar.transform.position);
+
+        return null;
     }
 
-    public bool IsCarInSafeZone(Transform originCar, float safeDistanceForSafeMode)
+    public bool IsFasterThanPlayer(Car origin, float speedDifference) =>
+        origin.GetCurrentSpeed() - _playerCar.GetCurrentSpeed() > speedDifference;
+
+    public bool IsInSafeZone(Transform origin, float safeDistanceForSafeMode)
     {
         foreach (var car in _cars)
         {
-            if (car.transform == originCar)
+            if (car.transform == origin)
                 continue;
-            if (Vector3.Distance(originCar.position, car.transform.position) < safeDistanceForSafeMode)
+            
+            if (Vector3.Distance(origin.position, car.transform.position) < safeDistanceForSafeMode)
                 return false;
         }
         return true;
@@ -116,17 +115,13 @@ public class CarsObserver : MonoBehaviour
     public void StopAllCars()
     {
         foreach (var car in _cars)
-        {
-            car.StopMashine();
-        }
+            car.StopMachine();
     }
 
     public void StartAllCars()
     {
         foreach (var car in _cars)
-        {
-            car.StartMashine();
-        }
+            car.StartMachine();
     }
 
     private void CheckFinished(Car car)
@@ -139,7 +134,7 @@ public class CarsObserver : MonoBehaviour
             RemoveCurrentCarFromTheList(car);
             if (car.Type == CarType.Player)
             {
-                StartCoroutine(WaitAfterAWhileAfterPlayerFinishing());
+                Finish();
                 ActivateAfterPlayerWin?.Invoke();
                 DeterminePlacesByDistanceToFinishLine();
             }
@@ -150,7 +145,7 @@ public class CarsObserver : MonoBehaviour
             RemoveCurrentCarFromTheList(car);
             if (car.Type == CarType.Player)
             {
-                StartCoroutine(WaitAfterAWhileAfterPlayerFinishing());
+                Finish();
                 ActivateAfterPlayerLose?.Invoke();
                 DeterminePlacesByDistanceToFinishLine();
             }
@@ -186,16 +181,12 @@ public class CarsObserver : MonoBehaviour
                 break;
             else
             {
-                _cars[indexCarMinDistance].StopMashine();
+                _cars[indexCarMinDistance].StopMachine();
                 _leaderboardChecker.SetPlace(_cars[indexCarMinDistance]);
                 RemoveCurrentCarFromTheList(_cars[indexCarMinDistance]);
             }
         }
     }
 
-    private IEnumerator WaitAfterAWhileAfterPlayerFinishing()
-    {
-        yield return new WaitForSeconds(_activationTime);
-        ActivateAfterAWhileAfterPlayerFinished?.Invoke();
-    }
+    private void Finish() => ActivateAfterAWhileAfterPlayerFinished?.Invoke();
 }
