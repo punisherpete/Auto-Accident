@@ -143,7 +143,7 @@ public class Mover : MonoBehaviour
 
     private void Drag(float joysticHorizontal)
     {
-        Vector3 dragForce = Vector3.right * joysticHorizontal * Time.deltaTime * _airMovementSensitivity;
+        Vector3 dragForce = transform.right * joysticHorizontal * Time.deltaTime * _airMovementSensitivity;
         _rigidbody.AddForce(dragForce, ForceMode.VelocityChange);
     }
 
