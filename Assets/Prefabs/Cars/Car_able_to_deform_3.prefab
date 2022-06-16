@@ -183,6 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 35
+  _parentRoot: {fileID: 0}
 --- !u!54 &4625780537549432679
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -674,6 +675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 35
+  _parentRoot: {fileID: 0}
 --- !u!54 &3413823671805627205
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -911,6 +913,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 20
+  _parentRoot: {fileID: 0}
 --- !u!1 &4443968121614201237
 GameObject:
   m_ObjectHideFlags: 0
@@ -1087,6 +1090,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 20
+  _parentRoot: {fileID: 0}
 --- !u!114 &5856912549573515272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1290,6 +1294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 20
+  _parentRoot: {fileID: 0}
 --- !u!1 &4443968122348319335
 GameObject:
   m_ObjectHideFlags: 0
@@ -1386,6 +1391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 35
+  _parentRoot: {fileID: 0}
 --- !u!65 &4443968122449197629
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1537,6 +1543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 20
+  _parentRoot: {fileID: 0}
 --- !u!114 &7319422688366876414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1649,6 +1656,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 35
+  _parentRoot: {fileID: 0}
 --- !u!65 &4443968122636050083
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1737,6 +1745,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 35
+  _parentRoot: {fileID: 0}
 --- !u!1 &4443968122778449404
 GameObject:
   m_ObjectHideFlags: 0
@@ -1975,6 +1984,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 35
+  _parentRoot: {fileID: 0}
 --- !u!54 &4843123619459247980
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2279,8 +2289,9 @@ MonoBehaviour:
   - {fileID: 6742893565688000598}
   _neinhthMeshChangingParts: []
   _tenhthMeshChangingParts: []
-  _takeDamageInterval: 0.5
-  _effectsGenerator: {fileID: 4443968122002212511}
+  _deformingForce: 5
+  _deformationSensitivity: 1
+  _effectsGemerator: {fileID: 4443968122002212511}
 --- !u!1 &5626031507315078591
 GameObject:
   m_ObjectHideFlags: 0
@@ -2382,6 +2393,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 35
+  _parentRoot: {fileID: 0}
 --- !u!64 &4997702739608024934
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2513,6 +2525,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 35
+  _parentRoot: {fileID: 0}
 --- !u!54 &5609676578091868771
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2904,6 +2917,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 20
+  _parentRoot: {fileID: 0}
 --- !u!54 &5947709810648534791
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3037,6 +3051,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 20
+  _parentRoot: {fileID: 0}
 --- !u!64 &1460912952670818056
 MeshCollider:
   m_ObjectHideFlags: 0

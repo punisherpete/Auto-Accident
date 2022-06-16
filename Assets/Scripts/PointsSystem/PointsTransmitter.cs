@@ -72,7 +72,8 @@ public class PointsTransmitter : MonoBehaviour
     public void SetPoints(int value)
     {
         _wallet.Reset(value);
-        _data.SetCurrentSoft(_wallet.GetPointsAmount());
+        if(_data)
+            _data.SetCurrentSoft(_wallet.GetPointsAmount());
     }
 
     public void InitData(Data data)

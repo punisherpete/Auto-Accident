@@ -183,6 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 25
+  _parentRoot: {fileID: 0}
 --- !u!64 &7815306794033523593
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -371,8 +372,9 @@ MonoBehaviour:
   _eighthMeshChangingParts: []
   _neinhthMeshChangingParts: []
   _tenhthMeshChangingParts: []
-  _takeDamageInterval: 0.5
-  _effectsGenerator: {fileID: 7194642769086148803}
+  _deformingForce: 5
+  _deformationSensitivity: 1
+  _effectsGemerator: {fileID: 7194642769086148803}
 --- !u!1 &2230380451435992307
 GameObject:
   m_ObjectHideFlags: 0
@@ -636,6 +638,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 35
+  _parentRoot: {fileID: 0}
 --- !u!54 &5869545973077930963
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1111,6 +1114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 35
+  _parentRoot: {fileID: 0}
 --- !u!54 &7375251918758258811
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1357,6 +1361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 35
+  _parentRoot: {fileID: 0}
 --- !u!1 &7194642768251192224
 GameObject:
   m_ObjectHideFlags: 0
@@ -1490,6 +1495,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 35
+  _parentRoot: {fileID: 0}
 --- !u!65 &7194642768454618209
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1641,6 +1647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 35
+  _parentRoot: {fileID: 0}
 --- !u!114 &3289586670802744379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1722,6 +1729,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 35
+  _parentRoot: {fileID: 0}
 --- !u!65 &7194642768643090687
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1951,6 +1959,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 20
+  _parentRoot: {fileID: 0}
 --- !u!1 &7194642769230759881
 GameObject:
   m_ObjectHideFlags: 0
@@ -2127,6 +2136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 20
+  _parentRoot: {fileID: 0}
 --- !u!114 &7161265106460354100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2221,6 +2231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 20
+  _parentRoot: {fileID: 0}
 --- !u!1 &7194642769795452004
 GameObject:
   m_ObjectHideFlags: 0
@@ -2356,6 +2367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 35
+  _parentRoot: {fileID: 0}
 --- !u!54 &3135257000298787526
 Rigidbody:
   m_ObjectHideFlags: 0

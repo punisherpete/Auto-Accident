@@ -104,6 +104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 35
+  _parentRoot: {fileID: 0}
 --- !u!65 &1046986682967413143
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -293,8 +294,9 @@ MonoBehaviour:
   _eighthMeshChangingParts: []
   _neinhthMeshChangingParts: []
   _tenhthMeshChangingParts: []
-  _takeDamageInterval: 0.5
-  _effectsGenerator: {fileID: 3175835021271922921}
+  _deformingForce: 5
+  _deformationSensitivity: 1
+  _effectsGemerator: {fileID: 3175835021271922921}
 --- !u!1 &1491168903576428809
 GameObject:
   m_ObjectHideFlags: 0
@@ -612,6 +614,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 35
+  _parentRoot: {fileID: 0}
 --- !u!65 &3175835020737103311
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -715,6 +718,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 35
+  _parentRoot: {fileID: 0}
 --- !u!114 &3198268306787599078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -944,6 +948,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 35
+  _parentRoot: {fileID: 0}
 --- !u!114 &3865098445493514461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1112,6 +1117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 20
+  _parentRoot: {fileID: 0}
 --- !u!114 &2398544048041515161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1187,6 +1193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 35
+  _parentRoot: {fileID: 0}
 --- !u!65 &3175835021647913671
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1454,6 +1461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 20
+  _parentRoot: {fileID: 0}
 --- !u!114 &1794795906367028569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1606,6 +1614,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 20
+  _parentRoot: {fileID: 0}
 --- !u!114 &5961954909149437789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1815,6 +1824,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 1
+  _parentRoot: {fileID: 0}
 --- !u!1 &4683513359909838604
 GameObject:
   m_ObjectHideFlags: 0
@@ -1916,6 +1926,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 35
+  _parentRoot: {fileID: 0}
 --- !u!65 &7962586437518154334
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2068,6 +2079,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 35
+  _parentRoot: {fileID: 0}
 --- !u!65 &3031443228452426656
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2380,6 +2392,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 35
+  _parentRoot: {fileID: 0}
 --- !u!64 &5939276739743523420
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2614,6 +2627,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 1
+  _parentRoot: {fileID: 0}
 --- !u!1 &8830516545909155312
 GameObject:
   m_ObjectHideFlags: 0
