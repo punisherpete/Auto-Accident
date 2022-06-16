@@ -160,5 +160,6 @@ public class Car : MonoBehaviour
 public enum CarType
 {
     Player,
-    AI
+    AI,
+    Police
 }

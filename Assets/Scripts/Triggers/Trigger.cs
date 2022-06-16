@@ -5,6 +5,7 @@ public class Trigger : MonoBehaviour
 {
     public UnityEvent ActivateAfterPlayerEnter;
     public UnityEvent ActivateAfterAIEnter;
+    public UnityEvent PoliceEntered;
     public UnityEvent ActivateAfterAllEnter;
 
     [SerializeField] private bool _isActivatedByProjector = false;
@@ -31,6 +32,8 @@ public class Trigger : MonoBehaviour
             ActivateAfterPlayerEnter?.Invoke();
         if (_car.Type == CarType.AI)
             ActivateAfterAIEnter?.Invoke();
+        if (_car.Type == CarType.Police)
+            PoliceEntered?.Invoke();
         ActivateAfterAllEnter?.Invoke();
     }
 
