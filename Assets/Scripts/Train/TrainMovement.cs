@@ -13,6 +13,11 @@ public class TrainMovement : MonoBehaviour
 
     private float _lastSpeed;
 
+    private void Start()
+    {
+        Invoke(nameof(Accelerate), 0.5f);
+    }
+
     [ContextMenu("Accelerate")]
     public void Accelerate()
     {

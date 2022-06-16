@@ -34,7 +34,8 @@ public class TrainPhysicsSwitch : MonoBehaviour
     [ContextMenu("Become Physics")]
     public void BecomePhysics()
     {
-        _trainEngine.GetComponent<SplineFollower>().enabled = false;
+        //_trainEngine.GetComponent<SplineFollower>().enabled = false;
+        StartCoroutine(GoForward(_moveDuration));
 
         _rigidbody.isKinematic = false;
         _rigidbody.interpolation = RigidbodyInterpolation.None;
@@ -49,12 +50,11 @@ public class TrainPhysicsSwitch : MonoBehaviour
 
         for (int i = 0; i < _vagonsRigidbodies.Length; i++)
         {
-            _vagonsRigidbodies[i].isKinematic = false;
+
             _vagonsRigidbodies[i].interpolation = RigidbodyInterpolation.None;
             _vagonsRigidbodies[i].collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
         }
 
-        StartCoroutine(GoForward(_moveDuration));
         StartCoroutine(BreakJoints(_moveDuration + _breakJointsDelay));
         Enabled?.Invoke();
     }
@@ -62,14 +62,16 @@ public class TrainPhysicsSwitch : MonoBehaviour
     private IEnumerator GoForward(float actionTime)
     {
         float time = 0;
-        Vector3 newVelocity = transform.forward * _force;
-
+        Vector3 newVelocity = transform.right * _force;
+        yield return new WaitForSeconds(0);
         while (time < 1f)
         {
             _rigidbody.velocity = newVelocity;
             for (int i = 0; i < _bodiesToKeepImpulse.Length; i++)
             {
-                _bodiesToKeepImpulse[i].velocity = newVelocity;
+                _vagonsRigidbodies[i].isKinematic = false;
+                _vagonsRigidbodies[i].transform.parent = null;
+                _bodiesToKeepImpulse[i].AddForce(newVelocity, ForceMode.VelocityChange);
             }
             time += Time.deltaTime / actionTime;
             yield return null;
