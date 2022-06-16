@@ -31,7 +31,7 @@ public class NewInteractionProcessor : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    public virtual void OnCollisionEnter(Collision collision)
     {
         if (collision.rigidbody)
         {

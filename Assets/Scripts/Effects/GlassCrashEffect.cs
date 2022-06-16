@@ -22,7 +22,7 @@ public class GlassCrashEffect : MonoBehaviour
         }
     }
 
-    private void OnPlayEffect(InteractionProcessor interactionProcessor)
+    private void OnPlayEffect(InteractionProcessor interactionProcessor, Vector3 position)
     {
         _completeGlass.SetActive(false);
         _dropsEffect.Play(true);

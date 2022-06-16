@@ -30,7 +30,7 @@ public class JointAnimation : MonoBehaviour
         _affectedPart.Affected -= OnPlayAnimation;
     }
 
-    private void OnPlayAnimation(InteractionProcessor interaction)
+    private void OnPlayAnimation(InteractionProcessor interaction, Vector3 position)
     {
         if (_plays <= 0)
         {

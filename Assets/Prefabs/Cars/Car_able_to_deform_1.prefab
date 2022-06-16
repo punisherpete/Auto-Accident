@@ -604,9 +604,9 @@ MonoBehaviour:
   _eighthMeshChangingParts: []
   _neinhthMeshChangingParts: []
   _tenhthMeshChangingParts: []
-  _takeDamageInterval: 0.5
-  _effectsGenerator: {fileID: 3236523695042043827}
-  _hitFeedBacks: {fileID: 0}
+  _deformingForce: 5
+  _deformationSensitivity: 1
+  _effectsGemerator: {fileID: 3236523695042043827}
 --- !u!1 &2997819250803025566
 GameObject:
   m_ObjectHideFlags: 0
@@ -2210,7 +2210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a3cd2d5ab9bcda47a65daf215016f93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sensitivity: 14
+  _sensitivity: 7.3
   _parentRoot: {fileID: 0}
 --- !u!114 &1284609348507605295
 MonoBehaviour:
@@ -2403,7 +2403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a3cd2d5ab9bcda47a65daf215016f93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sensitivity: 20
+  _sensitivity: 12.14
   _parentRoot: {fileID: 0}
 --- !u!114 &640885732541364426
 MonoBehaviour:

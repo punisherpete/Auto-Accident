@@ -8,7 +8,7 @@ public class InteractionProcessor : MonoBehaviour
 
     private Transform _transform;
 
-    public event Action<InteractionProcessor> Affected;
+    public event Action<InteractionProcessor, Vector3> Affected;
 
     public float Sensitivity => _sensitivity;
 
@@ -25,7 +25,7 @@ public class InteractionProcessor : MonoBehaviour
                 return;
         }
 
-        Affected?.Invoke(this);
+        Affected?.Invoke(this, transform.position);
     }
 
     private void OnTriggerEnter(Collider other)
