@@ -160,6 +160,12 @@ public class Mover : MonoBehaviour
             _pathController.ChangeHorizontalOffset(_criticalOffset, _offsetSpeed, horizontalInput);
     }
 
+    public void TrySetNewTargetOffset(float targetOffset)
+    {
+        if (_changeOffsetPermission)
+            _pathController.SetNewTargetOffset(_offsetSpeed, targetOffset);
+    }
+
     public void PauseMoving(float time)
     {
         _breakingTimer = time;
