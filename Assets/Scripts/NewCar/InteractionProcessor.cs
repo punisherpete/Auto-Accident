@@ -40,5 +40,10 @@ public class InteractionProcessor : MonoBehaviour
                 }
             }
         }
+
+        if (other.TryGetComponent(out GamePoint gamePointForEnemy))
+        {
+            gamePointForEnemy.gameObject.SetActive(false);
+        }
     }
 }
