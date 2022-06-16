@@ -13,16 +13,45 @@ public class PathController : MonoBehaviour
     [Header("Path")]
     [SerializeField] private Path _path;
 
+    private float _newTargetOffset;
+    private float _offsetSpeed;
+    private bool _isMovingToNewTargetPosition = false;
+
     public Transform TargetPoint => _path.TargetPoint;
     public Transform CurrentPoint => _path.CurrentSplineProjector;
+
 
     private void Start()
     {
         _path.Initialize(_spline);
     }
 
+    private void LateUpdate()
+    {
+        if(_isMovingToNewTargetPosition)
+        {
+            _path.MovePathToNewTargetOffset(_offsetSpeed, _newTargetOffset);
+            if (_path.IsPointAchiveToTargetOffset)
+                _isMovingToNewTargetPosition = false;       
+        }
+    }
+
     public void ChangeHorizontalOffset(float criticalOffset, float offsetSpeed, float input)
     {
-        _path.MovePath(criticalOffset, offsetSpeed, input);
+        _offsetSpeed = offsetSpeed;
+        if(!_isMovingToNewTargetPosition)
+            _path.MovePath(criticalOffset, offsetSpeed, input);
+    }
+
+    public void SetNewTargetOffset(float offsetSpeed, float targetOffset)
+    {
+        if (_isMovingToNewTargetPosition)
+            return;
+        else
+        {
+            _offsetSpeed = offsetSpeed;
+            _newTargetOffset = targetOffset;
+            _isMovingToNewTargetPosition = true;
+        }
     }
 }

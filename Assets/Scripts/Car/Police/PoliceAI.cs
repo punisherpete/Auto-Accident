@@ -7,17 +7,20 @@ public class PoliceAI : AI
 {
     [SerializeField] private float _delay;
 
-    private Mover _mover;
-
-    private void Start()
+    public void Start—hase()
     {
-        _mover = GetComponent<Mover>();
         InvokeRepeating(nameof(ChangeHorizontalOffset), _delay, _delay);
+        _car.StartMachine();
+    }
+
+    public void StopChase()
+    {
+        _car.StopMachine();
     }
 
     private void ChangeHorizontalOffset()
     {
-        float offset = Random.Range(-10f, 10f);
-        _mover.TryChangeHorizontalOffset(offset);
+        float offset = Random.Range(-_mover.GetCriticalOffset(), _mover.GetCriticalOffset());
+        _mover.TrySetNewTargetOffset(offset);
     }
 }

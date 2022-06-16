@@ -3,9 +3,10 @@ using UnityEngine.Events;
 
 public class Trigger : MonoBehaviour
 {
+    public UnityEvent ActivateAfterAllEnter;
     public UnityEvent ActivateAfterPlayerEnter;
     public UnityEvent ActivateAfterAIEnter;
-    public UnityEvent ActivateAfterAllEnter;
+    public UnityEvent ActivateAfterPoliceEnter;
 
     [SerializeField] private bool _isActivatedByProjector = false;
 
@@ -27,11 +28,13 @@ public class Trigger : MonoBehaviour
 
     private void ActivateEvents()
     {
+        ActivateAfterAllEnter?.Invoke();
         if (_car.Type == CarType.Player)
             ActivateAfterPlayerEnter?.Invoke();
         if (_car.Type == CarType.AI)
             ActivateAfterAIEnter?.Invoke();
-        ActivateAfterAllEnter?.Invoke();
+        if(_car.Type == CarType.Police)
+            ActivateAfterPoliceEnter?.Invoke();
     }
 
     public void SetSpeedLimit(float value)
@@ -76,6 +79,10 @@ public class Trigger : MonoBehaviour
         }
     }
 
+    public void TrySetNewTargetOffset(float offset)
+    {
+        _car.TrySetNewTargetOffset(offset);
+    }
 
     public void Finish()
     {

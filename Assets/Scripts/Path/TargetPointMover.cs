@@ -5,6 +5,9 @@ using UnityEngine;
 public class TargetPointMover : MonoBehaviour
 {
     private Vector3 _startPosition;
+    private float _targetOffset;
+
+    public bool IsPointAchiveToTargetOffset => Mathf.RoundToInt(transform.localPosition.x) == Mathf.RoundToInt(_targetOffset);
 
     private void OnEnable()
     {
@@ -26,5 +29,11 @@ public class TargetPointMover : MonoBehaviour
             else if (transform.localPosition.x > 0)
                 transform.Translate(transform.right * -offsetSpeed * Time.deltaTime, Space.World);
         }
+    }
+
+    public void MoveToNewTargetPosition(float offsetSpeed, float targetOffset)
+    {
+        _targetOffset = targetOffset;
+        transform.localPosition = Vector3.Lerp(transform.localPosition, new Vector3(targetOffset,0,0), offsetSpeed * Time.deltaTime);
     }
 }

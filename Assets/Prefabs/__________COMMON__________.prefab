@@ -458,8 +458,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 287237624985785081}
-  m_LocalRotation: {x: -0.0026000773, y: 0.98054326, z: 0.013017287, w: 0.19585405}
-  m_LocalPosition: {x: 1.1170595, y: 0.5239999, z: 17.851269}
+  m_LocalRotation: {x: -0.001168931, y: 0.9961846, z: 0.013507093, w: 0.08621181}
+  m_LocalPosition: {x: 67.94171, y: 15.482, z: 108.86822}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 287237626614179653}
@@ -771,7 +771,7 @@ GameObject:
   - component: {fileID: 287237625186067106}
   - component: {fileID: 287237625186067107}
   m_Layer: 8
-  m_Name: Projector 2
+  m_Name: AIProjector 2
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2855,7 +2855,7 @@ GameObject:
   - component: {fileID: 287237626083092709}
   - component: {fileID: 287237626083092710}
   m_Layer: 8
-  m_Name: Projector 1
+  m_Name: AIProjector 1
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -3948,7 +3948,7 @@ GameObject:
   - component: {fileID: 287237626650245533}
   - component: {fileID: 287237626650245534}
   m_Layer: 8
-  m_Name: Projector
+  m_Name: AIProjector
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -5438,7 +5438,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7632262322186049205, guid: c1d6ab91ed5322e4691145829548dd2a, type: 3}
       propertyPath: m_Name
-      value: Path (1)
+      value: AIPath (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1d6ab91ed5322e4691145829548dd2a, type: 3}
@@ -6962,7 +6962,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7461876023464264525, guid: 23bc77651286f654bb505ad50cee93ae, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.0037387116
+      value: 0.0037387079
       objectReference: {fileID: 0}
     - target: {fileID: 7461876023464264525, guid: 23bc77651286f654bb505ad50cee93ae, type: 3}
       propertyPath: m_LocalRotation.y
@@ -6970,7 +6970,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7461876023464264525, guid: 23bc77651286f654bb505ad50cee93ae, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.012826415
+      value: 0.012826403
       objectReference: {fileID: 0}
     - target: {fileID: 7461876023464264525, guid: 23bc77651286f654bb505ad50cee93ae, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7124,7 +7124,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7632262322186049205, guid: c1d6ab91ed5322e4691145829548dd2a, type: 3}
       propertyPath: m_Name
-      value: Path (3)
+      value: AIPath (3)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1d6ab91ed5322e4691145829548dd2a, type: 3}
@@ -7716,7 +7716,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7632262322186049205, guid: c1d6ab91ed5322e4691145829548dd2a, type: 3}
       propertyPath: m_Name
-      value: Path (2)
+      value: AIPath (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1d6ab91ed5322e4691145829548dd2a, type: 3}
@@ -7951,7 +7951,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7632262322186049205, guid: c1d6ab91ed5322e4691145829548dd2a, type: 3}
       propertyPath: m_Name
-      value: Path
+      value: PlayerPath
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1d6ab91ed5322e4691145829548dd2a, type: 3}

@@ -119,6 +119,11 @@ public class Car : MonoBehaviour
         _mover.ProhibitChangeOffset();
     }
 
+    public void TrySetNewTargetOffset(float targetOffset)
+    {
+        _mover.TrySetNewTargetOffset(targetOffset);
+    }
+
     public void Finish()
     {
         if (_isFinished)

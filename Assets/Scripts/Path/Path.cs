@@ -7,9 +7,10 @@ public class Path : MonoBehaviour
     [SerializeField] private SplineProjector _targetSplineProjector;
     [SerializeField] private TargetPointMover _targetPointMover;
 
-
+    public bool IsPointAchiveToTargetOffset => _targetPointMover.IsPointAchiveToTargetOffset;
     public Transform TargetPoint => _targetPointMover.transform;
     public Transform CurrentSplineProjector => _splineProjector.transform;
+    /*public bool IsTargetPointAchievedTargetPosition => */
 
     public void Initialize(SplineComputer spline)
     {
@@ -21,4 +22,11 @@ public class Path : MonoBehaviour
     {
         _targetPointMover.Move(criticalOffset, offsetSpeed, input);
     }
+
+    public void MovePathToNewTargetOffset(float offsetSpeed, float targetOffset)
+    {
+        _targetPointMover.MoveToNewTargetPosition(offsetSpeed, targetOffset);
+    }
+
+    
 }

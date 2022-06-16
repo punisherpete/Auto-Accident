@@ -22,13 +22,14 @@ public class AI : MonoBehaviour
     [SerializeField] private float _behindSpeedModifier = 1.3f;
     [SerializeField] private float _cheaterSpeedModifier = 1.5f;
 
-    [SerializeField] private float _regularForce = 5000f;
+    [SerializeField] private float _cheaterBehindRegularForce = 5000f;
+    [SerializeField] private float _criticalBehindRegularForce = 0f;
     [SerializeField] private float _slidingTime = 2f;
     [SerializeField] private float _criticalSpeedDifference = 4f;
 
-    private SpeedLimit _speedLimit;
-    private Mover _mover;
-    private Car _car;
+    protected SpeedLimit _speedLimit;
+    protected Mover _mover;
+    protected Car _car;
 
     private bool _isStrong = true;
 
@@ -73,7 +74,6 @@ public class AI : MonoBehaviour
         else if (distance > _criticalLeadDistance && _observer.IsPlayerActive)
             return _observer.IsFasterThanPlayer(_car, _criticalSpeedDifference)
                 ? _strongDragModifier : _dragModifier;
-
         return 0;
     }
 
@@ -84,7 +84,7 @@ public class AI : MonoBehaviour
             return;
         if (distance > _cheaterBehindDistanceFromPlayer && _isStrong)
         {
-            _mover.SetMaxSpeedModifier(_cheaterSpeedModifier, _regularForce);
+            _mover.SetMaxSpeedModifier(_cheaterSpeedModifier, _cheaterBehindRegularForce);
             _mover.StrengthenWheels();
         }
         else if (distance > _criticalBehindDistance && _isStrong)
