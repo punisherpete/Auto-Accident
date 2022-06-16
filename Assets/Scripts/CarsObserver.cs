@@ -134,8 +134,8 @@ public class CarsObserver : MonoBehaviour
             RemoveCurrentCarFromTheList(car);
             if (car.Type == CarType.Player)
             {
-                Finish();
                 ActivateAfterPlayerWin?.Invoke();
+                Invoke(nameof(ActivateAfterAWhileAfterFinish), _activationTime);
                 DeterminePlacesByDistanceToFinishLine();
             }
         }
@@ -145,9 +145,10 @@ public class CarsObserver : MonoBehaviour
             RemoveCurrentCarFromTheList(car);
             if (car.Type == CarType.Player)
             {
-                Finish();
+                
                 ActivateAfterPlayerLose?.Invoke();
                 DeterminePlacesByDistanceToFinishLine();
+                Invoke(nameof(ActivateAfterAWhileAfterFinish), _activationTime);
             }
         }
     }
@@ -188,5 +189,8 @@ public class CarsObserver : MonoBehaviour
         }
     }
 
-    private void Finish() => ActivateAfterAWhileAfterPlayerFinished?.Invoke();
+    private void ActivateAfterAWhileAfterFinish()
+    {
+        ActivateAfterAWhileAfterPlayerFinished?.Invoke();
+    }
 }
