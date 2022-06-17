@@ -83,6 +83,11 @@ public class Trigger : MonoBehaviour
     {
         _car.TrySetNewTargetOffset(offset);
     }
+    
+    public void SetNewTargetOffset(float offset)
+    {
+        _car.SetNewTargetOffset(offset);
+    }
 
     public void Finish()
     {

@@ -123,6 +123,11 @@ public class Car : MonoBehaviour
     {
         _mover.TrySetNewTargetOffset(targetOffset);
     }
+    
+    public void SetNewTargetOffset(float targetOffset)
+    {
+        _mover.SetNewTargetOffset(targetOffset);
+    }
 
     public void Finish()
     {
