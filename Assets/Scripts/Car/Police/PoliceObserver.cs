@@ -17,7 +17,7 @@ public class PoliceObserver : MonoBehaviour
         EnablePolice();
     }
 
-    public void DeactivateAllPolise()
+    public void DeactivateAllPolice()
     {
         foreach (var ai in _police)
             ai.BecomeWeak();
