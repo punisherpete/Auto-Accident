@@ -5,11 +5,22 @@ using UnityEngine;
 [RequireComponent(typeof(Mover))]
 public class PoliceAI : AI
 {
-    [SerializeField] private float _delay;
+    [SerializeField] private float _offsetDelay;
+    [SerializeField] private bool _changeOffsetPermission;
+
+    private bool _deactivatePermission = false;
+
+    private void Update()
+    {
+        if(_observer.DistanceBehindThePlayer(_car)>150 && _deactivatePermission)
+            gameObject.SetActive(false);
+    }
 
     public void Start—hase()
     {
-        InvokeRepeating(nameof(ChangeHorizontalOffset), _delay, _delay);
+        if(_changeOffsetPermission)
+            InvokeRepeating(nameof(ChangeHorizontalOffset), _offsetDelay, _offsetDelay);
+        _deactivatePermission = true;
         _car.StartMachine();
     }
 

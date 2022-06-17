@@ -3,7 +3,6 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(Mover))]
-[RequireComponent(typeof(Respawner))]
 public class Car : MonoBehaviour
 {
     public event UnityAction<Car> OnFinished;
@@ -29,7 +28,8 @@ public class Car : MonoBehaviour
     private void Awake()
     {
         _mover = GetComponent<Mover>();
-        _respawner = GetComponent<Respawner>();
+        TryGetComponent(out Respawner respawner);
+        _respawner = respawner;
         _splineProjectorObserver = GetComponent<SplineProjectorObserver>();
     }
 
@@ -72,9 +72,10 @@ public class Car : MonoBehaviour
         _mover.SetCriticalHorizontalOffset(value);
     }
 
-    public void SetRespawnPoint(Transform point)
+    public void TrySetRespawnPoint(Transform point)
     {
-        _respawner.SetRespawnPoint(point);
+        if(_respawner!=null)
+            _respawner.SetRespawnPoint(point);
     }
 
     public void StrengthenWheels()
@@ -87,9 +88,10 @@ public class Car : MonoBehaviour
         _mover.SetSlidingWheel(slidingTime);
     }
 
-    public void SetCriticalRespawnOffset(float criticalOffset)
+    public void TrySetCriticalRespawnOffset(float criticalOffset)
     {
-        _respawner.SetCriticalHorizontalOffset(criticalOffset);
+        if(_respawner!=null)
+            _respawner.SetCriticalHorizontalOffset(criticalOffset);
     }
 
     public bool TryResetToDefaultWheel()
@@ -100,13 +102,15 @@ public class Car : MonoBehaviour
     public void StopMachine()
     {
         _mover.StopMoving();
-        _respawner.ProhibitRespawn();
+        if(_respawner != null)
+            _respawner.ProhibitRespawn();
     }
 
     public void StartMachine()
     {
         _mover.StartMoving();
-        _respawner.AllowRespawn();
+        if (_respawner != null)
+            _respawner.AllowRespawn();
     }
 
     public void TurnControlOnRoad()

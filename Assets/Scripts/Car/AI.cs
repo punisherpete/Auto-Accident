@@ -7,25 +7,25 @@ using UnityEngine;
 [RequireComponent(typeof(Car))]
 public class AI : MonoBehaviour
 {
-    [SerializeField] private CarsObserver _observer;
+    [SerializeField] protected CarsObserver _observer;
 
-    [SerializeField] private float _cheaterLeadDistance = 125;
-    [SerializeField] private float _strongLeadDistance = 50;
-    [SerializeField] private float _criticalLeadDistance = 10;
-    [SerializeField] private float _criticalBehindDistance = 24;
-    [SerializeField] private float _cheaterBehindDistanceFromPlayer = 54;
+    [SerializeField] protected float _cheaterLeadDistance = 125;
+    [SerializeField] protected float _strongLeadDistance = 50;
+    [SerializeField] protected float _criticalLeadDistance = 10;
+    [SerializeField] protected float _criticalBehindDistance = 24;
+    [SerializeField] protected float _cheaterBehindDistanceFromPlayer = 54;
 
-    [SerializeField] private float _dragModifier = 0.005f;
-    [SerializeField] private float _strongDragModifier = 0.025f;
-    [SerializeField] private float _impossibleDragModifier = 0.3f;
+    [SerializeField] protected float _dragModifier = 0.005f;
+    [SerializeField] protected float _strongDragModifier = 0.025f;
+    [SerializeField] protected float _impossibleDragModifier = 0.3f;
 
-    [SerializeField] private float _behindSpeedModifier = 1.3f;
-    [SerializeField] private float _cheaterSpeedModifier = 1.5f;
+    [SerializeField] protected float _behindSpeedModifier = 1.3f;
+    [SerializeField] protected float _cheaterSpeedModifier = 1.5f;
 
-    [SerializeField] private float _cheaterBehindRegularForce = 5000f;
+    [SerializeField] protected float _cheaterBehindRegularForce = 5000f;
     [SerializeField] private float _criticalBehindRegularForce = 0f;
-    [SerializeField] private float _slidingTime = 2f;
-    [SerializeField] private float _criticalSpeedDifference = 4f;
+    [SerializeField] protected float _slidingTime = 2f;
+    [SerializeField] protected float _criticalSpeedDifference = 4f;
 
     protected SpeedLimit _speedLimit;
     protected Mover _mover;

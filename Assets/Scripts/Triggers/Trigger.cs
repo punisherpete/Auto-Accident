@@ -54,12 +54,12 @@ public class Trigger : MonoBehaviour
 
     public void SetCriticalRespawnOffset(float criticalOffset)
     {
-        _car.SetCriticalRespawnOffset(criticalOffset);
+        _car.TrySetCriticalRespawnOffset(criticalOffset);
     }
 
     public void SetRespawnPoint(Transform point)
     {
-        _car.SetRespawnPoint(point);
+        _car.TrySetRespawnPoint(point);
     }
 
     public void SetControlOnRoad(bool permission)
@@ -97,5 +97,10 @@ public class Trigger : MonoBehaviour
     public void StopCar()
     {
         _car.StopMachine();
+    }
+
+    public void DisableCar()
+    {
+        _car.gameObject.SetActive(false);
     }
 }
