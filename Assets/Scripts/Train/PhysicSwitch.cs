@@ -1,14 +1,20 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class PhysicSwitch : MonoBehaviour
 {
-    [SerializeField] private TrainPhysicsSwitch _trainPhysicsSwitch;
+    private Rigidbody _rigidbody;
+
+    private void Start()
+    {
+        _rigidbody = GetComponent<Rigidbody>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<Mover>())
         {
-            _trainPhysicsSwitch.BecomePhysics();
+            _rigidbody.isKinematic = false;
         }
     }
 }
