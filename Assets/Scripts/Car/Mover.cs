@@ -162,8 +162,13 @@ public class Mover : MonoBehaviour
 
     public void TrySetNewTargetOffset(float targetOffset)
     {
-        if (_changeOffsetPermission)
+        if (_changeOffsetPermission && IsOnGround)
             _pathController.SetNewTargetOffset(_offsetSpeed, targetOffset);
+    }
+
+    public void SetNewTargetOffset(float targetOffset)
+    {
+        _pathController.SetNewTargetOffset(_offsetSpeed, targetOffset);
     }
 
     public void PauseMoving(float time)

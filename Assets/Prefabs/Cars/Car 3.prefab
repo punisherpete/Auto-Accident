@@ -68,12 +68,13 @@ MonoBehaviour:
   _criticalLeadDistance: 3
   _criticalBehindDistance: 6.5
   _cheaterBehindDistanceFromPlayer: 20
-  _dragModifier: 0.007
+  _dragModifier: 0.008
   _strongDragModifier: 0.025
   _impossibleDragModifier: 0.3
   _behindSpeedModifier: 1.2
   _cheaterSpeedModifier: 1.8
-  _regularForce: 2000
+  _cheaterBehindRegularForce: 5000
+  _criticalBehindRegularForce: 0
   _slidingTime: 1
   _criticalSpeedDifference: 3
 --- !u!114 &8824063929250874861
