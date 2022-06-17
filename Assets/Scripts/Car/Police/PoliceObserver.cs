@@ -4,25 +4,25 @@ using UnityEngine;
 
 public class PoliceObserver : MonoBehaviour
 {
-    [SerializeField] private PoliceAI[] _police;
-    [SerializeField] private float _delay;
+    [SerializeField] private float _disableDelay = 3f;
+    private PoliceAI[] _police;
 
     private void OnEnable()
     {
         _police = GetComponentsInChildren<PoliceAI>();
     }
 
-    public void CallIn()
+    public void ActivateAllPolice()
     {
-        Invoke(nameof(EnablePolice), _delay);
+        EnablePolice();
     }
 
-    public void CallOut()
+    public void DeactivateAllPolise()
     {
         foreach (var ai in _police)
             ai.BecomeWeak();
 
-        Invoke(nameof(DisablePolice), _delay);
+        Invoke(nameof(DisablePolice), _disableDelay);
     }
 
     private void EnablePolice()
