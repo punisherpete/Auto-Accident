@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(SpeedLimit))]
 [RequireComponent(typeof(Mover))]
 [RequireComponent(typeof(Car))]
-public class AI : MonoBehaviour
+public abstract class AI : MonoBehaviour
 {
     [SerializeField] protected CarsObserver _observer;
 
@@ -31,7 +31,7 @@ public class AI : MonoBehaviour
     protected Mover _mover;
     protected Car _car;
 
-    private bool _isStrong = true;
+    protected bool _isStrong = true;
 
     private void OnEnable()
     {
@@ -54,13 +54,7 @@ public class AI : MonoBehaviour
         _isStrong = false;
     }
 
-    private void FixedUpdate()
-    {
-        _speedLimit.SetRegularDragForce(CalculateDragForce());
-        DetermineSpeed();
-    }
-
-    private float CalculateDragForce()
+    protected float CalculateDragForce()
     {
         float? distance = _observer.DistanceAheadOfPlayer(_car);
 
@@ -77,7 +71,7 @@ public class AI : MonoBehaviour
         return 0;
     }
 
-    private void DetermineSpeed()
+    protected void DetermineSpeed()
     {
         float? distance = _observer.DistanceBehindThePlayer(_car);
         if (distance == null)
