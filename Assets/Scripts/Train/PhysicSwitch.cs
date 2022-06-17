@@ -10,11 +10,16 @@ public class PhysicSwitch : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.GetComponent<Mover>())
+        if (collision.rigidbody)
         {
-            _rigidbody.isKinematic = false;
-        }
+            if (collision.rigidbody.GetComponent<DamageEffector>())
+            {
+                print("AAA");
+                _rigidbody.isKinematic = false;
+                gameObject.transform.parent = null;
+            }
+        }   
     }
 }
