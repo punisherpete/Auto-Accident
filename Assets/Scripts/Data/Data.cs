@@ -55,6 +55,11 @@ public class Data : MonoBehaviour
         _options.SessionCount++;
     }
 
+    public void SetAbilityToHandleCarInAir()
+    {
+        _options.PlayerKnowsHowToHandleCarInFlight = true;
+    }
+
     public string GetKeyName()
     {
         return _dataKeyName;
@@ -94,6 +99,11 @@ public class Data : MonoBehaviour
     {
         return _options.Soft;
     }
+
+    public bool GetAbilityHandleCarInAir()
+    {
+        return _options.PlayerKnowsHowToHandleCarInFlight;
+    }
 }
 
 [Serializable]
@@ -105,5 +115,6 @@ public class SaveOptions
     public string RegistrationDate;
     public int DisplayedLevelNumber = 1;
     public int Soft;
+    public bool PlayerKnowsHowToHandleCarInFlight = false;
 }
 
