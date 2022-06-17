@@ -28,7 +28,7 @@ public class PoliceObserver : MonoBehaviour
     private void EnablePolice()
     {
         foreach (var ai in _police)
-            ai.Start—hase();
+            ai.StartChase();
     }
 
     private void DisablePolice()
