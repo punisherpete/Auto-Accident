@@ -58,9 +58,9 @@ MonoBehaviour:
   SpawnOffsetMin: {x: 0, y: 0, z: 0}
   SpawnOffsetMax: {x: 3, y: 3, z: 0}
   AnimateMovement: 1
-  AnimateX: 0
+  AnimateX: 1
   RemapXZero: {x: 0, y: 0}
-  RemapXOne: {x: 1, y: 1}
+  RemapXOne: {x: 5, y: -2}
   AnimateXCurve:
     serializedVersion: 2
     m_Curve:
@@ -87,7 +87,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   AnimateY: 1
   RemapYZero: {x: 0, y: 0}
-  RemapYOne: {x: 1, y: 1}
+  RemapYOne: {x: 3, y: -2}
   AnimateYCurve:
     serializedVersion: 2
     m_Curve:
@@ -458,8 +458,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 287237624985785081}
-  m_LocalRotation: {x: -0.0025315615, y: 0.979463, z: 0.012321988, w: 0.20123138}
-  m_LocalPosition: {x: -1.0947714, y: 3.2140713, z: 24.391697}
+  m_LocalRotation: {x: 0.0037387079, y: 0.9599611, z: 0.012826403, w: -0.27981463}
+  m_LocalPosition: {x: 9.27663, y: 7.1012607, z: 17.271849}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 287237626614179653}
@@ -7612,6 +7612,86 @@ PrefabInstance:
       propertyPath: _lookTarget
       value: 
       objectReference: {fileID: 287237624985785084}
+    - target: {fileID: 2121035369990376977, guid: 502a0eb1cf2a80241ad16d2c1cc619c0, type: 3}
+      propertyPath: AnimateColorGradient.ctime1
+      value: 13878
+      objectReference: {fileID: 0}
+    - target: {fileID: 2121035369990376977, guid: 502a0eb1cf2a80241ad16d2c1cc619c0, type: 3}
+      propertyPath: AnimateColorGradient.ctime2
+      value: 31997
+      objectReference: {fileID: 0}
+    - target: {fileID: 2121035369990376977, guid: 502a0eb1cf2a80241ad16d2c1cc619c0, type: 3}
+      propertyPath: AnimateColorGradient.ctime3
+      value: 50886
+      objectReference: {fileID: 0}
+    - target: {fileID: 2121035369990376977, guid: 502a0eb1cf2a80241ad16d2c1cc619c0, type: 3}
+      propertyPath: AnimateColorGradient.ctime4
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 2121035369990376977, guid: 502a0eb1cf2a80241ad16d2c1cc619c0, type: 3}
+      propertyPath: AnimateColorGradient.key0.b
+      value: 0.10946172
+      objectReference: {fileID: 0}
+    - target: {fileID: 2121035369990376977, guid: 502a0eb1cf2a80241ad16d2c1cc619c0, type: 3}
+      propertyPath: AnimateColorGradient.key0.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2121035369990376977, guid: 502a0eb1cf2a80241ad16d2c1cc619c0, type: 3}
+      propertyPath: AnimateColorGradient.key0.r
+      value: 0.09305898
+      objectReference: {fileID: 0}
+    - target: {fileID: 2121035369990376977, guid: 502a0eb1cf2a80241ad16d2c1cc619c0, type: 3}
+      propertyPath: AnimateColorGradient.key1.b
+      value: 0.09411764
+      objectReference: {fileID: 0}
+    - target: {fileID: 2121035369990376977, guid: 502a0eb1cf2a80241ad16d2c1cc619c0, type: 3}
+      propertyPath: AnimateColorGradient.key1.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2121035369990376977, guid: 502a0eb1cf2a80241ad16d2c1cc619c0, type: 3}
+      propertyPath: AnimateColorGradient.key1.r
+      value: 0.8615809
+      objectReference: {fileID: 0}
+    - target: {fileID: 2121035369990376977, guid: 502a0eb1cf2a80241ad16d2c1cc619c0, type: 3}
+      propertyPath: AnimateColorGradient.key2.b
+      value: 0.12027416
+      objectReference: {fileID: 0}
+    - target: {fileID: 2121035369990376977, guid: 502a0eb1cf2a80241ad16d2c1cc619c0, type: 3}
+      propertyPath: AnimateColorGradient.key2.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2121035369990376977, guid: 502a0eb1cf2a80241ad16d2c1cc619c0, type: 3}
+      propertyPath: AnimateColorGradient.key2.r
+      value: 0.0935385
+      objectReference: {fileID: 0}
+    - target: {fileID: 2121035369990376977, guid: 502a0eb1cf2a80241ad16d2c1cc619c0, type: 3}
+      propertyPath: AnimateColorGradient.key3.b
+      value: 0.09411764
+      objectReference: {fileID: 0}
+    - target: {fileID: 2121035369990376977, guid: 502a0eb1cf2a80241ad16d2c1cc619c0, type: 3}
+      propertyPath: AnimateColorGradient.key3.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2121035369990376977, guid: 502a0eb1cf2a80241ad16d2c1cc619c0, type: 3}
+      propertyPath: AnimateColorGradient.key3.r
+      value: 0.96227676
+      objectReference: {fileID: 0}
+    - target: {fileID: 2121035369990376977, guid: 502a0eb1cf2a80241ad16d2c1cc619c0, type: 3}
+      propertyPath: AnimateColorGradient.key4.b
+      value: 0.13333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2121035369990376977, guid: 502a0eb1cf2a80241ad16d2c1cc619c0, type: 3}
+      propertyPath: AnimateColorGradient.key4.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2121035369990376977, guid: 502a0eb1cf2a80241ad16d2c1cc619c0, type: 3}
+      propertyPath: AnimateColorGradient.key4.r
+      value: 0.09411766
+      objectReference: {fileID: 0}
+    - target: {fileID: 2121035369990376977, guid: 502a0eb1cf2a80241ad16d2c1cc619c0, type: 3}
+      propertyPath: AnimateColorGradient.m_NumColorKeys
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2468388692167410156, guid: 502a0eb1cf2a80241ad16d2c1cc619c0, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -8034,7 +8114,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7461876023464264525, guid: 23bc77651286f654bb505ad50cee93ae, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.0037387116
+      value: 0.0037387079
       objectReference: {fileID: 0}
     - target: {fileID: 7461876023464264525, guid: 23bc77651286f654bb505ad50cee93ae, type: 3}
       propertyPath: m_LocalRotation.y
@@ -8042,7 +8122,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7461876023464264525, guid: 23bc77651286f654bb505ad50cee93ae, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.012826415
+      value: 0.012826403
       objectReference: {fileID: 0}
     - target: {fileID: 7461876023464264525, guid: 23bc77651286f654bb505ad50cee93ae, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
