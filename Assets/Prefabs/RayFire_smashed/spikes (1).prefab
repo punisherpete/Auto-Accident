@@ -265,6 +265,22 @@ PrefabInstance:
       propertyPath: m_Materials.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 19905154, guid: 31bea997407d42b4c815aff8926295bb, type: 3}
+      propertyPath: m_UseCustomVertexStreams
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19905154, guid: 31bea997407d42b4c815aff8926295bb, type: 3}
+      propertyPath: m_VertexStreams.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19905154, guid: 31bea997407d42b4c815aff8926295bb, type: 3}
+      propertyPath: m_VertexStreams.Array.data[1]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19905154, guid: 31bea997407d42b4c815aff8926295bb, type: 3}
+      propertyPath: m_VertexStreams.Array.data[2]
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 19949802, guid: 31bea997407d42b4c815aff8926295bb, type: 3}
       propertyPath: m_Materials.Array.size
       value: 1
