@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: diffuse 1
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _EMISSION
+  m_ShaderKeywords: _EMISSION _SPECULARHIGHLIGHTS_OFF
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -68,11 +68,11 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
-    - _SpecularHighlights: 1
+    - _SpecularHighlights: 0
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.1637311, g: 0.1792453, b: 0.016346252, a: 1}
-    - _EmissionColor: {r: 0.16470589, g: 0.18039216, b: 0.015686275, a: 1}
+    - _Color: {r: 0.8207547, g: 0.8207547, b: 0.8207547, a: 1}
+    - _EmissionColor: {r: 0.09607843, g: 0.09607843, b: 0.09607843, a: 1}
   m_BuildTextureStacks: []
