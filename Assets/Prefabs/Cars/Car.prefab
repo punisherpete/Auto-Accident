@@ -102,6 +102,8 @@ GameObject:
   - component: {fileID: 5500575683951819483}
   - component: {fileID: 7423218989343827135}
   - component: {fileID: 7960951611475903557}
+  - component: {fileID: 4716467278677325447}
+  - component: {fileID: 7149483662895131807}
   m_Layer: 12
   m_Name: Car
   m_TagString: Untagged
@@ -457,6 +459,36 @@ CapsuleCollider:
   m_Height: 5.5
   m_Direction: 2
   m_Center: {x: 0.5700001, y: 0.6003963, z: 0.07417965}
+--- !u!114 &4716467278677325447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4955674667960276973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75e47362f1d6fe940a7a6791fdb61e37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _heightToStartChase: 5
+--- !u!114 &7149483662895131807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4955674667960276973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 009cdf4fb449b914c890070e8a7595c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _feedbackEffects:
+  - {fileID: 0}
+  _wheelsController: {fileID: 4955674667960276976}
+  _pathController: {fileID: 4955674667960276975}
+  _heightChaser: {fileID: 4716467278677325447}
 --- !u!1 &5775676709377901723
 GameObject:
   m_ObjectHideFlags: 0
@@ -843,11 +875,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b75bbdf3842c2d4eb80e74b6aec3342, type: 3}
---- !u!224 &2640690642889922112 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 6945546769239420707, guid: 7b75bbdf3842c2d4eb80e74b6aec3342, type: 3}
-  m_PrefabInstance: {fileID: 4955674668733725027}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1596656892030392914 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5975820549960557361, guid: 7b75bbdf3842c2d4eb80e74b6aec3342, type: 3}
@@ -859,6 +886,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &2640690642889922112 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6945546769239420707, guid: 7b75bbdf3842c2d4eb80e74b6aec3342, type: 3}
+  m_PrefabInstance: {fileID: 4955674668733725027}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6448089747805140508
 PrefabInstance:
   m_ObjectHideFlags: 0
