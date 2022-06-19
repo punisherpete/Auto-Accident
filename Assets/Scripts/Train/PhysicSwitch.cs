@@ -16,7 +16,6 @@ public class PhysicSwitch : MonoBehaviour
         {
             if (collision.rigidbody.GetComponent<DamageEffector>())
             {
-                print("AAA");
                 _rigidbody.isKinematic = false;
                 gameObject.transform.parent = null;
             }
