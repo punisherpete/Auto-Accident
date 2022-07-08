@@ -5,17 +5,16 @@ using UnityEngine.SceneManagement;
 public class ScreensaverSceneManager : MonoBehaviour
 {
     [SerializeField] private bool _isRemoveDataOnStart = false;
-    [SerializeField] private AnalyticManager _analytic;
     [SerializeField] private Data _data;
 
     private void Awake()
     {
         if (_isRemoveDataOnStart)
             _data.RemoveData();
+
         CheckSaveFile();
         _data.AddSession();
         _data.SetLastLoginDate(DateTime.Now);
-        _analytic.SendEventOnGameInitialize(_data.GetSessionCount());
         _data.Save();
         SceneManager.LoadScene(_data.GetLevelIndex());
     }
