@@ -11,7 +11,7 @@ public class AnimationSetter : MonoBehaviour
     {
         if(other.GetComponent<PlayerInput>())
         {
-            Reached.Invoke(_number);
+            Reached?.Invoke(_number);
             gameObject.SetActive(false);
         }
     }

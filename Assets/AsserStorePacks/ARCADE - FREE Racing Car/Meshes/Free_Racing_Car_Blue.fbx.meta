@@ -1,45 +1,113 @@
 fileFormatVersion: 2
 guid: 1f768f0d5a5dc9e48941608a2f58f511
 ModelImporter:
-  serializedVersion: 22
-  fileIDToRecycleName:
-    100000: Body
-    100002: //RootNode
-    100004: FrontLeftWheel
-    100006: FrontRightWheel
-    100008: RearLeftWheel
-    100010: RearRightWheel
-    100012: Spoiler
-    400000: Body
-    400002: //RootNode
-    400004: FrontLeftWheel
-    400006: FrontRightWheel
-    400008: RearLeftWheel
-    400010: RearRightWheel
-    400012: Spoiler
-    2100000: Material
-    2100002: Lights
-    2300000: Body
-    2300002: FrontLeftWheel
-    2300004: FrontRightWheel
-    2300006: RearLeftWheel
-    2300008: RearRightWheel
-    2300010: Spoiler
-    3300000: Body
-    3300002: FrontLeftWheel
-    3300004: FrontRightWheel
-    3300006: RearLeftWheel
-    3300008: RearRightWheel
-    3300010: Spoiler
-    4300000: Spoiler
-    4300002: Body
-    4300004: FrontLeftWheel
-    4300006: RearLeftWheel
-    4300008: FrontRightWheel
-    4300010: RearRightWheel
+  serializedVersion: 21202
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Body
+  - first:
+      1: 100002
+    second: //RootNode
+  - first:
+      1: 100004
+    second: FrontLeftWheel
+  - first:
+      1: 100006
+    second: FrontRightWheel
+  - first:
+      1: 100008
+    second: RearLeftWheel
+  - first:
+      1: 100010
+    second: RearRightWheel
+  - first:
+      1: 100012
+    second: Spoiler
+  - first:
+      4: 400000
+    second: Body
+  - first:
+      4: 400002
+    second: //RootNode
+  - first:
+      4: 400004
+    second: FrontLeftWheel
+  - first:
+      4: 400006
+    second: FrontRightWheel
+  - first:
+      4: 400008
+    second: RearLeftWheel
+  - first:
+      4: 400010
+    second: RearRightWheel
+  - first:
+      4: 400012
+    second: Spoiler
+  - first:
+      21: 2100000
+    second: Material
+  - first:
+      21: 2100002
+    second: Lights
+  - first:
+      23: 2300000
+    second: Body
+  - first:
+      23: 2300002
+    second: FrontLeftWheel
+  - first:
+      23: 2300004
+    second: FrontRightWheel
+  - first:
+      23: 2300006
+    second: RearLeftWheel
+  - first:
+      23: 2300008
+    second: RearRightWheel
+  - first:
+      23: 2300010
+    second: Spoiler
+  - first:
+      33: 3300000
+    second: Body
+  - first:
+      33: 3300002
+    second: FrontLeftWheel
+  - first:
+      33: 3300004
+    second: FrontRightWheel
+  - first:
+      33: 3300006
+    second: RearLeftWheel
+  - first:
+      33: 3300008
+    second: RearRightWheel
+  - first:
+      33: 3300010
+    second: Spoiler
+  - first:
+      43: 4300000
+    second: Spoiler
+  - first:
+      43: 4300002
+    second: Body
+  - first:
+      43: 4300004
+    second: FrontLeftWheel
+  - first:
+      43: 4300006
+    second: RearLeftWheel
+  - first:
+      43: 4300008
+    second: FrontRightWheel
+  - first:
+      43: 4300010
+    second: RearRightWheel
   externalObjects: {}
   materials:
-    importMaterials: 0
+    materialImportMode: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -48,6 +116,7 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -56,6 +125,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -68,23 +138,35 @@ ModelImporter:
   meshes:
     lODScreenPercentages: []
     globalScale: 1
-    meshCompression: 0
+    meshCompression: 3
     addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
@@ -92,10 +174,13 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -105,14 +190,17 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 0
   humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
   additionalBone: 0
   userData: 
   assetBundleName: 
