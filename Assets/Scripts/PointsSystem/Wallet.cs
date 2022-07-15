@@ -10,7 +10,8 @@ public class Wallet : IWaletOperation
         {
             Debug.LogError("Maximum value of int reached.");
             return;
-        }else if(amount < 0 && _pointsAmount < amount)
+        }
+        else if(amount < 0 && _pointsAmount < amount)
         {
             Debug.LogError("Minimum limit of points reached.");
             _pointsAmount = 0;
@@ -18,6 +19,7 @@ public class Wallet : IWaletOperation
         }
 
         _pointsAmount += amount;
+
     }
 
     public int GetPointsAmount()

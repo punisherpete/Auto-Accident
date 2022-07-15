@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -20,6 +20,7 @@ public class CarsObserver : MonoBehaviour
     private Car _playerCar = null;
 
     public bool IsPlayerActive => _joystick.IsPointerDown;
+    public event Action PlayerFinished;
 
 
     private void Awake()
@@ -127,6 +128,10 @@ public class CarsObserver : MonoBehaviour
     private void CheckFinished(Car car)
     {
         _leaderboardChecker.SetPlace(car);
+
+        if (car == _playerCar)
+            PlayerFinished?.Invoke();
+
         if (!_isWinnerFound)
         {
             car.Win();

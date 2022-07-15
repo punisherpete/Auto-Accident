@@ -6,6 +6,7 @@ public class StartPanel : MonoBehaviour
     public UnityEvent ActivateAfterDown;
 
     [SerializeField] private VariableJoystick _variableJoystick;
+    [SerializeField] private MainMenu _mainMenu;
 
     private void OnEnable()
     {
@@ -20,6 +21,7 @@ public class StartPanel : MonoBehaviour
     private void OnPointerDown()
     {
         ActivateAfterDown?.Invoke();
+        _mainMenu.GameStarted();
         gameObject.SetActive(false);
     }
 }

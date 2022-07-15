@@ -6,8 +6,11 @@ public class PointsTransmitter : MonoBehaviour
     private ScenePointsPool _pointsPool;
     private IWaletOperation _wallet;
     private Data _data;
+    private YandexLeaderboard _yandexLeaderboard;
 
     public static PointsTransmitter Instance;
+
+    public IWaletOperation Wallet => _wallet;
 
     public event Action Transmitted;
 
@@ -25,6 +28,8 @@ public class PointsTransmitter : MonoBehaviour
 
         if(_wallet == null)
         _wallet = new Wallet();
+
+        _yandexLeaderboard = FindObjectOfType<YandexLeaderboard>();
     }
 
     public void Subscribe()
@@ -47,6 +52,11 @@ public class PointsTransmitter : MonoBehaviour
     {
         _wallet.OperateWithPoints(amount);
         Transmitted?.Invoke();
+
+#if UNITY_WEBGL && !UNITY_EDITOR
+        _yandexLeaderboard.AddPlayerToLeaderboard(_wallet.GetPointsAmount());
+#endif
+
         _data.SetCurrentSoft(_wallet.GetPointsAmount());
         _data.Save();
     }

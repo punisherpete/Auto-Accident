@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using System;
 
 public class Trigger : MonoBehaviour
 {
@@ -29,6 +30,7 @@ public class Trigger : MonoBehaviour
     private void ActivateEvents()
     {
         ActivateAfterAllEnter?.Invoke();
+
         if (_car.Type == CarType.Player)
             ActivateAfterPlayerEnter?.Invoke();
         if (_car.Type == CarType.AI)
