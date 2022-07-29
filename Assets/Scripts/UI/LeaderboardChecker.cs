@@ -14,12 +14,14 @@ public class LeaderboardChecker : MonoBehaviour
     {
         if (_placesTexts.Count == 0 || _placeImages.Count == 0)
             return;
+
         _placesTexts[0].text = car.Name;
+
         if (car.Type == CarType.Player)
         {
-            //_placeImages[0].sprite = _playerPlaceSprite;
             _placesTexts[0].color = _playerTextColor;
         }
+
         _placeImages.RemoveAt(0);
         _placesTexts.RemoveAt(0);
     }

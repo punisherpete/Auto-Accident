@@ -48,7 +48,7 @@ public class PointsTransmitter : MonoBehaviour
         _pointsPool.PointsWthidrawed -= OnTransaction;
     }
 
-    private void OnTransaction(int amount)
+    public void OnTransaction(int amount)
     {
         _wallet.OperateWithPoints(amount);
         Transmitted?.Invoke();
@@ -82,6 +82,7 @@ public class PointsTransmitter : MonoBehaviour
     public void SetPoints(int value)
     {
         _wallet.Reset(value);
+
         if(_data)
             _data.SetCurrentSoft(_wallet.GetPointsAmount());
     }

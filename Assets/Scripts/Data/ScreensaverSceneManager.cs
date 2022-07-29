@@ -6,11 +6,14 @@ public class ScreensaverSceneManager : MonoBehaviour
 {
     [SerializeField] private bool _isRemoveDataOnStart = false;
     [SerializeField] private Data _data;
+    [SerializeField] private GameObject _musicPlayer;
 
     private void Awake()
     {
         if (_isRemoveDataOnStart)
             _data.RemoveData();
+
+        DontDestroyOnLoad(_musicPlayer);
 
         CheckSaveFile();
         _data.AddSession();
@@ -23,12 +26,10 @@ public class ScreensaverSceneManager : MonoBehaviour
     {
         if (PlayerPrefs.HasKey(_data.GetKeyName()))
         {
-            Debug.Log("Load old data file");
             _data.Load();
         }
         else
         {
-            Debug.Log("Create new save data file");
             _data.Save();
             _data.SetLevelIndex(1);
             _data.SetDateRegistration(DateTime.Now);

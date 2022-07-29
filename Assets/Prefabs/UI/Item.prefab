@@ -501,6 +501,7 @@ GameObject:
   - component: {fileID: 6393622454308760394}
   - component: {fileID: 3145115637292325883}
   - component: {fileID: 2601365707259643894}
+  - component: {fileID: 6355465939166666351}
   m_Layer: 0
   m_Name: Item
   m_TagString: Untagged
@@ -602,6 +603,18 @@ MonoBehaviour:
   _buyButton: {fileID: 4455747740323830361}
   _usedButton: {fileID: 3042349450846369662}
   _unusedButton: {fileID: 3868960600731663516}
+--- !u!114 &6355465939166666351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5317165098583903533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2c919395aed0ac4fba8059abf554251, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9112778288043652041
 GameObject:
   m_ObjectHideFlags: 0

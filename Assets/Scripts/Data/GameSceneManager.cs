@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using Lean.Localization;
 
 public class GameSceneManager : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class GameSceneManager : MonoBehaviour
         _data.SetLevelIndex(SceneManager.GetActiveScene().buildIndex);
         PointsTransmitter.Instance.SetPoints(_data.GetCurrentSoft());
         _data.Save();
-        _levelText.text = $"Level {_data.GetDisplayedLevelNumber()}";
+        _levelText.text = $"{LeanLocalization.GetTranslationText("level")}: {_data.GetDisplayedLevelNumber()}";
     }
 
     private void OnApplicationQuit()

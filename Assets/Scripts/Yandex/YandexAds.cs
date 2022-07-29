@@ -6,6 +6,9 @@ using Agava.YandexGames;
 public class YandexAds : MonoBehaviour
 {
     private CarsObserver _cardObserver;
+    private const int _rewardAmount = 250;
+
+    private bool _soundStatus = false;
 
     private void OnLevelWasLoaded(int level)
     {
@@ -29,21 +32,22 @@ public class YandexAds : MonoBehaviour
 
     public void OnOpen()
     {
+        _soundStatus = AudioListener.pause;
         AudioListener.pause = true;
     }
 
     public void OnRewarded()
     {
-        Debug.Log("rewarded");
+        PointsTransmitter.Instance.OnTransaction(_rewardAmount);
     }
 
     public void OnRewardedClosed()
     {
-        AudioListener.pause = false;
+        AudioListener.pause = _soundStatus;
     }
 
     public void OnFullScreenShowed(bool parameter)
     {
-        AudioListener.pause = false;
+        AudioListener.pause = _soundStatus;
     }
 }

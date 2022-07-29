@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Lean.Localization;
 
 public class PlaceShower : MonoBehaviour
 {
@@ -11,6 +12,6 @@ public class PlaceShower : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _placeText.text = "Place: "+ _carsObserver.DetermineCurrentPlace(_determinedCar).ToString();
+        _placeText.text = LeanLocalization.GetTranslationText("Place") + ": " + _carsObserver.DetermineCurrentPlace(_determinedCar).ToString();
     }
 }
