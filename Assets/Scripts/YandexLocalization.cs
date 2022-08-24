@@ -8,15 +8,23 @@ public class YandexLocalization : MonoBehaviour
 {
     [SerializeField] private LeanLocalization _leanLocalization;
 
-    private void Awake()
+#if YANDEX_GAMES
+    private IEnumerator Start()
     {
         DontDestroyOnLoad(_leanLocalization.gameObject);
+
+        while (!YandexGamesSdk.IsInitialized)
+        {
+            yield return new WaitForSeconds(0.25f);
+
+            if (YandexGamesSdk.IsInitialized)
+                LoadLocalization();
+        }
     }
 
-    private void Start()
+    private void LoadLocalization()
     {
-#if UNITY_WEBGL && !UNITY_EDITOR
-        switch(YandexGamesSdk.Environment.i18n.lang)
+        switch (YandexGamesSdk.Environment.i18n.lang)
         {
             case "ru":
                 _leanLocalization.SetCurrentLanguage("Russian");
@@ -30,8 +38,16 @@ public class YandexLocalization : MonoBehaviour
             default:
                 _leanLocalization.SetCurrentLanguage("English");
                 break;
-         }
-#endif
+        }
     }
+#endif
+
+#if VK_GAMES
+    private void Start()
+    {
+        DontDestroyOnLoad(_leanLocalization.gameObject);
+        _leanLocalization.SetCurrentLanguage("Russian");
+    }
+#endif
 }
 
