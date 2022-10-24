@@ -8,7 +8,7 @@ public class ScreensaverSceneManager : MonoBehaviour
     [SerializeField] private Data _data;
     [SerializeField] private GameObject _musicPlayer;
 
-    private void Awake()
+    private void Start()
     {
         if (_isRemoveDataOnStart)
             _data.RemoveData();
