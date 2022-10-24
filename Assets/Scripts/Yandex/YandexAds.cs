@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Agava.YandexGames;
+using System;
 
 public class YandexAds : MonoBehaviour
 {
     private CarsObserver _cardObserver;
     private const int _rewardAmount = 250;
+    public Action _adRewarded;
 
     private bool _soundStatus = false;
 
@@ -19,6 +21,12 @@ public class YandexAds : MonoBehaviour
     public void ShowRewardedAd()
     {
         VideoAd.Show(OnOpen, OnRewarded, OnRewardedClosed);
+#if YANDEX_GAMES
+        VideoAd.Shoe(_adOpened, _adReward, _adClosed, _adErrorOccured);
+#endif
+#if VK_GAMES
+        Agava.VKGames.VideoAd.Show(_adRewarded);
+#endif
     }
 
     public void ShowFullScreenAd()

@@ -17,3 +17,5 @@ public class RewardedAdsButton : MonoBehaviour
         _button.onClick.AddListener(_yandexAds.ShowRewardedAd);
     }
 }
+
+
