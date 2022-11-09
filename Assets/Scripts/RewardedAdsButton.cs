@@ -7,14 +7,15 @@ using UnityEngine.UI;
 public class RewardedAdsButton : MonoBehaviour
 {
     private Button _button;
-    private YandexAds _yandexAds;
+    private Ads _ads;
 
     private void Start()
     {
         _button = GetComponent<Button>();
-        _yandexAds = FindObjectOfType<YandexAds>();
 
-        _button.onClick.AddListener(_yandexAds.ShowRewardedAd);
+        //here should be crazy ads
+        _ads = FindObjectOfType<Ads>();
+        _button.onClick.AddListener(_ads.ShowRewardedAd);
     }
 }
 

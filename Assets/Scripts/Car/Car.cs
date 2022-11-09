@@ -42,14 +42,13 @@ public class Car : MonoBehaviour
     {
         if (_showSpeed)
             Debug.Log("Speed: " + _mover.GetCurrentSpeed() + " Max speed: " + _mover.GetMaxSpeed() + " Acceleration: " + _mover.GetAcceleration());
-        
-        /*if(_type == CarType.Player)
-            Debug.Log(_splineProjectorObserver.GetCurrentPursent());*/
+
     }
 
     public void Win()
     {
         Won?.Invoke();
+        FindObjectOfType<Ads>().ShowInterstitialAd();
     }
 
     public void Lose()

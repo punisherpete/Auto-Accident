@@ -11,7 +11,6 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private Sprite _mutedImage;
     [SerializeField] private Sprite _unmutedImage;
     [SerializeField] private Image _soundImage;
-    [SerializeField] private LeaderboardView _leaderboardView;
 
     [SerializeField] private List<GameObject> _gameElements;
 
@@ -31,7 +30,6 @@ public class MainMenu : MonoBehaviour
     {
         _leaderboardPanel.SetActive(true);
         _shopPanel.SetActive(false);
-        _leaderboardView.LeaderboardButton();
         DisableGameElements();
     }
 

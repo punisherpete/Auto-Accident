@@ -1,3 +1,4 @@
+using Lean.Localization;
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,11 +8,14 @@ public class ScreensaverSceneManager : MonoBehaviour
     [SerializeField] private bool _isRemoveDataOnStart = false;
     [SerializeField] private Data _data;
     [SerializeField] private GameObject _musicPlayer;
+    [SerializeField] private LeanLocalization _leanLocalization;
 
     private void Start()
     {
         if (_isRemoveDataOnStart)
             _data.RemoveData();
+
+        DontDestroyOnLoad(_leanLocalization.gameObject);
 
         DontDestroyOnLoad(_musicPlayer);
 
