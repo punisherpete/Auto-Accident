@@ -20,7 +20,6 @@ public class YandexAds : MonoBehaviour
 
     public void ShowRewardedAd()
     {
-        VideoAd.Show(OnOpen, OnRewarded, OnRewardedClosed);
 #if YANDEX_GAMES
         VideoAd.Shoe(_adOpened, _adReward, _adClosed, _adErrorOccured);
 #endif

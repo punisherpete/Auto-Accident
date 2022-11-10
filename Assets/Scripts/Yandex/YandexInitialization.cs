@@ -30,9 +30,11 @@ public class YandexInitialization : MonoBehaviour
         ChangeScene();
         yield break;
 #endif
+
 #if VK_GAMES
         yield return Agava.VKGames.VKGamesSdk.Initialize(ChangeScene);
 #endif
+
 #if YANDEX_GAMES
         yield return YandexGamesSdk.Initialize(ChangeScene);
 #endif
