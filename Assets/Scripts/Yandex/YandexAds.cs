@@ -29,12 +29,25 @@ public class YandexAds : MonoBehaviour
 #endif
     }
 
+    private void OnEnable()
+    {
+        _adRewarded += OnRewarded;
+    }
+
+    private void OnDisable()
+    {
+        _adRewarded -= OnRewarded;
+    }
+
     public void ShowFullScreenAd()
     {
         print("Ad Shown!");
 
-#if !UNITY_EDITOR
-        InterestialAd.Show(OnOpen, onCloseCallback: OnFullScreenShowed);
+#if YANDEX_GAMES
+        InterstitialAd.Show(OnOpen,onCloseCallBack:OnFullScreenShowed);
+#endif
+#if VK_GAMES
+        Agava.VKGames.Interstitial.Show();
 #endif
     }
 

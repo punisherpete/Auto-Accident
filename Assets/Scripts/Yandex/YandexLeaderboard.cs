@@ -16,6 +16,7 @@ public class YandexLeaderboard : MonoBehaviour
 
     public void GetTop5ResultsFromLeaderboard()
     {
+#if YANDEX_GAMES
         List<PlayerInfoLeaderboard> top5Players = new List<PlayerInfoLeaderboard>();
         print("g");
 #if UNITY_EDITOR
@@ -51,11 +52,14 @@ public class YandexLeaderboard : MonoBehaviour
 
             _leaderboardView.ConstructLeaderboard(top5Players);
         });
+#endif
     }
 
     public void AddPlayerToLeaderboard(int score)
     {
+#if YANDEX_GAMES
         Leaderboard.SetScore(_leaderboardName, score);
+#endif
     }
 }
 
