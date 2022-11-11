@@ -23,6 +23,6 @@ public class Ads : MonoBehaviour
 
     private void RewardedCallback()
     {
-        Debug.Log("Reward!!");
+        PointsTransmitter.Instance.OnTransaction(250);
     }
 }
