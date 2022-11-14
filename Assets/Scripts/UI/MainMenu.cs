@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,6 +14,8 @@ public class MainMenu : MonoBehaviour
 
     [SerializeField] private List<GameObject> _gameElements;
 
+    public event Action ClickButton;
+    
     private void Start()
     {
         LoadSound();
@@ -49,6 +50,7 @@ public class MainMenu : MonoBehaviour
 
     public void GameStarted()
     {
+        ClickButton?.Invoke();
         gameObject.SetActive(false);
     }
 
