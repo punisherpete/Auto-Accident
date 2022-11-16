@@ -9,8 +9,7 @@ public class SpeedLimit : MonoBehaviour
     [SerializeField] private float _dragForceChangeSpeed = 1;
 
     private Rigidbody _rigidBody;
-
-
+    
     private void Awake()
     {
         _rigidBody = GetComponent<Rigidbody>();

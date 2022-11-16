@@ -59,7 +59,6 @@ public class YandexLeaderboard : MonoBehaviour
     }
 }
 
-
 public class PlayerInfoLeaderboard
 {
     public string Name { get; private set; }

@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LandingFeedBack : MonoBehaviour
@@ -40,6 +39,5 @@ public class LandingFeedBack : MonoBehaviour
             }
             yield return null;
         }
-
     }
 }
