@@ -34,5 +34,4 @@ public class CloseOnTap : MonoBehaviour
         gameObject.SetActive(false);
         _mainMenu.EnableGameElements();
     }
-
 }

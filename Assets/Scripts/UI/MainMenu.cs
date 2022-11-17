@@ -16,11 +16,6 @@ public class MainMenu : MonoBehaviour
 
     public event Action ClickButton;
     
-    private void Start()
-    {
-        //LoadSound();
-    }
-
     public void OpenShop()
     {
         _shopPanel.SetActive(true);
@@ -54,6 +49,7 @@ public class MainMenu : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    
     // public void ChangeSound()
     // {
     //     AudioListener.pause = !AudioListener.pause;
