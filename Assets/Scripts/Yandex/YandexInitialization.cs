@@ -15,7 +15,6 @@ public class YandexInitialization : MonoBehaviour
 #if !UNITY_WEBGL || UNITY_EDITOR
         yield break;
 #endif
-
         yield return YandexGamesSdk.WaitForInitialization();
     }
 }

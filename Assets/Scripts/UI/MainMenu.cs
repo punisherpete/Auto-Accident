@@ -18,7 +18,7 @@ public class MainMenu : MonoBehaviour
     
     private void Start()
     {
-        LoadSound();
+        //LoadSound();
     }
 
     public void OpenShop()
@@ -54,15 +54,15 @@ public class MainMenu : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void ChangeSound()
-    {
-        AudioListener.pause = !AudioListener.pause;
-
-        _soundImage.sprite = AudioListener.pause ? _mutedImage : _unmutedImage;
-    }
-
-    public void LoadSound()
-    {
-        _soundImage.sprite = AudioListener.pause ? _mutedImage : _unmutedImage;
-    }
+    // public void ChangeSound()
+    // {
+    //     AudioListener.pause = !AudioListener.pause;
+    //
+    //     _soundImage.sprite = AudioListener.pause ? _mutedImage : _unmutedImage;
+    // }
+    //
+    // public void LoadSound()
+    // {
+    //     _soundImage.sprite = AudioListener.pause ? _mutedImage : _unmutedImage;
+    // }
 }

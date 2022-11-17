@@ -27,6 +27,4 @@ public class Path : MonoBehaviour
     {
         _targetPointMover.MoveToNewTargetPosition(offsetSpeed, targetOffset);
     }
-
-    
 }
