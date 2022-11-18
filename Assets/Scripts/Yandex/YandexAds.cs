@@ -8,31 +8,56 @@ public class YandexAds : MonoBehaviour
 {
     private CarsObserver _cardObserver;
     private const int _rewardAmount = 250;
-    public Action _adRewarded;
-
     private bool _soundStatus = false;
+    
+    
+    private Action _adOpened;
+    private Action _adRewarded;
+    private Action _adClosed;
+    private Action<string> _adErrorOccured;
+    
 
+    private void OnEnable()
+    {
+        _adOpened += OnOpen;
+        _adRewarded += OnRewarded;
+        _adClosed += OnRewardedClosed;
+        _adErrorOccured += OnAdErrorOccured;
+    }
+
+    private void OnDisable()
+    {
+        _adOpened -= OnOpen;
+        _adRewarded -= OnRewarded;
+        _adClosed -= OnRewardedClosed;
+        _adErrorOccured -= OnAdErrorOccured;
+    }
+    
     private void OnLevelWasLoaded(int level)
     {
         _cardObserver = FindObjectOfType<CarsObserver>();
         _cardObserver.PlayerFinished += ShowFullScreenAd;
     }
-
+    
     public void ShowRewardedAd()
     {
-        VideoAd.Show(OnOpen, OnRewarded, OnRewardedClosed);
 #if YANDEX_GAMES
-        VideoAd.Shoe(_adOpened, _adReward, _adClosed, _adErrorOccured);
+        VideoAd.Show(_adOpened, _adRewarded, _adClosed, _adErrorOccured);
 #endif
-#if VK_GAMES
-        Agava.VKGames.VideoAd.Show(_adRewarded);
-#endif
+        //VideoAd.Show(OnOpen, OnRewarded, OnRewardedClosed);
+
+ #if VK_GAMES
+         Agava.VKGames.VideoAd.Show(_adRewarded);
+ #endif
     }
 
     public void ShowFullScreenAd()
     {
         print("Ad Shown!");
-
+#if YANDEX_GAMES
+        InterestialAd.Show(OnOpen, onCloseCallback: OnFullScreenShowed);
+#endif   
+        
 #if !UNITY_EDITOR
         InterestialAd.Show(OnOpen, onCloseCallback: OnFullScreenShowed);
 #endif
@@ -58,4 +83,10 @@ public class YandexAds : MonoBehaviour
     {
         AudioListener.pause = _soundStatus;
     }
+    
+    private void OnAdErrorOccured(string obj)
+    {
+        
+    }
 }
+

@@ -6,16 +6,13 @@ public class ScreensaverSceneManager : MonoBehaviour
 {
     [SerializeField] private bool _isRemoveDataOnStart = false;
     [SerializeField] private Data _data;
-    //[SerializeField] private GameObject _musicPlayer;
 
-    private void Start()
+    public void StartGame()
     {
         if (_isRemoveDataOnStart)
             _data.RemoveData();
         
-        // DontDestroyOnLoad(_musicPlayer);
-
-        CheckSaveFile();
+         CheckSaveFile();
         _data.AddSession();
         _data.SetLastLoginDate(DateTime.Now);
         _data.Save();
