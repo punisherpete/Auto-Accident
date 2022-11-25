@@ -18,6 +18,7 @@ namespace Sound
         {
             _button = GetComponent<Button>();
         }
+        
         private void OnEnable()
         {
             _button.onClick.AddListener(ClickHandler);

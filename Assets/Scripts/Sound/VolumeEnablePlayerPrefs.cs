@@ -5,8 +5,8 @@ namespace Sound
     public class VolumeEnablePlayerPrefs
     {
         private const string VolumeEnabledKey = "VolumeEnabledKey";
-        private const int Disabled = 0;
-        private const int Enabled = 1;
+        private const int Disabled = 1;
+        private const int Enabled = 0;
 
         public bool Get()
         {
