@@ -95,4 +95,9 @@ public class PointsTransmitter : MonoBehaviour
             print(_wallet.GetPointsAmount());
         }
     }
+
+    public void Transmitter()
+    {
+        Transmitted?.Invoke();
+    }
 }

@@ -9,6 +9,7 @@ public class SkinProduct : MonoBehaviour
     [field: SerializeField] public Material MainCarMat;
     [field: SerializeField] public Material SecondCarMat;
     
+    private PointsTransmitter _pointsTransmitter;
     public bool IsBought { get; private set; }
     public bool IsUsed { get; private set; }
 
@@ -16,12 +17,25 @@ public class SkinProduct : MonoBehaviour
     public event Action OnUsed;
     public event Action OnUnused;
 
+    private void Start()
+    {
+        _pointsTransmitter = (PointsTransmitter)FindObjectOfType(typeof(PointsTransmitter));
+        
+        if (_pointsTransmitter)
+            Debug.Log("TextMesh object found: " + _pointsTransmitter.name);
+        else
+            Debug.Log("No TextMesh object could be found");
+    }
+
     public event Action<SkinProduct> OnShopShouldBeUpdated;
 
     public void Buy()
     {
         IsBought = true;
         OnBought?.Invoke();
+        
+        if(_pointsTransmitter != null)
+            _pointsTransmitter.Transmitter();
     }
 
     public void Use()

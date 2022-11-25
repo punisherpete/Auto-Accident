@@ -8,11 +8,11 @@ public class Shop : MonoBehaviour
     [SerializeField] private PlayerInteractionWithTheShop _shopInteraction;
 
     private List<SkinProduct> _products = new List<SkinProduct>();
-
+    
     private void Start()
     {
         _products = GetComponentsInChildren<SkinProduct>().ToList();
-
+        
         foreach (var product in _products)
         {
             product.OnShopShouldBeUpdated += UpdateShop;
